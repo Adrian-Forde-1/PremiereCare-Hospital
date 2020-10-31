@@ -60,17 +60,20 @@ namespace PremiereCare_Application
 
         private void buttonAddDoctor_Click(object sender, EventArgs e)
         {
+            //Open add doctor form
             OpenChildForm(new AddDoctor());
            
         }
 
         private void buttonAddCSR_Click(object sender, EventArgs e)
         {
+            //Open add CSR form
             OpenChildForm(new AddCSR());
         }
 
         private void buttonAddTechnician_Click(object sender, EventArgs e)
         {
+            //Open add technician form
             OpenChildForm(new AddTechnician());
         }
 
