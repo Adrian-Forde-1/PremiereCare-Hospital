@@ -84,6 +84,9 @@
             this.Name = "CustomMessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomMessageBox";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CustomMessageBox_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CustomMessageBox_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.CustomMessageBox_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
