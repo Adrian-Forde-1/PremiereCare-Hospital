@@ -120,6 +120,7 @@
             this.comboBoxLoginRole.Name = "comboBoxLoginRole";
             this.comboBoxLoginRole.Size = new System.Drawing.Size(330, 21);
             this.comboBoxLoginRole.TabIndex = 7;
+            this.comboBoxLoginRole.Text = "CSR";
             // 
             // labelRole
             // 

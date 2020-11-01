@@ -65,6 +65,12 @@
     <Compile Include="AddTechnician.Designer.cs">
       <DependentUpon>AddTechnician.cs</DependentUpon>
     </Compile>
+    <Compile Include="AllDoctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllDoctors.Designer.cs">
+      <DependentUpon>AllDoctors.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddTechnician.resx">
       <DependentUpon>AddTechnician.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllDoctors.resx">
+      <DependentUpon>AllDoctors.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>

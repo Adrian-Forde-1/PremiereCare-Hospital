@@ -123,5 +123,11 @@ namespace PremiereCare_Application
             if (panelDrugDropdown.Visible == false) panelDrugDropdown.Visible = true;
             else panelDrugDropdown.Visible = false;
         }
+
+        private void buttonAllDoctors_Click(object sender, EventArgs e)
+        {
+            //Open all dooctors forms
+            OpenChildForm(new AllDoctors());
+        }
     }
 }

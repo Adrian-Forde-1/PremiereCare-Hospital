@@ -49,6 +49,7 @@
             this.buttonTech = new System.Windows.Forms.Button();
             this.buttonDoc = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonAllDoctors = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -102,7 +103,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 72);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 315);
+            this.panel3.Size = new System.Drawing.Size(200, 472);
             this.panel3.TabIndex = 7;
             // 
             // panelDrugDropdown
@@ -111,7 +112,7 @@
             this.panelDrugDropdown.Controls.Add(this.buttonEditDrug);
             this.panelDrugDropdown.Controls.Add(this.buttonAddDrug);
             this.panelDrugDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDrugDropdown.Location = new System.Drawing.Point(0, 351);
+            this.panelDrugDropdown.Location = new System.Drawing.Point(0, 387);
             this.panelDrugDropdown.Name = "panelDrugDropdown";
             this.panelDrugDropdown.Size = new System.Drawing.Size(200, 80);
             this.panelDrugDropdown.TabIndex = 12;
@@ -157,7 +158,7 @@
             this.buttonDrug.FlatAppearance.BorderSize = 0;
             this.buttonDrug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDrug.ForeColor = System.Drawing.Color.White;
-            this.buttonDrug.Location = new System.Drawing.Point(0, 315);
+            this.buttonDrug.Location = new System.Drawing.Point(0, 351);
             this.buttonDrug.Name = "buttonDrug";
             this.buttonDrug.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonDrug.Size = new System.Drawing.Size(200, 36);
@@ -172,7 +173,7 @@
             this.panelCSRDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
             this.panelCSRDropdown.Controls.Add(this.buttonAddCSR);
             this.panelCSRDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelCSRDropdown.Location = new System.Drawing.Point(0, 270);
+            this.panelCSRDropdown.Location = new System.Drawing.Point(0, 306);
             this.panelCSRDropdown.Name = "panelCSRDropdown";
             this.panelCSRDropdown.Size = new System.Drawing.Size(200, 45);
             this.panelCSRDropdown.TabIndex = 9;
@@ -202,7 +203,7 @@
             this.buttonCSR.FlatAppearance.BorderSize = 0;
             this.buttonCSR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCSR.ForeColor = System.Drawing.Color.White;
-            this.buttonCSR.Location = new System.Drawing.Point(0, 234);
+            this.buttonCSR.Location = new System.Drawing.Point(0, 270);
             this.buttonCSR.Name = "buttonCSR";
             this.buttonCSR.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonCSR.Size = new System.Drawing.Size(200, 36);
@@ -217,7 +218,7 @@
             this.panelTechnicianDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
             this.panelTechnicianDropdown.Controls.Add(this.buttonAddTechnician);
             this.panelTechnicianDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTechnicianDropdown.Location = new System.Drawing.Point(0, 189);
+            this.panelTechnicianDropdown.Location = new System.Drawing.Point(0, 225);
             this.panelTechnicianDropdown.Name = "panelTechnicianDropdown";
             this.panelTechnicianDropdown.Size = new System.Drawing.Size(200, 45);
             this.panelTechnicianDropdown.TabIndex = 8;
@@ -247,7 +248,7 @@
             this.buttonTechnician.FlatAppearance.BorderSize = 0;
             this.buttonTechnician.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTechnician.ForeColor = System.Drawing.Color.White;
-            this.buttonTechnician.Location = new System.Drawing.Point(0, 153);
+            this.buttonTechnician.Location = new System.Drawing.Point(0, 189);
             this.buttonTechnician.Name = "buttonTechnician";
             this.buttonTechnician.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonTechnician.Size = new System.Drawing.Size(200, 36);
@@ -260,17 +261,19 @@
             // panelDoctorDropdown
             // 
             this.panelDoctorDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
+            this.panelDoctorDropdown.Controls.Add(this.buttonAllDoctors);
             this.panelDoctorDropdown.Controls.Add(this.buttonAddDoctor);
             this.panelDoctorDropdown.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDoctorDropdown.Location = new System.Drawing.Point(0, 108);
             this.panelDoctorDropdown.Name = "panelDoctorDropdown";
-            this.panelDoctorDropdown.Size = new System.Drawing.Size(200, 45);
+            this.panelDoctorDropdown.Size = new System.Drawing.Size(200, 81);
             this.panelDoctorDropdown.TabIndex = 6;
             // 
             // buttonAddDoctor
             // 
             this.buttonAddDoctor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
             this.buttonAddDoctor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAddDoctor.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonAddDoctor.FlatAppearance.BorderSize = 0;
             this.buttonAddDoctor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddDoctor.ForeColor = System.Drawing.Color.White;
@@ -344,6 +347,24 @@
             this.panel1.Size = new System.Drawing.Size(200, 544);
             this.panel1.TabIndex = 1;
             // 
+            // buttonAllDoctors
+            // 
+            this.buttonAllDoctors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
+            this.buttonAllDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAllDoctors.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAllDoctors.FlatAppearance.BorderSize = 0;
+            this.buttonAllDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAllDoctors.ForeColor = System.Drawing.Color.White;
+            this.buttonAllDoctors.Location = new System.Drawing.Point(0, 36);
+            this.buttonAllDoctors.Name = "buttonAllDoctors";
+            this.buttonAllDoctors.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonAllDoctors.Size = new System.Drawing.Size(200, 36);
+            this.buttonAllDoctors.TabIndex = 8;
+            this.buttonAllDoctors.Text = "View Doctors";
+            this.buttonAllDoctors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAllDoctors.UseVisualStyleBackColor = false;
+            this.buttonAllDoctors.Click += new System.EventHandler(this.buttonAllDoctors_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -388,5 +409,6 @@
         private System.Windows.Forms.Button buttonEditDrug;
         private System.Windows.Forms.Button buttonAddDrug;
         private System.Windows.Forms.Button buttonDrug;
+        private System.Windows.Forms.Button buttonAllDoctors;
     }
 }
