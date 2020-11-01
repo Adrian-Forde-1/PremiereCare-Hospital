@@ -37,6 +37,7 @@ namespace PremiereCare_Application
             textBoxDOB.Text = "";
             textBoxSalary.Text = "";
             textBoxSpecialty.Text = "";
+            comboBoxSex.Text = "Male";
         }
 
         private void AddDoctor_Load(object sender, EventArgs e)
@@ -89,13 +90,13 @@ namespace PremiereCare_Application
             if(!failedVerification)
             {
                 addDoctor(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
-                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text, textBoxSpecialty.Text);
+                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text, textBoxSpecialty.Text, comboBoxSex.Text);
             } 
 
 
         }
 
-        private void addDoctor(String fName, String lName, String username, String password, String dob, String salary, String specialty)
+        private void addDoctor(String fName, String lName, String username, String password, String dob, String salary, String specialty, String sex)
         {
             User.Doctor doctor = new User.Doctor();
             doctor.firstName = fName;
@@ -105,6 +106,7 @@ namespace PremiereCare_Application
             doctor.dob = dob;
             doctor.salary = salary;
             doctor.specialty = specialty;
+            doctor.sex = sex;
 
             bool success = doctor.AddNewDoctor(doctor, this);
 
@@ -120,5 +122,6 @@ namespace PremiereCare_Application
             //    cm.Show();
             //}
         }
+
     }
 }
