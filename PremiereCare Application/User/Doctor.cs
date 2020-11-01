@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace PremiereCare_Application.User
 {
+    //Doctor Class
     class Doctor
     {
         //Public Attributes
