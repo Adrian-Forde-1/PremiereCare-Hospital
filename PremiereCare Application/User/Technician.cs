@@ -20,6 +20,7 @@ namespace PremiereCare_Application.User
         public string password { get; set; }
         public string dob { get; set; }
         public string salary { get; set; }
+        public string sex { get; set; }
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
@@ -31,7 +32,7 @@ namespace PremiereCare_Application.User
 
             try
             {
-                string query = "INSERT INTO Technician (tech_id, fname, lname, username, password, dob, salary) VALUES (NEXT VALUE FOR tech_pk_seq ,@firstName, @lastName, @username, @password, @dob, @salary)";
+                string query = "INSERT INTO Technician (tech_id, fname, lname, username, password, dob, salary, sex) VALUES (NEXT VALUE FOR tech_pk_seq ,@firstName, @lastName, @username, @password, @dob, @salary, @sex)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -41,6 +42,7 @@ namespace PremiereCare_Application.User
                 cmd.Parameters.AddWithValue("@password", technician.password);
                 cmd.Parameters.AddWithValue("@dob", technician.dob);
                 cmd.Parameters.AddWithValue("@salary", technician.salary);
+                cmd.Parameters.AddWithValue("@sex", technician.sex);
 
                 conn.Open();
                 int rows = cmd.ExecuteNonQuery();

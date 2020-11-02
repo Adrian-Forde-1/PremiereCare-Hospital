@@ -80,11 +80,11 @@ namespace PremiereCare_Application
             if (!failedVerification)
             {
                 addTechnician(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
-                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text);
+                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text, comboBoxSex.Text);
             }
         }
 
-        private void addTechnician(String fName, String lName, String username, String password, String dob, String salary)
+        private void addTechnician(String fName, String lName, String username, String password, String dob, String salary, String sex)
         {
             User.Technician technician = new User.Technician();
             technician.firstName = fName;
@@ -93,6 +93,7 @@ namespace PremiereCare_Application
             technician.password = password;
             technician.dob = dob;
             technician.salary = salary;
+            technician.sex = sex;
 
             bool success = technician.AddNewTechnician(technician, this);
 

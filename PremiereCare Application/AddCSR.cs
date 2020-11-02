@@ -80,11 +80,11 @@ namespace PremiereCare_Application
             if (!failedVerification)
             {
                 addCSR(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
-                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text);
+                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text, comboBoxSex.Text);
             }
         }
 
-        private void addCSR(String fName, String lName, String username, String password, String dob, String salary)
+        private void addCSR(String fName, String lName, String username, String password, String dob, String salary, String sex)
         {
             User.CSR csr = new User.CSR();
             csr.firstName = fName;
@@ -93,6 +93,7 @@ namespace PremiereCare_Application
             csr.password = password;
             csr.dob = dob;
             csr.salary = salary;
+            csr.sex = sex;
 
             bool success = csr.AddNewCSR(csr, this);
 

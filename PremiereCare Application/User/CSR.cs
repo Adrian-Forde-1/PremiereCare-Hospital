@@ -19,6 +19,8 @@ namespace PremiereCare_Application.User
         public string dob { get; set; }
         public string salary { get; set; }
 
+        public string sex { get; set; }
+
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
         public bool AddNewCSR(CSR csr, Form form)
@@ -29,7 +31,7 @@ namespace PremiereCare_Application.User
 
             try
             {
-                string query = "INSERT INTO CSR (csr_id, fname, lname, username, password, dob, salary) VALUES (NEXT VALUE FOR csr_pk_seq ,@firstName, @lastName, @username, @password, @dob, @salary)";
+                string query = "INSERT INTO CSR (csr_id, fname, lname, username, password, dob, salary, sex) VALUES (NEXT VALUE FOR csr_pk_seq ,@firstName, @lastName, @username, @password, @dob, @salary, @sex)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -39,6 +41,7 @@ namespace PremiereCare_Application.User
                 cmd.Parameters.AddWithValue("@password", csr.password);
                 cmd.Parameters.AddWithValue("@dob", csr.dob);
                 cmd.Parameters.AddWithValue("@salary", csr.salary);
+                cmd.Parameters.AddWithValue("@sex", csr.sex);
 
                 conn.Open();
                 int rows = cmd.ExecuteNonQuery();
