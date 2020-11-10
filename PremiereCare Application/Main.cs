@@ -24,6 +24,7 @@ namespace PremiereCare_Application
 
         private void Main_Load(object sender, EventArgs e)
         {
+            panel3.Size = new Size(200, 450);
             CloseDropdowns();
             if (userRole == "CSR")
             {
@@ -158,10 +159,6 @@ namespace PremiereCare_Application
             CloseDropdowns();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         //Main Button Lab Test
         private void buttonLabTest_Click_1(object sender, EventArgs e)
