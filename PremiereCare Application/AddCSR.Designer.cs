@@ -111,6 +111,7 @@
             // 
             this.buttonAddCSR.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddCSR.AutoSize = true;
             this.buttonAddCSR.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonAddCSR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
             this.buttonAddCSR.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -120,7 +121,7 @@
             this.buttonAddCSR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
             this.buttonAddCSR.Location = new System.Drawing.Point(246, 475);
             this.buttonAddCSR.Name = "buttonAddCSR";
-            this.buttonAddCSR.Size = new System.Drawing.Size(113, 38);
+            this.buttonAddCSR.Size = new System.Drawing.Size(46, 26);
             this.buttonAddCSR.TabIndex = 55;
             this.buttonAddCSR.Text = "Add";
             this.buttonAddCSR.UseVisualStyleBackColor = false;

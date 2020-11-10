@@ -111,6 +111,7 @@
             // 
             this.buttonAddTech.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddTech.AutoSize = true;
             this.buttonAddTech.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonAddTech.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
             this.buttonAddTech.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -120,7 +121,7 @@
             this.buttonAddTech.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
             this.buttonAddTech.Location = new System.Drawing.Point(253, 476);
             this.buttonAddTech.Name = "buttonAddTech";
-            this.buttonAddTech.Size = new System.Drawing.Size(97, 38);
+            this.buttonAddTech.Size = new System.Drawing.Size(46, 26);
             this.buttonAddTech.TabIndex = 36;
             this.buttonAddTech.Text = "Add";
             this.buttonAddTech.UseVisualStyleBackColor = false;

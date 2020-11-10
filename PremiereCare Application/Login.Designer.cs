@@ -50,7 +50,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(330, 22);
             this.textBoxUsername.TabIndex = 0;
-            this.textBoxUsername.Text = "MichealUsr";
+            this.textBoxUsername.Text = "tv";
             // 
             // textBoxPassword
             // 
@@ -60,7 +60,7 @@
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(330, 22);
             this.textBoxPassword.TabIndex = 1;
-            this.textBoxPassword.Text = "micheal123";
+            this.textBoxPassword.Text = "tv";
             // 
             // labelUsername
             // 
@@ -120,7 +120,7 @@
             this.comboBoxLoginRole.Name = "comboBoxLoginRole";
             this.comboBoxLoginRole.Size = new System.Drawing.Size(330, 21);
             this.comboBoxLoginRole.TabIndex = 7;
-            this.comboBoxLoginRole.Text = "CSR";
+            this.comboBoxLoginRole.Text = "Doctor";
             // 
             // labelRole
             // 

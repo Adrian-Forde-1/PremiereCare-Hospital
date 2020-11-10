@@ -156,6 +156,7 @@
             // 
             this.buttonAddDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddDoctor.AutoSize = true;
             this.buttonAddDoctor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonAddDoctor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
             this.buttonAddDoctor.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -163,10 +164,10 @@
             this.buttonAddDoctor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddDoctor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonAddDoctor.Location = new System.Drawing.Point(152, 498);
+            this.buttonAddDoctor.Location = new System.Drawing.Point(264, 508);
             this.buttonAddDoctor.MaximumSize = new System.Drawing.Size(125, 38);
             this.buttonAddDoctor.Name = "buttonAddDoctor";
-            this.buttonAddDoctor.Size = new System.Drawing.Size(97, 38);
+            this.buttonAddDoctor.Size = new System.Drawing.Size(46, 26);
             this.buttonAddDoctor.TabIndex = 36;
             this.buttonAddDoctor.Text = "Add";
             this.buttonAddDoctor.UseVisualStyleBackColor = false;
