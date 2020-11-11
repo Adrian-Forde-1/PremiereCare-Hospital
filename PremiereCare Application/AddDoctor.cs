@@ -34,7 +34,6 @@ namespace PremiereCare_Application
             textBoxLname.Text = "";
             textBoxUsername.Text = "";
             textBoxPassword.Text = "";
-            textBoxDOB.Text = "";
             textBoxSalary.Text = "";
             textBoxSpecialty.Text = "";
             comboBoxSex.Text = "Male";
@@ -100,7 +99,7 @@ namespace PremiereCare_Application
             if(!failedVerification)
             {
                 addDoctor(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
-                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text, textBoxSpecialty.Text, comboBoxSex.Text);
+                    textBoxPassword.Text, doctorDOBPicker.Value.Date.ToShortDateString(), textBoxSalary.Text, textBoxSpecialty.Text, comboBoxSex.Text);
             } 
 
 

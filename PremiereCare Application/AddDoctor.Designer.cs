@@ -44,7 +44,6 @@
             this.labelLName = new System.Windows.Forms.Label();
             this.labelFName = new System.Windows.Forms.Label();
             this.textBoxSalary = new System.Windows.Forms.TextBox();
-            this.textBoxDOB = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxLname = new System.Windows.Forms.TextBox();
@@ -52,6 +51,7 @@
             this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.labelSex = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.doctorDOBPicker = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // labelSpecialtyErr
@@ -265,20 +265,6 @@
             this.textBoxSalary.Size = new System.Drawing.Size(295, 19);
             this.textBoxSalary.TabIndex = 27;
             // 
-            // textBoxDOB
-            // 
-            this.textBoxDOB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDOB.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBoxDOB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDOB.ForeColor = System.Drawing.Color.Black;
-            this.textBoxDOB.Location = new System.Drawing.Point(155, 290);
-            this.textBoxDOB.Name = "textBoxDOB";
-            this.textBoxDOB.Size = new System.Drawing.Size(295, 19);
-            this.textBoxDOB.TabIndex = 26;
-            // 
             // textBoxPassword
             // 
             this.textBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -369,6 +355,7 @@
             // buttonAdd
             // 
             this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
@@ -382,11 +369,19 @@
             this.buttonAdd.Visible = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAddDoctor_Click);
             // 
+            // doctorDOBPicker
+            // 
+            this.doctorDOBPicker.Location = new System.Drawing.Point(154, 294);
+            this.doctorDOBPicker.Name = "doctorDOBPicker";
+            this.doctorDOBPicker.Size = new System.Drawing.Size(294, 20);
+            this.doctorDOBPicker.TabIndex = 56;
+            // 
             // AddDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 544);
+            this.Controls.Add(this.doctorDOBPicker);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelLName);
             this.Controls.Add(this.labelFName);
@@ -408,7 +403,6 @@
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.textBoxSalary);
-            this.Controls.Add(this.textBoxDOB);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -440,7 +434,6 @@
         private System.Windows.Forms.Label labelLName;
         private System.Windows.Forms.Label labelFName;
         private System.Windows.Forms.TextBox textBoxSalary;
-        private System.Windows.Forms.TextBox textBoxDOB;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.TextBox textBoxLname;
@@ -448,5 +441,6 @@
         private System.Windows.Forms.ComboBox comboBoxSex;
         private System.Windows.Forms.Label labelSex;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.DateTimePicker doctorDOBPicker;
     }
 }

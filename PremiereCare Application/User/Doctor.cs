@@ -60,8 +60,9 @@ namespace PremiereCare_Application.User
 
             } catch(Exception ex)
             {
-                CustomMessageBox cm = new CustomMessageBox(ex.ToString(), form);
-                cm.Show();
+                MessageBox.Show(ex.ToString());
+                //CustomMessageBox cm = new CustomMessageBox("Failed to add doctor", form);
+                //cm.Show();
             } finally
             {
                 conn.Close();

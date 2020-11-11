@@ -46,9 +46,17 @@ namespace PremiereCare_Application
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
             {
+                String idColumn = "";
+
+                if (loginRole == "CSR") idColumn = "csr_id";
+                else if (loginRole == "Doctor") idColumn = "doc_id";
+                else idColumn = "tech_id";
+
                 String userRole = dt.Rows[0]["role"].ToString();
+                String userID = dt.Rows[0][idColumn].ToString();
+
                 this.Hide();
-                Main main = new Main(userRole);
+                Main main = new Main(userRole, userID);
                 main.Show();
             }
             else
