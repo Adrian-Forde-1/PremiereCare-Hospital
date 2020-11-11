@@ -59,6 +59,12 @@
     <Compile Include="AddDoctor.Designer.cs">
       <DependentUpon>AddDoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPatient.Designer.cs">
+      <DependentUpon>AddPatient.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddTechnician.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,7 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patient\Patient.cs" />
     <Compile Include="ViewNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddDoctor.resx">
       <DependentUpon>AddDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddPatient.resx">
+      <DependentUpon>AddPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddTechnician.resx">
       <DependentUpon>AddTechnician.cs</DependentUpon>

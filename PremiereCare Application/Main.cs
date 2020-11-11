@@ -16,10 +16,13 @@ namespace PremiereCare_Application
         private Form activeForm = null;
 
         public string userRole;
-        public Main(String role)
+        public string userID;
+
+        public Main(String role, String ID)
         {
             InitializeComponent();
             userRole = role;
+            userID = ID;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -41,6 +44,7 @@ namespace PremiereCare_Application
                 buttonCSR.Hide();
                 buttonEditDrug.Hide();
                 buttonAddDrug.Hide();
+                buttonAddPatient.Hide();
             } else
             {
                 buttonAppointments.Hide();
@@ -50,6 +54,7 @@ namespace PremiereCare_Application
                 buttonLabTest.Hide();
                 buttonNotes.Hide();
                 buttonPrescriptions.Hide();
+                buttonPatient.Hide();
             }
         }
 
@@ -81,6 +86,7 @@ namespace PremiereCare_Application
             panelDrugDropdown.Visible = false;
             panelNotesDropdown.Visible = false;
             panelAppointmentDropdown.Visible = false;
+            panelPatientDropdown.Visible = false;
         }
 
 
@@ -212,7 +218,6 @@ namespace PremiereCare_Application
         private void buttonAppointments_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
-            //Open View Appointment forms
             if (panelAppointmentDropdown.Visible == false) panelAppointmentDropdown.Visible = true;
             else panelAppointmentDropdown.Visible = false;
 
@@ -220,18 +225,13 @@ namespace PremiereCare_Application
 
         }
 
-        private void panelChildFormContainer_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         //Main Button Prescriptions
         private void buttonPrescriptions_Click(object sender, EventArgs e)
         {
             
-                CloseDropdowns();
-                //Open Prescribe Medication forms
-                OpenChildForm(new PrescribeMedication());
+            CloseDropdowns();
+            //Open Prescribe Medication forms
+            OpenChildForm(new PrescribeMedication());
             
         }
 
@@ -243,7 +243,27 @@ namespace PremiereCare_Application
         private void buttonCreateAppointment_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
-            OpenChildForm(new CreateAppointment());
+            OpenChildForm(new CreateAppointment(userID));
         }
+
+        private void buttonPatient_Click(object sender, EventArgs e)
+        {
+            CloseDropdowns();
+            if (panelPatientDropdown.Visible == false) panelPatientDropdown.Visible = true;
+            else panelPatientDropdown.Visible = false;
+        }
+
+        private void buttonAddPatient_Click(object sender, EventArgs e)
+        {
+            CloseDropdowns();
+            OpenChildForm(new AddPatient());
+        }
+
+        private void buttonAllPatients_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
