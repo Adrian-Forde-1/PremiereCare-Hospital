@@ -67,8 +67,10 @@ namespace PremiereCare_Application
             StyleDataGridView();
             PopulateDataGridView();
         }
-            
 
+        private void textBoxSearchDoctor_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

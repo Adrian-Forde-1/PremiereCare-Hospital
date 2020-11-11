@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dgvAllDoctors = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxSearchDoctor = new System.Windows.Forms.TextBox();
-            this.premiereCareHospitalDataSet1 = new PremiereCare_Application.PremiereCareHospitalDataSet();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxSearchDoctor = new System.Windows.Forms.TextBox();
+            this.premiereCareHospitalDataSet1 = new PremiereCare_Application.PremiereCareHospitalDataSet();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllDoctors)).BeginInit();
             this.panel1.SuspendLayout();
@@ -68,34 +68,6 @@
             this.dgvAllDoctors.ReadOnly = true;
             this.dgvAllDoctors.Size = new System.Drawing.Size(800, 405);
             this.dgvAllDoctors.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.textBoxSearchDoctor);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 45);
-            this.panel1.TabIndex = 1;
-            // 
-            // textBoxSearchDoctor
-            // 
-            this.textBoxSearchDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearchDoctor.BackColor = System.Drawing.Color.White;
-            this.textBoxSearchDoctor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSearchDoctor.Location = new System.Drawing.Point(12, 16);
-            this.textBoxSearchDoctor.Name = "textBoxSearchDoctor";
-            this.textBoxSearchDoctor.Size = new System.Drawing.Size(776, 13);
-            this.textBoxSearchDoctor.TabIndex = 0;
-            // 
-            // premiereCareHospitalDataSet1
-            // 
-            this.premiereCareHospitalDataSet1.DataSetName = "PremiereCareHospitalDataSet";
-            this.premiereCareHospitalDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Column1
             // 
@@ -131,6 +103,35 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 69;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.textBoxSearchDoctor);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 45);
+            this.panel1.TabIndex = 1;
+            // 
+            // textBoxSearchDoctor
+            // 
+            this.textBoxSearchDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxSearchDoctor.BackColor = System.Drawing.Color.White;
+            this.textBoxSearchDoctor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSearchDoctor.Location = new System.Drawing.Point(12, 16);
+            this.textBoxSearchDoctor.Name = "textBoxSearchDoctor";
+            this.textBoxSearchDoctor.Size = new System.Drawing.Size(776, 13);
+            this.textBoxSearchDoctor.TabIndex = 0;
+            this.textBoxSearchDoctor.TextChanged += new System.EventHandler(this.textBoxSearchDoctor_TextChanged);
+            // 
+            // premiereCareHospitalDataSet1
+            // 
+            this.premiereCareHospitalDataSet1.DataSetName = "PremiereCareHospitalDataSet";
+            this.premiereCareHospitalDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tableLayoutPanel1
             // 
