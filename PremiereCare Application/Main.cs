@@ -28,8 +28,6 @@ namespace PremiereCare_Application
             CloseDropdowns();
             if (userRole == "CSR")
             {
-                buttonAppointments.Hide();
-                buttonTech.Hide();
                 buttonLabTest.Hide();
                 buttonNotes.Hide();
                 buttonPrescriptions.Hide();
@@ -38,10 +36,11 @@ namespace PremiereCare_Application
             }
             else if (userRole == "Doctor")
             {
-                buttonTech.Hide();
                 buttonDoctor.Hide();
                 buttonTechnician.Hide();
                 buttonCSR.Hide();
+                buttonEditDrug.Hide();
+                buttonAddDrug.Hide();
             } else
             {
                 buttonAppointments.Hide();
@@ -81,6 +80,7 @@ namespace PremiereCare_Application
             panelCSRDropdown.Visible = false;
             panelDrugDropdown.Visible = false;
             panelNotesDropdown.Visible = false;
+            panelAppointmentDropdown.Visible = false;
         }
 
 
@@ -213,7 +213,11 @@ namespace PremiereCare_Application
         {
             CloseDropdowns();
             //Open View Appointment forms
-            OpenChildForm(new ViewAppointment());
+            if (panelAppointmentDropdown.Visible == false) panelAppointmentDropdown.Visible = true;
+            else panelAppointmentDropdown.Visible = false;
+
+            
+
         }
 
         private void panelChildFormContainer_Paint(object sender, PaintEventArgs e)
@@ -229,6 +233,17 @@ namespace PremiereCare_Application
                 //Open Prescribe Medication forms
                 OpenChildForm(new PrescribeMedication());
             
+        }
+
+        private void buttonAllAppointments_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ViewAppointment());
+        }
+
+        private void buttonCreateAppointment_Click(object sender, EventArgs e)
+        {
+            CloseDropdowns();
+            OpenChildForm(new CreateAppointment());
         }
     }
 }

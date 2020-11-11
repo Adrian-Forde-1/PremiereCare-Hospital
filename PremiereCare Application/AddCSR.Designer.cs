@@ -31,8 +31,7 @@
             this.labelSalaryErr = new System.Windows.Forms.Label();
             this.labelPasswordErr = new System.Windows.Forms.Label();
             this.labelUsernameErr = new System.Windows.Forms.Label();
-            this.labelAddCSR = new System.Windows.Forms.Label();
-            this.buttonAddCSR = new System.Windows.Forms.Button();
+            this.labelMain = new System.Windows.Forms.Label();
             this.labelSalary = new System.Windows.Forms.Label();
             this.labelDOB = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.labelLNameErr = new System.Windows.Forms.Label();
             this.textBoxFname = new System.Windows.Forms.TextBox();
             this.labelFNameErr = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelSalaryErr
@@ -93,39 +93,20 @@
             this.labelUsernameErr.TabIndex = 59;
             this.labelUsernameErr.Text = "Field cannot be empty";
             // 
-            // labelAddCSR
+            // labelMain
             // 
-            this.labelAddCSR.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelAddCSR.AutoSize = true;
-            this.labelAddCSR.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAddCSR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.labelAddCSR.Location = new System.Drawing.Point(225, 20);
-            this.labelAddCSR.Name = "labelAddCSR";
-            this.labelAddCSR.Size = new System.Drawing.Size(142, 33);
-            this.labelAddCSR.TabIndex = 56;
-            this.labelAddCSR.Text = "Add CSR";
-            // 
-            // buttonAddCSR
-            // 
-            this.buttonAddCSR.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddCSR.AutoSize = true;
-            this.buttonAddCSR.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonAddCSR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonAddCSR.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAddCSR.FlatAppearance.BorderSize = 0;
-            this.buttonAddCSR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddCSR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddCSR.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonAddCSR.Location = new System.Drawing.Point(246, 475);
-            this.buttonAddCSR.Name = "buttonAddCSR";
-            this.buttonAddCSR.Size = new System.Drawing.Size(46, 26);
-            this.buttonAddCSR.TabIndex = 55;
-            this.buttonAddCSR.Text = "Add";
-            this.buttonAddCSR.UseVisualStyleBackColor = false;
-            this.buttonAddCSR.Click += new System.EventHandler(this.buttonAddCSR_Click);
+            this.labelMain.AutoSize = true;
+            this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.labelMain.Location = new System.Drawing.Point(225, 20);
+            this.labelMain.Name = "labelMain";
+            this.labelMain.Size = new System.Drawing.Size(142, 33);
+            this.labelMain.TabIndex = 56;
+            this.labelMain.Text = "Add CSR";
+            this.labelMain.Visible = false;
             // 
             // labelSalary
             // 
@@ -339,11 +320,28 @@
             this.labelFNameErr.TabIndex = 68;
             this.labelFNameErr.Text = "Field cannot be empty";
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonAdd.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonAdd.Location = new System.Drawing.Point(250, 486);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(100, 38);
+            this.buttonAdd.TabIndex = 70;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Visible = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAddCSR_Click);
+            // 
             // AddCSR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 544);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelLName);
             this.Controls.Add(this.labelFName);
             this.Controls.Add(this.textBoxLname);
@@ -355,8 +353,7 @@
             this.Controls.Add(this.labelSalaryErr);
             this.Controls.Add(this.labelPasswordErr);
             this.Controls.Add(this.labelUsernameErr);
-            this.Controls.Add(this.labelAddCSR);
-            this.Controls.Add(this.buttonAddCSR);
+            this.Controls.Add(this.labelMain);
             this.Controls.Add(this.labelSalary);
             this.Controls.Add(this.labelDOB);
             this.Controls.Add(this.labelPassword);
@@ -369,6 +366,7 @@
             this.Name = "AddCSR";
             this.Text = "AddCSR";
             this.Load += new System.EventHandler(this.AddCSR_Load);
+            this.Resize += new System.EventHandler(this.AddCSR_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,8 +377,7 @@
         private System.Windows.Forms.Label labelSalaryErr;
         private System.Windows.Forms.Label labelPasswordErr;
         private System.Windows.Forms.Label labelUsernameErr;
-        private System.Windows.Forms.Label labelAddCSR;
-        private System.Windows.Forms.Button buttonAddCSR;
+        private System.Windows.Forms.Label labelMain;
         private System.Windows.Forms.Label labelSalary;
         private System.Windows.Forms.Label labelDOB;
         private System.Windows.Forms.Label labelPassword;
@@ -397,5 +394,6 @@
         private System.Windows.Forms.Label labelLNameErr;
         private System.Windows.Forms.TextBox textBoxFname;
         private System.Windows.Forms.Label labelFNameErr;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

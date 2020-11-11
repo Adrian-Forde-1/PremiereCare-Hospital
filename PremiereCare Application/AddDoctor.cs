@@ -40,9 +40,19 @@ namespace PremiereCare_Application
             comboBoxSex.Text = "Male";
         }
 
+        private void AlignItems()
+        {
+            buttonAdd.Location = new Point((this.ClientSize.Width - buttonAdd.Width) / 2, this.ClientSize.Height - 50);
+            labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
+        }
+
         private void AddDoctor_Load(object sender, EventArgs e)
         {
             removeErrors();
+
+            AlignItems();
+            buttonAdd.Visible = true;
+            labelMain.Visible = true;
         }
 
         private void buttonAddDoctor_Click(object sender, EventArgs e)
@@ -123,5 +133,9 @@ namespace PremiereCare_Application
             //}
         }
 
+        private void AddDoctor_Resize(object sender, EventArgs e)
+        {
+            AlignItems();
+        }
     }
 }

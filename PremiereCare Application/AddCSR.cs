@@ -39,6 +39,16 @@ namespace PremiereCare_Application
         private void AddCSR_Load(object sender, EventArgs e)
         {
             removeErrors();
+
+            AlignItems();
+            buttonAdd.Visible = true;
+            labelMain.Visible = true;
+        }
+
+        private void AlignItems()
+        {
+            buttonAdd.Location = new Point((this.ClientSize.Width - buttonAdd.Width) / 2, this.ClientSize.Height - 50);
+            labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
         private void buttonAddCSR_Click(object sender, EventArgs e)
@@ -110,6 +120,9 @@ namespace PremiereCare_Application
             //}
         }
 
-
+        private void AddCSR_Resize(object sender, EventArgs e)
+        {
+            AlignItems();
+        }
     }
 }

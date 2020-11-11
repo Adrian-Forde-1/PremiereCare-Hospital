@@ -71,6 +71,12 @@
     <Compile Include="AllDoctors.Designer.cs">
       <DependentUpon>AllDoctors.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateAppointment.Designer.cs">
+      <DependentUpon>CreateAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AllDoctors.resx">
       <DependentUpon>AllDoctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAppointment.resx">
+      <DependentUpon>CreateAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>

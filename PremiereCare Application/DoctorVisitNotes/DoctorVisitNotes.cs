@@ -53,8 +53,9 @@ namespace PremiereCare_Application.DoctorVisitNotes
             }
             catch (Exception ex)
             {
-                CustomMessageBox cm = new CustomMessageBox("Failed to add Note to database", form);
-                cm.Show();
+                //CustomMessageBox cm = new CustomMessageBox("Failed to add Note to database", form);
+                //cm.Show();
+                MessageBox.Show(ex.ToString());
             }
             finally
             {

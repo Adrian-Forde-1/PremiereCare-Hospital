@@ -50,7 +50,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(330, 22);
             this.textBoxUsername.TabIndex = 0;
-            this.textBoxUsername.Text = "tv";
+            this.textBoxUsername.Text = "MichealUsr";
             // 
             // textBoxPassword
             // 
@@ -60,7 +60,7 @@
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(330, 22);
             this.textBoxPassword.TabIndex = 1;
-            this.textBoxPassword.Text = "tv";
+            this.textBoxPassword.Text = "micheal123";
             // 
             // labelUsername
             // 
@@ -103,7 +103,7 @@
             this.buttonLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
             this.buttonLogin.Location = new System.Drawing.Point(199, 237);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(97, 38);
+            this.buttonLogin.Size = new System.Drawing.Size(100, 38);
             this.buttonLogin.TabIndex = 5;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -120,7 +120,7 @@
             this.comboBoxLoginRole.Name = "comboBoxLoginRole";
             this.comboBoxLoginRole.Size = new System.Drawing.Size(330, 21);
             this.comboBoxLoginRole.TabIndex = 7;
-            this.comboBoxLoginRole.Text = "Doctor";
+            this.comboBoxLoginRole.Text = "CSR";
             // 
             // labelRole
             // 
