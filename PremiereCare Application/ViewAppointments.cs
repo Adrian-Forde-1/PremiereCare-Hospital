@@ -32,5 +32,10 @@ namespace PremiereCare_Application
         {
 
         }
+
+        private void ViewAppointment_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

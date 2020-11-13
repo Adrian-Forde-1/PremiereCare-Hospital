@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -46,7 +47,7 @@ namespace PremiereCare_Application.Appointment
                 }
                 else
                 {
-                    isSuccess = false;
+                   isSuccess = false;
                 }
 
             }
@@ -61,6 +62,39 @@ namespace PremiereCare_Application.Appointment
                 conn.Close();
             }
             return isSuccess;
+        }
+
+        public DataTable GetALLAppointments(String userRole, int userID)
+        {
+            //Step 1: Create database connection
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string sql;
+                if (userRole == "CSR") sql = "SELECT * FROM Appointment";
+                else if (userRole == "Doctor") sql = "SELECT * FROM Appointment WHERE doc_id = @userID";
+
+                //Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //Creating SQL DataAdapter using cmd
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
         }
     }
 }
