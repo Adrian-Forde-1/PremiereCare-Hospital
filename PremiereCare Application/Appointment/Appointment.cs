@@ -64,7 +64,7 @@ namespace PremiereCare_Application.Appointment
             return isSuccess;
         }
 
-        public DataTable GetALLAppointments(String userRole, int userID)
+        public DataTable GetAllAppointments(String userRole, int userID)
         {
             //Step 1: Create database connection
             SqlConnection conn = new SqlConnection(myconnstring);
@@ -72,12 +72,38 @@ namespace PremiereCare_Application.Appointment
             try
             {
                 //Step 2: Writing SQL Query
-                string sql;
-                if (userRole == "CSR") sql = "SELECT * FROM Appointment";
-                else if (userRole == "Doctor") sql = "SELECT * FROM Appointment WHERE doc_id = @userID";
+                string sql = "";
+                if (userRole == "CSR") sql = @"SELECT 
+                                              a.appointment_id, 
+                                              a.appointment_date, 
+                                              d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                              p.fname + ' ' + p.lname AS 'Patient Name'
+                                              FROM[PremiereCareHospital].[dbo].Appointment a
+                                              JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                  ON a.doc_id = d.doc_id
+                                              JOIN[PremiereCareHospital].[dbo].Patient p
+                                                  ON a.patient_id = p.patient_id
+                                              ORDER BY a.appointment_date; ";
+
+                else if (userRole == "Doctor") sql = @"SELECT 
+                                              a.appointment_id, 
+                                              a.appointment_date, 
+                                              d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                              p.fname + ' ' + p.lname AS 'Patient Name'
+                                              FROM[PremiereCareHospital].[dbo].Appointment a
+                                              JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                  ON a.doc_id = d.doc_id
+                                              JOIN[PremiereCareHospital].[dbo].Patient p
+                                                  ON a.patient_id = p.patient_id
+                                              WHERE d.doc_id = @userID
+                                              ORDER BY a.appointment_date; ";
 
                 //Creating cmd using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);
+                if(userRole == "Doctor")
+                {
+                    cmd.Parameters.AddWithValue("@userID", userID);
+                }
 
                 //Creating SQL DataAdapter using cmd
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);

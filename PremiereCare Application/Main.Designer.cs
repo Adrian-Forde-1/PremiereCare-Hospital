@@ -49,7 +49,7 @@
             this.buttonLabTest = new System.Windows.Forms.Button();
             this.panelAppointmentDropdown = new System.Windows.Forms.Panel();
             this.buttonCreateAppointment = new System.Windows.Forms.Button();
-            this.buttonAllAppointments = new System.Windows.Forms.Button();
+            this.buttonViewAppointments = new System.Windows.Forms.Button();
             this.buttonAppointments = new System.Windows.Forms.Button();
             this.panelDrugDropdown = new System.Windows.Forms.Panel();
             this.buttonEditDrug = new System.Windows.Forms.Button();
@@ -353,7 +353,7 @@
             // 
             this.panelAppointmentDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
             this.panelAppointmentDropdown.Controls.Add(this.buttonCreateAppointment);
-            this.panelAppointmentDropdown.Controls.Add(this.buttonAllAppointments);
+            this.panelAppointmentDropdown.Controls.Add(this.buttonViewAppointments);
             this.panelAppointmentDropdown.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAppointmentDropdown.Location = new System.Drawing.Point(0, 439);
             this.panelAppointmentDropdown.Name = "panelAppointmentDropdown";
@@ -377,22 +377,22 @@
             this.buttonCreateAppointment.UseVisualStyleBackColor = true;
             this.buttonCreateAppointment.Click += new System.EventHandler(this.buttonCreateAppointment_Click);
             // 
-            // buttonAllAppointments
+            // buttonViewAppointments
             // 
-            this.buttonAllAppointments.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAllAppointments.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAllAppointments.FlatAppearance.BorderSize = 0;
-            this.buttonAllAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAllAppointments.ForeColor = System.Drawing.Color.White;
-            this.buttonAllAppointments.Location = new System.Drawing.Point(0, 0);
-            this.buttonAllAppointments.Name = "buttonAllAppointments";
-            this.buttonAllAppointments.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.buttonAllAppointments.Size = new System.Drawing.Size(200, 36);
-            this.buttonAllAppointments.TabIndex = 20;
-            this.buttonAllAppointments.Text = "All Appointments";
-            this.buttonAllAppointments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAllAppointments.UseVisualStyleBackColor = true;
-            this.buttonAllAppointments.Click += new System.EventHandler(this.buttonAllAppointments_Click);
+            this.buttonViewAppointments.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonViewAppointments.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonViewAppointments.FlatAppearance.BorderSize = 0;
+            this.buttonViewAppointments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonViewAppointments.ForeColor = System.Drawing.Color.White;
+            this.buttonViewAppointments.Location = new System.Drawing.Point(0, 0);
+            this.buttonViewAppointments.Name = "buttonViewAppointments";
+            this.buttonViewAppointments.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonViewAppointments.Size = new System.Drawing.Size(200, 36);
+            this.buttonViewAppointments.TabIndex = 20;
+            this.buttonViewAppointments.Text = "View Appointments";
+            this.buttonViewAppointments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonViewAppointments.UseVisualStyleBackColor = true;
+            this.buttonViewAppointments.Click += new System.EventHandler(this.buttonViewAppointments_Click);
             // 
             // buttonAppointments
             // 
@@ -707,7 +707,7 @@
         private System.Windows.Forms.Button buttonAddDrug;
         private System.Windows.Forms.Button buttonPrescriptions;
         private System.Windows.Forms.Panel panelAppointmentDropdown;
-        private System.Windows.Forms.Button buttonAllAppointments;
+        private System.Windows.Forms.Button buttonViewAppointments;
         private System.Windows.Forms.Button buttonCreateAppointment;
         private System.Windows.Forms.Button buttonAllDrugs;
         private System.Windows.Forms.Panel panelPatientDropdown;

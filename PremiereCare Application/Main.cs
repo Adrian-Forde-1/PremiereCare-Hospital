@@ -235,10 +235,6 @@ namespace PremiereCare_Application
             
         }
 
-        private void buttonAllAppointments_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ViewAppointment());
-        }
 
         private void buttonCreateAppointment_Click(object sender, EventArgs e)
         {
@@ -265,6 +261,9 @@ namespace PremiereCare_Application
             OpenChildForm(new ViewPatients(panelChildFormContainer, userID));
         }
 
-        
+        private void buttonViewAppointments_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ViewAppointment(userRole, userID, panelChildFormContainer));
+        }
     }
 }
