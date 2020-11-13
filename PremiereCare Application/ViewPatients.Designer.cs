@@ -56,6 +56,7 @@
             // 
             // dgvPatients
             // 
+            this.dgvPatients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPatients.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPatients.Location = new System.Drawing.Point(0, 54);
@@ -63,6 +64,7 @@
             this.dgvPatients.Name = "dgvPatients";
             this.dgvPatients.Size = new System.Drawing.Size(600, 490);
             this.dgvPatients.TabIndex = 0;
+            this.dgvPatients.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPatients_RowHeaderMouseClick);
             // 
             // panel1
             // 

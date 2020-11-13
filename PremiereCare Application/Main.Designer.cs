@@ -34,6 +34,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panelPatientDropdown = new System.Windows.Forms.Panel();
+            this.buttonViewPatients = new System.Windows.Forms.Button();
+            this.buttonAddPatient = new System.Windows.Forms.Button();
+            this.buttonPatient = new System.Windows.Forms.Button();
             this.buttonPrescriptions = new System.Windows.Forms.Button();
             this.panelNotesDropdown = new System.Windows.Forms.Panel();
             this.buttonViewNotes = new System.Windows.Forms.Button();
@@ -62,14 +66,11 @@
             this.buttonAllDoctors = new System.Windows.Forms.Button();
             this.buttonAddDoctor = new System.Windows.Forms.Button();
             this.buttonDoctor = new System.Windows.Forms.Button();
-            this.buttonPatient = new System.Windows.Forms.Button();
-            this.panelPatientDropdown = new System.Windows.Forms.Panel();
-            this.buttonViewPatients = new System.Windows.Forms.Button();
-            this.buttonAddPatient = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panelPatientDropdown.SuspendLayout();
             this.panelNotesDropdown.SuspendLayout();
             this.panel_LabTestDropdown.SuspendLayout();
             this.panelAppointmentDropdown.SuspendLayout();
@@ -77,18 +78,16 @@
             this.panelCSRDropdown.SuspendLayout();
             this.panelTechnicianDropdown.SuspendLayout();
             this.panelDoctorDropdown.SuspendLayout();
-            this.panelPatientDropdown.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelChildFormContainer
             // 
-            this.panelChildFormContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelChildFormContainer.BackColor = System.Drawing.Color.White;
-            this.panelChildFormContainer.Location = new System.Drawing.Point(206, 0);
+            this.panelChildFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildFormContainer.Location = new System.Drawing.Point(200, 0);
+            this.panelChildFormContainer.Margin = new System.Windows.Forms.Padding(0);
             this.panelChildFormContainer.Name = "panelChildFormContainer";
-            this.panelChildFormContainer.Size = new System.Drawing.Size(658, 552);
+            this.panelChildFormContainer.Size = new System.Drawing.Size(664, 552);
             this.panelChildFormContainer.TabIndex = 2;
             // 
             // panel2
@@ -118,6 +117,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 552);
             this.panel1.TabIndex = 1;
@@ -145,6 +145,68 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 963);
             this.panel3.TabIndex = 7;
+            // 
+            // panelPatientDropdown
+            // 
+            this.panelPatientDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
+            this.panelPatientDropdown.Controls.Add(this.buttonViewPatients);
+            this.panelPatientDropdown.Controls.Add(this.buttonAddPatient);
+            this.panelPatientDropdown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPatientDropdown.Location = new System.Drawing.Point(0, 799);
+            this.panelPatientDropdown.Name = "panelPatientDropdown";
+            this.panelPatientDropdown.Size = new System.Drawing.Size(200, 72);
+            this.panelPatientDropdown.TabIndex = 14;
+            // 
+            // buttonViewPatients
+            // 
+            this.buttonViewPatients.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonViewPatients.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonViewPatients.FlatAppearance.BorderSize = 0;
+            this.buttonViewPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonViewPatients.ForeColor = System.Drawing.Color.White;
+            this.buttonViewPatients.Location = new System.Drawing.Point(0, 36);
+            this.buttonViewPatients.Name = "buttonViewPatients";
+            this.buttonViewPatients.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonViewPatients.Size = new System.Drawing.Size(200, 36);
+            this.buttonViewPatients.TabIndex = 22;
+            this.buttonViewPatients.Text = "View Patients";
+            this.buttonViewPatients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonViewPatients.UseVisualStyleBackColor = true;
+            this.buttonViewPatients.Click += new System.EventHandler(this.buttonAllPatients_Click);
+            // 
+            // buttonAddPatient
+            // 
+            this.buttonAddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAddPatient.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAddPatient.FlatAppearance.BorderSize = 0;
+            this.buttonAddPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddPatient.ForeColor = System.Drawing.Color.White;
+            this.buttonAddPatient.Location = new System.Drawing.Point(0, 0);
+            this.buttonAddPatient.Name = "buttonAddPatient";
+            this.buttonAddPatient.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonAddPatient.Size = new System.Drawing.Size(200, 36);
+            this.buttonAddPatient.TabIndex = 21;
+            this.buttonAddPatient.Text = "Add Patient";
+            this.buttonAddPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddPatient.UseVisualStyleBackColor = true;
+            this.buttonAddPatient.Click += new System.EventHandler(this.buttonAddPatient_Click);
+            // 
+            // buttonPatient
+            // 
+            this.buttonPatient.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPatient.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonPatient.FlatAppearance.BorderSize = 0;
+            this.buttonPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPatient.ForeColor = System.Drawing.Color.White;
+            this.buttonPatient.Location = new System.Drawing.Point(0, 763);
+            this.buttonPatient.Name = "buttonPatient";
+            this.buttonPatient.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonPatient.Size = new System.Drawing.Size(200, 36);
+            this.buttonPatient.TabIndex = 22;
+            this.buttonPatient.Text = "Patient";
+            this.buttonPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPatient.UseVisualStyleBackColor = true;
+            this.buttonPatient.Click += new System.EventHandler(this.buttonPatient_Click);
             // 
             // buttonPrescriptions
             // 
@@ -585,68 +647,6 @@
             this.buttonDoctor.UseVisualStyleBackColor = true;
             this.buttonDoctor.Click += new System.EventHandler(this.buttonDoctor_Click);
             // 
-            // buttonPatient
-            // 
-            this.buttonPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPatient.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonPatient.FlatAppearance.BorderSize = 0;
-            this.buttonPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPatient.ForeColor = System.Drawing.Color.White;
-            this.buttonPatient.Location = new System.Drawing.Point(0, 763);
-            this.buttonPatient.Name = "buttonPatient";
-            this.buttonPatient.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonPatient.Size = new System.Drawing.Size(200, 36);
-            this.buttonPatient.TabIndex = 22;
-            this.buttonPatient.Text = "Patient";
-            this.buttonPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPatient.UseVisualStyleBackColor = true;
-            this.buttonPatient.Click += new System.EventHandler(this.buttonPatient_Click);
-            // 
-            // panelPatientDropdown
-            // 
-            this.panelPatientDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
-            this.panelPatientDropdown.Controls.Add(this.buttonViewPatients);
-            this.panelPatientDropdown.Controls.Add(this.buttonAddPatient);
-            this.panelPatientDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPatientDropdown.Location = new System.Drawing.Point(0, 799);
-            this.panelPatientDropdown.Name = "panelPatientDropdown";
-            this.panelPatientDropdown.Size = new System.Drawing.Size(200, 72);
-            this.panelPatientDropdown.TabIndex = 14;
-            // 
-            // buttonViewPatients
-            // 
-            this.buttonViewPatients.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonViewPatients.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonViewPatients.FlatAppearance.BorderSize = 0;
-            this.buttonViewPatients.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonViewPatients.ForeColor = System.Drawing.Color.White;
-            this.buttonViewPatients.Location = new System.Drawing.Point(0, 36);
-            this.buttonViewPatients.Name = "buttonViewPatients";
-            this.buttonViewPatients.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.buttonViewPatients.Size = new System.Drawing.Size(200, 36);
-            this.buttonViewPatients.TabIndex = 22;
-            this.buttonViewPatients.Text = "View Patients";
-            this.buttonViewPatients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonViewPatients.UseVisualStyleBackColor = true;
-            this.buttonViewPatients.Click += new System.EventHandler(this.buttonAllPatients_Click);
-            // 
-            // buttonAddPatient
-            // 
-            this.buttonAddPatient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAddPatient.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAddPatient.FlatAppearance.BorderSize = 0;
-            this.buttonAddPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddPatient.ForeColor = System.Drawing.Color.White;
-            this.buttonAddPatient.Location = new System.Drawing.Point(0, 0);
-            this.buttonAddPatient.Name = "buttonAddPatient";
-            this.buttonAddPatient.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.buttonAddPatient.Size = new System.Drawing.Size(200, 36);
-            this.buttonAddPatient.TabIndex = 21;
-            this.buttonAddPatient.Text = "Add Patient";
-            this.buttonAddPatient.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddPatient.UseVisualStyleBackColor = true;
-            this.buttonAddPatient.Click += new System.EventHandler(this.buttonAddPatient_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -654,6 +654,7 @@
             this.ClientSize = new System.Drawing.Size(864, 552);
             this.Controls.Add(this.panelChildFormContainer);
             this.Controls.Add(this.panel1);
+            this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(880, 590);
             this.Name = "Main";
             this.Text = "Main";
@@ -663,6 +664,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panelPatientDropdown.ResumeLayout(false);
             this.panelNotesDropdown.ResumeLayout(false);
             this.panel_LabTestDropdown.ResumeLayout(false);
             this.panelAppointmentDropdown.ResumeLayout(false);
@@ -670,7 +672,6 @@
             this.panelCSRDropdown.ResumeLayout(false);
             this.panelTechnicianDropdown.ResumeLayout(false);
             this.panelDoctorDropdown.ResumeLayout(false);
-            this.panelPatientDropdown.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

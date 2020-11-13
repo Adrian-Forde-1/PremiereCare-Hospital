@@ -102,7 +102,6 @@ namespace PremiereCare_Application
                     textBoxPassword.Text, doctorDOBPicker.Value.Date.ToShortDateString(), textBoxSalary.Text, textBoxSpecialty.Text, comboBoxSex.Text);
             } 
 
-
         }
 
         private void addDoctor(String fName, String lName, String username, String password, String dob, String salary, String specialty, String sex)

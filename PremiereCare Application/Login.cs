@@ -53,7 +53,7 @@ namespace PremiereCare_Application
                 else idColumn = "tech_id";
 
                 String userRole = dt.Rows[0]["role"].ToString();
-                String userID = dt.Rows[0][idColumn].ToString();
+                int userID = Convert.ToInt32(dt.Rows[0][idColumn]);
 
                 this.Hide();
                 Main main = new Main(userRole, userID);

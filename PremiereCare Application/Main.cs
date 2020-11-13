@@ -16,9 +16,9 @@ namespace PremiereCare_Application
         private Form activeForm = null;
 
         public string userRole;
-        public string userID;
+        public int userID;
 
-        public Main(String role, String ID)
+        public Main(String role, int ID)
         {
             InitializeComponent();
             userRole = role;
@@ -243,7 +243,7 @@ namespace PremiereCare_Application
         private void buttonCreateAppointment_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
-            OpenChildForm(new CreateAppointment(userID));
+            //OpenChildForm(new CreateAppointment(userID));
         }
 
         private void buttonPatient_Click(object sender, EventArgs e)
@@ -262,7 +262,7 @@ namespace PremiereCare_Application
         private void buttonAllPatients_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
-            OpenChildForm(new ViewPatients());
+            OpenChildForm(new ViewPatients(panelChildFormContainer, userID));
         }
 
         
