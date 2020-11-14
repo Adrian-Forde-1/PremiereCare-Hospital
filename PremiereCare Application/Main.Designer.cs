@@ -395,9 +395,9 @@
             // panelDrugDropdown
             // 
             this.panelDrugDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
+            this.panelDrugDropdown.Controls.Add(this.buttonAllDrugs);
             this.panelDrugDropdown.Controls.Add(this.buttonEditDrug);
             this.panelDrugDropdown.Controls.Add(this.buttonAddDrug);
-            this.panelDrugDropdown.Controls.Add(this.buttonAllDrugs);
             this.panelDrugDropdown.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDrugDropdown.Location = new System.Drawing.Point(0, 291);
             this.panelDrugDropdown.Name = "panelDrugDropdown";
@@ -412,7 +412,7 @@
             this.buttonEditDrug.FlatAppearance.BorderSize = 0;
             this.buttonEditDrug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEditDrug.ForeColor = System.Drawing.Color.White;
-            this.buttonEditDrug.Location = new System.Drawing.Point(0, 72);
+            this.buttonEditDrug.Location = new System.Drawing.Point(0, 36);
             this.buttonEditDrug.Name = "buttonEditDrug";
             this.buttonEditDrug.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonEditDrug.Size = new System.Drawing.Size(200, 36);
@@ -430,7 +430,7 @@
             this.buttonAddDrug.FlatAppearance.BorderSize = 0;
             this.buttonAddDrug.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddDrug.ForeColor = System.Drawing.Color.White;
-            this.buttonAddDrug.Location = new System.Drawing.Point(0, 36);
+            this.buttonAddDrug.Location = new System.Drawing.Point(0, 0);
             this.buttonAddDrug.Name = "buttonAddDrug";
             this.buttonAddDrug.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonAddDrug.Size = new System.Drawing.Size(200, 36);
@@ -448,7 +448,7 @@
             this.buttonAllDrugs.FlatAppearance.BorderSize = 0;
             this.buttonAllDrugs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAllDrugs.ForeColor = System.Drawing.Color.White;
-            this.buttonAllDrugs.Location = new System.Drawing.Point(0, 0);
+            this.buttonAllDrugs.Location = new System.Drawing.Point(0, 72);
             this.buttonAllDrugs.Name = "buttonAllDrugs";
             this.buttonAllDrugs.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonAllDrugs.Size = new System.Drawing.Size(200, 36);
@@ -456,6 +456,7 @@
             this.buttonAllDrugs.Text = "All Drugs";
             this.buttonAllDrugs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAllDrugs.UseVisualStyleBackColor = false;
+            this.buttonAllDrugs.Click += new System.EventHandler(this.buttonAllDrugs_Click);
             // 
             // buttonDrug
             // 

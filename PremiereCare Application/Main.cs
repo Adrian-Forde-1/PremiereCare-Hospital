@@ -158,6 +158,7 @@ namespace PremiereCare_Application
         private void buttonAddDrug_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
+            OpenChildForm(new AddDrug());
         }
 
         private void buttonEditDrug_Click_1(object sender, EventArgs e)
@@ -264,6 +265,12 @@ namespace PremiereCare_Application
         private void buttonViewAppointments_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ViewAppointment(userRole, userID, panelChildFormContainer));
+        }
+
+        private void buttonAllDrugs_Click(object sender, EventArgs e)
+        {
+            CloseDropdowns();
+            OpenChildForm(new AllDrugs());
         }
     }
 }

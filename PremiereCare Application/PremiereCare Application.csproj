@@ -59,6 +59,12 @@
     <Compile Include="AddDoctor.Designer.cs">
       <DependentUpon>AddDoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDrug.Designer.cs">
+      <DependentUpon>AddDrug.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="AllDoctors.Designer.cs">
       <DependentUpon>AllDoctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AllDrugs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllDrugs.Designer.cs">
+      <DependentUpon>AllDrugs.cs</DependentUpon>
     </Compile>
     <Compile Include="Appointment\Appointment.cs" />
     <Compile Include="CreateAppointment.cs">
@@ -103,6 +115,12 @@
     </Compile>
     <Compile Include="CreateNotes.Designer.cs">
       <DependentUpon>CreateNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDrug.Designer.cs">
+      <DependentUpon>EditDrug.cs</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -199,6 +217,9 @@
     <EmbeddedResource Include="AddDoctor.resx">
       <DependentUpon>AddDoctor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddDrug.resx">
+      <DependentUpon>AddDrug.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPatient.resx">
       <DependentUpon>AddPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +229,9 @@
     <EmbeddedResource Include="AllDoctors.resx">
       <DependentUpon>AllDoctors.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AllDrugs.resx">
+      <DependentUpon>AllDrugs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAppointment.resx">
       <DependentUpon>CreateAppointment.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDrug.resx">
+      <DependentUpon>EditDrug.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
