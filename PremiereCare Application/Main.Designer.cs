@@ -48,7 +48,6 @@
             this.buttonRequestLabTest = new System.Windows.Forms.Button();
             this.buttonLabTest = new System.Windows.Forms.Button();
             this.panelAppointmentDropdown = new System.Windows.Forms.Panel();
-            this.buttonCreateAppointment = new System.Windows.Forms.Button();
             this.buttonViewAppointments = new System.Windows.Forms.Button();
             this.buttonAppointments = new System.Windows.Forms.Button();
             this.panelDrugDropdown = new System.Windows.Forms.Panel();
@@ -152,7 +151,7 @@
             this.panelPatientDropdown.Controls.Add(this.buttonViewPatients);
             this.panelPatientDropdown.Controls.Add(this.buttonAddPatient);
             this.panelPatientDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPatientDropdown.Location = new System.Drawing.Point(0, 799);
+            this.panelPatientDropdown.Location = new System.Drawing.Point(0, 763);
             this.panelPatientDropdown.Name = "panelPatientDropdown";
             this.panelPatientDropdown.Size = new System.Drawing.Size(200, 72);
             this.panelPatientDropdown.TabIndex = 14;
@@ -198,7 +197,7 @@
             this.buttonPatient.FlatAppearance.BorderSize = 0;
             this.buttonPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPatient.ForeColor = System.Drawing.Color.White;
-            this.buttonPatient.Location = new System.Drawing.Point(0, 763);
+            this.buttonPatient.Location = new System.Drawing.Point(0, 727);
             this.buttonPatient.Name = "buttonPatient";
             this.buttonPatient.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPatient.Size = new System.Drawing.Size(200, 36);
@@ -215,7 +214,7 @@
             this.buttonPrescriptions.FlatAppearance.BorderSize = 0;
             this.buttonPrescriptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrescriptions.ForeColor = System.Drawing.Color.White;
-            this.buttonPrescriptions.Location = new System.Drawing.Point(0, 727);
+            this.buttonPrescriptions.Location = new System.Drawing.Point(0, 691);
             this.buttonPrescriptions.Name = "buttonPrescriptions";
             this.buttonPrescriptions.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPrescriptions.Size = new System.Drawing.Size(200, 36);
@@ -231,7 +230,7 @@
             this.panelNotesDropdown.Controls.Add(this.buttonViewNotes);
             this.panelNotesDropdown.Controls.Add(this.buttonCreateNotes);
             this.panelNotesDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelNotesDropdown.Location = new System.Drawing.Point(0, 655);
+            this.panelNotesDropdown.Location = new System.Drawing.Point(0, 619);
             this.panelNotesDropdown.Name = "panelNotesDropdown";
             this.panelNotesDropdown.Size = new System.Drawing.Size(200, 72);
             this.panelNotesDropdown.TabIndex = 13;
@@ -277,7 +276,7 @@
             this.buttonNotes.FlatAppearance.BorderSize = 0;
             this.buttonNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNotes.ForeColor = System.Drawing.Color.White;
-            this.buttonNotes.Location = new System.Drawing.Point(0, 619);
+            this.buttonNotes.Location = new System.Drawing.Point(0, 583);
             this.buttonNotes.Name = "buttonNotes";
             this.buttonNotes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonNotes.Size = new System.Drawing.Size(200, 36);
@@ -293,7 +292,7 @@
             this.panel_LabTestDropdown.Controls.Add(this.buttonViewLabTest);
             this.panel_LabTestDropdown.Controls.Add(this.buttonRequestLabTest);
             this.panel_LabTestDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_LabTestDropdown.Location = new System.Drawing.Point(0, 547);
+            this.panel_LabTestDropdown.Location = new System.Drawing.Point(0, 511);
             this.panel_LabTestDropdown.Name = "panel_LabTestDropdown";
             this.panel_LabTestDropdown.Size = new System.Drawing.Size(200, 72);
             this.panel_LabTestDropdown.TabIndex = 13;
@@ -339,7 +338,7 @@
             this.buttonLabTest.FlatAppearance.BorderSize = 0;
             this.buttonLabTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLabTest.ForeColor = System.Drawing.Color.White;
-            this.buttonLabTest.Location = new System.Drawing.Point(0, 511);
+            this.buttonLabTest.Location = new System.Drawing.Point(0, 475);
             this.buttonLabTest.Name = "buttonLabTest";
             this.buttonLabTest.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLabTest.Size = new System.Drawing.Size(200, 36);
@@ -352,30 +351,12 @@
             // panelAppointmentDropdown
             // 
             this.panelAppointmentDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
-            this.panelAppointmentDropdown.Controls.Add(this.buttonCreateAppointment);
             this.panelAppointmentDropdown.Controls.Add(this.buttonViewAppointments);
             this.panelAppointmentDropdown.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAppointmentDropdown.Location = new System.Drawing.Point(0, 439);
             this.panelAppointmentDropdown.Name = "panelAppointmentDropdown";
-            this.panelAppointmentDropdown.Size = new System.Drawing.Size(200, 72);
+            this.panelAppointmentDropdown.Size = new System.Drawing.Size(200, 36);
             this.panelAppointmentDropdown.TabIndex = 21;
-            // 
-            // buttonCreateAppointment
-            // 
-            this.buttonCreateAppointment.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCreateAppointment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonCreateAppointment.FlatAppearance.BorderSize = 0;
-            this.buttonCreateAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateAppointment.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateAppointment.Location = new System.Drawing.Point(0, 36);
-            this.buttonCreateAppointment.Name = "buttonCreateAppointment";
-            this.buttonCreateAppointment.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.buttonCreateAppointment.Size = new System.Drawing.Size(200, 36);
-            this.buttonCreateAppointment.TabIndex = 19;
-            this.buttonCreateAppointment.Text = "Create Appointment";
-            this.buttonCreateAppointment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateAppointment.UseVisualStyleBackColor = true;
-            this.buttonCreateAppointment.Click += new System.EventHandler(this.buttonCreateAppointment_Click);
             // 
             // buttonViewAppointments
             // 
@@ -708,7 +689,6 @@
         private System.Windows.Forms.Button buttonPrescriptions;
         private System.Windows.Forms.Panel panelAppointmentDropdown;
         private System.Windows.Forms.Button buttonViewAppointments;
-        private System.Windows.Forms.Button buttonCreateAppointment;
         private System.Windows.Forms.Button buttonAllDrugs;
         private System.Windows.Forms.Panel panelPatientDropdown;
         private System.Windows.Forms.Button buttonViewPatients;

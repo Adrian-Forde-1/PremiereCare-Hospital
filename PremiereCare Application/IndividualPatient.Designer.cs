@@ -36,22 +36,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelDOB = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelBloodType = new System.Windows.Forms.Label();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelAllergies = new System.Windows.Forms.Label();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
+            this.labelSex = new System.Windows.Forms.Label();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
+            this.labelContactOne = new System.Windows.Forms.Label();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
+            this.labelContactTwo = new System.Windows.Forms.Label();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.labelBloodType = new System.Windows.Forms.Label();
-            this.labelAllergies = new System.Windows.Forms.Label();
-            this.labelSex = new System.Windows.Forms.Label();
-            this.labelContactOne = new System.Windows.Forms.Label();
-            this.labelContactTwo = new System.Windows.Forms.Label();
             this.labelEmergencyContact = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelName = new System.Windows.Forms.Label();
@@ -97,7 +97,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 544);
             this.tableLayoutPanel1.TabIndex = 2;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -170,36 +169,6 @@
             this.flowLayoutPanel3.Size = new System.Drawing.Size(594, 34);
             this.flowLayoutPanel3.TabIndex = 3;
             // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.label4);
-            this.flowLayoutPanel4.Controls.Add(this.labelAllergies);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 213);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(594, 71);
-            this.flowLayoutPanel4.TabIndex = 4;
-            // 
-            // flowLayoutPanel5
-            // 
-            this.flowLayoutPanel5.Controls.Add(this.label5);
-            this.flowLayoutPanel5.Controls.Add(this.labelSex);
-            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 290);
-            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(594, 36);
-            this.flowLayoutPanel5.TabIndex = 5;
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.label6);
-            this.flowLayoutPanel6.Controls.Add(this.labelContactOne);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 332);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(594, 38);
-            this.flowLayoutPanel6.TabIndex = 6;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -210,6 +179,26 @@
             this.label3.Size = new System.Drawing.Size(82, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Blood Type:";
+            // 
+            // labelBloodType
+            // 
+            this.labelBloodType.AutoSize = true;
+            this.labelBloodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBloodType.Location = new System.Drawing.Point(98, 0);
+            this.labelBloodType.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.labelBloodType.Name = "labelBloodType";
+            this.labelBloodType.Size = new System.Drawing.Size(0, 16);
+            this.labelBloodType.TabIndex = 3;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.label4);
+            this.flowLayoutPanel4.Controls.Add(this.labelAllergies);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 213);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(594, 71);
+            this.flowLayoutPanel4.TabIndex = 4;
             // 
             // label4
             // 
@@ -222,6 +211,26 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Allergies:";
             // 
+            // labelAllergies
+            // 
+            this.labelAllergies.AutoSize = true;
+            this.labelAllergies.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAllergies.Location = new System.Drawing.Point(80, 0);
+            this.labelAllergies.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.labelAllergies.Name = "labelAllergies";
+            this.labelAllergies.Size = new System.Drawing.Size(0, 16);
+            this.labelAllergies.TabIndex = 4;
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Controls.Add(this.label5);
+            this.flowLayoutPanel5.Controls.Add(this.labelSex);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 290);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(594, 36);
+            this.flowLayoutPanel5.TabIndex = 5;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -233,6 +242,26 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Sex:";
             // 
+            // labelSex
+            // 
+            this.labelSex.AutoSize = true;
+            this.labelSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSex.Location = new System.Drawing.Point(50, 0);
+            this.labelSex.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.labelSex.Name = "labelSex";
+            this.labelSex.Size = new System.Drawing.Size(0, 16);
+            this.labelSex.TabIndex = 5;
+            // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.label6);
+            this.flowLayoutPanel6.Controls.Add(this.labelContactOne);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 332);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(594, 38);
+            this.flowLayoutPanel6.TabIndex = 6;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -243,6 +272,16 @@
             this.label6.Size = new System.Drawing.Size(84, 16);
             this.label6.TabIndex = 5;
             this.label6.Text = "Contact One:";
+            // 
+            // labelContactOne
+            // 
+            this.labelContactOne.AutoSize = true;
+            this.labelContactOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContactOne.Location = new System.Drawing.Point(100, 0);
+            this.labelContactOne.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.labelContactOne.Name = "labelContactOne";
+            this.labelContactOne.Size = new System.Drawing.Size(0, 16);
+            this.labelContactOne.TabIndex = 6;
             // 
             // flowLayoutPanel7
             // 
@@ -265,6 +304,16 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Contact Two:";
             // 
+            // labelContactTwo
+            // 
+            this.labelContactTwo.AutoSize = true;
+            this.labelContactTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContactTwo.Location = new System.Drawing.Point(101, 0);
+            this.labelContactTwo.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.labelContactTwo.Name = "labelContactTwo";
+            this.labelContactTwo.Size = new System.Drawing.Size(0, 16);
+            this.labelContactTwo.TabIndex = 7;
+            // 
             // flowLayoutPanel8
             // 
             this.flowLayoutPanel8.Controls.Add(this.label8);
@@ -285,56 +334,6 @@
             this.label8.Size = new System.Drawing.Size(128, 16);
             this.label8.TabIndex = 7;
             this.label8.Text = "Emergency Contact:";
-            // 
-            // labelBloodType
-            // 
-            this.labelBloodType.AutoSize = true;
-            this.labelBloodType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBloodType.Location = new System.Drawing.Point(98, 0);
-            this.labelBloodType.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.labelBloodType.Name = "labelBloodType";
-            this.labelBloodType.Size = new System.Drawing.Size(0, 16);
-            this.labelBloodType.TabIndex = 3;
-            // 
-            // labelAllergies
-            // 
-            this.labelAllergies.AutoSize = true;
-            this.labelAllergies.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAllergies.Location = new System.Drawing.Point(80, 0);
-            this.labelAllergies.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.labelAllergies.Name = "labelAllergies";
-            this.labelAllergies.Size = new System.Drawing.Size(0, 16);
-            this.labelAllergies.TabIndex = 4;
-            // 
-            // labelSex
-            // 
-            this.labelSex.AutoSize = true;
-            this.labelSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSex.Location = new System.Drawing.Point(50, 0);
-            this.labelSex.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.labelSex.Name = "labelSex";
-            this.labelSex.Size = new System.Drawing.Size(0, 16);
-            this.labelSex.TabIndex = 5;
-            // 
-            // labelContactOne
-            // 
-            this.labelContactOne.AutoSize = true;
-            this.labelContactOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContactOne.Location = new System.Drawing.Point(100, 0);
-            this.labelContactOne.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.labelContactOne.Name = "labelContactOne";
-            this.labelContactOne.Size = new System.Drawing.Size(0, 16);
-            this.labelContactOne.TabIndex = 6;
-            // 
-            // labelContactTwo
-            // 
-            this.labelContactTwo.AutoSize = true;
-            this.labelContactTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContactTwo.Location = new System.Drawing.Point(101, 0);
-            this.labelContactTwo.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.labelContactTwo.Name = "labelContactTwo";
-            this.labelContactTwo.Size = new System.Drawing.Size(0, 16);
-            this.labelContactTwo.TabIndex = 7;
             // 
             // labelEmergencyContact
             // 

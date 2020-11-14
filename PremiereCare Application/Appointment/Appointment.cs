@@ -122,5 +122,45 @@ namespace PremiereCare_Application.Appointment
             }
             return dt;
         }
+
+        public DataTable GetAppointment(int appID)
+        {
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                string sql = @"SELECT 
+                            a.appointment_id, 
+                            a.appointment_date, 
+                            d.fname AS 'Doctor First Name',
+                            d.lname AS 'Doctor Last Name',
+                            d.specialty AS 'Doctor Specialty',
+                            p.fname AS 'Patient First Name',
+                            p.lname AS 'Patient Last Name',
+                            p.dob AS 'Patient DOB',
+                            p.blood_type AS 'Patient Blood Type',
+                            p.allergies AS 'Patient Allergies'
+                            FROM[PremiereCareHospital].[dbo].Appointment a
+                            JOIN[PremiereCareHospital].[dbo].Doctor d
+                                ON a.doc_id = d.doc_id
+                            JOIN[PremiereCareHospital].[dbo].Patient p
+                                ON a.patient_id = p.patient_id
+                            WHERE a.appointment_id = @appID; ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@appID", appID);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                conn.Open();
+                adapter.Fill(dt);
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            } finally
+            {
+                conn.Close();
+            }
+            return dt;
+        }
     }
 }
