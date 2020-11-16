@@ -32,7 +32,7 @@ namespace PremiereCare_Application
             textBoxLname.Text = "";
             textBoxUsername.Text = "";
             textBoxPassword.Text = "";
-            textBoxDOB.Text = "";
+            csrDOB.Value = DateTime.Now;
             textBoxSalary.Text = "";
         }
 
@@ -90,7 +90,7 @@ namespace PremiereCare_Application
             if (!failedVerification)
             {
                 addCSR(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
-                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text, comboBoxSex.Text);
+                    textBoxPassword.Text, csrDOB.Value.Date.ToShortDateString(), textBoxSalary.Text, comboBoxSex.Text);
             }
         }
 
@@ -123,6 +123,11 @@ namespace PremiereCare_Application
         private void AddCSR_Resize(object sender, EventArgs e)
         {
             AlignItems();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

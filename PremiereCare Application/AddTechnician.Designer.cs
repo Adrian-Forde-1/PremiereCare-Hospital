@@ -37,7 +37,6 @@
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
             this.textBoxSalary = new System.Windows.Forms.TextBox();
-            this.textBoxDOB = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.labelSex = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.textBoxFname = new System.Windows.Forms.TextBox();
             this.labelFNameErr = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.techDOB = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // labelSalaryErr
@@ -170,20 +170,6 @@
             this.textBoxSalary.Size = new System.Drawing.Size(295, 19);
             this.textBoxSalary.TabIndex = 27;
             // 
-            // textBoxDOB
-            // 
-            this.textBoxDOB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDOB.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.textBoxDOB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDOB.ForeColor = System.Drawing.Color.Black;
-            this.textBoxDOB.Location = new System.Drawing.Point(152, 310);
-            this.textBoxDOB.Name = "textBoxDOB";
-            this.textBoxDOB.Size = new System.Drawing.Size(295, 19);
-            this.textBoxDOB.TabIndex = 26;
-            // 
             // textBoxPassword
             // 
             this.textBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -227,6 +213,8 @@
             // 
             // comboBoxSex
             // 
+            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxSex.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.comboBoxSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -323,6 +311,7 @@
             // buttonAdd
             // 
             this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
@@ -337,11 +326,21 @@
             this.buttonAdd.Click += new System.EventHandler(this.buttonAddTech_Click);
             this.buttonAdd.Resize += new System.EventHandler(this.buttonAddTech_Resize);
             // 
+            // techDOB
+            // 
+            this.techDOB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.techDOB.Location = new System.Drawing.Point(149, 311);
+            this.techDOB.Name = "techDOB";
+            this.techDOB.Size = new System.Drawing.Size(298, 20);
+            this.techDOB.TabIndex = 55;
+            // 
             // AddTechnician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 544);
+            this.Controls.Add(this.techDOB);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelLName);
             this.Controls.Add(this.labelFName);
@@ -360,7 +359,6 @@
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.textBoxSalary);
-            this.Controls.Add(this.textBoxDOB);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -384,7 +382,6 @@
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.TextBox textBoxSalary;
-        private System.Windows.Forms.TextBox textBoxDOB;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label labelSex;
@@ -396,5 +393,6 @@
         private System.Windows.Forms.TextBox textBoxFname;
         private System.Windows.Forms.Label labelFNameErr;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.DateTimePicker techDOB;
     }
 }

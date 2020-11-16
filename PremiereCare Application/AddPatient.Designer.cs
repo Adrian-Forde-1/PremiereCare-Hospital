@@ -70,7 +70,6 @@
             this.textBoxAddress.ForeColor = System.Drawing.Color.Black;
             this.textBoxAddress.Location = new System.Drawing.Point(155, 230);
             this.textBoxAddress.Name = "textBoxAddress";
-            this.textBoxAddress.PasswordChar = '*';
             this.textBoxAddress.Size = new System.Drawing.Size(295, 19);
             this.textBoxAddress.TabIndex = 59;
             // 

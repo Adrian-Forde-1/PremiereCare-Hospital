@@ -65,6 +65,12 @@
     <Compile Include="AddDrug.Designer.cs">
       <DependentUpon>AddDrug.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddLabService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLabService.Designer.cs">
+      <DependentUpon>AddLabService.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     </Compile>
     <Compile Include="AddTechnician.Designer.cs">
       <DependentUpon>AddTechnician.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AllCSR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllCSR.Designer.cs">
+      <DependentUpon>AllCSR.cs</DependentUpon>
     </Compile>
     <Compile Include="AllDoctors.cs">
       <SubType>Form</SubType>
@@ -89,12 +101,30 @@
     <Compile Include="AllDrugs.Designer.cs">
       <DependentUpon>AllDrugs.cs</DependentUpon>
     </Compile>
+    <Compile Include="AllLabServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllLabServices.Designer.cs">
+      <DependentUpon>AllLabServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AllTechnicians.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllTechnicians.Designer.cs">
+      <DependentUpon>AllTechnicians.cs</DependentUpon>
+    </Compile>
     <Compile Include="Appointment\Appointment.cs" />
     <Compile Include="CreateAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateAppointment.Designer.cs">
       <DependentUpon>CreateAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateVisitNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateVisitNote.Designer.cs">
+      <DependentUpon>CreateVisitNote.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomMessageBox.cs">
       <SubType>Form</SubType>
@@ -220,11 +250,17 @@
     <EmbeddedResource Include="AddDrug.resx">
       <DependentUpon>AddDrug.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddLabService.resx">
+      <DependentUpon>AddLabService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddPatient.resx">
       <DependentUpon>AddPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddTechnician.resx">
       <DependentUpon>AddTechnician.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllCSR.resx">
+      <DependentUpon>AllCSR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AllDoctors.resx">
       <DependentUpon>AllDoctors.cs</DependentUpon>
@@ -232,8 +268,17 @@
     <EmbeddedResource Include="AllDrugs.resx">
       <DependentUpon>AllDrugs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AllLabServices.resx">
+      <DependentUpon>AllLabServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllTechnicians.resx">
+      <DependentUpon>AllTechnicians.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateAppointment.resx">
       <DependentUpon>CreateAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateVisitNote.resx">
+      <DependentUpon>CreateVisitNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>

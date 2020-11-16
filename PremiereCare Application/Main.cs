@@ -42,9 +42,9 @@ namespace PremiereCare_Application
                 buttonDoctor.Hide();
                 buttonTechnician.Hide();
                 buttonCSR.Hide();
-                buttonEditDrug.Hide();
                 buttonAddDrug.Hide();
                 buttonAddPatient.Hide();
+                buttonAddLabService.Hide();
             } else
             {
                 buttonAppointments.Hide();
@@ -55,6 +55,7 @@ namespace PremiereCare_Application
                 buttonNotes.Hide();
                 buttonPrescriptions.Hide();
                 buttonPatient.Hide();
+                buttonLabServices.Hide();
             }
         }
 
@@ -87,6 +88,7 @@ namespace PremiereCare_Application
             panelNotesDropdown.Visible = false;
             panelAppointmentDropdown.Visible = false;
             panelPatientDropdown.Visible = false;
+            panelLabServiceDropdown.Visible = false;
         }
 
 
@@ -271,6 +273,33 @@ namespace PremiereCare_Application
         {
             CloseDropdowns();
             OpenChildForm(new AllDrugs());
+        }
+
+        private void buttonAddLabService_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddLabService());
+        }
+
+        private void buttonLabServices_Click(object sender, EventArgs e)
+        {
+            CloseDropdowns();
+            if (panelLabServiceDropdown.Visible == false) panelLabServiceDropdown.Visible = true;
+            else panelLabServiceDropdown.Visible = false;
+        }
+
+        private void buttonViewLabServices_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AllLabServices());
+        }
+
+        private void buttonViewTechnicians_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AllTechnicians())
+;        }
+
+        private void buttonViewCSR_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AllCSR());
         }
     }
 }

@@ -32,7 +32,7 @@ namespace PremiereCare_Application
             textBoxLname.Text = "";
             textBoxUsername.Text = "";
             textBoxPassword.Text = "";
-            textBoxDOB.Text = "";
+            techDOB.Value = DateTime.Now;
             textBoxSalary.Text = "";
         }
 
@@ -90,7 +90,7 @@ namespace PremiereCare_Application
             if (!failedVerification)
             {
                 addTechnician(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
-                    textBoxPassword.Text, textBoxDOB.Text, textBoxSalary.Text, comboBoxSex.Text);
+                    textBoxPassword.Text, techDOB.Value.Date.ToShortDateString(), textBoxSalary.Text, comboBoxSex.Text);
             }
         }
 

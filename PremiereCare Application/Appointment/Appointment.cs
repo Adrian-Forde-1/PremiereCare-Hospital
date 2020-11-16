@@ -77,24 +77,30 @@ namespace PremiereCare_Application.Appointment
                                               a.appointment_id, 
                                               a.appointment_date, 
                                               d.fname + ' ' + d.lname AS 'Doctor Name', 
-                                              p.fname + ' ' + p.lname AS 'Patient Name'
+                                              p.fname + ' ' + p.lname AS 'Patient Name',
+                                              s.status AS 'Status'
                                               FROM[PremiereCareHospital].[dbo].Appointment a
                                               JOIN[PremiereCareHospital].[dbo].Doctor d
                                                   ON a.doc_id = d.doc_id
                                               JOIN[PremiereCareHospital].[dbo].Patient p
                                                   ON a.patient_id = p.patient_id
+                                              JOIN[PremiereCareHospital].[dbo].Appointment_Status s
+                                                  ON a.status_id = s.status_id
                                               ORDER BY a.appointment_date; ";
 
                 else if (userRole == "Doctor") sql = @"SELECT 
                                               a.appointment_id, 
                                               a.appointment_date, 
                                               d.fname + ' ' + d.lname AS 'Doctor Name', 
-                                              p.fname + ' ' + p.lname AS 'Patient Name'
+                                              p.fname + ' ' + p.lname AS 'Patient Name',
+                                              s.status AS 'Status'
                                               FROM[PremiereCareHospital].[dbo].Appointment a
                                               JOIN[PremiereCareHospital].[dbo].Doctor d
                                                   ON a.doc_id = d.doc_id
                                               JOIN[PremiereCareHospital].[dbo].Patient p
                                                   ON a.patient_id = p.patient_id
+                                              JOIN[PremiereCareHospital].[dbo].Appointment_Status s
+                                                  ON a.status_id = s.status_id
                                               WHERE d.doc_id = @userID
                                               ORDER BY a.appointment_date; ";
 
@@ -137,14 +143,17 @@ namespace PremiereCare_Application.Appointment
                             d.specialty AS 'Doctor Specialty',
                             p.fname AS 'Patient First Name',
                             p.lname AS 'Patient Last Name',
-                            p.dob AS 'Patient DOB',
+                            p.dob AS 'Patient Date of Birth',
                             p.blood_type AS 'Patient Blood Type',
-                            p.allergies AS 'Patient Allergies'
+                            p.allergies AS 'Patient Allergies',
+                            s.status AS 'Status'
                             FROM[PremiereCareHospital].[dbo].Appointment a
                             JOIN[PremiereCareHospital].[dbo].Doctor d
                                 ON a.doc_id = d.doc_id
                             JOIN[PremiereCareHospital].[dbo].Patient p
                                 ON a.patient_id = p.patient_id
+                            JOIN[PremiereCareHospital].[dbo].Appointment_Status s
+                                ON a.status_id = s.status_id
                             WHERE a.appointment_id = @appID; ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
