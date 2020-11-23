@@ -100,5 +100,15 @@ namespace PremiereCare_Application
         {
 
         }
+
+        private void buttonRequestLabTest_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new RequestLabTest(userID, appointmentID));
+        }
+
+        private void buttonPrescribeMedication_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new PrescribeMedication(userID, appointmentID));
+        }
     }
 }

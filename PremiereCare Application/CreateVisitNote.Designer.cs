@@ -53,6 +53,7 @@
             this.buttonAdd.Text = "Create";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Visible = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // labelDate
             // 

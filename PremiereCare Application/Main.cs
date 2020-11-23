@@ -181,7 +181,7 @@ namespace PremiereCare_Application
         private void buttonRequestLabTest_Click_1(object sender, EventArgs e)
         {
             //Open Request Lab Test forms
-            OpenChildForm(new RequestLabTest());
+           // OpenChildForm(new RequestLabTest());
             CloseDropdowns();
         }
 
@@ -234,7 +234,7 @@ namespace PremiereCare_Application
             
             CloseDropdowns();
             //Open Prescribe Medication forms
-            OpenChildForm(new PrescribeMedication());
+            //OpenChildForm(new PrescribeMedication());
             
         }
 

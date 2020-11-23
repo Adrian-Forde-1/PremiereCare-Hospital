@@ -38,7 +38,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -170,7 +169,9 @@
     <Compile Include="IndividualPatient.Designer.cs">
       <DependentUpon>IndividualPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="LabTest\LabTest.cs" />
     <Compile Include="Patient\Patient.cs" />
+    <Compile Include="Prescription\PrescribeMed.cs" />
     <Compile Include="ViewNotes.cs">
       <SubType>Form</SubType>
     </Compile>

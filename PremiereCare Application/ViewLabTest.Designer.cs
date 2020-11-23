@@ -28,229 +28,115 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblViewLabTest = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblLabTestNo = new System.Windows.Forms.Label();
-            this.txtBoxLabTestNo = new System.Windows.Forms.TextBox();
-            this.lblRequestedBy = new System.Windows.Forms.Label();
-            this.txtBoxRequestedBy = new System.Windows.Forms.TextBox();
-            this.lblAppointment = new System.Windows.Forms.Label();
-            this.txtBoxAppointment = new System.Windows.Forms.TextBox();
-            this.lblService = new System.Windows.Forms.Label();
-            this.cmbBoxService = new System.Windows.Forms.ComboBox();
-            this.buttonLoadAll = new System.Windows.Forms.Button();
-            this.buttonClear = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxResults = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgvViewLabTest = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViewLabTest)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblViewLabTest
+            // tableLayoutPanel1
             // 
-            this.lblViewLabTest.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblViewLabTest.AutoSize = true;
-            this.lblViewLabTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.lblViewLabTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.lblViewLabTest.Location = new System.Drawing.Point(210, 14);
-            this.lblViewLabTest.Name = "lblViewLabTest";
-            this.lblViewLabTest.Size = new System.Drawing.Size(212, 33);
-            this.lblViewLabTest.TabIndex = 11;
-            this.lblViewLabTest.Text = "View Lab Test";
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dgvViewLabTest, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 544);
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // dataGridView1
+            // flowLayoutPanel1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(284, 113);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(354, 297);
-            this.dataGridView1.TabIndex = 31;
-            // 
-            // lblLabTestNo
-            // 
-            this.lblLabTestNo.AutoSize = true;
-            this.lblLabTestNo.Location = new System.Drawing.Point(18, 69);
-            this.lblLabTestNo.Name = "lblLabTestNo";
-            this.lblLabTestNo.Size = new System.Drawing.Size(66, 13);
-            this.lblLabTestNo.TabIndex = 39;
-            this.lblLabTestNo.Text = "Lab Test No";
-            // 
-            // txtBoxLabTestNo
-            // 
-            this.txtBoxLabTestNo.Location = new System.Drawing.Point(21, 85);
-            this.txtBoxLabTestNo.Name = "txtBoxLabTestNo";
-            this.txtBoxLabTestNo.Size = new System.Drawing.Size(127, 20);
-            this.txtBoxLabTestNo.TabIndex = 38;
-            // 
-            // lblRequestedBy
-            // 
-            this.lblRequestedBy.AutoSize = true;
-            this.lblRequestedBy.Location = new System.Drawing.Point(18, 168);
-            this.lblRequestedBy.Name = "lblRequestedBy";
-            this.lblRequestedBy.Size = new System.Drawing.Size(74, 13);
-            this.lblRequestedBy.TabIndex = 37;
-            this.lblRequestedBy.Text = "Requested By";
-            // 
-            // txtBoxRequestedBy
-            // 
-            this.txtBoxRequestedBy.Location = new System.Drawing.Point(21, 184);
-            this.txtBoxRequestedBy.Name = "txtBoxRequestedBy";
-            this.txtBoxRequestedBy.Size = new System.Drawing.Size(127, 20);
-            this.txtBoxRequestedBy.TabIndex = 36;
-            // 
-            // lblAppointment
-            // 
-            this.lblAppointment.AutoSize = true;
-            this.lblAppointment.Location = new System.Drawing.Point(18, 119);
-            this.lblAppointment.Name = "lblAppointment";
-            this.lblAppointment.Size = new System.Drawing.Size(66, 13);
-            this.lblAppointment.TabIndex = 35;
-            this.lblAppointment.Text = "Appointment";
-            // 
-            // txtBoxAppointment
-            // 
-            this.txtBoxAppointment.Location = new System.Drawing.Point(21, 135);
-            this.txtBoxAppointment.Name = "txtBoxAppointment";
-            this.txtBoxAppointment.Size = new System.Drawing.Size(127, 20);
-            this.txtBoxAppointment.TabIndex = 34;
-            // 
-            // lblService
-            // 
-            this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(18, 220);
-            this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(43, 13);
-            this.lblService.TabIndex = 33;
-            this.lblService.Text = "Service";
-            // 
-            // cmbBoxService
-            // 
-            this.cmbBoxService.FormattingEnabled = true;
-            this.cmbBoxService.Location = new System.Drawing.Point(21, 234);
-            this.cmbBoxService.Name = "cmbBoxService";
-            this.cmbBoxService.Size = new System.Drawing.Size(127, 21);
-            this.cmbBoxService.TabIndex = 32;
-            // 
-            // buttonLoadAll
-            // 
-            this.buttonLoadAll.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonLoadAll.AutoSize = true;
-            this.buttonLoadAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonLoadAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonLoadAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLoadAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonLoadAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.buttonLoadAll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonLoadAll.Location = new System.Drawing.Point(205, 455);
-            this.buttonLoadAll.MaximumSize = new System.Drawing.Size(125, 38);
-            this.buttonLoadAll.Name = "buttonLoadAll";
-            this.buttonLoadAll.Size = new System.Drawing.Size(75, 26);
-            this.buttonLoadAll.TabIndex = 40;
-            this.buttonLoadAll.Text = "Load All";
-            this.buttonLoadAll.UseVisualStyleBackColor = false;
-            // 
-            // buttonClear
-            // 
-            this.buttonClear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonClear.AutoSize = true;
-            this.buttonClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonClear.BackColor = System.Drawing.Color.DarkOrange;
-            this.buttonClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.buttonClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonClear.Location = new System.Drawing.Point(298, 455);
-            this.buttonClear.MaximumSize = new System.Drawing.Size(125, 38);
-            this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(55, 26);
-            this.buttonClear.TabIndex = 41;
-            this.buttonClear.Text = "Clear";
-            this.buttonClear.UseVisualStyleBackColor = false;
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 36);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 268);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Results";
+            this.label1.Size = new System.Drawing.Size(183, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ViewLabTest";
             // 
-            // textBoxResults
+            // tableLayoutPanel2
             // 
-            this.textBoxResults.Location = new System.Drawing.Point(21, 284);
-            this.textBoxResults.Multiline = true;
-            this.textBoxResults.Name = "textBoxResults";
-            this.textBoxResults.Size = new System.Drawing.Size(239, 126);
-            this.textBoxResults.TabIndex = 43;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.87206F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.12794F));
+            this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 45);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(594, 34);
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // label2
+            // textBox1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(284, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Search";
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(314, 20);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBoxSearch
+            // dgvViewLabTest
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(339, 85);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(136, 20);
-            this.textBoxSearch.TabIndex = 45;
+            this.dgvViewLabTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvViewLabTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvViewLabTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvViewLabTest.Location = new System.Drawing.Point(3, 85);
+            this.dgvViewLabTest.Name = "dgvViewLabTest";
+            this.dgvViewLabTest.Size = new System.Drawing.Size(594, 456);
+            this.dgvViewLabTest.TabIndex = 2;
             // 
             // ViewLabTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 506);
+            this.ClientSize = new System.Drawing.Size(600, 544);
             this.ControlBox = false;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxResults);
-            this.Controls.Add(this.buttonClear);
-            this.Controls.Add(this.buttonLoadAll);
-            this.Controls.Add(this.lblLabTestNo);
-            this.Controls.Add(this.txtBoxLabTestNo);
-            this.Controls.Add(this.lblRequestedBy);
-            this.Controls.Add(this.txtBoxRequestedBy);
-            this.Controls.Add(this.lblAppointment);
-            this.Controls.Add(this.txtBoxAppointment);
-            this.Controls.Add(this.lblService);
-            this.Controls.Add(this.cmbBoxService);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.lblViewLabTest);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewLabTest";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.ViewLabTest_Load);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvViewLabTest)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblViewLabTest;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lblLabTestNo;
-        private System.Windows.Forms.TextBox txtBoxLabTestNo;
-        private System.Windows.Forms.Label lblRequestedBy;
-        private System.Windows.Forms.TextBox txtBoxRequestedBy;
-        private System.Windows.Forms.Label lblAppointment;
-        private System.Windows.Forms.TextBox txtBoxAppointment;
-        private System.Windows.Forms.Label lblService;
-        private System.Windows.Forms.ComboBox cmbBoxService;
-        private System.Windows.Forms.Button buttonLoadAll;
-        private System.Windows.Forms.Button buttonClear;
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxResults;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dgvViewLabTest;
     }
 }
