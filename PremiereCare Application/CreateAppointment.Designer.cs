@@ -124,6 +124,8 @@
             // 
             // appointmentDatePicker
             // 
+            this.appointmentDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.appointmentDatePicker.Location = new System.Drawing.Point(151, 148);
             this.appointmentDatePicker.Name = "appointmentDatePicker";
             this.appointmentDatePicker.Size = new System.Drawing.Size(294, 20);
@@ -131,6 +133,8 @@
             // 
             // comboBoxDoctors
             // 
+            this.comboBoxDoctors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxDoctors.FormattingEnabled = true;
             this.comboBoxDoctors.Location = new System.Drawing.Point(150, 83);
             this.comboBoxDoctors.Name = "comboBoxDoctors";
@@ -141,6 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 544);
             this.Controls.Add(this.comboBoxDoctors);
             this.Controls.Add(this.appointmentDatePicker);
