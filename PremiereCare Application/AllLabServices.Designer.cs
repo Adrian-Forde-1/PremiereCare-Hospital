@@ -33,11 +33,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvDrugs = new System.Windows.Forms.DataGridView();
+            this.dgvLabServices = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDrugs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLabServices)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -61,6 +61,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(314, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -68,7 +69,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dgvDrugs, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dgvLabServices, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -98,15 +99,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "All Lab Services";
             // 
-            // dgvDrugs
+            // dgvLabServices
             // 
-            this.dgvDrugs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDrugs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDrugs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDrugs.Location = new System.Drawing.Point(3, 85);
-            this.dgvDrugs.Name = "dgvDrugs";
-            this.dgvDrugs.Size = new System.Drawing.Size(594, 456);
-            this.dgvDrugs.TabIndex = 2;
+            this.dgvLabServices.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLabServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLabServices.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLabServices.Location = new System.Drawing.Point(3, 85);
+            this.dgvLabServices.Name = "dgvLabServices";
+            this.dgvLabServices.Size = new System.Drawing.Size(594, 456);
+            this.dgvLabServices.TabIndex = 2;
+            this.dgvLabServices.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvLabServices_RowHeaderMouseClick);
             // 
             // AllLabServices
             // 
@@ -117,12 +119,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AllLabServices";
             this.Text = "AllLabServices";
+            this.Load += new System.EventHandler(this.AllLabServices_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDrugs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLabServices)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -134,6 +137,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvDrugs;
+        private System.Windows.Forms.DataGridView dgvLabServices;
     }
 }

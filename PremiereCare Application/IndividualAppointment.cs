@@ -12,7 +12,7 @@ namespace PremiereCare_Application
 {
     public partial class IndividualAppointment : Form
     {
-
+        //appointment.patientId = patientID;
         private string userRole;
         private int userID;
         private int appointmentID;
@@ -25,7 +25,7 @@ namespace PremiereCare_Application
             userID = uID;
             panelContainer = panel;
             appointmentID = appID;
-
+           
             buttonComplete.Hide();
 
             if (userRole != "CSR")
@@ -40,6 +40,7 @@ namespace PremiereCare_Application
                 buttonPrescribeMedication.Hide();
             }
         }
+
         private void OpenChildForm(Form childForm)
         {
             this.Close();

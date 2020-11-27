@@ -32,22 +32,27 @@ namespace PremiereCare_Application
             patientID = pID;
         }
 
+        //Method to align items
         private void AlignItems()
         {
             buttonCreate.Location = new Point((this.ClientSize.Width - buttonCreate.Width) / 2, this.ClientSize.Height - 50);
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
+
+        //Method to clear data entry points
+        private void ClearFields()
+        {
+            comboBoxDoctors.Text = "";
+            appointmentDatePicker.Value = DateTime.Now;
+        }
+
+        //Method to remove error labels
         private void removeErrors()
         {
             labelDoctorErr.Visible = false;
             labelDateErr.Visible = false;
         }
 
-        private void ClearFields()
-        {
-            comboBoxDoctors.Text = "";
-            appointmentDatePicker.Value = DateTime.Now;
-        }
 
         private void PopulateComboBox()
         {

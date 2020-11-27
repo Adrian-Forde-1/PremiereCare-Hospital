@@ -12,74 +12,116 @@ namespace PremiereCare_Application.LabTest
 {
     class LabTest
     {
-        /*public string docID { get; set; }
+        public string docID { get; set; }
         public string techID { get; set; }
         public string appointmentID { get; set; }
         public string results { get; set; }
         public string status { get; set; }
-        */
+        public string serviceID { get; set; }
+        public string testID { get; set; }
 
         SqlCommand cmd_;
         SqlConnection conn_;
         SqlDataAdapter dtadapter_;
         SqlDataReader dtread_;
         DataTable dt_;
-        DataSet dts_;
+        //DataSet dts_;
 
         public string GetMessage { get; set; }
 
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
-             
-                
-        public string insertData(string query, LabTest labtest, Form form)
+
+        public bool TestRequest( LabTest labtest, Form form)
         {
-            string ret = "";
-            string allquerys = query.ToLower();
+            bool isSuccess = false;
             //Step 1: Create database connection string query,
             conn_ = new SqlConnection(myconnstring);
 
             try
             {
-                
-                if (allquerys.ToLower().Contains("insert into"))
-                {
-                    ret = GetMessage = ("Insert Successfully");
-                }
-                else if(allquerys.Contains("Delete from"))
-                {
-                    ret = GetMessage = ("Deleted Successfully");
-                }
-                else if (allquerys.Contains("Update into") && allquerys.Contains("set")) 
-                {
-                    ret = GetMessage = ("Update Successfully");
-                }
-                
-                cmd_ = new SqlCommand(allquerys, conn_);
+                string qry = @"INSERT INTO  [PremiereCareHospital].[dbo].Lab_Test (test_id, doc_id, appointment_id) 
+                            VALUES(NEXT VALUE FOR lab_test_seq, @doctor, @appointment)";
+
+                cmd_ = new SqlCommand(qry, conn_);
+                cmd_.Parameters.AddWithValue("@doctor", labtest.docID);
+                cmd_.Parameters.AddWithValue("@appointment", labtest.appointmentID);
+
                 conn_.Open();
-                cmd_.ExecuteNonQuery();
+                int rows = cmd_.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                ret = GetMessage = "Faild to execute" + query + "\n reasion : " + ex.Message;
-
             }
             finally
             {
                 conn_.Close(); 
             }
-            return ret; 
+            return isSuccess;
+        }
+
+        public bool Service(List<string> ids, LabTest labtest, Form form)
+        {
+            bool isSuccess = false;
+            //Step 1: Create database connection string query,
+            conn_ = new SqlConnection(myconnstring);
+
+            try
+            {
+                foreach (string item in ids)
+                {
+                    serviceID = item;
+                    string qry = @"INSERT INTO [PremiereCareHospital].[dbo].Service (service_id, test_id) 
+                            VALUES(@service_id, @test_id)";
+                   
+                    cmd_ = new SqlCommand(qry, conn_);
+                    cmd_.Parameters.AddWithValue("@service_id", labtest.serviceID);
+                    cmd_.Parameters.AddWithValue("@test_id", labtest.testID);
+
+                    //cmd_.ExecuteNonQuery();
+                    conn_.Open();
+                    int rows = cmd_.ExecuteNonQuery();
+
+                    if (rows > 0)
+                    {
+                        isSuccess = true;
+                    }
+                    else
+                    {
+                        isSuccess = false;
+                    }
+                }
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn_.Close(); 
+            }
+            return isSuccess; 
                       
             
         }
 
-        public string getSingleValueArrayIndex( out List<string> columndata, int index)
+        public void getSingleValueArrayIndex( out List<string> columndata, int index)
         {
             List<string> data = new List<string>();
-            string ret;
-
+           
             //Step 1: Create database connection string query,
             conn_ = new SqlConnection(myconnstring);
 
@@ -103,31 +145,25 @@ namespace PremiereCare_Application.LabTest
                     data.Add(dtread_[index].ToString());
                 }
 
-                ret = GetMessage = "Operation Successfull! Values successfully got from getSingleValueArrayIndex() function";
-
-
             }
             catch (Exception ex)
             {
-                ret = "Error in Labtest -> getSingleValueArrayIndex() Reason: " + ex.Message;
-                GetMessage = "Error in Labtest getSingleValueArrayIndex() for dtread_ \n" + ex.Message;
+                MessageBox.Show(ex.ToString());
                 data.Clear();
             }
             finally
             {
                 conn_.Close();
             }
-
             columndata = data;
-            return ret;
+           
         }
 
-        public string getSingleColumnValueByIndex(string query, out string columndata, int index)
+        public void getSingleColumnValueByIndex(string query, out string columndata, int index)
         {
-            string ret, val = null;
+            string val = null;
             //Step 1: Create database connection string query,
             conn_ = new SqlConnection(myconnstring);
-
 
             try
             {
@@ -148,36 +184,30 @@ namespace PremiereCare_Application.LabTest
                     val = dtread_[index].ToString();
                 }
 
-                ret = "Operation Successfull!";
-                GetMessage = "Values successfully got from getSingleValueArrayIndex() function";
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                ret = GetMessage = "Faild to execute!!! " + query + " \n reasion : " + ex.Message;
-
             }
             finally
             {
                 conn_.Close();
             }
-
             columndata = val;
-            return ret;
         }
 
-        public string getTest_ID(string query, out string searchData)
+        public string getTest_ID(string appointmentID)
         {
-            string ret = "", val = null;
+            string  val = null;
             //Step 1: Create database connection string query,
             conn_ = new SqlConnection(myconnstring);
 
             try
             {
-
                 //Step 2: Writing SQL Query
-                string qry = query;
+               string qry = @"SELECT test_id FROM [PremiereCareHospital].[dbo].Lab_Test 
+                                WHERE appointment_id='" + appointmentID + "' ";
+
 
                 //Creating cmd using sql and conn
                 cmd_ = new SqlCommand(qry, conn_);
@@ -194,24 +224,17 @@ namespace PremiereCare_Application.LabTest
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                ret = GetMessage = "Faild to execute" + query + "\n reasion : " + ex.Message;
-                
             }
             finally 
             {
                 conn_.Close();
             }
-            searchData = val;
-            return ret;
+            
+            return val;
         }
-
-       
-
-        
 
         public DataTable GetAllLabTest(string query, out DataTable searchData)
         {
-            string ret = "";
 
             // Step 1: Create database connection string query,
              conn_ = new SqlConnection(myconnstring);
@@ -234,9 +257,7 @@ namespace PremiereCare_Application.LabTest
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                ret = GetMessage = "Faild to execute getPrescription_ID!!! \n reasion : " + ex.Message;
             }
-        
             finally
             {
                 //Close Connection

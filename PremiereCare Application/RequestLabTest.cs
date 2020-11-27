@@ -12,7 +12,8 @@ namespace PremiereCare_Application
 {
     public partial class RequestLabTest : Form
     {
-        LabTest.LabTest labtest = new LabTest.LabTest(); 
+        LabTest.LabTest labtest = new LabTest.LabTest();
+        public string GetMessage { get; set; }
 
         //variables
         private int docID;
@@ -65,11 +66,18 @@ namespace PremiereCare_Application
             loadServices();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
-            
-
         }
 
-       
+        //Loads services from Lab_Service table into the checkedListBoxServices
+        private List<string> loadServices()
+        {
+            labtest.getSingleValueArrayIndex(out List<string> lst, 0);
+            foreach (var item in lst)
+            {
+                checkedListBoxServices.Items.Add(item);
+            }
+            return lst;
+        }
 
         //Method to execute actions on clicking of button
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -89,34 +97,22 @@ namespace PremiereCare_Application
             {
 
                 addLabTest( docID.ToString(), appointmentID.ToString());
-                addData(getTestId(appointmentID.ToString()), getServiceId(checkedListBoxServices));
+                addService(getTestId(appointmentID.ToString()), getServiceId(checkedListBoxServices));
                 
             }
         }
 
-        //Loads services from Lab_Service table into the checkedListBoxServices
-        private List<string> loadServices()
-        {
-           
-            List<string> lst = new List<string>();
-            labtest.getSingleValueArrayIndex( out lst, 0);
-            foreach (var item in lst)
-            {
-                checkedListBoxServices.Items.Add(item);
-            }
-            return lst;
-        }
-        
+                
         //Gets service_id for any item that may be checked/selected in check List Box and returns said Service_id in an array
         private List<string> getServiceId(CheckedListBox chk)
         {
-            string serviceId;
+           
             List<string> lst = new List<string>();
 
             foreach (var item in chk.CheckedItems)
             {
-                string qry = "SELECT service_id FROM [PremiereCareHospital].[dbo].Lab_Services WHERE service ='" + item + "' ";
-                labtest.getSingleColumnValueByIndex(qry, out serviceId, 0);
+                string qry = "SELECT service_id FROM [PremiereCareHospital].[dbo].Lab_Services WHERE service LIKE '" + item + "' ";
+                labtest.getSingleColumnValueByIndex(qry, out string serviceId, 0);
                 lst.Add(serviceId);
             }
             return lst;
@@ -124,40 +120,45 @@ namespace PremiereCare_Application
         }
 
         //Gets the test_id associated with the appointment id in question and returns it
-        private string getTestId(String appointmentID)
+        private string getTestId(string appointmentID)
         {
-            string test_ID;
-            string qry = "SELECT test_id FROM [PremiereCareHospital].[dbo].Lab_Test WHERE appointment_id='" + appointmentID + "' ";
-            labtest.getTest_ID(qry, out test_ID);
-            return test_ID;
+
+            string value = labtest.getTest_ID(appointmentID);
+            return value;
         }
 
         //Inserts test_id and the selected Lab_Services service_id into the Service Table 
-        private string addData( string test_id, List<string> ids)
+        private void addService( string test_id, List<string> ids)
         {
-            
-            foreach (var item in ids)
-            {
+            labtest.testID = test_id;
                 
-                string qry = @"INSERT INTO [PremiereCareHospital].[dbo].Service (service_id, test_id) 
-                            VALUES('" + item + "', '" + test_id + "')";
-                labtest.insertData(qry, labtest, this);
+            bool success = labtest.Service(ids, labtest, this);
 
-                
-            }
-           ClearField();
-            return "";
+            if (success == true)
+            {
+                CustomMessageBox cm = new CustomMessageBox("Successfully Added Service", this);
+                removeErrors();
+                ClearField();
+                cm.Show();
+            }         
         }
 
         //Inserts doctor_id and the appointment_id into theLab_Test Table 
         private void addLabTest( String doctor, String appointment)
         {
-            string qry = @"INSERT INTO  [PremiereCareHospital].[dbo].Lab_Test (NEXT VALUE FOR lab_test_seq, doc_id, appointment_id) 
-                            VALUES('" + doctor + "', '" + appointment + "')";
-            labtest.insertData(qry, labtest, this);
-
-            ClearField();
+            labtest.docID = doctor;
+            labtest.appointmentID = appointment;
             
+            bool success = labtest.TestRequest(labtest, this);
+
+            if (success == true)
+            {
+                CustomMessageBox cm = new CustomMessageBox("Successfully Requested Lab Test", this);
+                removeErrors();
+                ClearField();
+                cm.Show();
+            }
+
         }
 
         private void checkedListBoxServices_SelectedIndexChanged(object sender, EventArgs e)

@@ -15,75 +15,115 @@ namespace PremiereCare_Application.Prescription
         public string appointment_id { get; set; }
         public string drug_id { get; set; }
         public string dosage { get; set; }
+        public string doctor_id { get; set; }
         public string patient_id { get; set; }
         public string prescription_id { get; set; }
-        
+
+        //Private Attributes
+        static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
         SqlCommand cmd_;
         SqlConnection conn_;
         SqlDataAdapter dtadapter_;
         SqlDataReader dtread_;
-        DataTable dt_;
-        DataSet dts_;
-        //Private Attributes
-       static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
-
-        public string GetMessage { get; set; }
-
-        public string insertData(string query, PrescribeMed premed, Form form)
+        //DataTable dt_;
+        //DataSet dts_;
+               
+        public bool Prescription( PrescribeMed premed, Form form)//string query,
         {
-            
-
-            string ret = "";
-            string allquerys = query.ToLower();
+            bool isSuccess = false;
             //Step 1: Create database connection string query,
             conn_ = new SqlConnection(myconnstring);
-            
 
             try
             {
-                if (allquerys.ToLower().Contains("insert into"))
+                string qry = @"INSERT INTO  [PremiereCareHospital].[dbo].Prescription ( prescription_id, doc_id, appointment_id, patient_id) 
+                            VALUES(NEXT VALUE FOR prescription_seq, @doctor, @appointment, @patient)";
+
+                cmd_ = new SqlCommand(qry, conn_);//allquerys
+                cmd_.Parameters.AddWithValue("@doctor", premed.doctor_id);
+                cmd_.Parameters.AddWithValue("@appointment", premed.appointment_id);
+                cmd_.Parameters.AddWithValue("@patient", premed.patient_id);
+
+                conn_.Open();
+                int rows = cmd_.ExecuteNonQuery();
+
+                if (rows > 0)
                 {
-                    ret = GetMessage = ("Insert Successfully");
+                    isSuccess = true;
                 }
-                else if (allquerys.Contains("Delete from"))
+                else
                 {
-                    ret = GetMessage = ("Deleted Successfully");
-                }
-                else if (allquerys.Contains("Update into") && allquerys.Contains("set"))
-                {
-                    ret = GetMessage = ("Update Successfully");
+                    isSuccess = false;
                 }
 
-                cmd_= new SqlCommand(allquerys, conn_);
-                conn_.Open();
-                cmd_.ExecuteNonQuery();
-                                
             }
             catch (Exception ex)
             {
-                MessageBox.Show( ex.ToString());
-                ret= GetMessage = "Faild to execute" + query + "\n reasion : " + ex.Message;
+                MessageBox.Show(ex.ToString());
+               // CustomMessageBox cm = new CustomMessageBox("Failed to add Prescription", form);
+               // cm.Show();
+            }
+            finally
+            {
+                conn_.Close(); ;
+            }
+            return isSuccess;
+        }
 
+        public bool PrescribedDrugs(List<string> ids, PrescribeMed premed, Form form)//string query,
+        {
+            bool isSuccess = false;
+            //Step 1: Create database connection string query,
+            conn_ = new SqlConnection(myconnstring);
+            
+            try
+            {
+
+                foreach (var item in ids)
+                {
+                    drug_id = item;
+                    string qry = @"INSERT INTO [PremiereCareHospital].[dbo].Prescribed_Drugs (prescription_id, drug_id, dosage) 
+                                 VALUES( @prescriptionID, @drugID, @dosage)";
+
+                    cmd_ = new SqlCommand(qry, conn_);
+                    cmd_.Parameters.AddWithValue("@prescriptionID", premed.prescription_id);
+                    cmd_.Parameters.AddWithValue("@drugID", premed.drug_id);
+                    cmd_.Parameters.AddWithValue("@dosage", premed.dosage);
+                    
+                                        
+                }
+                conn_.Open();
+                int rows = cmd_.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {   
+               MessageBox.Show(ex.ToString());
+                //CustomMessageBox cm = new CustomMessageBox("Failed to add Prescribed Drugs", form);
+                //cm.Show();
             }
             finally 
             {
                 conn_.Close(); ; 
             }
-            return ret;
-
-
+            return isSuccess;
         }
 
-        public string getSingleValueArrayIndex( out List<string> columndata, int index)
+        public void getSingleValueArrayIndex( out List<string> columndata, int index)
         {
-            string ret = "";
             List<string> data = new List<string>();
             
             //Step 1: Create database connection string query,
              conn_ = new SqlConnection(myconnstring);
             
-
             try
             {
                 //Step 2: Writing SQL Query
@@ -96,21 +136,17 @@ namespace PremiereCare_Application.Prescription
                 dtadapter_ = new SqlDataAdapter(cmd_);
                
                 conn_.Open();
-                
                 dtread_ = cmd_.ExecuteReader();
                 
                 while (dtread_.Read())
                 {
                     data.Add(dtread_[index].ToString());
                 }
-
-                ret = GetMessage = "Operation Successfull! Values successfully got from getSingleValueArrayIndex() function";
-
+                                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                ret = GetMessage = "Faild to execute select Drug!!! \n reasion : " + ex.Message;
                 data.Clear();
             }
             finally
@@ -118,15 +154,13 @@ namespace PremiereCare_Application.Prescription
                 //Close Connection
                 conn_.Close();
             }
-
             columndata = data;
-            return ret;
+            //return ret;
         }
 
-
-        public string getSingleColumnValueByIndex(string query, out string columndata, int index)
+        public void getSingleColumnValueByIndex(string query, out string columndata, int index)
         {
-            string ret = "", val = null;
+            string  val = null;
             //Step 1: Create database connection string query,
             conn_ = new SqlConnection(myconnstring);
             
@@ -149,15 +183,10 @@ namespace PremiereCare_Application.Prescription
                     val = dtread_[index].ToString();
                 }
 
-                ret = "Operation Successfull!";
-                GetMessage = "Values successfully got from getSingleValueArrayIndex() function";
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                ret = GetMessage = "Faild to execute!!! "+ query +" \n reasion : " + ex.Message;
             }
             finally
             {
@@ -165,21 +194,22 @@ namespace PremiereCare_Application.Prescription
             }
 
             columndata = val;
-            return ret;
+            //return ret;
 
         }
 
-        public string getPrescription_ID(string query, out string searchData)
+        public string getPatient_ID(string appointmentID)
         {
-            string  ret ="", val = null;
+            string val = null;
             //Step 1: Create database connection string query,
             conn_ = new SqlConnection(myconnstring);
 
             try
             {
                 //Step 2: Writing SQL Query
-                string qry = query;
-
+                string qry = @"SELECT patient_id FROM [PremiereCareHospital].[dbo].Appointment 
+                            WHERE appointment_id Like '" + appointmentID + "' ";
+                
                 //Creating cmd using sql and conn
                 cmd_ = new SqlCommand(qry, conn_);
 
@@ -188,21 +218,54 @@ namespace PremiereCare_Application.Prescription
                 conn_.Open();
 
                 dtread_ = cmd_.ExecuteReader();
-                                               
-                    val = dtread_.ToString();
-                
+                val = dtread_.ToString();
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show( ex.ToString() );
-                ret = GetMessage = "Faild to execute getPrescription_ID!!! \n reasion : " + ex.Message;
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
                 conn_.Close();
             }
-            searchData = val;
-            return ret;
+
+            return val;
+        }
+
+        public string getPrescription_ID(string appointmentID)
+        {
+            string val = null;
+            //Step 1: Create database connection string query,
+            conn_ = new SqlConnection(myconnstring);
+
+            try
+            {
+                //Step 2: Writing SQL Query
+                string qry =  @"SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription 
+                                WHERE appointment_id Like '" + appointmentID + "' ";
+                
+                //Creating cmd using sql and conn
+                cmd_ = new SqlCommand(qry, conn_);
+
+                //Creating SQL DataAdapter using cmd
+                dtadapter_ = new SqlDataAdapter(cmd_);
+                conn_.Open();
+
+                dtread_ = cmd_.ExecuteReader();
+                val = dtread_.ToString();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show( ex.ToString() ); 
+            }
+            finally
+            {
+                conn_.Close();
+            }
+            
+            return val;
         }
 
        

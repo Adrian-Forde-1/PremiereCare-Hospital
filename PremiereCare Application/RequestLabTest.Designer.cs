@@ -43,7 +43,7 @@
             this.labelMain.AutoSize = true;
             this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
             this.labelMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.labelMain.Location = new System.Drawing.Point(202, 9);
+            this.labelMain.Location = new System.Drawing.Point(171, 9);
             this.labelMain.Name = "labelMain";
             this.labelMain.Size = new System.Drawing.Size(260, 33);
             this.labelMain.TabIndex = 12;
@@ -55,17 +55,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkedListBoxServices.CheckOnClick = true;
             this.checkedListBoxServices.FormattingEnabled = true;
-            this.checkedListBoxServices.Location = new System.Drawing.Point(263, 101);
+            this.checkedListBoxServices.Location = new System.Drawing.Point(235, 101);
             this.checkedListBoxServices.Name = "checkedListBoxServices";
             this.checkedListBoxServices.ScrollAlwaysVisible = true;
-            this.checkedListBoxServices.Size = new System.Drawing.Size(155, 289);
+            this.checkedListBoxServices.Size = new System.Drawing.Size(133, 289);
             this.checkedListBoxServices.TabIndex = 24;
             this.checkedListBoxServices.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxServices_SelectedIndexChanged);
             // 
             // labelServices
             // 
             this.labelServices.AutoSize = true;
-            this.labelServices.Location = new System.Drawing.Point(260, 85);
+            this.labelServices.Location = new System.Drawing.Point(274, 85);
             this.labelServices.Name = "labelServices";
             this.labelServices.Size = new System.Drawing.Size(55, 13);
             this.labelServices.TabIndex = 25;
@@ -75,7 +75,7 @@
             // 
             this.labelServiceErr.AutoSize = true;
             this.labelServiceErr.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelServiceErr.Location = new System.Drawing.Point(260, 404);
+            this.labelServiceErr.Location = new System.Drawing.Point(224, 404);
             this.labelServiceErr.Name = "labelServiceErr";
             this.labelServiceErr.Size = new System.Drawing.Size(155, 13);
             this.labelServiceErr.TabIndex = 26;
@@ -91,7 +91,7 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonAdd.Location = new System.Drawing.Point(291, 436);
+            this.buttonAdd.Location = new System.Drawing.Point(250, 486);
             this.buttonAdd.MaximumSize = new System.Drawing.Size(125, 38);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(80, 26);
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 506);
+            this.ClientSize = new System.Drawing.Size(600, 544);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelServiceErr);
             this.Controls.Add(this.labelServices);

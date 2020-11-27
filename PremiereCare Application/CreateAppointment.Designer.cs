@@ -44,7 +44,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDoctor.AutoSize = true;
-            this.labelDoctor.Location = new System.Drawing.Point(147, 69);
+            this.labelDoctor.Location = new System.Drawing.Point(147, 75);
             this.labelDoctor.Name = "labelDoctor";
             this.labelDoctor.Size = new System.Drawing.Size(46, 13);
             this.labelDoctor.TabIndex = 52;
@@ -58,7 +58,7 @@
             this.labelDoctorErr.AutoSize = true;
             this.labelDoctorErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDoctorErr.ForeColor = System.Drawing.Color.Red;
-            this.labelDoctorErr.Location = new System.Drawing.Point(149, 107);
+            this.labelDoctorErr.Location = new System.Drawing.Point(149, 113);
             this.labelDoctorErr.Name = "labelDoctorErr";
             this.labelDoctorErr.Size = new System.Drawing.Size(95, 12);
             this.labelDoctorErr.TabIndex = 62;
@@ -72,7 +72,7 @@
             this.labelDateErr.AutoSize = true;
             this.labelDateErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDateErr.ForeColor = System.Drawing.Color.Red;
-            this.labelDateErr.Location = new System.Drawing.Point(148, 170);
+            this.labelDateErr.Location = new System.Drawing.Point(148, 181);
             this.labelDateErr.Name = "labelDateErr";
             this.labelDateErr.Size = new System.Drawing.Size(95, 12);
             this.labelDateErr.TabIndex = 64;
@@ -99,7 +99,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(148, 132);
+            this.labelDate.Location = new System.Drawing.Point(148, 143);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(37, 13);
             this.labelDate.TabIndex = 54;
@@ -107,15 +107,17 @@
             // 
             // buttonCreate
             // 
+            this.buttonCreate.AutoSize = true;
+            this.buttonCreate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
             this.buttonCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCreate.FlatAppearance.BorderSize = 0;
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonCreate.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonCreate.Location = new System.Drawing.Point(250, 495);
+            this.buttonCreate.Location = new System.Drawing.Point(250, 486);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(100, 38);
+            this.buttonCreate.Size = new System.Drawing.Size(64, 26);
             this.buttonCreate.TabIndex = 70;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = false;
@@ -126,7 +128,7 @@
             // 
             this.appointmentDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.appointmentDatePicker.Location = new System.Drawing.Point(151, 148);
+            this.appointmentDatePicker.Location = new System.Drawing.Point(151, 159);
             this.appointmentDatePicker.Name = "appointmentDatePicker";
             this.appointmentDatePicker.Size = new System.Drawing.Size(294, 20);
             this.appointmentDatePicker.TabIndex = 71;
@@ -136,7 +138,7 @@
             this.comboBoxDoctors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxDoctors.FormattingEnabled = true;
-            this.comboBoxDoctors.Location = new System.Drawing.Point(150, 83);
+            this.comboBoxDoctors.Location = new System.Drawing.Point(150, 89);
             this.comboBoxDoctors.Name = "comboBoxDoctors";
             this.comboBoxDoctors.Size = new System.Drawing.Size(295, 21);
             this.comboBoxDoctors.TabIndex = 72;

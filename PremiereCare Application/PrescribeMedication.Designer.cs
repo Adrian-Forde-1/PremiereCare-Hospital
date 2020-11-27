@@ -41,7 +41,7 @@
             // lblDrug
             // 
             this.lblDrug.AutoSize = true;
-            this.lblDrug.Location = new System.Drawing.Point(298, 93);
+            this.lblDrug.Location = new System.Drawing.Point(299, 93);
             this.lblDrug.Name = "lblDrug";
             this.lblDrug.Size = new System.Drawing.Size(30, 13);
             this.lblDrug.TabIndex = 47;
@@ -53,7 +53,7 @@
             this.labelMain.AutoSize = true;
             this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
             this.labelMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.labelMain.Location = new System.Drawing.Point(222, 13);
+            this.labelMain.Location = new System.Drawing.Point(223, 13);
             this.labelMain.Name = "labelMain";
             this.labelMain.Size = new System.Drawing.Size(182, 33);
             this.labelMain.TabIndex = 49;
@@ -63,7 +63,7 @@
             // labelDosage
             // 
             this.labelDosage.AutoSize = true;
-            this.labelDosage.Location = new System.Drawing.Point(291, 322);
+            this.labelDosage.Location = new System.Drawing.Point(292, 322);
             this.labelDosage.Name = "labelDosage";
             this.labelDosage.Size = new System.Drawing.Size(44, 13);
             this.labelDosage.TabIndex = 51;
@@ -79,7 +79,7 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonAdd.Location = new System.Drawing.Point(281, 445);
+            this.buttonAdd.Location = new System.Drawing.Point(282, 486);
             this.buttonAdd.MaximumSize = new System.Drawing.Size(125, 38);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(64, 26);
@@ -91,7 +91,7 @@
             // chkListBoxDrug
             // 
             this.chkListBoxDrug.FormattingEnabled = true;
-            this.chkListBoxDrug.Location = new System.Drawing.Point(250, 115);
+            this.chkListBoxDrug.Location = new System.Drawing.Point(251, 115);
             this.chkListBoxDrug.Name = "chkListBoxDrug";
             this.chkListBoxDrug.Size = new System.Drawing.Size(127, 169);
             this.chkListBoxDrug.TabIndex = 61;
@@ -100,7 +100,7 @@
             // 
             this.labelDrugErr.AutoSize = true;
             this.labelDrugErr.ForeColor = System.Drawing.Color.Red;
-            this.labelDrugErr.Location = new System.Drawing.Point(255, 288);
+            this.labelDrugErr.Location = new System.Drawing.Point(256, 288);
             this.labelDrugErr.Name = "labelDrugErr";
             this.labelDrugErr.Size = new System.Drawing.Size(117, 13);
             this.labelDrugErr.TabIndex = 63;
@@ -110,7 +110,7 @@
             // 
             this.labelDosageErr.AutoSize = true;
             this.labelDosageErr.ForeColor = System.Drawing.Color.Red;
-            this.labelDosageErr.Location = new System.Drawing.Point(249, 362);
+            this.labelDosageErr.Location = new System.Drawing.Point(252, 362);
             this.labelDosageErr.Name = "labelDosageErr";
             this.labelDosageErr.Size = new System.Drawing.Size(125, 13);
             this.labelDosageErr.TabIndex = 64;
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 506);
+            this.ClientSize = new System.Drawing.Size(600, 544);
             this.Controls.Add(this.textBoxDosage);
             this.Controls.Add(this.labelDosageErr);
             this.Controls.Add(this.labelDrugErr);

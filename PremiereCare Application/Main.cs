@@ -18,7 +18,7 @@ namespace PremiereCare_Application
         public string userRole;
         public int userID;
 
-        public Main(String role, int ID)
+        public Main(String role, int ID )
         {
             InitializeComponent();
             userRole = role;
@@ -76,7 +76,7 @@ namespace PremiereCare_Application
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
-        }
+        } 
 
         private void CloseDropdowns()
         {
@@ -90,7 +90,7 @@ namespace PremiereCare_Application
             panelPatientDropdown.Visible = false;
             panelLabServiceDropdown.Visible = false;
         }
-
+ 
 
         //Main Button Doctor
         private void buttonDoctor_Click(object sender, EventArgs e)
@@ -116,6 +116,7 @@ namespace PremiereCare_Application
             CloseDropdowns();
         }
 
+       
         //Main Button Technician
         private void buttonTechnician_Click(object sender, EventArgs e)
         {
@@ -131,6 +132,15 @@ namespace PremiereCare_Application
             OpenChildForm(new AddTechnician());
             CloseDropdowns();
         }
+
+        private void buttonViewTechnicians_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AllTechnicians());
+            CloseDropdowns();
+            ;
+        }
+
+        
 
         //Main Button CSR
         private void buttonCSR_Click(object sender, EventArgs e)
@@ -148,6 +158,13 @@ namespace PremiereCare_Application
             CloseDropdowns();
         }
 
+        private void buttonViewCSR_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AllCSR());
+            CloseDropdowns();
+        }
+
+
         //Main Button Drug
         private void buttonDrug_Click(object sender, EventArgs e)
         {
@@ -155,12 +172,19 @@ namespace PremiereCare_Application
 
             if (panelDrugDropdown.Visible == false) panelDrugDropdown.Visible = true;
             else panelDrugDropdown.Visible = false;
+            if (userRole == "Doctor") { panelDrugDropdown.Size = new Size(200, 36); }
         }
 
         private void buttonAddDrug_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
             OpenChildForm(new AddDrug());
+        }
+
+        private void buttonAllDrugs_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AllDrugs());
+            CloseDropdowns();
         }
 
         private void buttonEditDrug_Click_1(object sender, EventArgs e)
@@ -177,20 +201,14 @@ namespace PremiereCare_Application
             if (panel_LabTestDropdown.Visible == false) panel_LabTestDropdown.Visible = true;
               else panel_LabTestDropdown.Visible = false;
         }
-
-        private void buttonRequestLabTest_Click_1(object sender, EventArgs e)
-        {
-            //Open Request Lab Test forms
-           // OpenChildForm(new RequestLabTest());
-            CloseDropdowns();
-        }
-
+                
         private void buttonViewLabTest_Click_1(object sender, EventArgs e)
         {
             //Open view Lab Test forms
             OpenChildForm(new ViewLabTest());
             CloseDropdowns();
         }
+
 
         //Main Button Notes
         private void buttonNotes_Click(object sender, EventArgs e)
@@ -216,17 +234,20 @@ namespace PremiereCare_Application
         }
 
         
-
         //Main Button Appointments
         private void buttonAppointments_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
             if (panelAppointmentDropdown.Visible == false) panelAppointmentDropdown.Visible = true;
             else panelAppointmentDropdown.Visible = false;
-
-            
-
         }
+
+        private void buttonViewAppointments_Click(object sender, EventArgs e)
+        {
+            CloseDropdowns();
+            OpenChildForm(new ViewAppointment(userRole, userID, panelChildFormContainer));
+        }
+
 
         //Main Button Prescriptions
         private void buttonPrescriptions_Click(object sender, EventArgs e)
@@ -245,11 +266,14 @@ namespace PremiereCare_Application
             //OpenChildForm(new CreateAppointment(userID));
         }
 
+        
+        //Main Button Patient
         private void buttonPatient_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
             if (panelPatientDropdown.Visible == false) panelPatientDropdown.Visible = true;
             else panelPatientDropdown.Visible = false;
+            if (userRole == "Doctor") { panelPatientDropdown.Size = new Size(200, 36); }
         }
 
         private void buttonAddPatient_Click(object sender, EventArgs e)
@@ -263,43 +287,31 @@ namespace PremiereCare_Application
             CloseDropdowns();
             OpenChildForm(new ViewPatients(panelChildFormContainer, userID));
         }
-
-        private void buttonViewAppointments_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new ViewAppointment(userRole, userID, panelChildFormContainer));
-        }
-
-        private void buttonAllDrugs_Click(object sender, EventArgs e)
+       
+        
+        //Main Lab Services Button
+        private void buttonLabServices_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
-            OpenChildForm(new AllDrugs());
+
+            if (panelLabServiceDropdown.Visible == false) panelLabServiceDropdown.Visible = true;
+            else panelLabServiceDropdown.Visible = false;
+            if (userRole == "Doctor") { panelLabServiceDropdown.Size = new Size(200, 36); }
         }
 
         private void buttonAddLabService_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AddLabService());
-        }
-
-        private void buttonLabServices_Click(object sender, EventArgs e)
-        {
             CloseDropdowns();
-            if (panelLabServiceDropdown.Visible == false) panelLabServiceDropdown.Visible = true;
-            else panelLabServiceDropdown.Visible = false;
         }
 
         private void buttonViewLabServices_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AllLabServices());
+            CloseDropdowns();
         }
 
-        private void buttonViewTechnicians_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new AllTechnicians())
-;        }
-
-        private void buttonViewCSR_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new AllCSR());
-        }
+       
+       
     }
 }

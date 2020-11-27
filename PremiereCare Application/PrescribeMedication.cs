@@ -18,7 +18,7 @@ namespace PremiereCare_Application
         private int docID;
         private int appointmentID;
         // private DateTime submitedDate = DateTime.Now;
-
+        
         public PrescribeMedication(int dID, int appID)
         {
             InitializeComponent();
@@ -28,21 +28,18 @@ namespace PremiereCare_Application
 
         //Method to remove error labels
         private void removeObject()
-        {
-            
+        {            
             labelDrugErr.Visible = false;
-           // textBoxDosage.Visible = false;
-            //labelDosage.Visible = false;
             labelDosageErr.Visible = false;
         }
 
         //Method to clear data entry points
-        private void ClearField()
+        private void ClearFields()
         {
             chkListBoxDrug.ClearSelected();
             chkListBoxDrug.CheckOnClick = false;
             textBoxDosage.Text = "";
-            //serviceDate.Value = DateTime.Now;
+           
         }
 
         //Method to align items
@@ -51,8 +48,6 @@ namespace PremiereCare_Application
             buttonAdd.Location = new Point((this.ClientSize.Width - buttonAdd.Width) / 2, this.ClientSize.Height - 50);
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
-
-      
 
         private void labelMain_Resize(object sender, EventArgs e)
         {
@@ -71,15 +66,12 @@ namespace PremiereCare_Application
 
         private List<string> loadDrugs()
         {
-            List<string> lst = new List<string>();
-
-            premed.getSingleValueArrayIndex( out lst, 0);
+            premed.getSingleValueArrayIndex(out List<string> lst, 0);
             foreach (var item in lst)
             {
                 chkListBoxDrug.Items.Add(item);
             }
             return lst;
-
 
         }
 
@@ -103,9 +95,7 @@ namespace PremiereCare_Application
             }
 
             if ( chkListBoxDrug.CheckedItems.Count != 0 && textBoxDosage.Text == "")
-            {
-                //labelDosage.Visible = true;
-               // textBoxDosage.Visible = true;
+            {               
                 labelDosageErr.Visible = true;
                 failedVerification = true;
             }
@@ -113,8 +103,8 @@ namespace PremiereCare_Application
             if (!failedVerification)
             {
 
-                addPrescription(docID.ToString(), appointmentID.ToString());
-                addData(getPrescriptionId(appointmentID.ToString()), getDrugId(chkListBoxDrug));
+                addPrescription(docID.ToString(), appointmentID.ToString(), getPatientId(appointmentID.ToString()));
+                addPrescribedDrugs(getPrescriptionId(appointmentID.ToString()), getDrugId(chkListBoxDrug), textBoxDosage.Text);
 
             }
 
@@ -123,58 +113,65 @@ namespace PremiereCare_Application
         //Gets drug_id for any item that may be checked/selected in check List Box and returns said Service_id in a list
         private List<string> getDrugId(CheckedListBox chk)
         {
-            string drugId;
             List<string> lst = new List<string>();
             
             foreach (var item in chk.CheckedItems)
             {
-                string qry = "SELECT drug_id FROM [PremiereCareHospital].[dbo].Drug WHERE drug ='" + item + "' ";
-                premed.getSingleColumnValueByIndex(qry, out drugId, 0);
+                string qry = "SELECT drug_id FROM [PremiereCareHospital].[dbo].Drug WHERE drug Like '" + item + "' ";
+                premed.getSingleColumnValueByIndex(qry, out string drugId, 0);
                 lst.Add(drugId);
             }
             return lst;
 
         }
 
-
-
-        //Gets the test_id associated with the appointment id in question and returns it
-        private string getPrescriptionId(String appointmentID)
-        {
-            string prescription_ID;
-            string qry = "SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription WHERE appointment_id='" + appointmentID + "' ";
-            premed.getPrescription_ID(qry, out prescription_ID);
-            return prescription_ID;
+        //Gets the patient_id associated with the appointment id in question and returns it
+        private string getPatientId(string appointmentID)
+        {           
+            return  premed.getPatient_ID(appointmentID);
         }
 
-        //Inserts test_id and the selected Lab_Services service_id into the Service Table 
-        private string addData(string prescription_id, List<string> ids)
+        //Gets the test_id associated with the appointment id in question and returns it
+        private string getPrescriptionId(string appointmentID)
         {
-           
-            
-            foreach (var item in ids)
-            {
-
-                string qry = @"INSERT INTO [PremiereCareHospital].[dbo].Prescribed_Drug (prescription_id, drug_id) 
-                            VALUES('" + prescription_id + "', '" + item + "')";
-                premed.insertData(qry, premed, this);
-
-            }
-            
-            ClearField();
-            return " ";
+            return premed.getPrescription_ID(appointmentID);            
         }
 
         //Inserts doctor_id and the appointment_id into theLab_Test Table 
-        private void addPrescription(String doctor, String appointment)
+        private void addPrescription(string doctor, string appointment, string patient)
         {
-            string qry = @"INSERT INTO  [PremiereCareHospital].[dbo].Prescription (NEXT VALUE FOR prescription_seq, doc_id, appointment_id) 
-                            VALUES('" + doctor + "', '" + appointment + "')";
-            premed.insertData(qry, premed, this);
 
-            ClearField();
+            premed.doctor_id = doctor;
+            premed.appointment_id = appointment;
+            premed.patient_id = patient;
+           
+            bool success = premed.Prescription(premed, this);
+
+            if (success == true)
+            {
+                CustomMessageBox cm = new CustomMessageBox("Successfully Created Prescriptio", this);
+                removeObject();
+                ClearFields();
+                cm.Show();
+            }
 
         }
 
+        //Inserts test_id and the selected Lab_Services service_id into the Service Table 
+        private void addPrescribedDrugs(string prescription_id, List<string> ids, string dosage)
+        {
+            premed.prescription_id = prescription_id;
+            premed.dosage = dosage;
+               
+            bool success = premed.PrescribedDrugs(ids, premed, this);
+
+            if (success == true)
+            {
+                CustomMessageBox cm = new CustomMessageBox("Successfully Prescribed Drug", this);
+                removeObject();
+                ClearFields();
+                cm.Show();
+            }
+        }
     }
 }

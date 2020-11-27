@@ -25,20 +25,6 @@ namespace PremiereCare_Application
             appointmentID = appID;
         }
 
-        //Method to remove error labels
-        private void removeErrors()
-        {
-            labelNoteErr.Visible = false;
-            labelDateErr.Visible = false;
-        }
-
-        //Method to clear data entry points
-        private void ClearField()
-        {
-            textBoxNote.Text = "";
-            noteDate.Value = DateTime.Now;
-        }
-
         //Method to align items
         private void AlignItems()
         {
@@ -46,11 +32,20 @@ namespace PremiereCare_Application
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
-        private void labelFNameErr_Click(object sender, EventArgs e)
+        //Method to clear data entry points
+        private void ClearField()
         {
-
+            textBoxNote.Text = "";
+            noteDatePicker.Value = DateTime.Now;
         }
 
+        //Method to remove error labels
+        private void removeErrors()
+        {
+            labelNoteErr.Visible = false;
+            labelDateErr.Visible = false;
+        }
+               
         //Method to execute tasks on the loading of form
         private void CreateVisitNote_Load(object sender, EventArgs e)
         {
@@ -58,6 +53,9 @@ namespace PremiereCare_Application
             AlignItems();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
+            noteDatePicker.Format = DateTimePickerFormat.Custom;
+            noteDatePicker.CustomFormat = "MM/dd/yyyy hh:mm:ss";
+            noteDatePicker.MinDate = DateTime.Now;
         }
 
         //Method to execute AlignItems
@@ -79,15 +77,21 @@ namespace PremiereCare_Application
                 failedVerification = true;
             }
 
+            if (noteDatePicker.Text == "")
+            {
+                labelDateErr.Visible = true;
+                failedVerification = true;
+            }
+
             if (!failedVerification)
             {
-                addNote(textBoxNote.Text, noteDate.Value.Date.ToShortDateString(), docID.ToString(), appointmentID.ToString());
+                addNote(textBoxNote.Text, noteDatePicker.Value.Date.ToShortDateString(), docID.ToString(), appointmentID.ToString());
 
             }
 
         }
 
-        private void addNote(String note, String date, String doctor, String appointment)
+        private void addNote(string note, String date, string doctor, string appointment)
         {
             DoctorVisitNotes.DoctorVisitNotes doctorvisitnotes = new DoctorVisitNotes.DoctorVisitNotes();
             doctorvisitnotes.note = note;
@@ -102,10 +106,11 @@ namespace PremiereCare_Application
             if (success == true)
             {
                 CustomMessageBox cm = new CustomMessageBox("Successfully Recorded Note", this);
-                cm.Show();
+                removeErrors();
                 ClearField();
+                cm.Show();
             }
-           
+
         }
     }
 }
