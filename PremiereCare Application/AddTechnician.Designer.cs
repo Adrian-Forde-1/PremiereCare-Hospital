@@ -323,7 +323,7 @@
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Visible = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAddTech_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             this.buttonAdd.Resize += new System.EventHandler(this.buttonAddTech_Resize);
             // 
             // techDOB

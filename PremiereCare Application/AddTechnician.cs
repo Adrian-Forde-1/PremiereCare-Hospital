@@ -17,7 +17,7 @@ namespace PremiereCare_Application
             InitializeComponent();
         }
 
-        private void removeErrors()
+        private void RemoveErrors()
         {
             labelFNameErr.Visible = false;
             labelLNameErr.Visible = false;
@@ -38,7 +38,7 @@ namespace PremiereCare_Application
 
         private void AddTechnician_Load(object sender, EventArgs e)
         {
-            removeErrors();
+            RemoveErrors();
             InitializeComponent();
             AlignItems();
             buttonAdd.Visible = true;
@@ -51,11 +51,11 @@ namespace PremiereCare_Application
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
-        private void buttonAddTech_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
             bool failedVerification = false;
 
-            removeErrors();
+            RemoveErrors();
 
             if (textBoxFname.Text == "")
             {
@@ -94,6 +94,7 @@ namespace PremiereCare_Application
             }
         }
 
+
         private void addTechnician(String fName, String lName, String username, String password, String dob, String salary, String sex)
         {
             User.Technician technician = new User.Technician();
@@ -124,5 +125,7 @@ namespace PremiereCare_Application
         {
             AlignItems();
         }
+
+        
     }
 }
