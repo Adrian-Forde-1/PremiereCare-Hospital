@@ -77,5 +77,10 @@ namespace PremiereCare_Application
         {
             Application.Exit();
         }
+
+        private void textBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

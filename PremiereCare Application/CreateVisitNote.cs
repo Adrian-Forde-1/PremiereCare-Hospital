@@ -36,14 +36,12 @@ namespace PremiereCare_Application
         private void ClearField()
         {
             textBoxNote.Text = "";
-            noteDatePicker.Value = DateTime.Now;
         }
 
         //Method to remove error labels
         private void removeErrors()
         {
             labelNoteErr.Visible = false;
-            labelDateErr.Visible = false;
         }
                
         //Method to execute tasks on the loading of form
@@ -53,9 +51,6 @@ namespace PremiereCare_Application
             AlignItems();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
-            noteDatePicker.Format = DateTimePickerFormat.Custom;
-            noteDatePicker.CustomFormat = "MM/dd/yyyy hh:mm:ss";
-            noteDatePicker.MinDate = DateTime.Now;
         }
 
         //Method to execute AlignItems
@@ -77,25 +72,19 @@ namespace PremiereCare_Application
                 failedVerification = true;
             }
 
-            if (noteDatePicker.Text == "")
-            {
-                labelDateErr.Visible = true;
-                failedVerification = true;
-            }
-
             if (!failedVerification)
             {
-                addNote(textBoxNote.Text, noteDatePicker.Value.Date.ToShortDateString(), docID.ToString(), appointmentID.ToString());
+                addNote(textBoxNote.Text, docID.ToString(), appointmentID.ToString());
 
             }
 
         }
 
-        private void addNote(string note, String date, string doctor, string appointment)
+        private void addNote(string note, string doctor, string appointment)
         {
             DoctorVisitNotes.DoctorVisitNotes doctorvisitnotes = new DoctorVisitNotes.DoctorVisitNotes();
             doctorvisitnotes.note = note;
-            doctorvisitnotes.date = date;
+            doctorvisitnotes.date = DateTime.Now.ToShortDateString();
             doctorvisitnotes.docID = doctor;
             doctorvisitnotes.appointmentID = appointment;
             

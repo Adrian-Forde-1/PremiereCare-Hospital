@@ -19,11 +19,13 @@ namespace PremiereCare_Application
 
         private void RemoveErrors()
         {
+            Console.WriteLine("Remove errors being called");
             labelFNameErr.Visible = false;
             labelLNameErr.Visible = false;
             labelUsernameErr.Visible = false;
             labelPasswordErr.Visible = false;
             labelSalaryErr.Visible = false;
+            labelSexErr.Visible = false;
         }
 
         private void ClearField()
