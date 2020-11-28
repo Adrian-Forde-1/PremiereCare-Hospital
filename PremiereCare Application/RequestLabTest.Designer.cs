@@ -28,178 +28,110 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblRequestLabTest = new System.Windows.Forms.Label();
-            this.cmbBoxService = new System.Windows.Forms.ComboBox();
-            this.lblService = new System.Windows.Forms.Label();
-            this.txtBoxAppointment = new System.Windows.Forms.TextBox();
-            this.lblAppointment = new System.Windows.Forms.Label();
-            this.txtBoxRequestedBy = new System.Windows.Forms.TextBox();
-            this.lblRequestedBy = new System.Windows.Forms.Label();
-            this.lblLabTestNo = new System.Windows.Forms.Label();
-            this.txtBoxLabTestNo = new System.Windows.Forms.TextBox();
-            this.buttnRequestTest = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxPatient = new System.Windows.Forms.TextBox();
+            this.labelMain = new System.Windows.Forms.Label();
+            this.checkedListBoxServices = new System.Windows.Forms.CheckedListBox();
+            this.labelServices = new System.Windows.Forms.Label();
+            this.labelServiceErr = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.premiereCareHospitalDataSet = new PremiereCare_Application.PremiereCareHospitalDataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.premiereCareHospitalDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblRequestLabTest
+            // labelMain
             // 
-            this.lblRequestLabTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblRequestLabTest.AutoSize = true;
-            this.lblRequestLabTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.lblRequestLabTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.lblRequestLabTest.Location = new System.Drawing.Point(202, 9);
-            this.lblRequestLabTest.Name = "lblRequestLabTest";
-            this.lblRequestLabTest.Size = new System.Drawing.Size(260, 33);
-            this.lblRequestLabTest.TabIndex = 12;
-            this.lblRequestLabTest.Text = "Request Lab Test";
+            this.labelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.labelMain.AutoSize = true;
+            this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
+            this.labelMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.labelMain.Location = new System.Drawing.Point(171, 9);
+            this.labelMain.Name = "labelMain";
+            this.labelMain.Size = new System.Drawing.Size(260, 33);
+            this.labelMain.TabIndex = 12;
+            this.labelMain.Text = "Request Lab Test";
             // 
-            // cmbBoxService
+            // checkedListBoxServices
             // 
-            this.cmbBoxService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.cmbBoxService.FormattingEnabled = true;
-            this.cmbBoxService.Location = new System.Drawing.Point(137, 284);
-            this.cmbBoxService.Name = "cmbBoxService";
-            this.cmbBoxService.Size = new System.Drawing.Size(332, 21);
-            this.cmbBoxService.TabIndex = 13;
+            this.checkedListBoxServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkedListBoxServices.CheckOnClick = true;
+            this.checkedListBoxServices.FormattingEnabled = true;
+            this.checkedListBoxServices.Location = new System.Drawing.Point(235, 101);
+            this.checkedListBoxServices.Name = "checkedListBoxServices";
+            this.checkedListBoxServices.ScrollAlwaysVisible = true;
+            this.checkedListBoxServices.Size = new System.Drawing.Size(133, 289);
+            this.checkedListBoxServices.TabIndex = 24;
+            this.checkedListBoxServices.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxServices_SelectedIndexChanged);
             // 
-            // lblService
+            // labelServices
             // 
-            this.lblService.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(282, 268);
-            this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(43, 13);
-            this.lblService.TabIndex = 14;
-            this.lblService.Text = "Service";
+            this.labelServices.AutoSize = true;
+            this.labelServices.Location = new System.Drawing.Point(274, 85);
+            this.labelServices.Name = "labelServices";
+            this.labelServices.Size = new System.Drawing.Size(55, 13);
+            this.labelServices.TabIndex = 25;
+            this.labelServices.Text = "Services *";
             // 
-            // txtBoxAppointment
+            // labelServiceErr
             // 
-            this.txtBoxAppointment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtBoxAppointment.Location = new System.Drawing.Point(137, 182);
-            this.txtBoxAppointment.Name = "txtBoxAppointment";
-            this.txtBoxAppointment.Size = new System.Drawing.Size(332, 20);
-            this.txtBoxAppointment.TabIndex = 15;
+            this.labelServiceErr.AutoSize = true;
+            this.labelServiceErr.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelServiceErr.Location = new System.Drawing.Point(224, 404);
+            this.labelServiceErr.Name = "labelServiceErr";
+            this.labelServiceErr.Size = new System.Drawing.Size(155, 13);
+            this.labelServiceErr.TabIndex = 26;
+            this.labelServiceErr.Text = "Must select atleast one Service";
             // 
-            // lblAppointment
+            // buttonAdd
             // 
-            this.lblAppointment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblAppointment.AutoSize = true;
-            this.lblAppointment.Location = new System.Drawing.Point(270, 166);
-            this.lblAppointment.Name = "lblAppointment";
-            this.lblAppointment.Size = new System.Drawing.Size(66, 13);
-            this.lblAppointment.TabIndex = 16;
-            this.lblAppointment.Text = "Appointment";
+            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonAdd.AutoSize = true;
+            this.buttonAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
+            this.buttonAdd.Location = new System.Drawing.Point(250, 486);
+            this.buttonAdd.MaximumSize = new System.Drawing.Size(125, 38);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(80, 26);
+            this.buttonAdd.TabIndex = 27;
+            this.buttonAdd.Text = "Request ";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // txtBoxRequestedBy
+            // premiereCareHospitalDataSet
             // 
-            this.txtBoxRequestedBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtBoxRequestedBy.Location = new System.Drawing.Point(137, 234);
-            this.txtBoxRequestedBy.Name = "txtBoxRequestedBy";
-            this.txtBoxRequestedBy.Size = new System.Drawing.Size(332, 20);
-            this.txtBoxRequestedBy.TabIndex = 17;
-            // 
-            // lblRequestedBy
-            // 
-            this.lblRequestedBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblRequestedBy.AutoSize = true;
-            this.lblRequestedBy.Location = new System.Drawing.Point(266, 218);
-            this.lblRequestedBy.Name = "lblRequestedBy";
-            this.lblRequestedBy.Size = new System.Drawing.Size(74, 13);
-            this.lblRequestedBy.TabIndex = 18;
-            this.lblRequestedBy.Text = "Requested By";
-            // 
-            // lblLabTestNo
-            // 
-            this.lblLabTestNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblLabTestNo.AutoSize = true;
-            this.lblLabTestNo.Location = new System.Drawing.Point(270, 114);
-            this.lblLabTestNo.Name = "lblLabTestNo";
-            this.lblLabTestNo.Size = new System.Drawing.Size(66, 13);
-            this.lblLabTestNo.TabIndex = 20;
-            this.lblLabTestNo.Text = "Lab Test No";
-            // 
-            // txtBoxLabTestNo
-            // 
-            this.txtBoxLabTestNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtBoxLabTestNo.Location = new System.Drawing.Point(137, 130);
-            this.txtBoxLabTestNo.Name = "txtBoxLabTestNo";
-            this.txtBoxLabTestNo.Size = new System.Drawing.Size(332, 20);
-            this.txtBoxLabTestNo.TabIndex = 19;
-            // 
-            // buttnRequestTest
-            // 
-            this.buttnRequestTest.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttnRequestTest.AutoSize = true;
-            this.buttnRequestTest.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttnRequestTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttnRequestTest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttnRequestTest.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttnRequestTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.buttnRequestTest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttnRequestTest.Location = new System.Drawing.Point(260, 448);
-            this.buttnRequestTest.MaximumSize = new System.Drawing.Size(125, 38);
-            this.buttnRequestTest.Name = "buttnRequestTest";
-            this.buttnRequestTest.Size = new System.Drawing.Size(111, 26);
-            this.buttnRequestTest.TabIndex = 21;
-            this.buttnRequestTest.Text = "Request Test";
-            this.buttnRequestTest.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(283, 322);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Patient";
-            // 
-            // textBoxPatient
-            // 
-            this.textBoxPatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBoxPatient.Location = new System.Drawing.Point(137, 338);
-            this.textBoxPatient.Name = "textBoxPatient";
-            this.textBoxPatient.Size = new System.Drawing.Size(332, 20);
-            this.textBoxPatient.TabIndex = 22;
+            this.premiereCareHospitalDataSet.DataSetName = "PremiereCareHospitalDataSet";
+            this.premiereCareHospitalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // RequestLabTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 506);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxPatient);
-            this.Controls.Add(this.buttnRequestTest);
-            this.Controls.Add(this.lblLabTestNo);
-            this.Controls.Add(this.txtBoxLabTestNo);
-            this.Controls.Add(this.lblRequestedBy);
-            this.Controls.Add(this.txtBoxRequestedBy);
-            this.Controls.Add(this.lblAppointment);
-            this.Controls.Add(this.txtBoxAppointment);
-            this.Controls.Add(this.lblService);
-            this.Controls.Add(this.cmbBoxService);
-            this.Controls.Add(this.lblRequestLabTest);
+            this.ClientSize = new System.Drawing.Size(600, 544);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.labelServiceErr);
+            this.Controls.Add(this.labelServices);
+            this.Controls.Add(this.checkedListBoxServices);
+            this.Controls.Add(this.labelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RequestLabTest";
             this.Text = "RequestLabTest";
+            this.Load += new System.EventHandler(this.RequestLabTest_Load);
+            this.Resize += new System.EventHandler(this.RequestLabTest_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.premiereCareHospitalDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblRequestLabTest;
-        private System.Windows.Forms.ComboBox cmbBoxService;
-        private System.Windows.Forms.Label lblService;
-        private System.Windows.Forms.TextBox txtBoxAppointment;
-        private System.Windows.Forms.Label lblAppointment;
-        private System.Windows.Forms.TextBox txtBoxRequestedBy;
-        private System.Windows.Forms.Label lblRequestedBy;
-        private System.Windows.Forms.Label lblLabTestNo;
-        private System.Windows.Forms.TextBox txtBoxLabTestNo;
-        private System.Windows.Forms.Button buttnRequestTest;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxPatient;
+        private System.Windows.Forms.Label labelMain;
+        private System.Windows.Forms.CheckedListBox checkedListBoxServices;
+        private System.Windows.Forms.Label labelServices;
+        private System.Windows.Forms.Label labelServiceErr;
+        private System.Windows.Forms.Button buttonAdd;
+        private PremiereCareHospitalDataSet premiereCareHospitalDataSet;
     }
 }

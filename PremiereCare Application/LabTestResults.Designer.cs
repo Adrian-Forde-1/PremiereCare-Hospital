@@ -1,6 +1,7 @@
-﻿namespace PremiereCare_Application
+﻿
+namespace PremiereCare_Application
 {
-    partial class EditDrug
+    partial class LabTestResults
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +29,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LabTestResults));
             this.SuspendLayout();
             // 
-            // EditDrug
+            // LabTestResults
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(600, 544);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EditDrug";
-            this.Text = "EditDrug";
+            this.ControlBox = false;
+            this.Name = "LabTestResults";
+            this.ShowIcon = false;
             this.ResumeLayout(false);
 
         }

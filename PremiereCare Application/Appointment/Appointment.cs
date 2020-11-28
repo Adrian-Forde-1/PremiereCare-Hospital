@@ -15,7 +15,7 @@ namespace PremiereCare_Application.Appointment
         public int docId { get; set; }
         public int csrId { get; set; }
         public int patientId { get; set; }
-        public String appointmentDate { get; set; }
+        public string appointmentDate { get; set; }
 
         //Private Attributes
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
@@ -28,7 +28,8 @@ namespace PremiereCare_Application.Appointment
 
             try
             {
-                string query = "INSERT INTO Appointment (appointment_id, doc_id, csr_id, patient_id, appointment_date, cost) VALUES (NEXT VALUE FOR appointment_seq ,@docId, @csrId, @patientId, @appointmentDate, @cost)";
+                string query = @"INSERT INTO Appointment (appointment_id, doc_id, csr_id, patient_id, appointment_date, cost) 
+                                VALUES (NEXT VALUE FOR appointment_seq ,@docId, @csrId, @patientId, @appointmentDate, @cost)";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -162,10 +163,12 @@ namespace PremiereCare_Application.Appointment
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 conn.Open();
                 adapter.Fill(dt);
-            } catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            } finally
+            }
+            finally
             {
                 conn.Close();
             }

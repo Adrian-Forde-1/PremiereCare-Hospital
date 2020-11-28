@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonPrescribeMedication = new System.Windows.Forms.Button();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.labelPatientDOB = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.labelPatientName = new System.Windows.Forms.Label();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.labelDoctorSpecialty = new System.Windows.Forms.Label();
@@ -57,9 +57,9 @@
             this.buttonRequestLabTest = new System.Windows.Forms.Button();
             this.buttonGenerateInvoice = new System.Windows.Forms.Button();
             this.buttonCreateVisitNote = new System.Windows.Forms.Button();
-            this.buttonComplete = new System.Windows.Forms.Button();
-            this.buttonPrescribeMedication = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonComplete = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -108,6 +108,23 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 544);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // buttonPrescribeMedication
+            // 
+            this.buttonPrescribeMedication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPrescribeMedication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonPrescribeMedication.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPrescribeMedication.FlatAppearance.BorderSize = 0;
+            this.buttonPrescribeMedication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrescribeMedication.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrescribeMedication.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonPrescribeMedication.Location = new System.Drawing.Point(447, 161);
+            this.buttonPrescribeMedication.Name = "buttonPrescribeMedication";
+            this.buttonPrescribeMedication.Size = new System.Drawing.Size(150, 30);
+            this.buttonPrescribeMedication.TabIndex = 77;
+            this.buttonPrescribeMedication.Text = "Prescribe Medication";
+            this.buttonPrescribeMedication.UseVisualStyleBackColor = false;
+            this.buttonPrescribeMedication.Click += new System.EventHandler(this.buttonPrescribeMedication_Click);
             // 
             // flowLayoutPanel5
             // 
@@ -168,23 +185,6 @@
             this.labelPatientName.Size = new System.Drawing.Size(92, 16);
             this.labelPatientName.TabIndex = 5;
             this.labelPatientName.Text = "Patient Name:";
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCancel.FlatAppearance.BorderSize = 0;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonCancel.Location = new System.Drawing.Point(447, 307);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(150, 30);
-            this.buttonCancel.TabIndex = 71;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -380,6 +380,7 @@
             this.buttonRequestLabTest.TabIndex = 73;
             this.buttonRequestLabTest.Text = "Request Lab Test";
             this.buttonRequestLabTest.UseVisualStyleBackColor = false;
+            this.buttonRequestLabTest.Click += new System.EventHandler(this.buttonRequestLabTest_Click);
             // 
             // buttonGenerateInvoice
             // 
@@ -414,6 +415,32 @@
             this.buttonCreateVisitNote.UseVisualStyleBackColor = false;
             this.buttonCreateVisitNote.Click += new System.EventHandler(this.buttonCreateVisitNote_Click);
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonCancel.FlatAppearance.BorderSize = 0;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonCancel.Location = new System.Drawing.Point(447, 307);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(150, 30);
+            this.buttonCancel.TabIndex = 71;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(444, 231);
+            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(156, 37);
+            this.flowLayoutPanel9.TabIndex = 78;
+            // 
             // buttonComplete
             // 
             this.buttonComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -430,31 +457,6 @@
             this.buttonComplete.Text = "Complete";
             this.buttonComplete.UseVisualStyleBackColor = false;
             this.buttonComplete.Click += new System.EventHandler(this.buttonComplete_Click);
-            // 
-            // buttonPrescribeMedication
-            // 
-            this.buttonPrescribeMedication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPrescribeMedication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonPrescribeMedication.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPrescribeMedication.FlatAppearance.BorderSize = 0;
-            this.buttonPrescribeMedication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrescribeMedication.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrescribeMedication.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonPrescribeMedication.Location = new System.Drawing.Point(447, 161);
-            this.buttonPrescribeMedication.Name = "buttonPrescribeMedication";
-            this.buttonPrescribeMedication.Size = new System.Drawing.Size(150, 30);
-            this.buttonPrescribeMedication.TabIndex = 77;
-            this.buttonPrescribeMedication.Text = "Prescribe Medication";
-            this.buttonPrescribeMedication.UseVisualStyleBackColor = false;
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(444, 231);
-            this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(156, 37);
-            this.flowLayoutPanel9.TabIndex = 78;
             // 
             // IndividualAppointment
             // 

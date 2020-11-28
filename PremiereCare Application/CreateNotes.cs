@@ -79,8 +79,8 @@ namespace PremiereCare_Application
         {
               DoctorVisitNotes.DoctorVisitNotes doctorvisitnotes = new DoctorVisitNotes.DoctorVisitNotes();
               doctorvisitnotes.date = date;
-              doctorvisitnotes.appointment = appointment;
-              doctorvisitnotes.doctor = doctor;
+              doctorvisitnotes.appointmentID = appointment;
+              doctorvisitnotes.docID = doctor;
               doctorvisitnotes.note = note;
 
               bool success = doctorvisitnotes.Insert( doctorvisitnotes, this);

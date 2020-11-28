@@ -12,14 +12,16 @@ namespace PremiereCare_Application
 {
     public partial class AddLabService : Form
     {
+        LabService.LabService labservice = new LabService.LabService(); 
         public AddLabService()
         {
             InitializeComponent();
         }
-        private void removeErrors()
+
+        private void AlignItems()
         {
-            labelSericeErr.Visible = false;
-            labelCostErr.Visible = false;
+            buttonAdd.Location = new Point((this.ClientSize.Width - buttonAdd.Width) / 2, this.ClientSize.Height - 50);
+            labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
         private void ClearField()
@@ -28,18 +30,18 @@ namespace PremiereCare_Application
             textBoxCost.Text = "";
         }
 
-
-        private void AlignItems()
+        private void removeErrors()
         {
-            buttonAdd.Location = new Point((this.ClientSize.Width - buttonAdd.Width) / 2, this.ClientSize.Height - 50);
-            labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
+            labelSericeErr.Visible = false;
+            labelCostErr.Visible = false;
         }
 
+        
         private void AddLabService_Load(object sender, EventArgs e)
         {
-            removeErrors();
 
             AlignItems();
+            removeErrors();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
         }
@@ -48,5 +50,46 @@ namespace PremiereCare_Application
         {
             AlignItems();
         }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            bool failedVerification = false;
+
+            removeErrors();
+
+            if (textBoxService.Text == "")
+            {
+                labelSericeErr.Visible = true;
+                failedVerification = true;
+            }
+
+            if (textBoxCost.Text == "")
+            {
+                labelCostErr.Visible = true;
+                failedVerification = true;
+            }
+
+            if (!failedVerification)
+            {
+                addLabService();
+            }
+                        
+        }
+
+        private void addLabService()
+        {
+            labservice.service = textBoxService.Text.ToString();
+            labservice.cost = textBoxCost.Text.ToString();
+
+
+            bool success = labservice.AddNewLabService(labservice, this);
+            if (success == true)
+            {
+                CustomMessageBox cm = new CustomMessageBox("Successfully Added Service", this);
+                cm.Show();
+                ClearField();
+            }
+        }
+
     }
 }

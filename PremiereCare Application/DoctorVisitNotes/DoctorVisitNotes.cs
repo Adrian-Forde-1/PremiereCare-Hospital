@@ -13,8 +13,8 @@ namespace PremiereCare_Application.DoctorVisitNotes
     {
 
         public string date { get; set; }
-        public string appointment { get; set; }
-        public string doctor { get; set; }
+        public string appointmentID { get; set; }
+        public string docID { get; set; }
         public string note { get; set; }
        
 
@@ -33,8 +33,8 @@ namespace PremiereCare_Application.DoctorVisitNotes
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@date", doctorvisitnotes.date);
-                cmd.Parameters.AddWithValue("@appointment", doctorvisitnotes.appointment);
-                cmd.Parameters.AddWithValue("@doctor", doctorvisitnotes.doctor);
+                cmd.Parameters.AddWithValue("@appointment", doctorvisitnotes.appointmentID);
+                cmd.Parameters.AddWithValue("@doctor", doctorvisitnotes.docID);
                 cmd.Parameters.AddWithValue("@note", doctorvisitnotes.note);
                 
 
@@ -43,7 +43,7 @@ namespace PremiereCare_Application.DoctorVisitNotes
 
                 if (rows > 0)
                 {
-                    isSuccess = true;
+                     isSuccess = true;
                 }
                 else
                 {

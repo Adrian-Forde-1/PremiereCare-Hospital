@@ -42,6 +42,8 @@
             this.buttonLoadAll = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.lblAppointments = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,11 +209,30 @@
             this.lblAppointments.TabIndex = 48;
             this.lblAppointments.Text = "Appointments";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(407, 75);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(242, 20);
+            this.textBox1.TabIndex = 49;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(412, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "Search";
+            // 
             // ViewAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 506);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblAppointments);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonLoadAll);
@@ -251,5 +272,7 @@
         private System.Windows.Forms.Button buttonLoadAll;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label lblAppointments;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
