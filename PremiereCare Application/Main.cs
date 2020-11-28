@@ -34,7 +34,6 @@ namespace PremiereCare_Application
                 buttonLabTest.Hide();
                 buttonNotes.Hide();
                 buttonPrescriptions.Hide();
-                buttonCreateNotes.Hide();
                 buttonViewNotes.Hide();
             }
             else if (userRole == "Doctor")
@@ -217,13 +216,6 @@ namespace PremiereCare_Application
 
             if (panelNotesDropdown.Visible == false) panelNotesDropdown.Visible = true;
             else panelNotesDropdown.Visible = false;
-        }
-
-        private void buttonCreateNotes_Click(object sender, EventArgs e)
-        {
-            //Open Create Notes forms
-            OpenChildForm(new CreateNotes());
-            CloseDropdowns();
         }
 
         private void buttonViewNotes_Click(object sender, EventArgs e)

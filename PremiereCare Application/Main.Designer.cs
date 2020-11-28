@@ -45,7 +45,6 @@
             this.buttonPrescriptions = new System.Windows.Forms.Button();
             this.panelNotesDropdown = new System.Windows.Forms.Panel();
             this.buttonViewNotes = new System.Windows.Forms.Button();
-            this.buttonCreateNotes = new System.Windows.Forms.Button();
             this.buttonNotes = new System.Windows.Forms.Button();
             this.panel_LabTestDropdown = new System.Windows.Forms.Panel();
             this.buttonViewLabTest = new System.Windows.Forms.Button();
@@ -158,7 +157,7 @@
             this.panelLabServiceDropdown.Controls.Add(this.buttonViewLabServices);
             this.panelLabServiceDropdown.Controls.Add(this.buttonAddLabService);
             this.panelLabServiceDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLabServiceDropdown.Location = new System.Drawing.Point(0, 867);
+            this.panelLabServiceDropdown.Location = new System.Drawing.Point(0, 831);
             this.panelLabServiceDropdown.Name = "panelLabServiceDropdown";
             this.panelLabServiceDropdown.Size = new System.Drawing.Size(200, 72);
             this.panelLabServiceDropdown.TabIndex = 23;
@@ -204,7 +203,7 @@
             this.buttonLabServices.FlatAppearance.BorderSize = 0;
             this.buttonLabServices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLabServices.ForeColor = System.Drawing.Color.White;
-            this.buttonLabServices.Location = new System.Drawing.Point(0, 831);
+            this.buttonLabServices.Location = new System.Drawing.Point(0, 795);
             this.buttonLabServices.Name = "buttonLabServices";
             this.buttonLabServices.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLabServices.Size = new System.Drawing.Size(200, 36);
@@ -220,7 +219,7 @@
             this.panelPatientDropdown.Controls.Add(this.buttonViewPatients);
             this.panelPatientDropdown.Controls.Add(this.buttonAddPatient);
             this.panelPatientDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPatientDropdown.Location = new System.Drawing.Point(0, 759);
+            this.panelPatientDropdown.Location = new System.Drawing.Point(0, 723);
             this.panelPatientDropdown.Name = "panelPatientDropdown";
             this.panelPatientDropdown.Size = new System.Drawing.Size(200, 72);
             this.panelPatientDropdown.TabIndex = 14;
@@ -266,7 +265,7 @@
             this.buttonPatient.FlatAppearance.BorderSize = 0;
             this.buttonPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPatient.ForeColor = System.Drawing.Color.White;
-            this.buttonPatient.Location = new System.Drawing.Point(0, 723);
+            this.buttonPatient.Location = new System.Drawing.Point(0, 687);
             this.buttonPatient.Name = "buttonPatient";
             this.buttonPatient.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPatient.Size = new System.Drawing.Size(200, 36);
@@ -283,7 +282,7 @@
             this.buttonPrescriptions.FlatAppearance.BorderSize = 0;
             this.buttonPrescriptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrescriptions.ForeColor = System.Drawing.Color.White;
-            this.buttonPrescriptions.Location = new System.Drawing.Point(0, 687);
+            this.buttonPrescriptions.Location = new System.Drawing.Point(0, 651);
             this.buttonPrescriptions.Name = "buttonPrescriptions";
             this.buttonPrescriptions.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonPrescriptions.Size = new System.Drawing.Size(200, 36);
@@ -297,11 +296,10 @@
             // 
             this.panelNotesDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
             this.panelNotesDropdown.Controls.Add(this.buttonViewNotes);
-            this.panelNotesDropdown.Controls.Add(this.buttonCreateNotes);
             this.panelNotesDropdown.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNotesDropdown.Location = new System.Drawing.Point(0, 615);
             this.panelNotesDropdown.Name = "panelNotesDropdown";
-            this.panelNotesDropdown.Size = new System.Drawing.Size(200, 72);
+            this.panelNotesDropdown.Size = new System.Drawing.Size(200, 36);
             this.panelNotesDropdown.TabIndex = 13;
             // 
             // buttonViewNotes
@@ -311,7 +309,7 @@
             this.buttonViewNotes.FlatAppearance.BorderSize = 0;
             this.buttonViewNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonViewNotes.ForeColor = System.Drawing.Color.White;
-            this.buttonViewNotes.Location = new System.Drawing.Point(0, 36);
+            this.buttonViewNotes.Location = new System.Drawing.Point(0, 0);
             this.buttonViewNotes.Name = "buttonViewNotes";
             this.buttonViewNotes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonViewNotes.Size = new System.Drawing.Size(200, 36);
@@ -320,23 +318,6 @@
             this.buttonViewNotes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonViewNotes.UseVisualStyleBackColor = true;
             this.buttonViewNotes.Click += new System.EventHandler(this.buttonViewNotes_Click);
-            // 
-            // buttonCreateNotes
-            // 
-            this.buttonCreateNotes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCreateNotes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonCreateNotes.FlatAppearance.BorderSize = 0;
-            this.buttonCreateNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateNotes.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateNotes.Location = new System.Drawing.Point(0, 0);
-            this.buttonCreateNotes.Name = "buttonCreateNotes";
-            this.buttonCreateNotes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.buttonCreateNotes.Size = new System.Drawing.Size(200, 36);
-            this.buttonCreateNotes.TabIndex = 21;
-            this.buttonCreateNotes.Text = "Create Notes";
-            this.buttonCreateNotes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateNotes.UseVisualStyleBackColor = true;
-            this.buttonCreateNotes.Click += new System.EventHandler(this.buttonCreateNotes_Click);
             // 
             // buttonNotes
             // 
@@ -753,7 +734,6 @@
         private System.Windows.Forms.Button buttonLabTest;
         private System.Windows.Forms.Panel panelNotesDropdown;
         private System.Windows.Forms.Button buttonViewNotes;
-        private System.Windows.Forms.Button buttonCreateNotes;
         private System.Windows.Forms.Button buttonNotes;
         private System.Windows.Forms.Button buttonAddDrug;
         private System.Windows.Forms.Button buttonPrescriptions;
