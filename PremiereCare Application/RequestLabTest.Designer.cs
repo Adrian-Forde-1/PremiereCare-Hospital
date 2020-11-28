@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.labelMain = new System.Windows.Forms.Label();
-            this.checkedListBoxServices = new System.Windows.Forms.CheckedListBox();
-            this.labelServices = new System.Windows.Forms.Label();
-            this.labelServiceErr = new System.Windows.Forms.Label();
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.premiereCareHospitalDataSet = new PremiereCare_Application.PremiereCareHospitalDataSet();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.labelServiceErr = new System.Windows.Forms.Label();
+            this.labelServices = new System.Windows.Forms.Label();
+            this.checkedListBoxServices = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.premiereCareHospitalDataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,71 +49,69 @@
             this.labelMain.TabIndex = 12;
             this.labelMain.Text = "Request Lab Test";
             // 
+            // premiereCareHospitalDataSet
+            // 
+            this.premiereCareHospitalDataSet.DataSetName = "PremiereCareHospitalDataSet";
+            this.premiereCareHospitalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonAdd.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonAdd.Location = new System.Drawing.Point(250, 484);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(100, 38);
+            this.buttonAdd.TabIndex = 56;
+            this.buttonAdd.Text = "Request";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Visible = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // labelServiceErr
+            // 
+            this.labelServiceErr.AutoSize = true;
+            this.labelServiceErr.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelServiceErr.Location = new System.Drawing.Point(174, 126);
+            this.labelServiceErr.Name = "labelServiceErr";
+            this.labelServiceErr.Size = new System.Drawing.Size(155, 13);
+            this.labelServiceErr.TabIndex = 59;
+            this.labelServiceErr.Text = "Must select atleast one Service";
+            this.labelServiceErr.Click += new System.EventHandler(this.labelServiceErr_Click_1);
+            // 
+            // labelServices
+            // 
+            this.labelServices.AutoSize = true;
+            this.labelServices.Location = new System.Drawing.Point(174, 88);
+            this.labelServices.Name = "labelServices";
+            this.labelServices.Size = new System.Drawing.Size(55, 13);
+            this.labelServices.TabIndex = 58;
+            this.labelServices.Text = "Services *";
+            // 
             // checkedListBoxServices
             // 
             this.checkedListBoxServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.checkedListBoxServices.CheckOnClick = true;
             this.checkedListBoxServices.FormattingEnabled = true;
-            this.checkedListBoxServices.Location = new System.Drawing.Point(235, 101);
+            this.checkedListBoxServices.Location = new System.Drawing.Point(177, 104);
             this.checkedListBoxServices.Name = "checkedListBoxServices";
             this.checkedListBoxServices.ScrollAlwaysVisible = true;
-            this.checkedListBoxServices.Size = new System.Drawing.Size(133, 289);
-            this.checkedListBoxServices.TabIndex = 24;
-            this.checkedListBoxServices.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxServices_SelectedIndexChanged);
-            // 
-            // labelServices
-            // 
-            this.labelServices.AutoSize = true;
-            this.labelServices.Location = new System.Drawing.Point(274, 85);
-            this.labelServices.Name = "labelServices";
-            this.labelServices.Size = new System.Drawing.Size(55, 13);
-            this.labelServices.TabIndex = 25;
-            this.labelServices.Text = "Services *";
-            // 
-            // labelServiceErr
-            // 
-            this.labelServiceErr.AutoSize = true;
-            this.labelServiceErr.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelServiceErr.Location = new System.Drawing.Point(224, 404);
-            this.labelServiceErr.Name = "labelServiceErr";
-            this.labelServiceErr.Size = new System.Drawing.Size(155, 13);
-            this.labelServiceErr.TabIndex = 26;
-            this.labelServiceErr.Text = "Must select atleast one Service";
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonAdd.AutoSize = true;
-            this.buttonAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.buttonAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonAdd.Location = new System.Drawing.Point(250, 486);
-            this.buttonAdd.MaximumSize = new System.Drawing.Size(125, 38);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(80, 26);
-            this.buttonAdd.TabIndex = 27;
-            this.buttonAdd.Text = "Request ";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // premiereCareHospitalDataSet
-            // 
-            this.premiereCareHospitalDataSet.DataSetName = "PremiereCareHospitalDataSet";
-            this.premiereCareHospitalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.checkedListBoxServices.Size = new System.Drawing.Size(254, 19);
+            this.checkedListBoxServices.TabIndex = 57;
             // 
             // RequestLabTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 544);
-            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelServiceErr);
             this.Controls.Add(this.labelServices);
             this.Controls.Add(this.checkedListBoxServices);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RequestLabTest";
@@ -128,10 +126,10 @@
 
         #endregion
         private System.Windows.Forms.Label labelMain;
-        private System.Windows.Forms.CheckedListBox checkedListBoxServices;
-        private System.Windows.Forms.Label labelServices;
-        private System.Windows.Forms.Label labelServiceErr;
-        private System.Windows.Forms.Button buttonAdd;
         private PremiereCareHospitalDataSet premiereCareHospitalDataSet;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Label labelServiceErr;
+        private System.Windows.Forms.Label labelServices;
+        private System.Windows.Forms.CheckedListBox checkedListBoxServices;
     }
 }

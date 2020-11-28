@@ -20,11 +20,11 @@ namespace PremiereCare_Application.LabTest
         public string serviceID { get; set; }
         public string testID { get; set; }
 
-        SqlCommand cmd_;
-        SqlConnection conn_;
-        SqlDataAdapter dtadapter_;
-        SqlDataReader dtread_;
-        DataTable dt_;
+        SqlCommand cmd;
+        SqlConnection conn;
+        SqlDataAdapter dtadapter;
+        SqlDataReader dtread;
+        DataTable dt;
         //DataSet dts_;
 
         public string GetMessage { get; set; }
@@ -32,23 +32,23 @@ namespace PremiereCare_Application.LabTest
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
-        public bool TestRequest( LabTest labtest, Form form)
+        public bool CreateLabRequest( LabTest labtest, Form form)
         {
             bool isSuccess = false;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
                 string qry = @"INSERT INTO  [PremiereCareHospital].[dbo].Lab_Test (test_id, doc_id, appointment_id) 
                             VALUES(NEXT VALUE FOR lab_test_seq, @doctor, @appointment)";
 
-                cmd_ = new SqlCommand(qry, conn_);
-                cmd_.Parameters.AddWithValue("@doctor", labtest.docID);
-                cmd_.Parameters.AddWithValue("@appointment", labtest.appointmentID);
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("@doctor", labtest.docID);
+                cmd.Parameters.AddWithValue("@appointment", labtest.appointmentID);
 
-                conn_.Open();
-                int rows = cmd_.ExecuteNonQuery();
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
 
                 if (rows > 0)
                 {
@@ -66,32 +66,33 @@ namespace PremiereCare_Application.LabTest
             }
             finally
             {
-                conn_.Close(); 
+                conn.Close(); 
             }
             return isSuccess;
         }
 
-        public bool Service(List<string> ids, LabTest labtest, Form form)
+        public bool SetServices(int testID, List<int> IDs, Form form)
         {
             bool isSuccess = false;
+            bool errors = false;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
-            try
+
+            foreach (int ID in IDs)
             {
-                foreach (string item in ids)
+                try
                 {
-                    serviceID = item;
-                    string qry = @"INSERT INTO [PremiereCareHospital].[dbo].Service (service_id, test_id) 
+                    string query = @"INSERT INTO [PremiereCareHospital].[dbo].Service (service_id, test_id) 
                             VALUES(@service_id, @test_id)";
-                   
-                    cmd_ = new SqlCommand(qry, conn_);
-                    cmd_.Parameters.AddWithValue("@service_id", labtest.serviceID);
-                    cmd_.Parameters.AddWithValue("@test_id", labtest.testID);
+
+                    cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@service_id", ID);
+                    cmd.Parameters.AddWithValue("@test_id", testID);
 
                     //cmd_.ExecuteNonQuery();
-                    conn_.Open();
-                    int rows = cmd_.ExecuteNonQuery();
+                    conn.Open();
+                    int rows = cmd.ExecuteNonQuery();
 
                     if (rows > 0)
                     {
@@ -102,16 +103,14 @@ namespace PremiereCare_Application.LabTest
                         isSuccess = false;
                     }
                 }
-                
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn_.Close(); 
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
             return isSuccess; 
                       
@@ -121,9 +120,9 @@ namespace PremiereCare_Application.LabTest
         public void getSingleValueArrayIndex( out List<string> columndata, int index)
         {
             List<string> data = new List<string>();
-           
+
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
@@ -131,18 +130,18 @@ namespace PremiereCare_Application.LabTest
                 string qry = "SELECT service  FROM [PremiereCareHospital].[dbo].Lab_Services";
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
+                dtadapter = new SqlDataAdapter(cmd);
 
-                conn_.Open();
+                conn.Open();
 
-                dtread_ = cmd_.ExecuteReader();
+                dtread = cmd.ExecuteReader();
 
-                while (dtread_.Read())
+                while (dtread.Read())
                 {
-                    data.Add(dtread_[index].ToString());
+                    data.Add(dtread[index].ToString());
                 }
 
             }
@@ -153,7 +152,7 @@ namespace PremiereCare_Application.LabTest
             }
             finally
             {
-                conn_.Close();
+                conn.Close();
             }
             columndata = data;
            
@@ -163,7 +162,7 @@ namespace PremiereCare_Application.LabTest
         {
             string val = null;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
@@ -171,17 +170,17 @@ namespace PremiereCare_Application.LabTest
                 string qry = query;
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
 
-                dtread_ = cmd_.ExecuteReader();
+                dtread = cmd.ExecuteReader();
 
-                while (dtread_.Read())
+                while (dtread.Read())
                 {
-                    val = dtread_[index].ToString();
+                    val = dtread[index].ToString();
                 }
 
             }
@@ -191,7 +190,7 @@ namespace PremiereCare_Application.LabTest
             }
             finally
             {
-                conn_.Close();
+                conn.Close();
             }
             columndata = val;
         }
@@ -200,7 +199,7 @@ namespace PremiereCare_Application.LabTest
         {
             string  val = null;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
@@ -210,15 +209,15 @@ namespace PremiereCare_Application.LabTest
 
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
 
-                dtread_ = cmd_.ExecuteReader();
+                dtread = cmd.ExecuteReader();
 
-                val = dtread_.ToString();
+                val = dtread.ToString();
 
             }
             catch (Exception ex)
@@ -227,7 +226,7 @@ namespace PremiereCare_Application.LabTest
             }
             finally 
             {
-                conn_.Close();
+                conn.Close();
             }
             
             return val;
@@ -237,22 +236,22 @@ namespace PremiereCare_Application.LabTest
         {
 
             // Step 1: Create database connection string query,
-             conn_ = new SqlConnection(myconnstring);
-            dt_ = new DataTable();
+            conn = new SqlConnection(myconnstring);
+            dt = new DataTable();
             try
             {
                 //Step 2: Writing SQL Query
                 string qry = query;
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
 
-                
-                dtadapter_.Fill(dt_);
+
+                dtadapter.Fill(dt);
             }
             catch (Exception ex)
             {
@@ -261,13 +260,47 @@ namespace PremiereCare_Application.LabTest
             finally
             {
                 //Close Connection
-                conn_.Close();
+                conn.Close();
             }
-            searchData = dt_;
-            return dt_;
+            searchData = dt;
+            return dt;
         }
-            
-       
+
+        public DataTable GetMostRecentTestID()
+        {
+
+            // Step 1: Create database connection string query,
+            conn = new SqlConnection(myconnstring);
+            dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string qry = @"SELECT TOP 1 test_id FROM[PremiereCareHospital].[dbo].[Lab_Test]
+                                ORDER BY test_id DESC";
+
+                //Creating cmd using sql and conn
+                cmd = new SqlCommand(qry, conn);
+
+                //Creating SQL DataAdapter using cmd
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
+
+
+                dtadapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+
+
 
 
     }
