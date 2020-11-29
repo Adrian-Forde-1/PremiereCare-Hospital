@@ -35,7 +35,7 @@ namespace PremiereCare_Application
         //Method to align items
         private void AlignItems()
         {
-            buttonCreate.Location = new Point((this.ClientSize.Width - buttonCreate.Width) / 2, this.ClientSize.Height - 50);
+            buttonAdd.Location = new Point((this.ClientSize.Width - buttonAdd.Width) / 2, this.ClientSize.Height - 50);
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
@@ -70,7 +70,7 @@ namespace PremiereCare_Application
             removeErrors();
             PopulateComboBox();
             AlignItems();
-            buttonCreate.Visible = true;
+            buttonAdd.Visible = true;
             labelMain.Visible = true;
             //textBoxFname.Text = userID;
             appointmentDatePicker.Format = DateTimePickerFormat.Custom;

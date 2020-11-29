@@ -175,5 +175,89 @@ namespace PremiereCare_Application.Appointment
             }
             return dt;
         }
+
+        public bool CompleteAppointment(int appointmentID)
+        {
+            //Creating a default return value and setting its value to false
+            bool isSuccess = false;
+
+            SqlConnection conn = new SqlConnection(myconnstring);
+            try
+            {
+                //SQL to update data in out database
+                string sql = "UPDATE [PremiereCareHospital].[dbo].Appointment SET status_id=@status WHERE appointment_id=@appointmentID";
+
+                //Creating SQL Commandclear
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //Create Parameters to add values
+                cmd.Parameters.AddWithValue("status", 2);
+                cmd.Parameters.AddWithValue("appointmentID", appointmentID);
+
+                //Open database connection
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return isSuccess;
+        }
+
+        public bool CancelAppointment(int appointmentID)
+        {
+            //Creating a default return value and setting its value to false
+            bool isSuccess = false;
+
+            SqlConnection conn = new SqlConnection(myconnstring);
+            try
+            {
+                //SQL to update data in out database
+                string sql = "UPDATE [PremiereCareHospital].[dbo].Appointment SET status_id=@status WHERE appointment_id=@appointmentID";
+
+                //Creating SQL Commandclear
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //Create Parameters to add values
+                cmd.Parameters.AddWithValue("status", 3);
+                cmd.Parameters.AddWithValue("appointmentID", appointmentID);
+
+                //Open database connection
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return isSuccess;
+        }
     }
 }
