@@ -205,7 +205,7 @@ namespace PremiereCare_Application
         private void buttonViewLabTest_Click_1(object sender, EventArgs e)
         {
             //Open view Lab Test forms
-            OpenChildForm(new ViewLabTest());
+            OpenChildForm(new ViewLabTest(userRole, userID, panelChildFormContainer));
             CloseDropdowns();
         }
 
@@ -253,10 +253,10 @@ namespace PremiereCare_Application
         private void buttonPrescriptions_Click(object sender, EventArgs e)
         {
             
-            CloseDropdowns();
-            //Open Prescribe Medication forms
-            //OpenChildForm(new PrescribeMedication());
             
+            //Open Prescribe Medication forms
+            OpenChildForm(new RequestedLabTest(userRole, userID, panelChildFormContainer));
+            CloseDropdowns();
         }
 
 

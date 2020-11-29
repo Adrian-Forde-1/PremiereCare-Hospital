@@ -20,15 +20,12 @@ namespace PremiereCare_Application.LabTest
         public string serviceID { get; set; }
         public string testID { get; set; }
 
-        SqlCommand cmd_;
-        SqlConnection conn_;
-        SqlDataAdapter dtadapter_;
-        SqlDataReader dtread_;
-        DataTable dt_;
+        SqlCommand cmd;
+        SqlConnection conn;
+        SqlDataAdapter dtadapter;
+        SqlDataReader dtread;
+        DataTable dt;
         //DataSet dts_;
-
-        public string GetMessage { get; set; }
-
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
@@ -36,19 +33,19 @@ namespace PremiereCare_Application.LabTest
         {
             bool isSuccess = false;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
                 string qry = @"INSERT INTO  [PremiereCareHospital].[dbo].Lab_Test (test_id, doc_id, appointment_id) 
                             VALUES(NEXT VALUE FOR lab_test_seq, @doctor, @appointment)";
 
-                cmd_ = new SqlCommand(qry, conn_);
-                cmd_.Parameters.AddWithValue("@doctor", labtest.docID);
-                cmd_.Parameters.AddWithValue("@appointment", labtest.appointmentID);
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("@doctor", labtest.docID);
+                cmd.Parameters.AddWithValue("@appointment", labtest.appointmentID);
 
-                conn_.Open();
-                int rows = cmd_.ExecuteNonQuery();
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
 
                 if (rows > 0)
                 {
@@ -66,7 +63,47 @@ namespace PremiereCare_Application.LabTest
             }
             finally
             {
-                conn_.Close(); 
+                conn.Close(); 
+            }
+            return isSuccess;
+        }
+
+        public bool TestResults(LabTest labtest, Form form) 
+        {
+            bool isSuccess = false;
+            //Step 1: Create database connection string query,
+            conn = new SqlConnection(myconnstring);
+
+            try
+            {
+                string qry = @"UPDATE [dbo].[Lab_Test] SET(tech_id = @tech_id, results = @results, status = @status)
+                               WHERE(test_id = )";
+
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("@tech_id", labtest.techID);
+                cmd.Parameters.AddWithValue("@results", labtest.results);
+                cmd.Parameters.AddWithValue("@status", labtest.status);
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
             }
             return isSuccess;
         }
@@ -75,7 +112,7 @@ namespace PremiereCare_Application.LabTest
         {
             bool isSuccess = false;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
@@ -85,13 +122,13 @@ namespace PremiereCare_Application.LabTest
                     string qry = @"INSERT INTO [PremiereCareHospital].[dbo].Service (service_id, test_id) 
                             VALUES(@service_id, @test_id)";
                    
-                    cmd_ = new SqlCommand(qry, conn_);
-                    cmd_.Parameters.AddWithValue("@service_id", labtest.serviceID);
-                    cmd_.Parameters.AddWithValue("@test_id", labtest.testID);
+                    cmd = new SqlCommand(qry, conn);
+                    cmd.Parameters.AddWithValue("@service_id", labtest.serviceID);
+                    cmd.Parameters.AddWithValue("@test_id", labtest.testID);
 
                     //cmd_.ExecuteNonQuery();
-                    conn_.Open();
-                    int rows = cmd_.ExecuteNonQuery();
+                    conn.Open();
+                    int rows = cmd.ExecuteNonQuery();
 
                     if (rows > 0)
                     {
@@ -111,7 +148,7 @@ namespace PremiereCare_Application.LabTest
             }
             finally
             {
-                conn_.Close(); 
+                conn.Close(); 
             }
             return isSuccess; 
                       
@@ -123,7 +160,7 @@ namespace PremiereCare_Application.LabTest
             List<string> data = new List<string>();
            
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn= new SqlConnection(myconnstring);
 
             try
             {
@@ -131,18 +168,18 @@ namespace PremiereCare_Application.LabTest
                 string qry = "SELECT service  FROM [PremiereCareHospital].[dbo].Lab_Services";
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
+                dtadapter = new SqlDataAdapter(cmd);
 
-                conn_.Open();
+                conn.Open();
 
-                dtread_ = cmd_.ExecuteReader();
+                dtread = cmd.ExecuteReader();
 
-                while (dtread_.Read())
+                while (dtread.Read())
                 {
-                    data.Add(dtread_[index].ToString());
+                    data.Add(dtread[index].ToString());
                 }
 
             }
@@ -153,7 +190,7 @@ namespace PremiereCare_Application.LabTest
             }
             finally
             {
-                conn_.Close();
+                conn.Close();
             }
             columndata = data;
            
@@ -163,7 +200,7 @@ namespace PremiereCare_Application.LabTest
         {
             string val = null;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
@@ -171,17 +208,17 @@ namespace PremiereCare_Application.LabTest
                 string qry = query;
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
 
-                dtread_ = cmd_.ExecuteReader();
+                dtread = cmd.ExecuteReader();
 
-                while (dtread_.Read())
+                while (dtread.Read())
                 {
-                    val = dtread_[index].ToString();
+                    val = dtread[index].ToString();
                 }
 
             }
@@ -191,7 +228,7 @@ namespace PremiereCare_Application.LabTest
             }
             finally
             {
-                conn_.Close();
+                conn.Close();
             }
             columndata = val;
         }
@@ -200,7 +237,7 @@ namespace PremiereCare_Application.LabTest
         {
             string  val = null;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
@@ -210,15 +247,15 @@ namespace PremiereCare_Application.LabTest
 
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
 
-                dtread_ = cmd_.ExecuteReader();
+                dtread = cmd.ExecuteReader();
 
-                val = dtread_.ToString();
+                val = dtread.ToString();
 
             }
             catch (Exception ex)
@@ -227,32 +264,81 @@ namespace PremiereCare_Application.LabTest
             }
             finally 
             {
-                conn_.Close();
+                conn.Close();
             }
             
             return val;
         }
 
-        public DataTable GetAllLabTest(string query, out DataTable searchData)
+        public DataTable GetAllLabTest(string userRole, int userID)//string query,
         {
 
             // Step 1: Create database connection string query,
-             conn_ = new SqlConnection(myconnstring);
-            dt_ = new DataTable();
+             conn = new SqlConnection(myconnstring);
+            dt = new DataTable();
             try
             {
-                //Step 2: Writing SQL Query
-                string qry = query;
+                //Step 2: Writing SQL Query  
+
+                string qry = "";  
+                if (userRole == "CSR") qry = @"SELECT      
+                                                 lt.test_id AS 'Test#',
+                                                 lt.appointment_id AS 'Appointment', 
+                                                 a.appointment_date AS 'Date Requested',
+                                                 d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                                 d.specialty AS 'Doctor Specialty',
+			                                     p.fname + ' ' + p.lname AS 'Patient Name',
+                                                 ls.service AS 'Requested Test',
+                                                 lt.status AS 'Status', 
+                                                 lt.results AS 'Results' 
+                                                FROM[PremiereCareHospital].[dbo].Lab_Test lt
+                                                 JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                     ON lt.doc_id = d.doc_id
+                                                 JOIN[PremiereCareHospital].[dbo].Appointment a
+                                                     ON lt.appointment_id = a.appointment_id
+                                                 JOIN[PremiereCareHospital].[dbo].Service s  
+                                                     ON lt.test_id = s.test_id 
+                                                 JOIN[PremiereCareHospital].[dbo].Lab_Services ls  
+                                                     ON s.service_id = ls.service_id
+                                                 JOIN[PremiereCareHospital].[dbo].Patient p  
+                                                     ON a.patient_id = p.patient_id	
+                                                  ORDER BY a.appointment_date ASC";
+
+                else if (userRole == "Doctor") qry = @"SELECT  
+                                                         lt.test_id AS 'Test#',
+                                                         lt.appointment_id AS 'Appointment', 
+                                                         a.appointment_date AS 'Date Requested',
+                                                         d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                                         d.specialty AS 'Doctor Specialty',
+			                                             p.fname + ' ' + p.lname AS 'Patient Name',
+                                                         ls.service AS 'Requested Test',
+                                                         lt.status AS 'Status', 
+                                                         lt.results AS 'Results' 
+                                                        FROM[PremiereCareHospital].[dbo].Lab_Test lt
+                                                         JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                             ON lt.doc_id = d.doc_id
+                                                         JOIN[PremiereCareHospital].[dbo].Appointment a
+                                                             ON lt.appointment_id = a.appointment_id
+                                                         JOIN[PremiereCareHospital].[dbo].Service s  
+                                                             ON lt.test_id = s.test_id 
+                                                         JOIN[PremiereCareHospital].[dbo].Lab_Services ls  
+                                                             ON s.service_id = ls.service_id
+                                                         JOIN[PremiereCareHospital].[dbo].Patient p  
+                                                             ON a.patient_id = p.patient_id	
+                                                          WHERE d.doc_id = @userID
+                                                          ORDER BY a.appointment_date ASC";
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
+                if (userRole == "Doctor")
+                {
+                    cmd.Parameters.AddWithValue("@userID", userID);
+                }
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
-
-                
-                dtadapter_.Fill(dt_);
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();                                
+                dtadapter.Fill(dt);
             }
             catch (Exception ex)
             {
@@ -261,15 +347,62 @@ namespace PremiereCare_Application.LabTest
             finally
             {
                 //Close Connection
-                conn_.Close();
+                conn.Close();
             }
-            searchData = dt_;
-            return dt_;
+            return dt;
         }
-            
-       
+
+         public DataTable GetLabTest(int labTestID)
+         {
+             SqlConnection conn = new SqlConnection(myconnstring);
+             DataTable dt = new DataTable();
+             try
+             {
+                 string qry = @"SELECT	 
+			                    lt.test_id AS 'Test#',
+                                a.appointment_id AS 'Appointment ID',
+			                    d.fname  AS  'Doctor First Name',
+                                d.lname AS  'Doctor Last Name',
+                                d.specialty AS 'Doctor Specialty',
+			                    p.fname AS 'Patient First Name',
+                                p.lname AS  'Patient Last Name',
+			                    a.appointment_date AS 'Requested Date',
+                                ls.Service AS 'Requested Test',
+			                    lt.status AS 'Status',
+			                    lt.results AS 'Results'
+			                    FROM[PremiereCareHospital].[dbo].Lab_Test lt
+                                 JOIN[PremiereCareHospital].[dbo].Doctor d
+                                     ON lt.doc_id = d.doc_id
+                                 JOIN[PremiereCareHospital].[dbo].Appointment a
+                                     ON lt.appointment_id = a.appointment_id
+                                 JOIN[PremiereCareHospital].[dbo].Service s  
+                                     ON lt.test_id = s.test_id 
+                                 JOIN[PremiereCareHospital].[dbo].Lab_Services ls  
+				                     ON s.service_id = ls.service_id
+                                 JOIN[PremiereCareHospital].[dbo].Patient p  
+                                     ON a.patient_id = p.patient_id
+				                    WHERE s.test_id = @labTestID				 
+                                 ORDER BY a.appointment_date ASC;";
+
+                 SqlCommand cmd = new SqlCommand(qry, conn);
+                 cmd.Parameters.AddWithValue("@labTestID", labTestID);
+
+                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                 conn.Open();
+                 adapter.Fill(dt);
+             }
+             catch(Exception ex)
+             {
+                 MessageBox.Show(ex.ToString());
+             }
+             finally
+             {
+                 conn.Close();
+             }
+             return dt;
+         } 
 
 
     }
-    
+
 }

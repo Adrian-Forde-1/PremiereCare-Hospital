@@ -157,6 +157,12 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="IndividualLabTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IndividualLabTest.Designer.cs">
+      <DependentUpon>IndividualLabTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="IndividualAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,11 +176,11 @@
       <DependentUpon>IndividualPatient.cs</DependentUpon>
     </Compile>
     <Compile Include="LabService\LabService.cs" />
-    <Compile Include="LabTestResults.cs">
+    <Compile Include="RequestedLabTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LabTestResults.Designer.cs">
-      <DependentUpon>LabTestResults.cs</DependentUpon>
+    <Compile Include="RequestedLabTest.Designer.cs">
+      <DependentUpon>RequestedLabTest.cs</DependentUpon>
     </Compile>
     <Compile Include="LabTest\LabTest.cs" />
     <Compile Include="Patient\Patient.cs" />
@@ -309,11 +315,14 @@
     <EmbeddedResource Include="IndividualAppointment.resx">
       <DependentUpon>IndividualAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IndividualLabTest.resx">
+      <DependentUpon>IndividualLabTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IndividualPatient.resx">
       <DependentUpon>IndividualPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LabTestResults.resx">
-      <DependentUpon>LabTestResults.cs</DependentUpon>
+    <EmbeddedResource Include="RequestedLabTest.resx">
+      <DependentUpon>RequestedLabTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewNotes.resx">
       <DependentUpon>ViewNotes.cs</DependentUpon>
