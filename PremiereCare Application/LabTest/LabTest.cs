@@ -29,7 +29,7 @@ namespace PremiereCare_Application.LabTest
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
-        public bool RequestLabTest( LabTest labtest, Form form)
+        public bool CreateLabRequest(LabTest labtest, Form form)
         {
             bool isSuccess = false;
             //Step 1: Create database connection string query,
@@ -108,7 +108,7 @@ namespace PremiereCare_Application.LabTest
             return isSuccess;
         }
 
-        public bool Service(List<string> ids, LabTest labtest, Form form)
+        //public bool Service(List<string> ids, LabTest labtest, Form form)
         public bool SetServices(int testID, List<int> IDs, Form form)
         {
             bool isSuccess = false;
@@ -123,11 +123,11 @@ namespace PremiereCare_Application.LabTest
                 {
                     string query = @"INSERT INTO [PremiereCareHospital].[dbo].Service (service_id, test_id) 
                             VALUES(@service_id, @test_id)";
-                   
-                    cmd = new SqlCommand(qry, conn);
+
+                    /*cmd = new SqlCommand(qry, conn);
                     cmd.Parameters.AddWithValue("@service_id", labtest.serviceID);
                     cmd.Parameters.AddWithValue("@test_id", labtest.testID);
-
+                    */
                     cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@service_id", ID);
                     cmd.Parameters.AddWithValue("@test_id", testID);
@@ -144,18 +144,8 @@ namespace PremiereCare_Application.LabTest
                     {
                         isSuccess = false;
                     }
-                }
-                
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                conn.Close(); 
-            }
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
@@ -163,11 +153,10 @@ namespace PremiereCare_Application.LabTest
                 finally
                 {
                     conn.Close();
-                }
+                }               
+
             }
-            return isSuccess; 
-                      
-            
+            return isSuccess;
         }
 
         public void getSingleValueArrayIndex( out List<string> columndata, int index)
@@ -365,7 +354,7 @@ namespace PremiereCare_Application.LabTest
                 //Close Connection
                 conn.Close();
             }
-            searchData = dt;
+            //searchData = dt;
             return dt;
         }
 
@@ -383,20 +372,11 @@ namespace PremiereCare_Application.LabTest
 
                 //Creating cmd using sql and conn
                 cmd = new SqlCommand(qry, conn);
-                cmd = new SqlCommand(qry, conn);
-                if (userRole == "Doctor")
-                {
-                    cmd.Parameters.AddWithValue("@userID", userID);
-                }
 
                 //Creating SQL DataAdapter using cmd
                 dtadapter = new SqlDataAdapter(cmd);
                 conn.Open();
 
-
-                dtadapter.Fill(dt);
-                dtadapter = new SqlDataAdapter(cmd);
-                conn.Open();                                
                 dtadapter.Fill(dt);
             }
             catch (Exception ex)
