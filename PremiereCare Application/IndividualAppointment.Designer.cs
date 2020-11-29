@@ -397,6 +397,8 @@
             this.buttonGenerateInvoice.TabIndex = 75;
             this.buttonGenerateInvoice.Text = "Generate Invoice";
             this.buttonGenerateInvoice.UseVisualStyleBackColor = false;
+            this.buttonGenerateInvoice.Visible = false;
+            this.buttonGenerateInvoice.Click += new System.EventHandler(this.buttonGenerateInvoice_Click);
             // 
             // buttonCreateVisitNote
             // 
@@ -430,7 +432,8 @@
             this.buttonCancel.TabIndex = 71;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCancel.Visible = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // flowLayoutPanel9
             // 
@@ -456,6 +459,7 @@
             this.buttonComplete.TabIndex = 76;
             this.buttonComplete.Text = "Complete";
             this.buttonComplete.UseVisualStyleBackColor = false;
+            this.buttonComplete.Visible = false;
             this.buttonComplete.Click += new System.EventHandler(this.buttonComplete_Click);
             // 
             // IndividualAppointment

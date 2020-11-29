@@ -31,7 +31,6 @@ namespace PremiereCare_Application
 
             if (userRole != "CSR")
             {
-                buttonCancel.Hide();
                 buttonGenerateInvoice.Hide();
             }
             if(userRole !="Doctor")
@@ -74,7 +73,17 @@ namespace PremiereCare_Application
             labelPatientAllergies.Text = allergies;
             labelPatientDOB.Text = DOB;
             labelPatientBloodType.Text = bloodType;
-            label10.Text = status;
+            labelAppointmentStatus.Text = status;
+
+            if (status == "Upcoming" && userRole == "CSR")
+            {
+                buttonComplete.Show();
+                buttonCancel.Show();
+            }
+            else if(status == "Complete" && userRole == "CSR")
+            {
+                buttonGenerateInvoice.Show();
+            }
 
             if (status != "Complete" && userRole == "Doctor") buttonComplete.Show();
         }
@@ -89,11 +98,6 @@ namespace PremiereCare_Application
         {
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void buttonCreateVisitNote_Click(object sender, EventArgs e)
         {
             OpenChildForm(new CreateVisitNote(userID, appointmentID));
@@ -101,7 +105,10 @@ namespace PremiereCare_Application
 
         private void buttonComplete_Click(object sender, EventArgs e)
         {
-
+            appointment.CompleteAppointment(appointmentID);
+            buttonComplete.Hide();
+            buttonCancel.Hide();
+            SetValues();
         }
 
         private void buttonRequestLabTest_Click(object sender, EventArgs e)
@@ -112,6 +119,19 @@ namespace PremiereCare_Application
         private void buttonPrescribeMedication_Click(object sender, EventArgs e)
         {
             OpenChildForm(new PrescribeMedication(userID, appointmentID, patientID));
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            appointment.CancelAppointment(appointmentID);
+            buttonCancel.Hide();
+            buttonComplete.Hide();
+            SetValues();
+        }
+
+        private void buttonGenerateInvoice_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Invoice(appointmentID));
         }
     }
 }

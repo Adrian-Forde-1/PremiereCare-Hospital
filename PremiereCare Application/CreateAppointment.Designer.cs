@@ -33,9 +33,9 @@
             this.labelDateErr = new System.Windows.Forms.Label();
             this.labelMain = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
-            this.buttonCreate = new System.Windows.Forms.Button();
             this.appointmentDatePicker = new System.Windows.Forms.DateTimePicker();
             this.comboBoxDoctors = new System.Windows.Forms.ComboBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelDoctor
@@ -105,25 +105,6 @@
             this.labelDate.TabIndex = 54;
             this.labelDate.Text = "Date *";
             // 
-            // buttonCreate
-            // 
-            this.buttonCreate.AutoSize = true;
-            this.buttonCreate.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonCreate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCreate.FlatAppearance.BorderSize = 0;
-            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.buttonCreate.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonCreate.Location = new System.Drawing.Point(250, 486);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(64, 26);
-            this.buttonCreate.TabIndex = 70;
-            this.buttonCreate.Text = "Create";
-            this.buttonCreate.UseVisualStyleBackColor = false;
-            this.buttonCreate.Visible = false;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
             // appointmentDatePicker
             // 
             this.appointmentDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -137,11 +118,31 @@
             // 
             this.comboBoxDoctors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxDoctors.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBoxDoctors.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBoxDoctors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxDoctors.FormattingEnabled = true;
             this.comboBoxDoctors.Location = new System.Drawing.Point(150, 89);
             this.comboBoxDoctors.Name = "comboBoxDoctors";
             this.comboBoxDoctors.Size = new System.Drawing.Size(295, 21);
             this.comboBoxDoctors.TabIndex = 72;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonAdd.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonAdd.Location = new System.Drawing.Point(250, 491);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(100, 38);
+            this.buttonAdd.TabIndex = 73;
+            this.buttonAdd.Text = "Create";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Visible = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // CreateAppointment
             // 
@@ -149,9 +150,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 544);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.comboBoxDoctors);
             this.Controls.Add(this.appointmentDatePicker);
-            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.labelDoctor);
             this.Controls.Add(this.labelDoctorErr);
             this.Controls.Add(this.labelDateErr);
@@ -173,8 +174,8 @@
         private System.Windows.Forms.Label labelDateErr;
         private System.Windows.Forms.Label labelMain;
         private System.Windows.Forms.Label labelDate;
-        private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.DateTimePicker appointmentDatePicker;
         private System.Windows.Forms.ComboBox comboBoxDoctors;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

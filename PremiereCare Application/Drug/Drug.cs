@@ -68,7 +68,7 @@ namespace PremiereCare_Application.Drug
             try
             {
                 //Step 2: Writing SQL Query
-                string sql = "SELECT drug_id AS 'ID', drug AS 'Drug', cost AS 'Cost' FROM Drug";
+                string sql = "SELECT drug_id AS 'ID', drug AS 'Drug', cost AS 'Cost' FROM Drug ORDER BY Drug";
 
                 //Creating cmd using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);

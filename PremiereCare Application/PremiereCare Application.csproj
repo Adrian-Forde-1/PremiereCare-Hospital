@@ -169,6 +169,12 @@
     <Compile Include="IndividualPatient.Designer.cs">
       <DependentUpon>IndividualPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Invoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Invoice.Designer.cs">
+      <DependentUpon>Invoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="LabService\LabService.cs" />
     <Compile Include="RequestedLabTest.cs">
       <SubType>Form</SubType>
@@ -179,6 +185,7 @@
     <Compile Include="LabTest\LabTest.cs" />
     <Compile Include="Patient\Patient.cs" />
     <Compile Include="Prescription\PrescribeMed.cs" />
+    <Compile Include="Reports\Invoice.cs" />
     <Compile Include="ViewNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,8 +319,8 @@
     <EmbeddedResource Include="IndividualPatient.resx">
       <DependentUpon>IndividualPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequestedLabTest.resx">
-      <DependentUpon>RequestedLabTest.cs</DependentUpon>
+    <EmbeddedResource Include="LabTestResults.resx">
+      <DependentUpon>LabTestResults.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewNotes.resx">
       <DependentUpon>ViewNotes.cs</DependentUpon>
