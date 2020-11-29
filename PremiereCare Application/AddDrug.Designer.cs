@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.labelLName = new System.Windows.Forms.Label();
             this.labelFName = new System.Windows.Forms.Label();
             this.textBoxCost = new System.Windows.Forms.TextBox();
@@ -36,26 +35,8 @@
             this.labelDrugErr = new System.Windows.Forms.Label();
             this.labelMain = new System.Windows.Forms.Label();
             this.labelCostErr = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.AutoSize = true;
-            this.buttonAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonAdd.FlatAppearance.BorderSize = 0;
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.buttonAdd.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAdd.Location = new System.Drawing.Point(250, 486);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(46, 26);
-            this.buttonAdd.TabIndex = 91;
-            this.buttonAdd.Text = "Add";
-            this.buttonAdd.UseVisualStyleBackColor = false;
-            this.buttonAdd.Visible = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // labelLName
             // 
@@ -152,6 +133,23 @@
             this.labelCostErr.TabIndex = 90;
             this.labelCostErr.Text = "Field cannot be empty";
             // 
+            // buttonAdd
+            // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonAdd.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonAdd.Location = new System.Drawing.Point(250, 482);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(100, 38);
+            this.buttonAdd.TabIndex = 91;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Visible = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
             // AddDrug
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,8 +175,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Label labelLName;
         private System.Windows.Forms.Label labelFName;
         private System.Windows.Forms.TextBox textBoxCost;
@@ -186,5 +182,6 @@
         private System.Windows.Forms.Label labelDrugErr;
         private System.Windows.Forms.Label labelMain;
         private System.Windows.Forms.Label labelCostErr;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

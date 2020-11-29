@@ -49,6 +49,7 @@
             this.labelFNameErr = new System.Windows.Forms.Label();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.techDOB = new System.Windows.Forms.DateTimePicker();
+            this.labelSexErr = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelSalaryErr
@@ -316,14 +317,14 @@
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonAdd.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonAdd.Location = new System.Drawing.Point(249, 487);
+            this.buttonAdd.Location = new System.Drawing.Point(249, 493);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(100, 38);
             this.buttonAdd.TabIndex = 54;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Visible = false;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAddTech_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             this.buttonAdd.Resize += new System.EventHandler(this.buttonAddTech_Resize);
             // 
             // techDOB
@@ -335,12 +336,27 @@
             this.techDOB.Size = new System.Drawing.Size(298, 20);
             this.techDOB.TabIndex = 55;
             // 
+            // labelSexErr
+            // 
+            this.labelSexErr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSexErr.AutoSize = true;
+            this.labelSexErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSexErr.ForeColor = System.Drawing.Color.Red;
+            this.labelSexErr.Location = new System.Drawing.Point(147, 452);
+            this.labelSexErr.Name = "labelSexErr";
+            this.labelSexErr.Size = new System.Drawing.Size(95, 12);
+            this.labelSexErr.TabIndex = 56;
+            this.labelSexErr.Text = "Field cannot be empty";
+            // 
             // AddTechnician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(600, 544);
+            this.Controls.Add(this.labelSexErr);
             this.Controls.Add(this.techDOB);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.labelLName);
@@ -395,5 +411,6 @@
         private System.Windows.Forms.Label labelFNameErr;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DateTimePicker techDOB;
+        private System.Windows.Forms.Label labelSexErr;
     }
 }

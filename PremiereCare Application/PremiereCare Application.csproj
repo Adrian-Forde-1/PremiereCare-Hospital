@@ -139,12 +139,6 @@
     </Compile>
     <Compile Include="DoctorVisitNotes\DoctorVisitNotes.cs" />
     <Compile Include="Drug\Drug.cs" />
-    <Compile Include="CreateNotes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateNotes.Designer.cs">
-      <DependentUpon>CreateNotes.cs</DependentUpon>
-    </Compile>
     <Compile Include="EditDrug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,9 +299,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateNotes.resx">
-      <DependentUpon>CreateNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>

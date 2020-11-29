@@ -375,6 +375,8 @@
             // 
             // patientDOBPicker
             // 
+            this.patientDOBPicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.patientDOBPicker.Location = new System.Drawing.Point(152, 172);
             this.patientDOBPicker.Name = "patientDOBPicker";
             this.patientDOBPicker.Size = new System.Drawing.Size(295, 20);
