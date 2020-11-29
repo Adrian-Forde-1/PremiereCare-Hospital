@@ -398,6 +398,7 @@
             this.buttonGenerateInvoice.Text = "Generate Invoice";
             this.buttonGenerateInvoice.UseVisualStyleBackColor = false;
             this.buttonGenerateInvoice.Visible = false;
+            this.buttonGenerateInvoice.Click += new System.EventHandler(this.buttonGenerateInvoice_Click);
             // 
             // buttonCreateVisitNote
             // 

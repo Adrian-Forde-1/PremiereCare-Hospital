@@ -128,5 +128,10 @@ namespace PremiereCare_Application
             buttonComplete.Hide();
             SetValues();
         }
+
+        private void buttonGenerateInvoice_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Invoice(appointmentID));
+        }
     }
 }

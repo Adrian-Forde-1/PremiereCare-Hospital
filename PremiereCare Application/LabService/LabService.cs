@@ -90,5 +90,43 @@ namespace PremiereCare_Application.LabService
             }
             return dt;
         }
+
+        public DataTable GetAllLabServiceForTest(int testID)
+        {
+            //Step 1: Create database connection
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string sql = @"SELECT 
+                                ls.service AS 'Service',
+                                ls.cost AS 'Cost'
+                                FROM [PremiereCareHospital].[dbo].[Service] s
+                                JOIN [PremiereCareHospital].[dbo].[Lab_Services] ls 
+                                	ON s.service_id = ls.service_id
+                                WHERE test_id=@testID;";
+
+                //Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@testID", testID);
+
+                //Creating SQL DataAdapter using cmd
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
     }
 }

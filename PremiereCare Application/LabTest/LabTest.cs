@@ -266,6 +266,40 @@ namespace PremiereCare_Application.LabTest
             return dt;
         }
 
+        public DataTable GetAllAppointmentLabTest(int appointmentID)
+        {
+
+            // Step 1: Create database connection string query,
+            conn = new SqlConnection(myconnstring);
+            dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string query = "SELECT * FROM [PremiereCareHospital].[dbo].[Lab_Test] WHERE appointment_id=@appointmentID";
+
+                //Creating cmd using sql and conn
+                cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@appointmentID", appointmentID);
+
+                //Creating SQL DataAdapter using cmd
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
+
+
+                dtadapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+
         public DataTable GetMostRecentTestID()
         {
 
