@@ -144,6 +144,7 @@ namespace PremiereCare_Application.Appointment
                             d.specialty AS 'Doctor Specialty',
                             p.fname AS 'Patient First Name',
                             p.lname AS 'Patient Last Name',
+                            p.patient_id AS 'Patient ID',
                             p.dob AS 'Patient Date of Birth',
                             p.blood_type AS 'Patient Blood Type',
                             p.allergies AS 'Patient Allergies',

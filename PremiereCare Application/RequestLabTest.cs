@@ -19,7 +19,6 @@ namespace PremiereCare_Application
         //variables
         private int docID;
         private int appointmentID;
-        private List<DataRow> services = new List<DataRow>();
         private List<int> serviceIDs = new List<int>();
         // private DateTime submitedDate = DateTime.Now;
 
@@ -38,15 +37,6 @@ namespace PremiereCare_Application
 
         }
 
-        //Method to clear data entry points
-        private void ClearField()
-        {
-           
-            checkedListBoxServices.ClearSelected();
-            checkedListBoxServices.CheckOnClick=false;
-            //serviceDate.Value = DateTime.Now;
-        }
-
         //Method to align items
         private void AlignItems()
         {
@@ -60,7 +50,7 @@ namespace PremiereCare_Application
             AlignItems();
         }
 
-        private void RenderServices()
+        private void PopulateServices()
         {
             DataTable dt = labServices.GetAllLabService();
             foreach (DataRow row in dt.Rows)
@@ -71,9 +61,10 @@ namespace PremiereCare_Application
                 checkedListBoxServices.Items.Add(service, false);
             }
 
+
             int numServices = serviceIDs.Count();
-            checkedListBoxServices.Size = new Size(250, 19 * numServices);
-            int errLabelYPos = checkedListBoxServices.Location.Y + (19 * numServices);
+            checkedListBoxServices.Size = new Size(250, 15 * numServices);
+            int errLabelYPos = checkedListBoxServices.Location.Y + (15 * numServices);
             labelServiceErr.Location = new Point(checkedListBoxServices.Location.X, errLabelYPos);
         }
 
@@ -93,7 +84,7 @@ namespace PremiereCare_Application
         {
             removeErrors();
             AlignItems();
-            RenderServices();
+            PopulateServices();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
         }
@@ -140,16 +131,8 @@ namespace PremiereCare_Application
                 }
             }
 
-            bool success = labTest.CreateLabRequest(labTest, this);
+            bool success = labTest.RequestLabTest(labTest, this);
 
-            DataTable dt = labServices.GetAllLabService();
-            foreach (DataRow row in dt.Rows)
-            {
-                int serviceID = Convert.ToInt32(row["ID"]);
-                String service = row["Service"].ToString();
-                serviceIDs.Add(serviceID);
-                checkedListBoxServices.Items.Add(service, false);
-            }
 
             if (success == true)
             {

@@ -16,6 +16,7 @@ namespace PremiereCare_Application
         private string userRole;
         private int userID;
         private int appointmentID;
+        private int patientID;
         Panel panelContainer;
         Appointment.Appointment appointment = new Appointment.Appointment();
         public IndividualAppointment(string usrRole, int uID, int appID, Panel panel)
@@ -66,6 +67,7 @@ namespace PremiereCare_Application
             String bloodType = row["Patient Blood Type"].ToString();
             String allergies = row["Patient Allergies"].ToString();
             String status = row["Status"].ToString();
+            patientID = Convert.ToInt32(row["Patient ID"]);
             labelAppointmentID.Text = appointmentID.ToString();
             labelDoctorName.Text = docFName + " " + docLName;
             labelDoctorSpecialty.Text = patFName + " " + patLName;
@@ -109,7 +111,7 @@ namespace PremiereCare_Application
 
         private void buttonPrescribeMedication_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new PrescribeMedication(userID, appointmentID));
+            OpenChildForm(new PrescribeMedication(userID, appointmentID, patientID));
         }
     }
 }

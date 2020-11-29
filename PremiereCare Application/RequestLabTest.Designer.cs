@@ -74,12 +74,13 @@
             // labelServiceErr
             // 
             this.labelServiceErr.AutoSize = true;
-            this.labelServiceErr.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelServiceErr.Location = new System.Drawing.Point(174, 126);
+            this.labelServiceErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F);
+            this.labelServiceErr.ForeColor = System.Drawing.Color.Red;
+            this.labelServiceErr.Location = new System.Drawing.Point(175, 122);
             this.labelServiceErr.Name = "labelServiceErr";
-            this.labelServiceErr.Size = new System.Drawing.Size(155, 13);
+            this.labelServiceErr.Size = new System.Drawing.Size(137, 12);
             this.labelServiceErr.TabIndex = 59;
-            this.labelServiceErr.Text = "Must select atleast one Service";
+            this.labelServiceErr.Text = "Must select at least one Service";
             this.labelServiceErr.Click += new System.EventHandler(this.labelServiceErr_Click_1);
             // 
             // labelServices
@@ -95,12 +96,14 @@
             // 
             this.checkedListBoxServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkedListBoxServices.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.checkedListBoxServices.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBoxServices.CheckOnClick = true;
             this.checkedListBoxServices.FormattingEnabled = true;
             this.checkedListBoxServices.Location = new System.Drawing.Point(177, 104);
             this.checkedListBoxServices.Name = "checkedListBoxServices";
             this.checkedListBoxServices.ScrollAlwaysVisible = true;
-            this.checkedListBoxServices.Size = new System.Drawing.Size(254, 19);
+            this.checkedListBoxServices.Size = new System.Drawing.Size(254, 15);
             this.checkedListBoxServices.TabIndex = 57;
             // 
             // RequestLabTest

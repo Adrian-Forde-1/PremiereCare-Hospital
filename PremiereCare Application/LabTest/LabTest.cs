@@ -32,7 +32,7 @@ namespace PremiereCare_Application.LabTest
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
-        public bool CreateLabRequest( LabTest labtest, Form form)
+        public bool RequestLabTest( LabTest labtest, Form form)
         {
             bool isSuccess = false;
             //Step 1: Create database connection string query,
