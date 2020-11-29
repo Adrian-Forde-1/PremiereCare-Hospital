@@ -28,32 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInvoiceContainer = new System.Windows.Forms.Panel();
             this.panelInvoice = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.invoiceContentContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutInvoiceInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.panelTermDescContainer = new System.Windows.Forms.Panel();
-            this.labelTermDesc = new System.Windows.Forms.Label();
+            this.panelDateContainer = new System.Windows.Forms.Panel();
+            this.labelDate = new System.Windows.Forms.Label();
             this.panelInvoiceNumContainer = new System.Windows.Forms.Panel();
             this.labelInvoiceNum = new System.Windows.Forms.Label();
-            this.panelTermsTitleContainer = new System.Windows.Forms.Panel();
-            this.labelTermsTitle = new System.Windows.Forms.Label();
+            this.panelDateTitleContainer = new System.Windows.Forms.Panel();
+            this.labelDateTitle = new System.Windows.Forms.Label();
             this.panelInvoiceNumTitleContainer = new System.Windows.Forms.Panel();
             this.labelInvoiceNumTitle = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelPatientName = new System.Windows.Forms.Label();
-            this.labelPatientAddress = new System.Windows.Forms.Label();
-            this.labelPatienContact = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panelDocSpecialtyContainer = new System.Windows.Forms.Panel();
@@ -64,6 +59,13 @@
             this.labelDocSpecialtyTitle = new System.Windows.Forms.Label();
             this.panelDocTitleContainer = new System.Windows.Forms.Panel();
             this.labelDocTitle = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelPatientName = new System.Windows.Forms.Label();
+            this.labelPatientAddress = new System.Windows.Forms.Label();
+            this.labelPatienContact = new System.Windows.Forms.Label();
+            this.dgvInvoice = new System.Windows.Forms.DataGridView();
             this.panelInvoiceContainer.SuspendLayout();
             this.panelInvoice.SuspendLayout();
             this.invoiceContentContainer.SuspendLayout();
@@ -71,18 +73,19 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutInvoiceInfo.SuspendLayout();
-            this.panelTermDescContainer.SuspendLayout();
+            this.panelDateContainer.SuspendLayout();
             this.panelInvoiceNumContainer.SuspendLayout();
-            this.panelTermsTitleContainer.SuspendLayout();
+            this.panelDateTitleContainer.SuspendLayout();
             this.panelInvoiceNumTitleContainer.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panelDocSpecialtyContainer.SuspendLayout();
             this.panelDocNameContainer.SuspendLayout();
             this.panelDocSpecialtyTitleContainer.SuspendLayout();
             this.panelDocTitleContainer.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInvoiceContainer
@@ -111,18 +114,6 @@
             this.panelInvoice.Size = new System.Drawing.Size(610, 560);
             this.panelInvoice.TabIndex = 0;
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.label5.Location = new System.Drawing.Point(381, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(176, 42);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "INVOICE";
-            // 
             // invoiceContentContainer
             // 
             this.invoiceContentContainer.ColumnCount = 1;
@@ -130,6 +121,7 @@
             this.invoiceContentContainer.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.invoiceContentContainer.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.invoiceContentContainer.Controls.Add(this.tableLayoutPanel1, 0, 2);
+            this.invoiceContentContainer.Controls.Add(this.dgvInvoice, 0, 3);
             this.invoiceContentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.invoiceContentContainer.Location = new System.Drawing.Point(25, 25);
             this.invoiceContentContainer.Margin = new System.Windows.Forms.Padding(0);
@@ -137,8 +129,8 @@
             this.invoiceContentContainer.RowCount = 4;
             this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
-            this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 164F));
             this.invoiceContentContainer.Size = new System.Drawing.Size(560, 510);
             this.invoiceContentContainer.TabIndex = 6;
             // 
@@ -155,7 +147,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(560, 150);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
@@ -172,6 +164,18 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(353, 150);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(332, 33);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "PremiereCare Hospital";
             // 
             // label4
             // 
@@ -209,17 +213,17 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "29 4th Street, Mountain Bay";
             // 
-            // label1
+            // label5
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(332, 33);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "PremiereCare Hospital";
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.label5.Location = new System.Drawing.Point(381, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(176, 42);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "INVOICE";
             // 
             // tableLayoutPanel4
             // 
@@ -242,9 +246,9 @@
             this.tableLayoutInvoiceInfo.ColumnCount = 2;
             this.tableLayoutInvoiceInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutInvoiceInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutInvoiceInfo.Controls.Add(this.panelTermDescContainer, 1, 1);
+            this.tableLayoutInvoiceInfo.Controls.Add(this.panelDateContainer, 1, 1);
             this.tableLayoutInvoiceInfo.Controls.Add(this.panelInvoiceNumContainer, 0, 1);
-            this.tableLayoutInvoiceInfo.Controls.Add(this.panelTermsTitleContainer, 1, 0);
+            this.tableLayoutInvoiceInfo.Controls.Add(this.panelDateTitleContainer, 1, 0);
             this.tableLayoutInvoiceInfo.Controls.Add(this.panelInvoiceNumTitleContainer, 0, 0);
             this.tableLayoutInvoiceInfo.Location = new System.Drawing.Point(290, 3);
             this.tableLayoutInvoiceInfo.Name = "tableLayoutInvoiceInfo";
@@ -254,26 +258,26 @@
             this.tableLayoutInvoiceInfo.Size = new System.Drawing.Size(267, 42);
             this.tableLayoutInvoiceInfo.TabIndex = 6;
             // 
-            // panelTermDescContainer
+            // panelDateContainer
             // 
-            this.panelTermDescContainer.Controls.Add(this.labelTermDesc);
-            this.panelTermDescContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTermDescContainer.Location = new System.Drawing.Point(133, 21);
-            this.panelTermDescContainer.Margin = new System.Windows.Forms.Padding(0);
-            this.panelTermDescContainer.Name = "panelTermDescContainer";
-            this.panelTermDescContainer.Size = new System.Drawing.Size(134, 21);
-            this.panelTermDescContainer.TabIndex = 3;
+            this.panelDateContainer.Controls.Add(this.labelDate);
+            this.panelDateContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDateContainer.Location = new System.Drawing.Point(133, 21);
+            this.panelDateContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.panelDateContainer.Name = "panelDateContainer";
+            this.panelDateContainer.Size = new System.Drawing.Size(134, 21);
+            this.panelDateContainer.TabIndex = 3;
             // 
-            // labelTermDesc
+            // labelDate
             // 
-            this.labelTermDesc.AutoSize = true;
-            this.labelTermDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTermDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.labelTermDesc.Location = new System.Drawing.Point(31, 4);
-            this.labelTermDesc.Name = "labelTermDesc";
-            this.labelTermDesc.Size = new System.Drawing.Size(73, 13);
-            this.labelTermDesc.TabIndex = 1;
-            this.labelTermDesc.Text = "Doctor Visit";
+            this.labelDate.AutoSize = true;
+            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.labelDate.Location = new System.Drawing.Point(49, 4);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(32, 13);
+            this.labelDate.TabIndex = 1;
+            this.labelDate.Text = "date";
             // 
             // panelInvoiceNumContainer
             // 
@@ -296,27 +300,27 @@
             this.labelInvoiceNum.TabIndex = 0;
             this.labelInvoiceNum.Text = "label6";
             // 
-            // panelTermsTitleContainer
+            // panelDateTitleContainer
             // 
-            this.panelTermsTitleContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.panelTermsTitleContainer.Controls.Add(this.labelTermsTitle);
-            this.panelTermsTitleContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTermsTitleContainer.Location = new System.Drawing.Point(133, 0);
-            this.panelTermsTitleContainer.Margin = new System.Windows.Forms.Padding(0);
-            this.panelTermsTitleContainer.Name = "panelTermsTitleContainer";
-            this.panelTermsTitleContainer.Size = new System.Drawing.Size(134, 21);
-            this.panelTermsTitleContainer.TabIndex = 1;
+            this.panelDateTitleContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.panelDateTitleContainer.Controls.Add(this.labelDateTitle);
+            this.panelDateTitleContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDateTitleContainer.Location = new System.Drawing.Point(133, 0);
+            this.panelDateTitleContainer.Margin = new System.Windows.Forms.Padding(0);
+            this.panelDateTitleContainer.Name = "panelDateTitleContainer";
+            this.panelDateTitleContainer.Size = new System.Drawing.Size(134, 21);
+            this.panelDateTitleContainer.TabIndex = 1;
             // 
-            // labelTermsTitle
+            // labelDateTitle
             // 
-            this.labelTermsTitle.AutoSize = true;
-            this.labelTermsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTermsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.labelTermsTitle.Location = new System.Drawing.Point(40, 5);
-            this.labelTermsTitle.Name = "labelTermsTitle";
-            this.labelTermsTitle.Size = new System.Drawing.Size(50, 13);
-            this.labelTermsTitle.TabIndex = 2;
-            this.labelTermsTitle.Text = "TERMS";
+            this.labelDateTitle.AutoSize = true;
+            this.labelDateTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDateTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
+            this.labelDateTitle.Location = new System.Drawing.Point(44, 5);
+            this.labelDateTitle.Name = "labelDateTitle";
+            this.labelDateTitle.Size = new System.Drawing.Size(40, 13);
+            this.labelDateTitle.TabIndex = 2;
+            this.labelDateTitle.Text = "DATE";
             // 
             // panelInvoiceNumTitleContainer
             // 
@@ -340,79 +344,6 @@
             this.labelInvoiceNumTitle.TabIndex = 1;
             this.labelInvoiceNumTitle.Text = "INVOICE #";
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.panel5);
-            this.flowLayoutPanel2.Controls.Add(this.labelPatientName);
-            this.flowLayoutPanel2.Controls.Add(this.labelPatientAddress);
-            this.flowLayoutPanel2.Controls.Add(this.labelPatienContact);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(286, 100);
-            this.flowLayoutPanel2.TabIndex = 7;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.panel5.Name = "panel5";
-            this.panel5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel5.Size = new System.Drawing.Size(263, 21);
-            this.panel5.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.label6.Location = new System.Drawing.Point(8, 4);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "BILL TO";
-            // 
-            // labelPatientName
-            // 
-            this.labelPatientName.AutoSize = true;
-            this.labelPatientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.labelPatientName.Location = new System.Drawing.Point(3, 26);
-            this.labelPatientName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.labelPatientName.Name = "labelPatientName";
-            this.labelPatientName.Size = new System.Drawing.Size(41, 13);
-            this.labelPatientName.TabIndex = 1;
-            this.labelPatientName.Text = "label6";
-            // 
-            // labelPatientAddress
-            // 
-            this.labelPatientAddress.AutoSize = true;
-            this.labelPatientAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPatientAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.labelPatientAddress.Location = new System.Drawing.Point(3, 44);
-            this.labelPatientAddress.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.labelPatientAddress.Name = "labelPatientAddress";
-            this.labelPatientAddress.Size = new System.Drawing.Size(41, 13);
-            this.labelPatientAddress.TabIndex = 2;
-            this.labelPatientAddress.Text = "label6";
-            // 
-            // labelPatienContact
-            // 
-            this.labelPatienContact.AutoSize = true;
-            this.labelPatienContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPatienContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.labelPatienContact.Location = new System.Drawing.Point(3, 62);
-            this.labelPatienContact.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.labelPatienContact.Name = "labelPatienContact";
-            this.labelPatienContact.Size = new System.Drawing.Size(41, 13);
-            this.labelPatienContact.TabIndex = 3;
-            this.labelPatienContact.Text = "label6";
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -428,7 +359,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 91);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // tableLayoutPanel2
@@ -535,6 +466,108 @@
             this.labelDocTitle.TabIndex = 1;
             this.labelDocTitle.Text = "DOCTOR";
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.panel5);
+            this.flowLayoutPanel2.Controls.Add(this.labelPatientName);
+            this.flowLayoutPanel2.Controls.Add(this.labelPatientAddress);
+            this.flowLayoutPanel2.Controls.Add(this.labelPatienContact);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(286, 91);
+            this.flowLayoutPanel2.TabIndex = 7;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.panel5.Name = "panel5";
+            this.panel5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.panel5.Size = new System.Drawing.Size(263, 21);
+            this.panel5.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
+            this.label6.Location = new System.Drawing.Point(8, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "BILL TO";
+            // 
+            // labelPatientName
+            // 
+            this.labelPatientName.AutoSize = true;
+            this.labelPatientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPatientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.labelPatientName.Location = new System.Drawing.Point(3, 26);
+            this.labelPatientName.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.labelPatientName.Name = "labelPatientName";
+            this.labelPatientName.Size = new System.Drawing.Size(41, 13);
+            this.labelPatientName.TabIndex = 1;
+            this.labelPatientName.Text = "label6";
+            // 
+            // labelPatientAddress
+            // 
+            this.labelPatientAddress.AutoSize = true;
+            this.labelPatientAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPatientAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.labelPatientAddress.Location = new System.Drawing.Point(3, 44);
+            this.labelPatientAddress.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.labelPatientAddress.Name = "labelPatientAddress";
+            this.labelPatientAddress.Size = new System.Drawing.Size(41, 13);
+            this.labelPatientAddress.TabIndex = 2;
+            this.labelPatientAddress.Text = "label6";
+            // 
+            // labelPatienContact
+            // 
+            this.labelPatienContact.AutoSize = true;
+            this.labelPatienContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPatienContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.labelPatienContact.Location = new System.Drawing.Point(3, 62);
+            this.labelPatienContact.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.labelPatienContact.Name = "labelPatienContact";
+            this.labelPatienContact.Size = new System.Drawing.Size(41, 13);
+            this.labelPatienContact.TabIndex = 3;
+            this.labelPatienContact.Text = "label6";
+            // 
+            // dgvInvoice
+            // 
+            this.dgvInvoice.AllowUserToAddRows = false;
+            this.dgvInvoice.AllowUserToDeleteRows = false;
+            this.dgvInvoice.AllowUserToResizeColumns = false;
+            this.dgvInvoice.AllowUserToResizeRows = false;
+            this.dgvInvoice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInvoice.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInvoice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInvoice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvInvoice.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInvoice.EnableHeadersVisualStyles = false;
+            this.dgvInvoice.Location = new System.Drawing.Point(3, 299);
+            this.dgvInvoice.Name = "dgvInvoice";
+            this.dgvInvoice.ReadOnly = true;
+            this.dgvInvoice.RowHeadersVisible = false;
+            this.dgvInvoice.Size = new System.Drawing.Size(554, 208);
+            this.dgvInvoice.TabIndex = 10;
+            // 
             // Invoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,18 +588,14 @@
             this.flowLayoutPanel1.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutInvoiceInfo.ResumeLayout(false);
-            this.panelTermDescContainer.ResumeLayout(false);
-            this.panelTermDescContainer.PerformLayout();
+            this.panelDateContainer.ResumeLayout(false);
+            this.panelDateContainer.PerformLayout();
             this.panelInvoiceNumContainer.ResumeLayout(false);
             this.panelInvoiceNumContainer.PerformLayout();
-            this.panelTermsTitleContainer.ResumeLayout(false);
-            this.panelTermsTitleContainer.PerformLayout();
+            this.panelDateTitleContainer.ResumeLayout(false);
+            this.panelDateTitleContainer.PerformLayout();
             this.panelInvoiceNumTitleContainer.ResumeLayout(false);
             this.panelInvoiceNumTitleContainer.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panelDocSpecialtyContainer.ResumeLayout(false);
@@ -577,6 +606,11 @@
             this.panelDocSpecialtyTitleContainer.PerformLayout();
             this.panelDocTitleContainer.ResumeLayout(false);
             this.panelDocTitleContainer.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -595,12 +629,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutInvoiceInfo;
-        private System.Windows.Forms.Panel panelTermDescContainer;
-        private System.Windows.Forms.Label labelTermDesc;
+        private System.Windows.Forms.Panel panelDateContainer;
+        private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Panel panelInvoiceNumContainer;
         private System.Windows.Forms.Label labelInvoiceNum;
-        private System.Windows.Forms.Panel panelTermsTitleContainer;
-        private System.Windows.Forms.Label labelTermsTitle;
+        private System.Windows.Forms.Panel panelDateTitleContainer;
+        private System.Windows.Forms.Label labelDateTitle;
         private System.Windows.Forms.Panel panelInvoiceNumTitleContainer;
         private System.Windows.Forms.Label labelInvoiceNumTitle;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -619,5 +653,6 @@
         private System.Windows.Forms.Label labelDocSpecialtyTitle;
         private System.Windows.Forms.Panel panelDocTitleContainer;
         private System.Windows.Forms.Label labelDocTitle;
+        private System.Windows.Forms.DataGridView dgvInvoice;
     }
 }

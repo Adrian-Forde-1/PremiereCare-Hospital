@@ -38,29 +38,55 @@ namespace PremiereCare_Application
             labelPatientName.Text = patFName + " " + patLName;
             labelDoctorName.Text = docFName + " " + docLName;
             labelDoctorSpecialty.Text = row["Doctor Specialty"].ToString();
-            labelTermDesc.Text = DateTime.Now.ToShortDateString();
+            labelDate.Text = DateTime.Now.ToShortDateString();
             labelPatientAddress.Text = row["Patient Address"].ToString();
             labelPatienContact.Text = row["Patient Contact"].ToString();
 
             DataTable labTestDT = labTest.GetAllAppointmentLabTest(appointmentID);
             List<Tuple<string, decimal>> services = new List<Tuple<string, decimal>>();
 
-            foreach(DataRow testRow in labTestDT.Rows)
+            DataTable invoiceDataTable = new DataTable();
+            invoiceDataTable.Columns.Add("Service / Drug".ToString());
+            invoiceDataTable.Columns.Add("Cost".ToString());
+
+            decimal totalCost = 0;
+
+            foreach (DataRow testRow in labTestDT.Rows)
             {
                 int testID = Convert.ToInt32(testRow["test_id"]);
                 DataTable serviceDt = labService.GetAllLabServiceForTest(testID);
 
                 foreach(DataRow serviceRow in serviceDt.Rows)
                 {
+                    Console.WriteLine("Row");
                     Tuple<string, decimal> serivceInfo = new Tuple<string, decimal>(serviceRow["Service"].ToString(), Convert.ToDecimal(serviceRow["Cost"]));
                     services.Add(serivceInfo);
+
+                    totalCost = totalCost + Convert.ToDecimal(serviceRow["Cost"]);
+
+                    DataRow dr = invoiceDataTable.NewRow();
+                    dr["Service / Drug"] = "Service: " + serviceRow["Service"].ToString();
+                    dr["Cost"] = serviceRow["Cost"].ToString();
+                    invoiceDataTable.Rows.Add(dr);
+
+                    //DataGridViewRow dgr = new DataGridViewRow();
+                    //dgr.
                 }
             }
 
-            for(int i = 0; i < services.Count; i++)
+            DataRow dataRow = invoiceDataTable.NewRow();
+            dataRow["Service / Drug"] = "Total";
+            dataRow["Cost"] = totalCost.ToString();
+            invoiceDataTable.Rows.Add(dataRow);
+
+            for (int i = 0; i < services.Count; i++)
             {
                 Console.WriteLine(services[i]);
             }
+
+            dgvInvoice.DataSource = invoiceDataTable;
+
+            
 
             //labelAppointmentID.Text = appointmentID.ToString();
             //labelDoctorName.Text = docFName + " " + docLName;
@@ -79,9 +105,9 @@ namespace PremiereCare_Application
             labelDocTitle.Location = new Point((panelDocTitleContainer.Width - labelDocTitle.Width) / 2, (panelDocTitleContainer.Height - labelDocTitle.Height) / 2);;
             labelDocSpecialtyTitle.Location = new Point((panelDocSpecialtyTitleContainer.Width - labelDocSpecialtyTitle.Width) / 2, (panelDocSpecialtyTitleContainer.Height - labelDocSpecialtyTitle.Height) / 2);
             labelInvoiceNum.Location = new Point((panelInvoiceNumContainer.Width - labelInvoiceNum.Width) / 2, (panelInvoiceNumContainer.Height - labelInvoiceNum.Height) / 2);;
-            labelTermDesc.Location = new Point((panelTermDescContainer.Width - labelTermDesc.Width) / 2, (panelTermDescContainer.Height - labelTermDesc.Height) / 2);
+            labelDate.Location = new Point((panelDateContainer.Width - labelDate.Width) / 2, (panelDateContainer.Height - labelDate.Height) / 2);
             labelInvoiceNumTitle.Location = new Point((panelInvoiceNumTitleContainer.Width - labelInvoiceNumTitle.Width) / 2, (panelInvoiceNumTitleContainer.Height - labelInvoiceNumTitle.Height) / 2);
-            labelTermsTitle.Location = new Point((panelTermsTitleContainer.Width - labelTermsTitle.Width) / 2, (panelTermsTitleContainer.Height - labelTermsTitle.Height) / 2);
+            labelDateTitle.Location = new Point((panelDateTitleContainer.Width - labelDateTitle.Width) / 2, (panelDateTitleContainer.Height - labelDateTitle.Height) / 2);
         }
 
         private void Invoice_Load(object sender, EventArgs e)
