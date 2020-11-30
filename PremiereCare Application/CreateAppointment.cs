@@ -111,7 +111,7 @@ namespace PremiereCare_Application
         {
             int docLocation = Convert.ToInt32(comboBoxDoctors.SelectedIndex);
             DataRow selectedDoctor = doctors[docLocation];
-            int docID = Convert.ToInt32(selectedDoctor["doc_id"]);
+            int docID = Convert.ToInt32(selectedDoctor["Doctor ID"]);
             String appointmentDate = appointmentDatePicker.Value.Date.ToShortDateString();
             appointment.docId = docID;
             appointment.csrId = userID;

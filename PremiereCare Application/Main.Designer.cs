@@ -30,12 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelChildFormContainer = new System.Windows.Forms.Panel();
-            //this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            //this.buttonLogout = new System.Windows.Forms.Button();
             this.panelLabServiceDropdown = new System.Windows.Forms.Panel();
             this.buttonViewLabServices = new System.Windows.Forms.Button();
             this.buttonAddLabService = new System.Windows.Forms.Button();
@@ -69,11 +67,9 @@
             this.buttonAllDoctors = new System.Windows.Forms.Button();
             this.buttonAddDoctor = new System.Windows.Forms.Button();
             this.buttonDoctor = new System.Windows.Forms.Button();
-            // this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            // this.buttonLogout = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonLogout = new System.Windows.Forms.Button();
             this.panelChildFormContainer.SuspendLayout();
-            // ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.buttonRequestedLabTest = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -87,13 +83,13 @@
             this.panelCSRDropdown.SuspendLayout();
             this.panelTechnicianDropdown.SuspendLayout();
             this.panelDoctorDropdown.SuspendLayout();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelChildFormContainer
             // 
             this.panelChildFormContainer.BackColor = System.Drawing.Color.White;
-            //this.panelChildFormContainer.Controls.Add(this.pictureBox2);
+            this.panelChildFormContainer.Controls.Add(this.pictureBox2);
             this.panelChildFormContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildFormContainer.Location = new System.Drawing.Point(200, 0);
             this.panelChildFormContainer.Margin = new System.Windows.Forms.Padding(0);
@@ -101,17 +97,6 @@
             this.panelChildFormContainer.Size = new System.Drawing.Size(664, 552);
             this.panelChildFormContainer.TabIndex = 2;
             // 
-            // pictureBox2
-            /*/ 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(664, 552);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            /*/ 
             // panel2
             // 
             this.panel2.Controls.Add(this.pictureBox1);
@@ -146,7 +131,7 @@
             // 
             // panel3
             // 
-            //this.panel3.Controls.Add(this.buttonLogout);
+            this.panel3.Controls.Add(this.buttonLogout);
             this.panel3.Controls.Add(this.panelLabServiceDropdown);
             this.panel3.Controls.Add(this.buttonLabServices);
             this.panel3.Controls.Add(this.panelPatientDropdown);
@@ -171,23 +156,6 @@
             this.panel3.Size = new System.Drawing.Size(200, 478);
             this.panel3.TabIndex = 7;
             // 
-            // buttonLogout
-            /*/ 
-            this.buttonLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonLogout.FlatAppearance.BorderSize = 0;
-            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogout.ForeColor = System.Drawing.Color.White;
-            this.buttonLogout.Location = new System.Drawing.Point(0, 442);
-            this.buttonLogout.Name = "buttonLogout";
-            this.buttonLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonLogout.Size = new System.Drawing.Size(200, 36);
-            this.buttonLogout.TabIndex = 24;
-            this.buttonLogout.Text = "Logout";
-            this.buttonLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLogout.UseVisualStyleBackColor = true;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
-            /*/ 
             // panelLabServiceDropdown
             // 
             this.panelLabServiceDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
@@ -317,7 +285,7 @@
             this.panelNotesDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
             this.panelNotesDropdown.Controls.Add(this.buttonViewNotes);
             this.panelNotesDropdown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelNotesDropdown.Location = new System.Drawing.Point(0, 651);
+            this.panelNotesDropdown.Location = new System.Drawing.Point(0, 615);
             this.panelNotesDropdown.Name = "panelNotesDropdown";
             this.panelNotesDropdown.Size = new System.Drawing.Size(200, 36);
             this.panelNotesDropdown.TabIndex = 13;
@@ -346,7 +314,7 @@
             this.buttonNotes.FlatAppearance.BorderSize = 0;
             this.buttonNotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNotes.ForeColor = System.Drawing.Color.White;
-            this.buttonNotes.Location = new System.Drawing.Point(0, 615);
+            this.buttonNotes.Location = new System.Drawing.Point(0, 579);
             this.buttonNotes.Name = "buttonNotes";
             this.buttonNotes.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonNotes.Size = new System.Drawing.Size(200, 36);
@@ -359,12 +327,11 @@
             // panel_LabTestDropdown
             // 
             this.panel_LabTestDropdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(51)))), ((int)(((byte)(66)))));
-            this.panel_LabTestDropdown.Controls.Add(this.buttonRequestedLabTest);
             this.panel_LabTestDropdown.Controls.Add(this.buttonViewLabTest);
             this.panel_LabTestDropdown.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_LabTestDropdown.Location = new System.Drawing.Point(0, 543);
             this.panel_LabTestDropdown.Name = "panel_LabTestDropdown";
-            this.panel_LabTestDropdown.Size = new System.Drawing.Size(200, 72);
+            this.panel_LabTestDropdown.Size = new System.Drawing.Size(200, 36);
             this.panel_LabTestDropdown.TabIndex = 13;
             // 
             // buttonViewLabTest
@@ -701,25 +668,8 @@
             this.buttonDoctor.UseVisualStyleBackColor = true;
             this.buttonDoctor.Click += new System.EventHandler(this.buttonDoctor_Click);
             // 
-            // buttonRequestedLabTest
-            // 
-            this.buttonRequestedLabTest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRequestedLabTest.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonRequestedLabTest.FlatAppearance.BorderSize = 0;
-            this.buttonRequestedLabTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRequestedLabTest.ForeColor = System.Drawing.Color.White;
-            this.buttonRequestedLabTest.Location = new System.Drawing.Point(0, 36);
-            this.buttonRequestedLabTest.Name = "buttonRequestedLabTest";
-            this.buttonRequestedLabTest.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.buttonRequestedLabTest.Size = new System.Drawing.Size(200, 36);
-            this.buttonRequestedLabTest.TabIndex = 21;
-            this.buttonRequestedLabTest.Text = "Requested Lab Test";
-            this.buttonRequestedLabTest.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRequestedLabTest.UseVisualStyleBackColor = true;
-            this.buttonRequestedLabTest.Click += new System.EventHandler(this.buttonRequestedLabTest_Click);
-            // 
             // pictureBox2
-            /*/ 
+            // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
@@ -744,8 +694,8 @@
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLogout.UseVisualStyleBackColor = true;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
-            /*/ 
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click_1);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -760,7 +710,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.panelChildFormContainer.ResumeLayout(false);
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -774,6 +723,7 @@
             this.panelCSRDropdown.ResumeLayout(false);
             this.panelTechnicianDropdown.ResumeLayout(false);
             this.panelDoctorDropdown.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -817,8 +767,9 @@
         private System.Windows.Forms.Button buttonLabServices;
         private System.Windows.Forms.Button buttonViewTechnicians;
         private System.Windows.Forms.Button buttonViewCSR;
-        private System.Windows.Forms.Button buttonRequestedLabTest;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button buttonLogout;
         //private System.Windows.Forms.PictureBox pictureBox2;
-       // private System.Windows.Forms.Button buttonLogout;
+        // private System.Windows.Forms.Button buttonLogout;
     }
 }

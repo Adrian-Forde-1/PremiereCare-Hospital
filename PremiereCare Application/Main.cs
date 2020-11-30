@@ -291,7 +291,7 @@ namespace PremiereCare_Application
             CloseDropdowns();
         }
 
-        private void buttonLogout_Click(object sender, EventArgs e)
+        private void buttonLogout_Click_1(object sender, EventArgs e)
         {
             userRole = "";
             userID = 0;
