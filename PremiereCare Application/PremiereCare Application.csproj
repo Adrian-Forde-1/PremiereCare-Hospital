@@ -336,6 +336,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubmitTestResults.resx">
       <DependentUpon>SubmitTestResults.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="Invoice.resx">
       <DependentUpon>Invoice.cs</DependentUpon>
     </EmbeddedResource>
