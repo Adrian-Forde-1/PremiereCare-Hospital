@@ -17,15 +17,13 @@ namespace PremiereCare_Application
             InitializeComponent();
         }
 
-        private void RemoveErrors()
+        private void removeErrors()
         {
-            Console.WriteLine("Remove errors being called");
             labelFNameErr.Visible = false;
             labelLNameErr.Visible = false;
             labelUsernameErr.Visible = false;
             labelPasswordErr.Visible = false;
             labelSalaryErr.Visible = false;
-            labelSexErr.Visible = false;
         }
 
         private void ClearField()
@@ -40,7 +38,7 @@ namespace PremiereCare_Application
 
         private void AddTechnician_Load(object sender, EventArgs e)
         {
-            RemoveErrors();
+            removeErrors();
             InitializeComponent();
             AlignItems();
             buttonAdd.Visible = true;
@@ -53,11 +51,11 @@ namespace PremiereCare_Application
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonAddTech_Click(object sender, EventArgs e)
         {
             bool failedVerification = false;
 
-            RemoveErrors();
+            removeErrors();
 
             if (textBoxFname.Text == "")
             {
@@ -96,7 +94,6 @@ namespace PremiereCare_Application
             }
         }
 
-
         private void addTechnician(String fName, String lName, String username, String password, String dob, String salary, String sex)
         {
             User.Technician technician = new User.Technician();
@@ -127,7 +124,5 @@ namespace PremiereCare_Application
         {
             AlignItems();
         }
-
-        
     }
 }

@@ -50,7 +50,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(330, 22);
             this.textBoxUsername.TabIndex = 0;
-            this.textBoxUsername.Text = "MichealUsr";
+            this.textBoxUsername.Text = "tv";
             this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
             // 
             // textBoxPassword
@@ -61,7 +61,7 @@
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(330, 22);
             this.textBoxPassword.TabIndex = 1;
-            this.textBoxPassword.Text = "micheal123";
+            this.textBoxPassword.Text = "tv";
             // 
             // labelUsername
             // 
@@ -96,15 +96,17 @@
             // 
             // buttonLogin
             // 
+            this.buttonLogin.AutoSize = true;
+            this.buttonLogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonLogin.FlatAppearance.BorderSize = 0;
-            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
             this.buttonLogin.Location = new System.Drawing.Point(199, 237);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(100, 38);
+            this.buttonLogin.Size = new System.Drawing.Size(56, 26);
             this.buttonLogin.TabIndex = 5;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -121,7 +123,7 @@
             this.comboBoxLoginRole.Name = "comboBoxLoginRole";
             this.comboBoxLoginRole.Size = new System.Drawing.Size(330, 21);
             this.comboBoxLoginRole.TabIndex = 7;
-            this.comboBoxLoginRole.Text = "CSR";
+            this.comboBoxLoginRole.Text = "Doctor";
             // 
             // labelRole
             // 

@@ -35,7 +35,7 @@ namespace PremiereCare_Application
         {
             labelServiceErr.Visible = false;
 
-        }
+        }             
 
         //Method to align items
         private void AlignItems()
@@ -106,7 +106,7 @@ namespace PremiereCare_Application
             }
 
             if (failedVerification > 0)
-            {
+            {   
                 addLabTest( docID.ToString(), appointmentID.ToString());
             } else
             {
@@ -131,7 +131,7 @@ namespace PremiereCare_Application
                 }
             }
 
-            bool success = labTest.RequestLabTest(labTest, this);
+            bool success = labTest.CreateLabRequest(labTest, this);
 
 
             if (success == true)

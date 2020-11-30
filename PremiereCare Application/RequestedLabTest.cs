@@ -12,22 +12,20 @@ using System.Windows.Forms;
 
 namespace PremiereCare_Application
 {
-    
-
-    public partial class ViewLabTest : Form
+    public partial class RequestedLabTest : Form
     {
         LabTest.LabTest labtest = new LabTest.LabTest();
         Panel panelContainer;
 
         private string userRole;
         private int userID;
-
-        public ViewLabTest(String usrRole, int uID, Panel panel)
+                
+        public RequestedLabTest(string usrRole, int usrID, Panel panel)
         {
             InitializeComponent();
-            userRole = usrRole;
-            userID = uID;
             panelContainer = panel;
+            userID = usrID;
+            userRole = usrRole;
         }
 
         private void OpenChildForm(Form childForm)
@@ -43,17 +41,23 @@ namespace PremiereCare_Application
             childForm.Show();
         }
 
-
+       
         private void PopulateDataGridView()
-        {
-                         
-           DataTable dt = labtest.GetAllLabTest(userRole, userID);
-            dgvViewLabTest.DataSource = dt;
+        {            
+            DataTable dt = labtest.GetAllLabTest(userRole, userID); 
+            dgvRequestedLabTest.DataSource = dt;
         }
 
-        private void ViewLabTest_Load(object sender, EventArgs e)
+        private void RequestedLabTest_Load(object sender, EventArgs e)
         {
             PopulateDataGridView();
+        }
+
+        private void dgvRequestedLabTest_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            int testID = Convert.ToInt32(dgvRequestedLabTest.Rows[rowIndex].Cells[0].Value);
+            OpenChildForm(new IndividualLabTest(userRole, userID, testID, panelContainer));
         }
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
@@ -66,16 +70,15 @@ namespace PremiereCare_Application
             DataTable dt = new DataTable();
 
             string qry = "";
-            if (userRole == "CSR") qry = @"SELECT  
-                                                 lt.test_id AS 'Test#',
-                                                 lt.appointment_id AS 'Appointment', 
-                                                 a.appointment_date AS 'Date Requested',
-                                                 d.fname + ' ' + d.lname AS 'Doctor Name', 
-                                                 d.specialty AS 'Doctor Specialty',
-			                                     p.fname + ' ' + p.lname AS 'Patient Name',
-                                                 ls.service AS 'Requested Test',
-                                                 lt.status AS 'Status', 
-                                                 lt.results AS 'Results' 
+            if (userRole == "Technicians") qry = @"SELECT  
+                                            lt.test_id AS 'Test#',
+                                            lt.appointment_id AS 'Appointment', 
+                                            a.appointment_date AS 'Submited Date',
+                                            d.fname + ' ' + d.lname AS 'Doctor Name',
+								            p.fname + ' ' + p.lname AS 'Patient Name',
+                                            ls.service AS 'Test Requested',
+                                            lt.status AS 'Status', 
+                                            lt.results AS 'Results' 
                                              FROM[PremiereCareHospital].[dbo].Lab_Test lt
                                             JOIN[PremiereCareHospital].[dbo].Doctor d
                                                 ON lt.doc_id = d.doc_id
@@ -99,15 +102,14 @@ namespace PremiereCare_Application
                                             "%')ORDER BY a.appointment_date ASC";
 
             else if (userRole == "Doctor") qry = @"SELECT
-                                                     lt.test_id AS 'Test#',
-                                                     lt.appointment_id AS 'Appointment', 
-                                                     a.appointment_date AS 'Date Requested',
-                                                     d.fname + ' ' + d.lname AS 'Doctor Name', 
-                                                     d.specialty AS 'Doctor Specialty',
-			                                         p.fname + ' ' + p.lname AS 'Patient Name',
-                                                     ls.service AS 'Requested Test',
-                                                     lt.status AS 'Status', 
-                                                     lt.results AS 'Results'
+                                                    lt.test_id AS 'Test#',
+                                                    lt.appointment_id AS 'Appointment', 
+                                                    a.appointment_date AS 'Submited Date',
+                                                    d.fname + ' ' + d.lname AS 'Doctor Name',
+								                    p.fname + ' ' + p.lname AS 'Patient Name',
+                                                    ls.service AS 'Test Requested',
+                                                    lt.status AS 'Status', 
+                                                    lt.results AS 'Results' 
                                                      FROM[PremiereCareHospital].[dbo].Lab_Test lt
                                                     JOIN[PremiereCareHospital].[dbo].Doctor d
                                                         ON lt.doc_id = d.doc_id
@@ -142,14 +144,14 @@ namespace PremiereCare_Application
             conn.Open();
             dtadapter.Fill(dt);
             conn.Close();
-            dgvViewLabTest.DataSource = dt;
+            dgvRequestedLabTest.DataSource = dt;
         }
 
-        private void dgvViewLabTest_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-            int rowIndex = e.RowIndex;
-            int testID = Convert.ToInt32(dgvViewLabTest.Rows[rowIndex].Cells[0].Value);
-            OpenChildForm(new IndividualLabTest(userRole, userID, testID, panelContainer));
+
         }
+
+       
     }
 }
