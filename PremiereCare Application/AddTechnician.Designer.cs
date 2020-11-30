@@ -101,7 +101,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMain.AutoSize = true;
             this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.labelMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
             this.labelMain.Location = new System.Drawing.Point(184, 18);
             this.labelMain.Name = "labelMain";
             this.labelMain.Size = new System.Drawing.Size(230, 33);
@@ -325,7 +325,7 @@
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Visible = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            this.buttonAdd.Resize += new System.EventHandler(this.buttonAddTech_Resize);
+            this.buttonAdd.Resize += new System.EventHandler(this.buttonAdd_Resize);
             // 
             // techDOB
             // 
@@ -382,7 +382,7 @@
             this.Name = "AddTechnician";
             this.Text = "AddTechnician";
             this.Load += new System.EventHandler(this.AddTechnician_Load);
-            this.Resize += new System.EventHandler(this.buttonAddTech_Resize);
+            this.Resize += new System.EventHandler(this.buttonAdd_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 

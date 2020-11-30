@@ -66,35 +66,30 @@ namespace PremiereCare_Application
             DataTable dt = new DataTable();
 
             string qry = "";
-            if (userRole == "CSR") qry = @"SELECT  
+            if (userRole == "Technician") qry = @"SELECT  
                                                  lt.test_id AS 'Test#',
                                                  lt.appointment_id AS 'Appointment', 
                                                  a.appointment_date AS 'Date Requested',
                                                  d.fname + ' ' + d.lname AS 'Doctor Name', 
                                                  d.specialty AS 'Doctor Specialty',
 			                                     p.fname + ' ' + p.lname AS 'Patient Name',
-                                                 ls.service AS 'Requested Test',
-                                                 lt.status AS 'Status', 
-                                                 lt.results AS 'Results' 
+                                                 lts.status AS 'Status' 
                                              FROM[PremiereCareHospital].[dbo].Lab_Test lt
                                             JOIN[PremiereCareHospital].[dbo].Doctor d
                                                 ON lt.doc_id = d.doc_id
                                             JOIN[PremiereCareHospital].[dbo].Appointment a
-                                                ON lt.appointment_id = a.appointment_id
-                                            JOIN[PremiereCareHospital].[dbo].Service s  
-                                                ON lt.test_id = s.test_id 
-								            JOIN[PremiereCareHospital].[dbo].Lab_Services ls  
-                                                ON s.service_id = ls.service_id
+                                                ON lt.appointment_id = a.appointment_id                                           
 								            JOIN[PremiereCareHospital].[dbo].Patient p  
                                                 ON a.patient_id = p.patient_id	
+                                            JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
+                                                     ON lt.status_id = lts.status_id
                                              WHERE
                                             (lt.test_id LIKE '%" + keyword +
                                             "%' OR lt.appointment_id LIKE '%" + keyword +
                                             "%' OR a.appointment_date LIKE '%" + keyword +
                                             "%' OR d.fname + ' ' + d.lname LIKE '%" + keyword +
                                             "%' OR p.fname + ' ' + p.lname LIKE '%" + keyword +
-                                            "%' OR ls.service LIKE '%" + keyword +
-                                            "%' OR lt.status LIKE '%" + keyword +
+                                            "%' OR lts.status LIKE '%" + keyword +
                                             "%' OR lt.results LIKE '%" + keyword +
                                             "%')ORDER BY a.appointment_date ASC";
 
@@ -105,28 +100,24 @@ namespace PremiereCare_Application
                                                      d.fname + ' ' + d.lname AS 'Doctor Name', 
                                                      d.specialty AS 'Doctor Specialty',
 			                                         p.fname + ' ' + p.lname AS 'Patient Name',
-                                                     ls.service AS 'Requested Test',
-                                                     lt.status AS 'Status', 
+                                                     lts.status AS 'Status', 
                                                      lt.results AS 'Results'
                                                      FROM[PremiereCareHospital].[dbo].Lab_Test lt
                                                     JOIN[PremiereCareHospital].[dbo].Doctor d
                                                         ON lt.doc_id = d.doc_id
                                                     JOIN[PremiereCareHospital].[dbo].Appointment a
-                                                        ON lt.appointment_id = a.appointment_id
-                                                    JOIN[PremiereCareHospital].[dbo].Service s  
-                                                        ON lt.test_id = s.test_id 
-								                    JOIN[PremiereCareHospital].[dbo].Lab_Services ls  
-                                                        ON s.service_id = ls.service_id
+                                                        ON lt.appointment_id = a.appointment_id                                                    
 								                    JOIN[PremiereCareHospital].[dbo].Patient p  
-                                                        ON a.patient_id = p.patient_id	
+                                                        ON a.patient_id = p.patient_id
+                                                    JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
+                                                        ON lt.status_id = lts.status_id
                                                      WHERE (d.doc_id = @userID AND 
                                                     lt.test_id LIKE '%" + keyword +
                                                     "%' OR lt.appointment_id LIKE '%" + keyword +
                                                     "%' OR a.appointment_date LIKE '%" + keyword +
                                                     "%' OR d.fname + ' ' + d.lname LIKE '%" + keyword +
                                                     "%' OR p.fname + ' ' + p.lname LIKE '%" + keyword +
-                                                    "%' OR ls.service LIKE '%" + keyword +
-                                                    "%' OR lt.status LIKE '%" + keyword +
+                                                    "%' OR lts.status LIKE '%" + keyword +
                                                     "%' OR lt.results LIKE '%" + keyword +
                                                     "%')ORDER BY a.appointment_date ASC";
 

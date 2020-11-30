@@ -182,7 +182,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMain.AutoSize = true;
             this.labelMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.labelMain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
             this.labelMain.Location = new System.Drawing.Point(216, 11);
             this.labelMain.Name = "labelMain";
             this.labelMain.Size = new System.Drawing.Size(175, 33);

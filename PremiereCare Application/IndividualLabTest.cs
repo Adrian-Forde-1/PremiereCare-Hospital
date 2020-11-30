@@ -27,19 +27,9 @@ namespace PremiereCare_Application
             userID = usrID;
             labTestID = ltID;
            
-
-            buttonComplete.Hide();
-
-            if (userRole != "Doctor")
-            {
-                buttonCancel.Hide();
-                buttonGenerateInvoice.Hide();
-            }
             if (userRole != "Technician")
             {
-                buttonCreateVisitNote.Hide();
-                buttonRequestLabTest.Hide();
-                buttonPrescribeMedication.Hide();
+                buttonSubmitResults.Hide();
             }
 
         }
@@ -67,7 +57,6 @@ namespace PremiereCare_Application
             String patFName = row["Patient First Name"].ToString();
             String patLName = row["Patient Last Name"].ToString();
             String reqDate = row["Requested Date"].ToString();
-            String requTest = row["Requested Test"].ToString();
             String status = row["Status"].ToString();
             String results = row["Results"].ToString();
             labelLabTestID.Text = labTestID.ToString();
@@ -76,11 +65,10 @@ namespace PremiereCare_Application
             labelDoctorSpecialty.Text = docSpecialty;
             labelPatientName.Text = patFName + " " + patLName;
             labelRequestedDate.Text = reqDate;
-            labelRequestedTest.Text = requTest;
             labelStatus.Text = status;
             labelResults.Text = results;
                            
-            if (status != "Complete" && userRole == "Doctor") buttonComplete.Show();
+            if (status == "Complete" && userRole == "Technician") buttonSubmitResults.Hide();
         }
 
         private void IndividualLabTest_Load(object sender, EventArgs e)
@@ -88,5 +76,9 @@ namespace PremiereCare_Application
             SetValues();
         }
 
+        private void buttonSubmitResults_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new SubmitTestResults(userID, labTestID));
+        }
     }
 }

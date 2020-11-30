@@ -30,42 +30,33 @@ namespace PremiereCare_Application
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.labelResults = new System.Windows.Forms.Label();
-            this.buttonPrescribeMedication = new System.Windows.Forms.Button();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.labelRequestedDate = new System.Windows.Forms.Label();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.labelPatientName = new System.Windows.Forms.Label();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.labelDoctorSpecialty = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelDoctorName = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.labelLabTestID = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelDoctorName = new System.Windows.Forms.Label();
-            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.labelAppointmentNO = new System.Windows.Forms.Label();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelRequestedDate = new System.Windows.Forms.Label();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.labelRequestedTest = new System.Windows.Forms.Label();
-            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.buttonRequestLabTest = new System.Windows.Forms.Button();
-            this.buttonGenerateInvoice = new System.Windows.Forms.Button();
-            this.buttonCreateVisitNote = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.labelResults = new System.Windows.Forms.Label();
+            this.buttonSubmitResults = new System.Windows.Forms.Button();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonComplete = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel10.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -81,8 +72,6 @@ namespace PremiereCare_Application
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 156F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel10, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.buttonPrescribeMedication, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel5, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel4, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 0, 3);
@@ -91,16 +80,12 @@ namespace PremiereCare_Application
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel6, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel7, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel8, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.buttonRequestLabTest, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.buttonGenerateInvoice, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.buttonCreateVisitNote, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.buttonCancel, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.buttonSubmitResults, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel9, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.buttonComplete, 1, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 11;
+            this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
@@ -109,57 +94,10 @@ namespace PremiereCare_Application
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 505);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 544);
             this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // flowLayoutPanel10
-            // 
-            this.flowLayoutPanel10.Controls.Add(this.label9);
-            this.flowLayoutPanel10.Controls.Add(this.labelResults);
-            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(3, 343);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(422, 67);
-            this.flowLayoutPanel10.TabIndex = 79;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 16);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "Results: ";
-            // 
-            // labelResults
-            // 
-            this.labelResults.AutoSize = true;
-            this.labelResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResults.Location = new System.Drawing.Point(77, 0);
-            this.labelResults.Name = "labelResults";
-            this.labelResults.Size = new System.Drawing.Size(59, 16);
-            this.labelResults.TabIndex = 12;
-            this.labelResults.Text = "Results: ";
-            // 
-            // buttonPrescribeMedication
-            // 
-            this.buttonPrescribeMedication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPrescribeMedication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonPrescribeMedication.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPrescribeMedication.FlatAppearance.BorderSize = 0;
-            this.buttonPrescribeMedication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrescribeMedication.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPrescribeMedication.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonPrescribeMedication.Location = new System.Drawing.Point(431, 161);
-            this.buttonPrescribeMedication.Name = "buttonPrescribeMedication";
-            this.buttonPrescribeMedication.Size = new System.Drawing.Size(150, 30);
-            this.buttonPrescribeMedication.TabIndex = 77;
-            this.buttonPrescribeMedication.Text = "Prescribe Medication";
-            this.buttonPrescribeMedication.UseVisualStyleBackColor = false;
             // 
             // flowLayoutPanel5
             // 
@@ -168,38 +106,8 @@ namespace PremiereCare_Application
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 199);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(422, 29);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(438, 29);
             this.flowLayoutPanel5.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 16);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Requested Date:";
-            // 
-            // labelRequestedDate
-            // 
-            this.labelRequestedDate.AutoSize = true;
-            this.labelRequestedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRequestedDate.Location = new System.Drawing.Point(134, 0);
-            this.labelRequestedDate.Name = "labelRequestedDate";
-            this.labelRequestedDate.Size = new System.Drawing.Size(110, 16);
-            this.labelRequestedDate.TabIndex = 7;
-            this.labelRequestedDate.Text = "Requested Date:";
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.label3);
-            this.flowLayoutPanel4.Controls.Add(this.labelDoctorSpecialty);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 161);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(422, 32);
-            this.flowLayoutPanel4.TabIndex = 4;
             // 
             // label4
             // 
@@ -221,15 +129,15 @@ namespace PremiereCare_Application
             this.labelPatientName.TabIndex = 5;
             this.labelPatientName.Text = "Patient Name:";
             // 
-            // flowLayoutPanel3
+            // flowLayoutPanel4
             // 
-            this.flowLayoutPanel3.Controls.Add(this.label2);
-            this.flowLayoutPanel3.Controls.Add(this.labelDoctorName);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 125);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(422, 30);
-            this.flowLayoutPanel3.TabIndex = 4;
+            this.flowLayoutPanel4.Controls.Add(this.label3);
+            this.flowLayoutPanel4.Controls.Add(this.labelDoctorSpecialty);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 161);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(438, 32);
+            this.flowLayoutPanel4.TabIndex = 4;
             // 
             // label3
             // 
@@ -251,6 +159,36 @@ namespace PremiereCare_Application
             this.labelDoctorSpecialty.TabIndex = 3;
             this.labelDoctorSpecialty.Text = "Doctor Specialty:";
             // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.label2);
+            this.flowLayoutPanel3.Controls.Add(this.labelDoctorName);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 125);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(438, 30);
+            this.flowLayoutPanel3.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Doctor Name: ";
+            // 
+            // labelDoctorName
+            // 
+            this.labelDoctorName.AutoSize = true;
+            this.labelDoctorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDoctorName.Location = new System.Drawing.Point(116, 0);
+            this.labelDoctorName.Name = "labelDoctorName";
+            this.labelDoctorName.Size = new System.Drawing.Size(94, 16);
+            this.labelDoctorName.TabIndex = 1;
+            this.labelDoctorName.Text = "Doctor Name: ";
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label1);
@@ -258,13 +196,14 @@ namespace PremiereCare_Application
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(422, 45);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(438, 45);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(183, 31);
@@ -287,38 +226,8 @@ namespace PremiereCare_Application
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 89);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(422, 30);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(438, 30);
             this.flowLayoutPanel2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Doctor Name: ";
-            // 
-            // labelDoctorName
-            // 
-            this.labelDoctorName.AutoSize = true;
-            this.labelDoctorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDoctorName.Location = new System.Drawing.Point(116, 0);
-            this.labelDoctorName.Name = "labelDoctorName";
-            this.labelDoctorName.Size = new System.Drawing.Size(94, 16);
-            this.labelDoctorName.TabIndex = 1;
-            this.labelDoctorName.Text = "Doctor Name: ";
-            // 
-            // flowLayoutPanel6
-            // 
-            this.flowLayoutPanel6.Controls.Add(this.label5);
-            this.flowLayoutPanel6.Controls.Add(this.labelRequestedDate);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 234);
-            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(422, 31);
-            this.flowLayoutPanel6.TabIndex = 5;
             // 
             // label6
             // 
@@ -340,45 +249,45 @@ namespace PremiereCare_Application
             this.labelAppointmentNO.TabIndex = 9;
             this.labelAppointmentNO.Text = "Appointment NO:";
             // 
+            // flowLayoutPanel6
+            // 
+            this.flowLayoutPanel6.Controls.Add(this.label5);
+            this.flowLayoutPanel6.Controls.Add(this.labelRequestedDate);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 234);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(438, 31);
+            this.flowLayoutPanel6.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 16);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Requested Date:";
+            // 
+            // labelRequestedDate
+            // 
+            this.labelRequestedDate.AutoSize = true;
+            this.labelRequestedDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRequestedDate.Location = new System.Drawing.Point(134, 0);
+            this.labelRequestedDate.Name = "labelRequestedDate";
+            this.labelRequestedDate.Size = new System.Drawing.Size(110, 16);
+            this.labelRequestedDate.TabIndex = 7;
+            this.labelRequestedDate.Text = "Requested Date:";
+            // 
             // flowLayoutPanel7
             // 
-            this.flowLayoutPanel7.Controls.Add(this.label7);
-            this.flowLayoutPanel7.Controls.Add(this.labelRequestedTest);
+            this.flowLayoutPanel7.Controls.Add(this.label8);
+            this.flowLayoutPanel7.Controls.Add(this.labelStatus);
             this.flowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 271);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(422, 30);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(438, 30);
             this.flowLayoutPanel7.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 16);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Requested Test:";
-            // 
-            // labelRequestedTest
-            // 
-            this.labelRequestedTest.AutoSize = true;
-            this.labelRequestedTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRequestedTest.Location = new System.Drawing.Point(132, 0);
-            this.labelRequestedTest.Name = "labelRequestedTest";
-            this.labelRequestedTest.Size = new System.Drawing.Size(108, 16);
-            this.labelRequestedTest.TabIndex = 11;
-            this.labelRequestedTest.Text = "Requested Test:";
-            // 
-            // flowLayoutPanel8
-            // 
-            this.flowLayoutPanel8.Controls.Add(this.label8);
-            this.flowLayoutPanel8.Controls.Add(this.labelStatus);
-            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 307);
-            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
-            this.flowLayoutPanel8.Size = new System.Drawing.Size(422, 30);
-            this.flowLayoutPanel8.TabIndex = 72;
             // 
             // label8
             // 
@@ -400,108 +309,73 @@ namespace PremiereCare_Application
             this.labelStatus.TabIndex = 12;
             this.labelStatus.Text = "Status:";
             // 
-            // buttonRequestLabTest
+            // flowLayoutPanel8
             // 
-            this.buttonRequestLabTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRequestLabTest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonRequestLabTest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRequestLabTest.FlatAppearance.BorderSize = 0;
-            this.buttonRequestLabTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRequestLabTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRequestLabTest.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonRequestLabTest.Location = new System.Drawing.Point(431, 89);
-            this.buttonRequestLabTest.Name = "buttonRequestLabTest";
-            this.buttonRequestLabTest.Size = new System.Drawing.Size(150, 30);
-            this.buttonRequestLabTest.TabIndex = 73;
-            this.buttonRequestLabTest.Text = "Request Lab Test";
-            this.buttonRequestLabTest.UseVisualStyleBackColor = false;
+            this.flowLayoutPanel8.Controls.Add(this.label9);
+            this.flowLayoutPanel8.Controls.Add(this.labelResults);
+            this.flowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(3, 307);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(438, 101);
+            this.flowLayoutPanel8.TabIndex = 72;
             // 
-            // buttonGenerateInvoice
+            // label9
             // 
-            this.buttonGenerateInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonGenerateInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonGenerateInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGenerateInvoice.FlatAppearance.BorderSize = 0;
-            this.buttonGenerateInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGenerateInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGenerateInvoice.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonGenerateInvoice.Location = new System.Drawing.Point(431, 54);
-            this.buttonGenerateInvoice.Name = "buttonGenerateInvoice";
-            this.buttonGenerateInvoice.Size = new System.Drawing.Size(150, 29);
-            this.buttonGenerateInvoice.TabIndex = 75;
-            this.buttonGenerateInvoice.Text = "Generate Invoice";
-            this.buttonGenerateInvoice.UseVisualStyleBackColor = false;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 16);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "Results: ";
             // 
-            // buttonCreateVisitNote
+            // labelResults
             // 
-            this.buttonCreateVisitNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateVisitNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonCreateVisitNote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCreateVisitNote.FlatAppearance.BorderSize = 0;
-            this.buttonCreateVisitNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateVisitNote.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCreateVisitNote.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonCreateVisitNote.Location = new System.Drawing.Point(431, 125);
-            this.buttonCreateVisitNote.Name = "buttonCreateVisitNote";
-            this.buttonCreateVisitNote.Size = new System.Drawing.Size(150, 30);
-            this.buttonCreateVisitNote.TabIndex = 74;
-            this.buttonCreateVisitNote.Text = "Create Visit Note";
-            this.buttonCreateVisitNote.UseVisualStyleBackColor = false;
+            this.labelResults.AutoSize = true;
+            this.labelResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResults.Location = new System.Drawing.Point(77, 0);
+            this.labelResults.Name = "labelResults";
+            this.labelResults.Size = new System.Drawing.Size(59, 16);
+            this.labelResults.TabIndex = 12;
+            this.labelResults.Text = "Results: ";
             // 
-            // buttonCancel
+            // buttonSubmitResults
             // 
-            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCancel.FlatAppearance.BorderSize = 0;
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonCancel.Location = new System.Drawing.Point(431, 307);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(150, 30);
-            this.buttonCancel.TabIndex = 71;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonSubmitResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSubmitResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonSubmitResults.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSubmitResults.FlatAppearance.BorderSize = 0;
+            this.buttonSubmitResults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSubmitResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSubmitResults.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSubmitResults.Location = new System.Drawing.Point(447, 54);
+            this.buttonSubmitResults.Name = "buttonSubmitResults";
+            this.buttonSubmitResults.Size = new System.Drawing.Size(150, 29);
+            this.buttonSubmitResults.TabIndex = 75;
+            this.buttonSubmitResults.Text = "Submit Results";
+            this.buttonSubmitResults.UseVisualStyleBackColor = false;
+            this.buttonSubmitResults.Click += new System.EventHandler(this.buttonSubmitResults_Click);
             // 
             // flowLayoutPanel9
             // 
             this.flowLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(428, 231);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(444, 231);
             this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
             this.flowLayoutPanel9.Size = new System.Drawing.Size(156, 37);
             this.flowLayoutPanel9.TabIndex = 78;
             // 
-            // buttonComplete
-            // 
-            this.buttonComplete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonComplete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonComplete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonComplete.FlatAppearance.BorderSize = 0;
-            this.buttonComplete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonComplete.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonComplete.Location = new System.Drawing.Point(431, 271);
-            this.buttonComplete.Name = "buttonComplete";
-            this.buttonComplete.Size = new System.Drawing.Size(150, 30);
-            this.buttonComplete.TabIndex = 76;
-            this.buttonComplete.Text = "Complete";
-            this.buttonComplete.UseVisualStyleBackColor = false;
-            // 
             // IndividualLabTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 505);
+            this.ClientSize = new System.Drawing.Size(600, 544);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "IndividualLabTest";
             this.Text = "IndividualPatient";
             this.Load += new System.EventHandler(this.IndividualLabTest_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel10.ResumeLayout(false);
-            this.flowLayoutPanel10.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
@@ -525,7 +399,6 @@ namespace PremiereCare_Application
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button buttonPrescribeMedication;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelRequestedDate;
@@ -545,18 +418,11 @@ namespace PremiereCare_Application
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label labelAppointmentNO;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label labelRequestedTest;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.Button buttonRequestLabTest;
-        private System.Windows.Forms.Button buttonGenerateInvoice;
-        private System.Windows.Forms.Button buttonCreateVisitNote;
-        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonSubmitResults;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
-        private System.Windows.Forms.Button buttonComplete;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label labelResults;
     }

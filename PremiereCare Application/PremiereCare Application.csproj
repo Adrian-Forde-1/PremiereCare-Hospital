@@ -186,6 +186,12 @@
     <Compile Include="Patient\Patient.cs" />
     <Compile Include="Prescription\PrescribeMed.cs" />
     <Compile Include="Reports\Invoice.cs" />
+    <Compile Include="SubmitTestResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubmitTestResults.Designer.cs">
+      <DependentUpon>SubmitTestResults.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,8 +325,11 @@
     <EmbeddedResource Include="IndividualPatient.resx">
       <DependentUpon>IndividualPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LabTestResults.resx">
-      <DependentUpon>LabTestResults.cs</DependentUpon>
+    <EmbeddedResource Include="RequestedLabTest.resx">
+      <DependentUpon>RequestedLabTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubmitTestResults.resx">
+      <DependentUpon>SubmitTestResults.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewNotes.resx">
       <DependentUpon>ViewNotes.cs</DependentUpon>

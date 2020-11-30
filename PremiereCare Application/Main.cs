@@ -44,17 +44,20 @@ namespace PremiereCare_Application
                 buttonAddDrug.Hide();
                 buttonAddPatient.Hide();
                 buttonAddLabService.Hide();
-            } else
+                buttonRequestedLabTest.Hide();
+            }
+            else if (userRole == "Technician")
             {
                 buttonAppointments.Hide();
                 buttonDoctor.Hide();
                 buttonTechnician.Hide();
                 buttonCSR.Hide();
-                buttonLabTest.Hide();
                 buttonNotes.Hide();
                 buttonPrescriptions.Hide();
                 buttonPatient.Hide();
                 buttonLabServices.Hide();
+                buttonViewLabTest.Hide();
+                buttonDrug.Hide();
             }
         }
 
@@ -199,8 +202,11 @@ namespace PremiereCare_Application
 
             if (panel_LabTestDropdown.Visible == false) panel_LabTestDropdown.Visible = true;
               else panel_LabTestDropdown.Visible = false;
+            if (userRole == "Technician") { panel_LabTestDropdown.Size = new Size(200, 36); }
+            if (userRole == "Doctor") { panel_LabTestDropdown.Size = new Size(200, 36); }
         }
-                
+
+        //Sub Button View Lab Test
         private void buttonViewLabTest_Click_1(object sender, EventArgs e)
         {
             //Open view Lab Test forms
@@ -208,6 +214,13 @@ namespace PremiereCare_Application
             CloseDropdowns();
         }
 
+        //Sub Button Requested Lab Test
+        private void buttonRequestedLabTest_Click(object sender, EventArgs e)
+        {
+            //Open view Requested Test forms
+            OpenChildForm(new RequestedLabTest(userRole, userID, panelChildFormContainer));
+            CloseDropdowns();
+        }
 
         //Main Button Notes
         private void buttonNotes_Click(object sender, EventArgs e)
@@ -246,18 +259,10 @@ namespace PremiereCare_Application
         {
             
             
-            //Open Prescribe Medication forms
-            OpenChildForm(new RequestedLabTest(userRole, userID, panelChildFormContainer));
-            CloseDropdowns();
+            /*Open Prescribe Medication forms
+            OpenChildForm();
+            CloseDropdowns();*/
         }
-
-
-        private void buttonCreateAppointment_Click(object sender, EventArgs e)
-        {
-            CloseDropdowns();
-            //OpenChildForm(new CreateAppointment(userID));
-        }
-
         
         //Main Button Patient
         private void buttonPatient_Click(object sender, EventArgs e)
@@ -303,7 +308,6 @@ namespace PremiereCare_Application
             CloseDropdowns();
         }
 
-       
-       
+        
     }
 }

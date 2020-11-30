@@ -59,9 +59,7 @@ namespace PremiereCare_Application.Prescription
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-               // CustomMessageBox cm = new CustomMessageBox("Failed to add Prescription", form);
-               // cm.Show();
+                MessageBox.Show(ex.ToString());               
             }
             finally
             {
@@ -103,8 +101,6 @@ namespace PremiereCare_Application.Prescription
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
-                    //CustomMessageBox cm = new CustomMessageBox("Failed to add Prescribed Drugs", form);
-                    //cm.Show();
                 }
                 finally
                 {
@@ -114,8 +110,46 @@ namespace PremiereCare_Application.Prescription
            }
            return isSuccess;
         }
-              
-       /* public void getSingleValueArrayIndex( out List<string> columndata, int index)
+
+        public DataTable GetMostRecentPrescriptionID()
+        {
+            string val = null;
+            //Step 1: Create database connection string query,
+            conn = new SqlConnection(myconnstring);
+
+
+            // Step 1: Create database connection string query,
+            conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string qry = @"SELECT TOP 1 prescription_id FROM[PremiereCareHospital].[dbo].[Prescription]
+                                ORDER BY prescription_id DESC";
+
+                //Creating cmd using sql and conn
+                cmd = new SqlCommand(qry, conn);
+
+                //Creating SQL DataAdapter using cmd
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
+
+                dtadapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+
+        /*     
+       public void getSingleValueArrayIndex( out List<string> columndata, int index)
         {
             List<string> data = new List<string>();
             
@@ -155,8 +189,8 @@ namespace PremiereCare_Application.Prescription
             columndata = data;
             //return isSuccess;
         }  
-        */
-        /*public void getSingleColumnValueByIndex(string query, out string columndata, int index)
+       
+       public void getSingleColumnValueByIndex(string query, out string columndata, int index)
         {
             string  val = null;
             //Step 1: Create database connection string query,
@@ -194,10 +228,9 @@ namespace PremiereCare_Application.Prescription
             columndata = val;
             //return ret;
 
-        }*/
+        }
 
-        //public string getPatient_ID(string appointmentID)
-        
+        public string getPatient_ID(string appointmentID)
 
         public string getPrescription_ID(string appointmentID)
         {
@@ -233,43 +266,7 @@ namespace PremiereCare_Application.Prescription
             
             return val;
         }
-
-        public DataTable GetMostRecentPrescriptionID()
-        {
-            string val = null;
-            //Step 1: Create database connection string query,
-            conn = new SqlConnection(myconnstring);
-
-
-            // Step 1: Create database connection string query,
-            conn = new SqlConnection(myconnstring);
-            DataTable dt = new DataTable();
-            try
-            {
-                //Step 2: Writing SQL Query
-                string qry = @"SELECT TOP 1 prescription_id FROM[PremiereCareHospital].[dbo].[Prescription]
-                                ORDER BY prescription_id DESC";
-
-                //Creating cmd using sql and conn
-                cmd = new SqlCommand(qry, conn);
-
-                //Creating SQL DataAdapter using cmd
-                dtadapter = new SqlDataAdapter(cmd);
-                conn.Open();                
-
-                dtadapter.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                //Close Connection
-                conn.Close();
-            }
-            return dt;
-        }
+        */
 
 
 
