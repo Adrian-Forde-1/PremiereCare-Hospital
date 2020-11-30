@@ -32,8 +32,7 @@ namespace PremiereCare_Application
             if (userRole == "CSR")
             {
                 buttonLabTest.Hide();
-                buttonNotes.Hide();
-                buttonPrescriptions.Hide();
+                buttonNotes.Hide();               
                 buttonViewNotes.Hide();
             }
             else if (userRole == "Doctor")
@@ -53,7 +52,6 @@ namespace PremiereCare_Application
                 buttonTechnician.Hide();
                 buttonCSR.Hide();
                 buttonNotes.Hide();
-                buttonPrescriptions.Hide();
                 buttonPatient.Hide();
                 buttonLabServices.Hide();
                 buttonViewLabTest.Hide();
@@ -140,9 +138,7 @@ namespace PremiereCare_Application
             OpenChildForm(new AllTechnicians());
             CloseDropdowns();
             ;
-        }
-
-        
+        }            
 
         //Main Button CSR
         private void buttonCSR_Click(object sender, EventArgs e)
@@ -253,17 +249,6 @@ namespace PremiereCare_Application
             OpenChildForm(new ViewAppointment(userRole, userID, panelChildFormContainer));
         }
 
-
-        //Main Button Prescriptions
-        private void buttonPrescriptions_Click(object sender, EventArgs e)
-        {
-            
-            
-            /*Open Prescribe Medication forms
-            OpenChildForm();
-            CloseDropdowns();*/
-        }
-        
         //Main Button Patient
         private void buttonPatient_Click(object sender, EventArgs e)
         {

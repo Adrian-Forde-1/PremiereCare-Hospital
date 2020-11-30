@@ -55,5 +55,7 @@ namespace PremiereCare_Application
             int patientID = Convert.ToInt32(dgvPatients.Rows[rowIndex].Cells[0].Value);
             OpenChildForm(new IndividualPatient(userID, patientID, panelContainer));
         }
+
+      
     }
 }

@@ -104,16 +104,47 @@ namespace PremiereCare_Application.Prescription
                 }
                 finally
                 {
-                    conn_.Close(); 
+                    conn.Close(); 
                 }
 
             }  
             return isSuccess;
         }
 
-
         public DataTable getPrescriptionIDFromAppointment(int appointmentID)
         {
+            //Step 1: Create database connection string query,
+            conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+
+            try
+            {
+                //Step 2: Writing SQL Query
+                string qry = @"SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription 
+                                WHERE appointment_id=@appointmentID";
+
+                //Creating cmd using sql and conn
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("@appointmentID", appointmentID);
+
+                //Creating SQL DataAdapter using cmd
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
+
+                dtadapter.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
 
         public DataTable GetMostRecentPrescriptionID()
         {
@@ -152,69 +183,36 @@ namespace PremiereCare_Application.Prescription
             return dt;
         }
 
-        /*     
-       public void getSingleValueArrayIndex( out List<string> columndata, int index)
+        public DataTable GetAllPrescriptionsForAppointment(int appointmentID)
         {
-            List<string> data = new List<string>();
-            
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
             DataTable dt = new DataTable();
 
             try
             {
                 //Step 2: Writing SQL Query
-                string qry =  @"SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription 
+                string qry = @"SELECT 
+                                p.prescription_id AS 'Prescription ID',
+                                d.fname + d.lname AS 'Doctor',
+                                pat.fname + pat.lname AS 'Patient',
+                                p.dosage AS 'Dosage'
+                                FROM [PremiereCareHospital].[dbo].Prescription p
+                                JOIN [PremiereCareHospital].[dbo].Doctor d
+                                    ON p.doc_id = d.doc_id
+                                JOIN [PremiereCareHospital].[dbo].Patient pat
+                                    ON p.patient_id = pat.patient_id
                                 WHERE appointment_id=@appointmentID";
-                
-                //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
-                cmd_.Parameters.AddWithValue("@appointmentID", appointmentID);
-
-                //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
-
-                dtadapter_.Fill(dt);
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show( ex.ToString() ); 
-            }
-            finally
-            {
-                conn_.Close();
-            }
-            columndata = data;
-            //return isSuccess;
-        }  
-       
-       
-            public void getSingleColumnValueByIndex(string query, out string columndata, int index)
-        {
-            string  val = null;
-            //Step 1: Create database connection string query,
-            conn = new SqlConnection(myconnstring);
-            
-            try
-            {
-                //Step 2: Writing SQL Query
-                string qry  = query;
 
                 //Creating cmd using sql and conn
                 cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("@appointmentID", appointmentID);
 
                 //Creating SQL DataAdapter using cmd
                 dtadapter = new SqlDataAdapter(cmd);
                 conn.Open();
 
-                dtread = cmd.ExecuteReader();
-
-                while (dtread.Read())
-                {
-                    val = dtread[index].ToString();
-                }
+                dtadapter.Fill(dt);
 
             }
             catch (Exception ex)
@@ -223,16 +221,15 @@ namespace PremiereCare_Application.Prescription
             }
             finally
             {
-                //Close Connection
-                conn_.Close();
-                MessageBox.Show( ex.ToString() );
-        } 
-                                                          
-            return val;
-        }
-        */
+                conn.Close();
+            }
+
+            return dt;
         }
 
+
+    }
+
         
-    }    
-}
+}    
+
