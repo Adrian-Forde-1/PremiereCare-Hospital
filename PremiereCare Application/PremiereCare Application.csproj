@@ -319,9 +319,6 @@
     <EmbeddedResource Include="IndividualPatient.resx">
       <DependentUpon>IndividualPatient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LabTestResults.resx">
-      <DependentUpon>LabTestResults.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ViewNotes.resx">
       <DependentUpon>ViewNotes.cs</DependentUpon>
     </EmbeddedResource>

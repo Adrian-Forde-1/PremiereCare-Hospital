@@ -303,7 +303,13 @@ namespace PremiereCare_Application
             CloseDropdowns();
         }
 
-       
-       
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            userRole = "";
+            userID = 0;
+            this.Hide();
+            Login login = new Login();
+            login.Show();
+        }
     }
 }

@@ -51,9 +51,10 @@ namespace PremiereCare_Application
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
-        private void buttonAddTech_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
             bool failedVerification = false;
+            Console.WriteLine("Button add click");
 
             removeErrors();
 
@@ -124,5 +125,6 @@ namespace PremiereCare_Application
         {
             AlignItems();
         }
+
     }
 }
