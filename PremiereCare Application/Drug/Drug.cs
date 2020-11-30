@@ -81,7 +81,45 @@ namespace PremiereCare_Application.Drug
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
 
+        public DataTable GetDrugsFromPrescriptionID(int prescriptionID)
+        {
+            //Step 1: Create database connection
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string sql = @"SELECT
+                                d.drug AS 'Drug',
+                                d.cost AS 'Cost'
+                                FROM[PremiereCareHospital].[dbo].[Prescribed_Drugs] pd
+                                JOIN[PremiereCareHospital].[dbo].[Drug] d
+                                   ON pd.drug_id = d.drug_id
+                                WHERE pd.prescription_id = @prescriptionID";
+
+                //Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("prescriptionID", prescriptionID);
+
+                //Creating SQL DataAdapter using cmd
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
@@ -93,3 +131,4 @@ namespace PremiereCare_Application.Drug
 
     }
 }
+

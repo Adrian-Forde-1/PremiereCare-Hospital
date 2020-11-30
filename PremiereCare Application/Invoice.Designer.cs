@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInvoiceContainer = new System.Windows.Forms.Panel();
             this.panelInvoice = new System.Windows.Forms.Panel();
             this.invoiceContentContainer = new System.Windows.Forms.TableLayoutPanel();
@@ -65,7 +65,11 @@
             this.labelPatientName = new System.Windows.Forms.Label();
             this.labelPatientAddress = new System.Windows.Forms.Label();
             this.labelPatienContact = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvInvoice = new System.Windows.Forms.DataGridView();
+            this.panelInvoiceFooter = new System.Windows.Forms.Panel();
+            this.labelContact = new System.Windows.Forms.Label();
+            this.labelContactDesc = new System.Windows.Forms.Label();
             this.panelInvoiceContainer.SuspendLayout();
             this.panelInvoice.SuspendLayout();
             this.invoiceContentContainer.SuspendLayout();
@@ -85,7 +89,9 @@
             this.panelDocTitleContainer.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
+            this.panelInvoiceFooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelInvoiceContainer
@@ -121,7 +127,7 @@
             this.invoiceContentContainer.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.invoiceContentContainer.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.invoiceContentContainer.Controls.Add(this.tableLayoutPanel1, 0, 2);
-            this.invoiceContentContainer.Controls.Add(this.dgvInvoice, 0, 3);
+            this.invoiceContentContainer.Controls.Add(this.tableLayoutPanel5, 0, 3);
             this.invoiceContentContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.invoiceContentContainer.Location = new System.Drawing.Point(25, 25);
             this.invoiceContentContainer.Margin = new System.Windows.Forms.Padding(0);
@@ -130,9 +136,9 @@
             this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
-            this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 164F));
+            this.invoiceContentContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.invoiceContentContainer.Size = new System.Drawing.Size(560, 510);
-            this.invoiceContentContainer.TabIndex = 6;
+            this.invoiceContentContainer.TabIndex = 7;
             // 
             // tableLayoutPanel3
             // 
@@ -170,8 +176,8 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 15);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(332, 33);
             this.label1.TabIndex = 4;
@@ -539,6 +545,22 @@
             this.labelPatienContact.TabIndex = 3;
             this.labelPatienContact.Text = "label6";
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.panelInvoiceFooter, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.dgvInvoice, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 296);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(560, 214);
+            this.tableLayoutPanel5.TabIndex = 10;
+            // 
             // dgvInvoice
             // 
             this.dgvInvoice.AllowUserToAddRows = false;
@@ -550,23 +572,56 @@
             this.dgvInvoice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvInvoice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvInvoice.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvInvoice.EnableHeadersVisualStyles = false;
-            this.dgvInvoice.Location = new System.Drawing.Point(3, 299);
+            this.dgvInvoice.Location = new System.Drawing.Point(3, 3);
             this.dgvInvoice.Name = "dgvInvoice";
             this.dgvInvoice.ReadOnly = true;
             this.dgvInvoice.RowHeadersVisible = false;
-            this.dgvInvoice.Size = new System.Drawing.Size(554, 208);
-            this.dgvInvoice.TabIndex = 10;
+            this.dgvInvoice.Size = new System.Drawing.Size(554, 154);
+            this.dgvInvoice.TabIndex = 12;
+            // 
+            // panelInvoiceFooter
+            // 
+            this.panelInvoiceFooter.Controls.Add(this.labelContact);
+            this.panelInvoiceFooter.Controls.Add(this.labelContactDesc);
+            this.panelInvoiceFooter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelInvoiceFooter.Location = new System.Drawing.Point(0, 160);
+            this.panelInvoiceFooter.Margin = new System.Windows.Forms.Padding(0);
+            this.panelInvoiceFooter.MinimumSize = new System.Drawing.Size(0, 50);
+            this.panelInvoiceFooter.Name = "panelInvoiceFooter";
+            this.panelInvoiceFooter.Size = new System.Drawing.Size(560, 54);
+            this.panelInvoiceFooter.TabIndex = 13;
+            // 
+            // labelContact
+            // 
+            this.labelContact.AutoSize = true;
+            this.labelContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContact.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.labelContact.Location = new System.Drawing.Point(237, 30);
+            this.labelContact.Name = "labelContact";
+            this.labelContact.Size = new System.Drawing.Size(96, 13);
+            this.labelContact.TabIndex = 1;
+            this.labelContact.Text = "1-868-123-4567";
+            // 
+            // labelContactDesc
+            // 
+            this.labelContactDesc.AutoSize = true;
+            this.labelContactDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            this.labelContactDesc.Location = new System.Drawing.Point(146, 11);
+            this.labelContactDesc.Name = "labelContactDesc";
+            this.labelContactDesc.Size = new System.Drawing.Size(290, 13);
+            this.labelContactDesc.TabIndex = 0;
+            this.labelContactDesc.Text = "If you have any questions about this invoice, please contact";
             // 
             // Invoice
             // 
@@ -610,7 +665,10 @@
             this.flowLayoutPanel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
+            this.panelInvoiceFooter.ResumeLayout(false);
+            this.panelInvoiceFooter.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -619,7 +677,6 @@
 
         private System.Windows.Forms.Panel panelInvoiceContainer;
         private System.Windows.Forms.Panel panelInvoice;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel invoiceContentContainer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -627,6 +684,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutInvoiceInfo;
         private System.Windows.Forms.Panel panelDateContainer;
@@ -637,12 +695,6 @@
         private System.Windows.Forms.Label labelDateTitle;
         private System.Windows.Forms.Panel panelInvoiceNumTitleContainer;
         private System.Windows.Forms.Label labelInvoiceNumTitle;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelPatientName;
-        private System.Windows.Forms.Label labelPatientAddress;
-        private System.Windows.Forms.Label labelPatienContact;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panelDocSpecialtyContainer;
@@ -653,6 +705,16 @@
         private System.Windows.Forms.Label labelDocSpecialtyTitle;
         private System.Windows.Forms.Panel panelDocTitleContainer;
         private System.Windows.Forms.Label labelDocTitle;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelPatientName;
+        private System.Windows.Forms.Label labelPatientAddress;
+        private System.Windows.Forms.Label labelPatienContact;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.DataGridView dgvInvoice;
+        private System.Windows.Forms.Panel panelInvoiceFooter;
+        private System.Windows.Forms.Label labelContact;
+        private System.Windows.Forms.Label labelContactDesc;
     }
 }

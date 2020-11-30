@@ -114,27 +114,27 @@ namespace PremiereCare_Application.Prescription
         }
 
 
-        public string getPrescription_ID(string appointmentID)
+        public DataTable getPrescriptionIDFromAppointment(int appointmentID)
         {
-            string val = null;
             //Step 1: Create database connection string query,
             conn_ = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
 
             try
             {
                 //Step 2: Writing SQL Query
                 string qry =  @"SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription 
-                                WHERE appointment_id Like '" + appointmentID + "' ";
+                                WHERE appointment_id=@appointmentID";
                 
                 //Creating cmd using sql and conn
                 cmd_ = new SqlCommand(qry, conn_);
+                cmd_.Parameters.AddWithValue("@appointmentID", appointmentID);
 
                 //Creating SQL DataAdapter using cmd
                 dtadapter_ = new SqlDataAdapter(cmd_);
                 conn_.Open();
 
-                dtread_ = cmd_.ExecuteReader();
-                val = dtread_.ToString();
+                dtadapter_.Fill(dt);
                 
             }
             catch (Exception ex)
@@ -146,7 +146,7 @@ namespace PremiereCare_Application.Prescription
                 conn_.Close();
             }
             
-            return val;
+            return dt;
         }
 
         public DataTable GetMostRecentPrescriptionID()
