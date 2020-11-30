@@ -242,17 +242,6 @@ namespace PremiereCare_Application
         }
 
 
-        //Main Button Prescriptions
-        private void buttonPrescriptions_Click(object sender, EventArgs e)
-        {
-            
-            
-            //Open Prescribe Medication forms
-            OpenChildForm(new RequestedLabTest(userRole, userID, panelChildFormContainer));
-            CloseDropdowns();
-        }
-
-
         private void buttonCreateAppointment_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
