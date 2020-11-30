@@ -104,12 +104,16 @@ namespace PremiereCare_Application.Prescription
                 }
                 finally
                 {
-                    conn.Close(); ;
+                    conn_.Close(); 
                 }
 
-           }
-           return isSuccess;
+            }  
+            return isSuccess;
         }
+
+
+        public DataTable getPrescriptionIDFromAppointment(int appointmentID)
+        {
 
         public DataTable GetMostRecentPrescriptionID()
         {
@@ -154,43 +158,40 @@ namespace PremiereCare_Application.Prescription
             List<string> data = new List<string>();
             
             //Step 1: Create database connection string query,
-             conn = new SqlConnection(myconnstring);
-            
+            conn_ = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+
             try
             {
                 //Step 2: Writing SQL Query
-                string qry = "SELECT drug  FROM [PremiereCareHospital].[dbo].Drug";
+                string qry =  @"SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription 
+                                WHERE appointment_id=@appointmentID";
                 
                 //Creating cmd using sql and conn
-                cmd = new SqlCommand(qry, conn);
-                
+                cmd_ = new SqlCommand(qry, conn_);
+                cmd_.Parameters.AddWithValue("@appointmentID", appointmentID);
+
                 //Creating SQL DataAdapter using cmd
-                dtadapter = new SqlDataAdapter(cmd);
-               
-                conn.Open();
-                dtread = cmd.ExecuteReader();
+                dtadapter_ = new SqlDataAdapter(cmd_);
+                conn_.Open();
+
+                dtadapter_.Fill(dt);
                 
-                while (dtread.Read())
-                {
-                    data.Add(dtread[index].ToString());
-                }
-                                
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-                data.Clear();
+                MessageBox.Show( ex.ToString() ); 
             }
             finally
             {
-                //Close Connection
-                conn.Close();
+                conn_.Close();
             }
             columndata = data;
             //return isSuccess;
         }  
        
-       public void getSingleColumnValueByIndex(string query, out string columndata, int index)
+       
+            public void getSingleColumnValueByIndex(string query, out string columndata, int index)
         {
             string  val = null;
             //Step 1: Create database connection string query,
@@ -222,53 +223,16 @@ namespace PremiereCare_Application.Prescription
             }
             finally
             {
-                conn.Close();
-            }
-
-            columndata = val;
-            //return ret;
-
-        }
-
-        public string getPatient_ID(string appointmentID)
-
-        public string getPrescription_ID(string appointmentID)
-        {
-            string val = null;
-            //Step 1: Create database connection string query,
-            conn = new SqlConnection(myconnstring);
-
-            try
-            {
-                //Step 2: Writing SQL Query
-                string qry =  @"SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription 
-                                WHERE appointment_id Like '" + appointmentID + "' ";
-                
-                //Creating cmd using sql and conn
-                cmd = new SqlCommand(qry, conn);
-
-                //Creating SQL DataAdapter using cmd
-                dtadapter = new SqlDataAdapter(cmd);
-                conn.Open();
-
-                dtread = cmd.ExecuteReader();
-                val = dtread.ToString();
- 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show( ex.ToString() ); 
-            }
-            finally
-            {
-                conn.Close();
-            }
-            
+                //Close Connection
+                conn_.Close();
+                MessageBox.Show( ex.ToString() );
+        } 
+                                                          
             return val;
         }
         */
+        }
 
-
-
+        
     }    
 }

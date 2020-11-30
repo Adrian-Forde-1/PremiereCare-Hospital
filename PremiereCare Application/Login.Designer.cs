@@ -34,12 +34,12 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonLogin = new System.Windows.Forms.Button();
             this.comboBoxLoginRole = new System.Windows.Forms.ComboBox();
             this.labelRole = new System.Windows.Forms.Label();
             this.labelIncorrectCredentials = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonCloseLogin = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +50,7 @@
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(330, 22);
             this.textBoxUsername.TabIndex = 0;
-            this.textBoxUsername.Text = "tv";
+            this.textBoxUsername.Text = "MichealUsr";
             this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
             // 
             // textBoxPassword
@@ -61,7 +61,7 @@
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(330, 22);
             this.textBoxPassword.TabIndex = 1;
-            this.textBoxPassword.Text = "tv";
+            this.textBoxPassword.Text = "micheal123";
             // 
             // labelUsername
             // 
@@ -94,24 +94,10 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "PremiereCare Hospital";
             // 
-            // buttonLogin
-            // 
-            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
-            this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLogin.FlatAppearance.BorderSize = 0;
-            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonLogin.Location = new System.Drawing.Point(199, 237);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(100, 38);
-            this.buttonLogin.TabIndex = 5;
-            this.buttonLogin.Text = "Login";
-            this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.button1_Click);
-            // 
             // comboBoxLoginRole
             // 
+            this.comboBoxLoginRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLoginRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxLoginRole.FormattingEnabled = true;
             this.comboBoxLoginRole.Items.AddRange(new object[] {
             "CSR",
@@ -121,7 +107,6 @@
             this.comboBoxLoginRole.Name = "comboBoxLoginRole";
             this.comboBoxLoginRole.Size = new System.Drawing.Size(330, 21);
             this.comboBoxLoginRole.TabIndex = 7;
-            this.comboBoxLoginRole.Text = "Doctor";
             // 
             // labelRole
             // 
@@ -168,18 +153,34 @@
             this.buttonCloseLogin.UseVisualStyleBackColor = true;
             this.buttonCloseLogin.Click += new System.EventHandler(this.buttonCloseLogin_Click);
             // 
+            // buttonLogin
+            // 
+            this.buttonLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLogin.FlatAppearance.BorderSize = 0;
+            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonLogin.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonLogin.Location = new System.Drawing.Point(194, 237);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(100, 38);
+            this.buttonLogin.TabIndex = 56;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(488, 294);
+            this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.buttonCloseLogin);
             this.Controls.Add(this.labelIncorrectCredentials);
             this.Controls.Add(this.labelRole);
             this.Controls.Add(this.comboBoxLoginRole);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelUsername);
@@ -203,11 +204,11 @@
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBoxLoginRole;
         private System.Windows.Forms.Label labelRole;
         private System.Windows.Forms.Label labelIncorrectCredentials;
         private System.Windows.Forms.Button buttonCloseLogin;
+        private System.Windows.Forms.Button buttonLogin;
     }
 }

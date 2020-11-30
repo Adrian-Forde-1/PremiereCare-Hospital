@@ -76,8 +76,8 @@ namespace PremiereCare_Application.Reports
                                 JOIN [PremiereCareHospital].[dbo].[Doctor] d
                                 	ON a.doc_id = d.doc_id
                                 JOIN [PremiereCareHospital].[dbo].[Patient] p
-                                	ON a.patient_id = p.patient_id 
-                                WHERE appointment_id = @appointmentID;
+                                	ON a.patient_id = p.patient_id
+                                WHERE a.appointment_id = @appointmentID;
                                 ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);

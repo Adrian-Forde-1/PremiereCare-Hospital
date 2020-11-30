@@ -262,6 +262,12 @@
     <Compile Include="ViewPatients.Designer.cs">
       <DependentUpon>ViewPatients.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewPrescriptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewPrescriptions.Designer.cs">
+      <DependentUpon>ViewPrescriptions.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddCSR.resx">
       <DependentUpon>AddCSR.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +336,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubmitTestResults.resx">
       <DependentUpon>SubmitTestResults.cs</DependentUpon>
+    <EmbeddedResource Include="Invoice.resx">
+      <DependentUpon>Invoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewNotes.resx">
       <DependentUpon>ViewNotes.cs</DependentUpon>
@@ -367,6 +375,9 @@
     </Compile>
     <EmbeddedResource Include="ViewPatients.resx">
       <DependentUpon>ViewPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewPrescriptions.resx">
+      <DependentUpon>ViewPrescriptions.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="PremiereCareHospitalDataSet.xsc">
       <DependentUpon>PremiereCareHospitalDataSet.xsd</DependentUpon>

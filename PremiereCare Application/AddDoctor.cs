@@ -48,10 +48,10 @@ namespace PremiereCare_Application
         private void AddDoctor_Load(object sender, EventArgs e)
         {
             removeErrors();
-
             AlignItems();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
+            comboBoxSex.SelectedText = "Male";
         }
 
         private void buttonAddDoctor_Click(object sender, EventArgs e)
@@ -96,7 +96,13 @@ namespace PremiereCare_Application
                 failedVerification = true;
             }
 
-            if(!failedVerification)
+            //if (Convert.ToInt32(comboBoxSex.SelectedIndex) == -1)
+            //{
+            //    labelSexErr.Visible = true;
+            //    failedVerification = true;
+            //}
+
+            if (!failedVerification)
             {
                 addDoctor(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
                     textBoxPassword.Text, doctorDOBPicker.Value.Date.ToShortDateString(), textBoxSalary.Text, textBoxSpecialty.Text, comboBoxSex.Text);
