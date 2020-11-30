@@ -76,7 +76,7 @@ namespace PremiereCare_Application.Patient
             return isSuccess;
         }
 
-        public DataTable GetAllPatients()
+        public DataTable GetAllPatients(string search)
         {
             //Step 1: Create database connection
             SqlConnection conn = new SqlConnection(myconnstring);
@@ -84,11 +84,19 @@ namespace PremiereCare_Application.Patient
             try
             {
                 //Step 2: Writing SQL Query
-                string sql = "SELECT patient_id, fname, lname, sex FROM Patient";
+                string sql;
+                if (search != "")
+                {
+                    sql = @"SELECT patient_id AS 'Patient ID', fname + ' ' + lname AS Patient, sex AS Sex FROM Patient WHERE fname + ' ' + lname LIKE '%" + search + "'%";
+                }
+                else
+                {
+                    sql = "SELECT patient_id AS 'Patient ID', fname + ' ' + lname AS Patient, sex AS Sex FROM Patient";
+                }
+
 
                 //Creating cmd using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);
-
                 //Creating SQL DataAdapter using cmd
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 

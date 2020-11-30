@@ -52,7 +52,7 @@ namespace PremiereCare_Application
 
         private void PopulateServices()
         {
-            DataTable dt = labServices.GetAllLabService();
+            DataTable dt = labServices.GetAllLabService("");
             foreach (DataRow row in dt.Rows)
             {
                 int serviceID = Convert.ToInt32(row["ID"]);

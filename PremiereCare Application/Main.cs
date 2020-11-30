@@ -33,7 +33,6 @@ namespace PremiereCare_Application
             {
                 buttonLabTest.Hide();
                 buttonNotes.Hide();
-                buttonPrescriptions.Hide();
                 buttonViewNotes.Hide();
             }
             else if (userRole == "Doctor")
@@ -52,7 +51,6 @@ namespace PremiereCare_Application
                 buttonCSR.Hide();
                 buttonLabTest.Hide();
                 buttonNotes.Hide();
-                buttonPrescriptions.Hide();
                 buttonPatient.Hide();
                 buttonLabServices.Hide();
                 buttonDrug.Hide();

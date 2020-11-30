@@ -70,7 +70,7 @@ namespace PremiereCare_Application.User
             return isSuccess;
         }
 
-        public DataTable GetAllDoctors()
+        public DataTable GetAllDoctors(string search)
         {
             //Step 1: Create database connection
             SqlConnection conn = new SqlConnection(myconnstring);
@@ -78,7 +78,15 @@ namespace PremiereCare_Application.User
             try
             {
                 //Step 2: Writing SQL Query
-                string sql = "SELECT doc_id, fname, lname, sex, specialty FROM Doctor";
+                string sql;
+
+                if(search != "")
+                {
+                    sql = "SELECT doc_id AS 'Doctor ID', fname + ' ' + lname AS 'Doctor Name', sex AS 'Sex', specialty AS 'Specialty', dob AS 'Date of Birth' FROM Doctor WHERE fname + ' ' + lname LIKE '%" + search + "%'";
+                } else
+                {
+                    sql = "SELECT doc_id AS 'Doctor ID', fname + ' ' + lname AS 'Doctor Name', sex AS 'Sex', specialty AS 'Specialty', dob AS 'Date of Birth' FROM Doctor";
+                }
 
                 //Creating cmd using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);

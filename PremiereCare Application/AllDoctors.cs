@@ -40,7 +40,7 @@ namespace PremiereCare_Application
 
         private void PopulateDataGridView()
         {
-            DataTable dt = doctor.GetAllDoctors();
+            DataTable dt = doctor.GetAllDoctors(textBoxSearch.Text.ToString());
             dgvAllDoctors.DataSource = dt;
         }
 
@@ -68,9 +68,9 @@ namespace PremiereCare_Application
             PopulateDataGridView();
         }
 
-        private void textBoxSearchDoctor_TextChanged(object sender, EventArgs e)
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-
+            PopulateDataGridView();
         }
     }
 }

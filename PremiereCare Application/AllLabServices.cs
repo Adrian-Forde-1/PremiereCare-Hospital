@@ -23,7 +23,7 @@ namespace PremiereCare_Application
 
         private void PopulateDataGridView()
         {
-            DataTable dt = labservice.GetAllLabService();
+            DataTable dt = labservice.GetAllLabService(textBoxSearch.Text.ToString());
             dgvLabServices.DataSource = dt;
         }
 
@@ -40,28 +40,9 @@ namespace PremiereCare_Application
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            //Get the value from textbox
-            string keyword = textBox1.Text;
-            SqlConnection conn = new SqlConnection(myconnstring);
-            DataTable dt = new DataTable();
-            string qry = @"SELECT  service_id AS 'ID', service AS 'Service', cost AS 'Cost' FROM Lab_Services WHERE 
-                                                                                    (service_id LIKE '%" + keyword +
-                                                                                    "%' OR service LIKE '%" + keyword +
-                                                                                    "%' OR cost LIKE '%" + keyword + "%')";
-
-            //Creating cmd using sql and conn
-            SqlCommand cmd = new SqlCommand(qry, conn);
-
-            //Creating SQL DataAdapter using cmd
-            SqlDataAdapter dtadapter = new SqlDataAdapter(cmd);
-            conn.Open();
-            dtadapter.Fill(dt);
-            conn.Close();
-            dgvLabServices.DataSource = dt;
+            PopulateDataGridView();
         }
-
-
     }
 }

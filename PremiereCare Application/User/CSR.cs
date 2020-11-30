@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -66,6 +67,44 @@ namespace PremiereCare_Application.User
                 conn.Close();
             }
             return isSuccess;
+        }
+
+        public DataTable GetAllCSR(string search)
+        {
+            //Step 1: Create database connection
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string sql;
+                if (search != "")
+                {
+                    sql = @"SELECT csr_id AS 'CSR ID', fname + ' ' + lname AS Name, sex AS Sex, dob as 'Date of Birth', username AS Username, salary AS Salary FROM CSR WHERE fname + ' ' + lname LIKE '%" + search + "%'";
+                } else
+                {
+                    sql = "SELECT csr_id AS 'CSR ID', fname + ' ' + lname AS Name, sex AS Sex, dob as 'Date of Birth', username AS Username, salary AS Salary FROM CSR";
+                }
+                
+
+                //Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                //Creating SQL DataAdapter using cmd
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
         }
     }
 }

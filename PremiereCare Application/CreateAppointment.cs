@@ -56,11 +56,11 @@ namespace PremiereCare_Application
 
         private void PopulateComboBox()
         {
-            DataTable dt = doctor.GetAllDoctors();
+            DataTable dt = doctor.GetAllDoctors("");
             foreach (DataRow row in dt.Rows)
             {
                 doctors.Add(row);
-                doctorNames.Add(row["fname"] + " " + row["lname"]);
+                doctorNames.Add(row["Doctor Name"]);
             }
             comboBoxDoctors.DataSource = doctorNames;
         }

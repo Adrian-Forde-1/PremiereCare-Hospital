@@ -60,7 +60,7 @@ namespace PremiereCare_Application.LabService
             return isSuccess;
         }
 
-        public DataTable GetAllLabService()
+        public DataTable GetAllLabService(string search)
         {
             //Step 1: Create database connection
             SqlConnection conn = new SqlConnection(myconnstring);
@@ -68,7 +68,15 @@ namespace PremiereCare_Application.LabService
             try
             {
                 //Step 2: Writing SQL Query
-                string sql = "SELECT service_id AS 'ID', service AS 'Service', cost AS 'Cost' FROM Lab_Services";
+                string sql;
+
+                if(search != "")
+                {
+                    sql = "SELECT service_id AS 'ID', service AS 'Service', cost AS 'Cost' FROM Lab_Services WHERE service LIKE '%" + search + "%'";
+                } else
+                {
+                    sql = "SELECT service_id AS 'ID', service AS 'Service', cost AS 'Cost' FROM Lab_Services";
+                }
 
                 //Creating cmd using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);

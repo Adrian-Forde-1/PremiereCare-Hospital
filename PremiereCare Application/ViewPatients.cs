@@ -33,20 +33,15 @@ namespace PremiereCare_Application
         public ViewPatients(Panel panel, int usrID)
         {
             InitializeComponent();
+            PopulateDataGridView();
             panelContainer = panel;
             userID = usrID;
         }
 
         private void PopulateDataGridView()
         {
-            DataTable dt = patient.GetAllPatients();
-            Console.WriteLine(dt);
+            DataTable dt = patient.GetAllPatients(textBoxSearch.Text.ToString());
             dgvPatients.DataSource = dt;
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            PopulateDataGridView();
         }
 
         private void dgvPatients_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -54,6 +49,11 @@ namespace PremiereCare_Application
             int rowIndex = e.RowIndex;
             int patientID = Convert.ToInt32(dgvPatients.Rows[rowIndex].Cells[0].Value);
             OpenChildForm(new IndividualPatient(userID, patientID, panelContainer));
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            PopulateDataGridView();
         }
     }
 }
