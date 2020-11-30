@@ -96,6 +96,8 @@
             // 
             // comboBoxLoginRole
             // 
+            this.comboBoxLoginRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLoginRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxLoginRole.FormattingEnabled = true;
             this.comboBoxLoginRole.Items.AddRange(new object[] {
             "CSR",
@@ -105,7 +107,6 @@
             this.comboBoxLoginRole.Name = "comboBoxLoginRole";
             this.comboBoxLoginRole.Size = new System.Drawing.Size(330, 21);
             this.comboBoxLoginRole.TabIndex = 7;
-            this.comboBoxLoginRole.Text = "CSR";
             // 
             // labelRole
             // 

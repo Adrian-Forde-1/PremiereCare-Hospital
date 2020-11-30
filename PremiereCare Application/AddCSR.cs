@@ -87,6 +87,12 @@ namespace PremiereCare_Application
                 failedVerification = true;
             }
 
+            //if (Convert.ToInt32(comboBoxSex.SelectedIndex) == -1)
+            //{
+            //    labelSexErr.Visible = true;
+            //    failedVerification = true;
+            //}
+
             if (!failedVerification)
             {
                 addCSR(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,

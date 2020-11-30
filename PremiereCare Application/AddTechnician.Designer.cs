@@ -40,7 +40,6 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.labelSex = new System.Windows.Forms.Label();
-            this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.labelLName = new System.Windows.Forms.Label();
             this.labelFName = new System.Windows.Forms.Label();
             this.textBoxLname = new System.Windows.Forms.TextBox();
@@ -50,6 +49,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.techDOB = new System.Windows.Forms.DateTimePicker();
             this.labelSexErr = new System.Windows.Forms.Label();
+            this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelSalaryErr
@@ -212,23 +212,6 @@
             this.labelSex.TabIndex = 47;
             this.labelSex.Text = "Sex *";
             // 
-            // comboBoxSex
-            // 
-            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxSex.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.comboBoxSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSex.FormattingEnabled = true;
-            this.comboBoxSex.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.comboBoxSex.Location = new System.Drawing.Point(149, 425);
-            this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(297, 24);
-            this.comboBoxSex.TabIndex = 46;
-            this.comboBoxSex.Text = "Male";
-            // 
             // labelLName
             // 
             this.labelLName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -350,6 +333,23 @@
             this.labelSexErr.TabIndex = 56;
             this.labelSexErr.Text = "Field cannot be empty";
             // 
+            // comboBoxSex
+            // 
+            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxSex.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSex.FormattingEnabled = true;
+            this.comboBoxSex.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.comboBoxSex.Location = new System.Drawing.Point(149, 425);
+            this.comboBoxSex.Name = "comboBoxSex";
+            this.comboBoxSex.Size = new System.Drawing.Size(297, 24);
+            this.comboBoxSex.TabIndex = 46;
+            // 
             // AddTechnician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,7 +402,6 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label labelSex;
-        private System.Windows.Forms.ComboBox comboBoxSex;
         private System.Windows.Forms.Label labelLName;
         private System.Windows.Forms.Label labelFName;
         private System.Windows.Forms.TextBox textBoxLname;
@@ -412,5 +411,6 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DateTimePicker techDOB;
         private System.Windows.Forms.Label labelSexErr;
+        private System.Windows.Forms.ComboBox comboBoxSex;
     }
 }

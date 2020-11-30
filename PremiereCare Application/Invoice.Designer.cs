@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelInvoiceContainer = new System.Windows.Forms.Panel();
             this.panelInvoice = new System.Windows.Forms.Panel();
             this.invoiceContentContainer = new System.Windows.Forms.TableLayoutPanel();
@@ -66,10 +66,10 @@
             this.labelPatientAddress = new System.Windows.Forms.Label();
             this.labelPatienContact = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.dgvInvoice = new System.Windows.Forms.DataGridView();
             this.panelInvoiceFooter = new System.Windows.Forms.Panel();
             this.labelContact = new System.Windows.Forms.Label();
             this.labelContactDesc = new System.Windows.Forms.Label();
+            this.dgvInvoice = new System.Windows.Forms.DataGridView();
             this.panelInvoiceContainer.SuspendLayout();
             this.panelInvoice.SuspendLayout();
             this.invoiceContentContainer.SuspendLayout();
@@ -90,8 +90,8 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
             this.panelInvoiceFooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInvoiceContainer
@@ -110,6 +110,7 @@
             this.panelInvoice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelInvoice.AutoScroll = true;
             this.panelInvoice.BackColor = System.Drawing.Color.White;
             this.panelInvoice.Controls.Add(this.invoiceContentContainer);
             this.panelInvoice.Location = new System.Drawing.Point(26, 13);
@@ -363,8 +364,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 91);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
@@ -561,35 +562,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(560, 214);
             this.tableLayoutPanel5.TabIndex = 10;
             // 
-            // dgvInvoice
-            // 
-            this.dgvInvoice.AllowUserToAddRows = false;
-            this.dgvInvoice.AllowUserToDeleteRows = false;
-            this.dgvInvoice.AllowUserToResizeColumns = false;
-            this.dgvInvoice.AllowUserToResizeRows = false;
-            this.dgvInvoice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvInvoice.BackgroundColor = System.Drawing.Color.White;
-            this.dgvInvoice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvInvoice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvInvoice.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvInvoice.EnableHeadersVisualStyles = false;
-            this.dgvInvoice.Location = new System.Drawing.Point(3, 3);
-            this.dgvInvoice.Name = "dgvInvoice";
-            this.dgvInvoice.ReadOnly = true;
-            this.dgvInvoice.RowHeadersVisible = false;
-            this.dgvInvoice.Size = new System.Drawing.Size(554, 154);
-            this.dgvInvoice.TabIndex = 12;
-            // 
             // panelInvoiceFooter
             // 
             this.panelInvoiceFooter.Controls.Add(this.labelContact);
@@ -622,6 +594,35 @@
             this.labelContactDesc.Size = new System.Drawing.Size(290, 13);
             this.labelContactDesc.TabIndex = 0;
             this.labelContactDesc.Text = "If you have any questions about this invoice, please contact";
+            // 
+            // dgvInvoice
+            // 
+            this.dgvInvoice.AllowUserToAddRows = false;
+            this.dgvInvoice.AllowUserToDeleteRows = false;
+            this.dgvInvoice.AllowUserToResizeColumns = false;
+            this.dgvInvoice.AllowUserToResizeRows = false;
+            this.dgvInvoice.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInvoice.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInvoice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInvoice.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvInvoice.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInvoice.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInvoice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvInvoice.EnableHeadersVisualStyles = false;
+            this.dgvInvoice.Location = new System.Drawing.Point(3, 3);
+            this.dgvInvoice.Name = "dgvInvoice";
+            this.dgvInvoice.ReadOnly = true;
+            this.dgvInvoice.RowHeadersVisible = false;
+            this.dgvInvoice.Size = new System.Drawing.Size(554, 154);
+            this.dgvInvoice.TabIndex = 12;
             // 
             // Invoice
             // 
@@ -666,9 +667,9 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
             this.panelInvoiceFooter.ResumeLayout(false);
             this.panelInvoiceFooter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInvoice)).EndInit();
             this.ResumeLayout(false);
 
         }

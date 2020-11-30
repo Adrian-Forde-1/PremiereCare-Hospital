@@ -133,5 +133,10 @@ namespace PremiereCare_Application
         {
             OpenChildForm(new Invoice(appointmentID));
         }
+
+        private void buttonViewPrescriptions_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ViewPrescriptions(appointmentID));
+        }
     }
 }

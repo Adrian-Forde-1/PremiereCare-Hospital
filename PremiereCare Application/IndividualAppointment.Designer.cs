@@ -60,6 +60,7 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonComplete = new System.Windows.Forms.Button();
+            this.buttonViewPrescriptions = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
@@ -91,6 +92,7 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonCancel, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel9, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.buttonComplete, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.buttonViewPrescriptions, 1, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -462,6 +464,23 @@
             this.buttonComplete.Visible = false;
             this.buttonComplete.Click += new System.EventHandler(this.buttonComplete_Click);
             // 
+            // buttonViewPrescriptions
+            // 
+            this.buttonViewPrescriptions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonViewPrescriptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonViewPrescriptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonViewPrescriptions.FlatAppearance.BorderSize = 0;
+            this.buttonViewPrescriptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonViewPrescriptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonViewPrescriptions.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonViewPrescriptions.Location = new System.Drawing.Point(447, 199);
+            this.buttonViewPrescriptions.Name = "buttonViewPrescriptions";
+            this.buttonViewPrescriptions.Size = new System.Drawing.Size(150, 29);
+            this.buttonViewPrescriptions.TabIndex = 79;
+            this.buttonViewPrescriptions.Text = "View Prescriptions";
+            this.buttonViewPrescriptions.UseVisualStyleBackColor = false;
+            this.buttonViewPrescriptions.Click += new System.EventHandler(this.buttonViewPrescriptions_Click);
+            // 
             // IndividualAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,5 +546,6 @@
         private System.Windows.Forms.Button buttonComplete;
         private System.Windows.Forms.Button buttonPrescribeMedication;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
+        private System.Windows.Forms.Button buttonViewPrescriptions;
     }
 }

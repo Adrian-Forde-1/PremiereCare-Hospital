@@ -17,13 +17,14 @@ namespace PremiereCare_Application
             InitializeComponent();
         }
 
-        private void removeErrors()
+        private void RemoveErrors()
         {
             labelFNameErr.Visible = false;
             labelLNameErr.Visible = false;
             labelUsernameErr.Visible = false;
             labelPasswordErr.Visible = false;
             labelSalaryErr.Visible = false;
+            labelSexErr.Visible = false;
         }
 
         private void ClearField()
@@ -38,11 +39,12 @@ namespace PremiereCare_Application
 
         private void AddTechnician_Load(object sender, EventArgs e)
         {
-            removeErrors();
-            InitializeComponent();
+            //InitializeComponent();
+            RemoveErrors();
             AlignItems();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
+            comboBoxSex.SelectedText = "Male";
         }
 
         private void AlignItems()
@@ -54,9 +56,8 @@ namespace PremiereCare_Application
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             bool failedVerification = false;
-            Console.WriteLine("Button add click");
 
-            removeErrors();
+            RemoveErrors();
 
             if (textBoxFname.Text == "")
             {
@@ -85,6 +86,12 @@ namespace PremiereCare_Application
             if (textBoxSalary.Text == "")
             {
                 labelSalaryErr.Visible = true;
+                failedVerification = true;
+            }
+
+            if (Convert.ToInt32(comboBoxSex.SelectedIndex) == -1)
+            {
+                labelSexErr.Visible = true;
                 failedVerification = true;
             }
 

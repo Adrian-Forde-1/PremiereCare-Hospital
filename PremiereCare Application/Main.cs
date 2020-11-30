@@ -55,6 +55,7 @@ namespace PremiereCare_Application
                 buttonPrescriptions.Hide();
                 buttonPatient.Hide();
                 buttonLabServices.Hide();
+                buttonDrug.Hide();
             }
         }
 

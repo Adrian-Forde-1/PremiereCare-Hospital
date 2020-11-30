@@ -184,6 +184,50 @@ namespace PremiereCare_Application.Prescription
         }
 
 
+        public DataTable GetAllPrescriptionsForAppointment(int appointmentID)
+        {
+            //Step 1: Create database connection string query,
+            conn_ = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
 
+            try
+            {
+                //Step 2: Writing SQL Query
+                string qry = @"SELECT 
+                                p.prescription_id AS 'Prescription ID',
+                                d.fname + d.lname AS 'Doctor',
+                                pat.fname + pat.lname AS 'Patient',
+                                p.dosage AS 'Dosage'
+                                FROM [PremiereCareHospital].[dbo].Prescription p
+                                JOIN [PremiereCareHospital].[dbo].Doctor d
+                                    ON p.doc_id = d.doc_id
+                                JOIN [PremiereCareHospital].[dbo].Patient pat
+                                    ON p.patient_id = pat.patient_id
+                                WHERE appointment_id=@appointmentID";
+
+                //Creating cmd using sql and conn
+                cmd_ = new SqlCommand(qry, conn_);
+                cmd_.Parameters.AddWithValue("@appointmentID", appointmentID);
+
+                //Creating SQL DataAdapter using cmd
+                dtadapter_ = new SqlDataAdapter(cmd_);
+                conn_.Open();
+
+                dtadapter_.Fill(dt);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn_.Close();
+            }
+
+            return dt;
+        }
+
+        
     }    
 }
