@@ -185,7 +185,7 @@ namespace PremiereCare_Application.Appointment
             try
             {
                 //SQL to update data in out database
-                string sql = "UPDATE [PremiereCareHospital].[dbo].Appointment SET status_id=@status WHERE appointment_id=@appointmentID";
+                string sql = "UPDATE    [dbo].Appointment SET status_id=@status WHERE appointment_id=@appointmentID";
 
                 //Creating SQL Commandclear
                 SqlCommand cmd = new SqlCommand(sql, conn);

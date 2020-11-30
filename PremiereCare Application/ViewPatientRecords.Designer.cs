@@ -43,7 +43,7 @@
             this.lblPatientRecords.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPatientRecords.AutoSize = true;
             this.lblPatientRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.lblPatientRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.lblPatientRecords.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
             this.lblPatientRecords.Location = new System.Drawing.Point(229, 14);
             this.lblPatientRecords.Name = "lblPatientRecords";
             this.lblPatientRecords.Size = new System.Drawing.Size(237, 33);

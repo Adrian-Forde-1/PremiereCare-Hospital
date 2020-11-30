@@ -52,7 +52,7 @@
             this.lblViewNotes.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblViewNotes.AutoSize = true;
             this.lblViewNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.lblViewNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.lblViewNotes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
             this.lblViewNotes.Location = new System.Drawing.Point(242, 9);
             this.lblViewNotes.Name = "lblViewNotes";
             this.lblViewNotes.Size = new System.Drawing.Size(172, 33);

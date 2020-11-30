@@ -20,10 +20,10 @@ namespace PremiereCare_Application.Prescription
         //Private Attributes
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;
 
-        SqlCommand cmd_;
-        SqlConnection conn_;
-        SqlDataAdapter dtadapter_;
-        SqlDataReader dtread_;
+        SqlCommand cmd;
+        SqlConnection conn;
+        SqlDataAdapter dtadapter;
+        SqlDataReader dtread;
         //DataTable dt_;
         //DataSet dts_;
                
@@ -31,21 +31,21 @@ namespace PremiereCare_Application.Prescription
         {
             bool isSuccess = false;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
 
             try
             {
                 string qry = @"INSERT INTO  [PremiereCareHospital].[dbo].Prescription ( prescription_id, doc_id, appointment_id, patient_id, dosage) 
                             VALUES(NEXT VALUE FOR prescription_seq, @doctor, @appointment, @patient, @dosage)";
 
-                cmd_ = new SqlCommand(qry, conn_);//allquerys
-                cmd_.Parameters.AddWithValue("@doctor", prescription.doctor_id);
-                cmd_.Parameters.AddWithValue("@appointment", prescription.appointment_id);
-                cmd_.Parameters.AddWithValue("@patient", prescription.patient_id);
-                cmd_.Parameters.AddWithValue("@dosage", prescription.dosage);
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("@doctor", prescription.doctor_id);
+                cmd.Parameters.AddWithValue("@appointment", prescription.appointment_id);
+                cmd.Parameters.AddWithValue("@patient", prescription.patient_id);
+                cmd.Parameters.AddWithValue("@dosage", prescription.dosage);
 
-                conn_.Open();
-                int rows = cmd_.ExecuteNonQuery();
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
 
                 if (rows > 0)
                 {
@@ -53,19 +53,17 @@ namespace PremiereCare_Application.Prescription
                 }
                 else
                 {
-                    isSuccess = false;
+                        isSuccess = false;
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-               // CustomMessageBox cm = new CustomMessageBox("Failed to add Prescription", form);
-               // cm.Show();
+                MessageBox.Show(ex.ToString());               
             }
             finally
             {
-                conn_.Close(); ;
+                conn.Close(); ;
             }
             return isSuccess;
         }
@@ -74,21 +72,23 @@ namespace PremiereCare_Application.Prescription
         {
             bool isSuccess = false;
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
-
-            foreach (int item in IDs)
-            {
+            conn = new SqlConnection(myconnstring);
+                                       
+           foreach (int item in IDs)
+           {
                 try
                 {
                     string query = @"INSERT INTO [PremiereCareHospital].[dbo].Prescribed_Drugs (prescription_id, drug_id) 
                                  VALUES( @prescriptionID, @drugID)";
 
-                    cmd_ = new SqlCommand(query, conn_);
-                    cmd_.Parameters.AddWithValue("@prescriptionID", prescriptionID);
-                    cmd_.Parameters.AddWithValue("@drugID", item);
+                    cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@prescriptionID", prescriptionID);
+                    cmd.Parameters.AddWithValue("@drugID", item);
 
-                    conn_.Open();
-                    int rows = cmd_.ExecuteNonQuery();
+
+                    conn.Open();
+
+                    int rows = cmd.ExecuteNonQuery();
                     if (rows > 0)
                     {
                         isSuccess = true;
@@ -101,59 +101,60 @@ namespace PremiereCare_Application.Prescription
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
-                    //CustomMessageBox cm = new CustomMessageBox("Failed to add Prescribed Drugs", form);
-                    //cm.Show();
                 }
                 finally
                 {
-                    conn_.Close(); ;
+                    conn.Close(); 
                 }
 
             }  
             return isSuccess;
         }
 
-
         public DataTable getPrescriptionIDFromAppointment(int appointmentID)
         {
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
             DataTable dt = new DataTable();
 
             try
             {
                 //Step 2: Writing SQL Query
-                string qry =  @"SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription 
+                string qry = @"SELECT prescription_id FROM [PremiereCareHospital].[dbo].Prescription 
                                 WHERE appointment_id=@appointmentID";
-                
+
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
-                cmd_.Parameters.AddWithValue("@appointmentID", appointmentID);
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("@appointmentID", appointmentID);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
 
-                dtadapter_.Fill(dt);
-                
+                dtadapter.Fill(dt);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show( ex.ToString() ); 
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
-                conn_.Close();
+                conn.Close();
             }
-            
+
             return dt;
         }
 
         public DataTable GetMostRecentPrescriptionID()
         {
+            string val = null;
+            //Step 1: Create database connection string query,
+            conn = new SqlConnection(myconnstring);
+
 
             // Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
             DataTable dt = new DataTable();
             try
             {
@@ -162,14 +163,13 @@ namespace PremiereCare_Application.Prescription
                                 ORDER BY prescription_id DESC";
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
+                cmd = new SqlCommand(qry, conn);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
 
-
-                dtadapter_.Fill(dt);
+                dtadapter.Fill(dt);
             }
             catch (Exception ex)
             {
@@ -178,16 +178,15 @@ namespace PremiereCare_Application.Prescription
             finally
             {
                 //Close Connection
-                conn_.Close();
+                conn.Close();
             }
             return dt;
         }
 
-
         public DataTable GetAllPrescriptionsForAppointment(int appointmentID)
         {
             //Step 1: Create database connection string query,
-            conn_ = new SqlConnection(myconnstring);
+            conn = new SqlConnection(myconnstring);
             DataTable dt = new DataTable();
 
             try
@@ -206,14 +205,14 @@ namespace PremiereCare_Application.Prescription
                                 WHERE appointment_id=@appointmentID";
 
                 //Creating cmd using sql and conn
-                cmd_ = new SqlCommand(qry, conn_);
-                cmd_.Parameters.AddWithValue("@appointmentID", appointmentID);
+                cmd = new SqlCommand(qry, conn);
+                cmd.Parameters.AddWithValue("@appointmentID", appointmentID);
 
                 //Creating SQL DataAdapter using cmd
-                dtadapter_ = new SqlDataAdapter(cmd_);
-                conn_.Open();
+                dtadapter = new SqlDataAdapter(cmd);
+                conn.Open();
 
-                dtadapter_.Fill(dt);
+                dtadapter.Fill(dt);
 
             }
             catch (Exception ex)
@@ -222,12 +221,15 @@ namespace PremiereCare_Application.Prescription
             }
             finally
             {
-                conn_.Close();
+                conn.Close();
             }
 
             return dt;
         }
 
+
+    }
+
         
-    }    
-}
+}    
+

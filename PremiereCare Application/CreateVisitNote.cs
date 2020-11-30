@@ -87,9 +87,7 @@ namespace PremiereCare_Application
             doctorvisitnotes.date = DateTime.Now.ToShortDateString();
             doctorvisitnotes.docID = doctor;
             doctorvisitnotes.appointmentID = appointment;
-            
-
-            
+                        
             bool success = doctorvisitnotes.Insert(doctorvisitnotes, this);
 
             if (success == true)
