@@ -158,61 +158,132 @@ namespace PremiereCare_Application.LabTest
             return isSuccess;
         }
 
-        public DataTable GetAllLabTest(string userRole, int userID)
+        public DataTable GetAllLabTest(string search, string userRole, int userID)
         {
 
             // Step 1: Create database connection string query,
             conn = new SqlConnection(myconnstring);
             dt = new DataTable();
-            conn = new SqlConnection(myconnstring);
-            dt = new DataTable();
+
             try
             {
                 //Step 2: Writing SQL Query  
-                //ls.service AS 'Requested Test',
-                                                 
+               string qry ="";
+                if (search != "")
+                {
 
-                string qry = "";  
-               if(userRole == "Technician") qry = @"SELECT      
-                                                 lt.test_id AS 'Test#',
-                                                 lt.appointment_id AS 'Appointment', 
-                                                 a.appointment_date AS 'Date Requested',
-                                                 d.fname + ' ' + d.lname AS 'Doctor Name', 
-                                                 d.specialty AS 'Doctor Specialty',
-			                                     p.fname + ' ' + p.lname AS 'Patient Name',
-                                                 lts.status AS 'Status', 
-                                                 lt.results AS 'Results' 
-                                                FROM[PremiereCareHospital].[dbo].Lab_Test lt
-                                                 JOIN[PremiereCareHospital].[dbo].Doctor d
-                                                     ON lt.doc_id = d.doc_id
-                                                 JOIN[PremiereCareHospital].[dbo].Appointment a
-                                                     ON lt.appointment_id = a.appointment_id                                                                                                 
-                                                 JOIN[PremiereCareHospital].[dbo].Patient p  
-                                                     ON a.patient_id = p.patient_id
-                                                 JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
-                                                     ON lt.status_id = lts.status_id
-                                                  ORDER BY a.appointment_date ASC";
-               
-                else if (userRole == "Doctor") qry = @"SELECT  
-                                                         lt.test_id AS 'Test#',
-                                                         lt.appointment_id AS 'Appointment', 
-                                                         a.appointment_date AS 'Date Requested',
-                                                         d.fname + ' ' + d.lname AS 'Doctor Name', 
-                                                         d.specialty AS 'Doctor Specialty',
-			                                             p.fname + ' ' + p.lname AS 'Patient Name',
-                                                         lts.status AS 'Status', 
-                                                         lt.results AS 'Results' 
-                                                        FROM[PremiereCareHospital].[dbo].Lab_Test lt
-                                                         JOIN[PremiereCareHospital].[dbo].Doctor d
-                                                             ON lt.doc_id = d.doc_id
-                                                         JOIN[PremiereCareHospital].[dbo].Appointment a
-                                                             ON lt.appointment_id = a.appointment_id                                                                                                                  
-                                                         JOIN[PremiereCareHospital].[dbo].Patient p  
-                                                             ON a.patient_id = p.patient_id
-                                                         JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
-                                                             ON lt.status_id = lts.status_id
-                                                          WHERE d.doc_id = @userID
-                                                          ORDER BY a.appointment_date ASC";
+                        if (userRole == "Doctor")
+                        { 
+                               qry = @"SELECT
+                                             lt.test_id AS 'Test#',
+                                             lt.appointment_id AS 'Appointment', 
+                                             a.appointment_date AS 'Date Requested',
+                                             d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                             d.specialty AS 'Doctor Specialty',
+	                                         p.fname + ' ' + p.lname AS 'Patient Name',
+                                             lts.status AS 'Status', 
+                                             lt.results AS 'Results'
+                                            FROM[PremiereCareHospital].[dbo].Lab_Test lt
+                                            JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                ON lt.doc_id = d.doc_id
+                                            JOIN[PremiereCareHospital].[dbo].Appointment a
+                                                ON lt.appointment_id = a.appointment_id                                                    
+				                            JOIN[PremiereCareHospital].[dbo].Patient p  
+                                                ON a.patient_id = p.patient_id
+                                            JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
+                                                ON lt.status_id = lts.status_id
+                                            WHERE (d.doc_id = @userID AND 
+                                                  lt.test_id LIKE '%" + search +
+                                               "%' OR lt.appointment_id LIKE '%" + search +
+                                               "%' OR a.appointment_date LIKE '%" + search +
+                                               "%' OR d.fname + ' ' + d.lname LIKE '%" + search +
+                                               "%' OR p.fname + ' ' + p.lname LIKE '%" + search +
+                                               "%' OR lts.status LIKE '%" + search +
+                                               "%')ORDER BY a.appointment_date ASC";
+                        }
+                            else if (userRole == "Technician")
+                            {
+                                    qry = @"SELECT  
+                                                     lt.test_id AS 'Test#',
+                                                     lt.appointment_id AS 'Appointment', 
+                                                     a.appointment_date AS 'Date Requested',
+                                                     d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                                     d.specialty AS 'Doctor Specialty',
+	                                                 p.fname + ' ' + p.lname AS 'Patient Name',
+                                                     lts.status AS 'Status', 
+                                                     lt.results AS 'Results' 
+                                                    FROM[PremiereCareHospital].[dbo].Lab_Test lt
+                                                    JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                        ON lt.doc_id = d.doc_id
+                                                    JOIN[PremiereCareHospital].[dbo].Appointment a
+                                                        ON lt.appointment_id = a.appointment_id                                            
+							                        JOIN[PremiereCareHospital].[dbo].Patient p  
+                                                        ON a.patient_id = p.patient_id
+                                                    JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
+                                                        ON lt.status_id = lts.status_id
+                                                    WHERE
+                                                        (lt.test_id LIKE '%" + search +
+                                                        "%' OR lt.appointment_id LIKE '%" + search +
+                                                        "%' OR a.appointment_date LIKE '%" + search +
+                                                        "%' OR d.fname + ' ' + d.lname LIKE '%" + search +
+                                                        "%' OR p.fname + ' ' + p.lname LIKE '%" + search +
+                                                        "%' OR lts.status LIKE '%" + search +
+                                                        "%)ORDER BY a.appointment_date ASC";
+                            }
+
+
+
+
+                }
+                   else
+                   {
+                         if (userRole == "Doctor") 
+                         {            
+                               qry = @"SELECT  
+                                             lt.test_id AS 'Test#',
+                                             lt.appointment_id AS 'Appointment', 
+                                             a.appointment_date AS 'Date Requested',
+                                             d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                             d.specialty AS 'Doctor Specialty',
+                                             p.fname + ' ' + p.lname AS 'Patient Name',
+                                             lts.status AS 'Status', 
+                                             lt.results AS 'Results' 
+                                             FROM[PremiereCareHospital].[dbo].Lab_Test lt
+                                             JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                 ON lt.doc_id = d.doc_id
+                                             JOIN[PremiereCareHospital].[dbo].Appointment a
+                                                 ON lt.appointment_id = a.appointment_id                                                                                                                  
+                                             JOIN[PremiereCareHospital].[dbo].Patient p  
+                                                 ON a.patient_id = p.patient_id
+                                             JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
+                                                 ON lt.status_id = lts.status_id
+                                             WHERE d.doc_id = @userID
+                                             ORDER BY a.appointment_date ASC";
+                         }
+                                else if (userRole == "Technician")
+                                {
+                                      qry = @"SELECT      
+                                                    lt.test_id AS 'Test#',
+                                                    lt.appointment_id AS 'Appointment', 
+                                                    a.appointment_date AS 'Date Requested',
+                                                    d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                                    d.specialty AS 'Doctor Specialty',
+                                                    p.fname + ' ' + p.lname AS 'Patient Name',
+                                                    lts.status AS 'Status', 
+                                                    lt.results AS 'Results' 
+                                                    FROM[PremiereCareHospital].[dbo].Lab_Test lt
+                                                    JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                        ON lt.doc_id = d.doc_id
+                                                    JOIN[PremiereCareHospital].[dbo].Appointment a
+                                                        ON lt.appointment_id = a.appointment_id                                                                                                 
+                                                    JOIN[PremiereCareHospital].[dbo].Patient p  
+                                                        ON a.patient_id = p.patient_id
+                                                    JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
+                                                        ON lt.status_id = lts.status_id
+                                                     ORDER BY a.appointment_date ASC";
+                                }
+
+                   }
 
                 //Creating cmd using sql and conn
                 cmd = new SqlCommand(qry, conn);
@@ -224,8 +295,6 @@ namespace PremiereCare_Application.LabTest
                 //Creating SQL DataAdapter using cmd
                 dtadapter = new SqlDataAdapter(cmd);
                 conn.Open();
-
-
                 dtadapter.Fill(dt);
             }
             catch (Exception ex)
@@ -337,11 +406,7 @@ namespace PremiereCare_Application.LabTest
                                 JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
                                     ON lt.status_id = lts.status_id
 				                    WHERE s.test_id = @labTestID				 
-                                 ORDER BY a.appointment_date ASC;";
-                /* JOIN[PremiereCareHospital].[dbo].Service s  
-                                     ON lt.test_id = s.test_id 
-                JOIN[PremiereCareHospital].[dbo].Lab_Services ls  
-				                     ON s.service_id = ls.service_id*/
+                                 ORDER BY a.appointment_date ASC";
 
                 SqlCommand cmd = new SqlCommand(qry, conn);
                  cmd.Parameters.AddWithValue("@labTestID", labTestID);

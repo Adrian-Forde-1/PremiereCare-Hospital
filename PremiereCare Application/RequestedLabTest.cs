@@ -44,7 +44,7 @@ namespace PremiereCare_Application
        
         private void PopulateDataGridView()
         {            
-            DataTable dt = labtest.GetAllLabTest(userRole, userID); 
+            DataTable dt = labtest.GetAllLabTest(textBoxSearch.Text.ToString(), userRole, userID); 
             dgvRequestedLabTest.DataSource = dt;
         }
 
@@ -64,93 +64,12 @@ namespace PremiereCare_Application
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            //Get the value from textbox
-            string keyword = textBox1.Text;
-            SqlConnection conn = new SqlConnection(myconnstring);
-            DataTable dt = new DataTable();
-
-            string qry = "";
-            if (userRole == "Technician") qry = @"SELECT  
-                                                 lt.test_id AS 'Test#',
-                                                 lt.appointment_id AS 'Appointment', 
-                                                 a.appointment_date AS 'Date Requested',
-                                                 d.fname + ' ' + d.lname AS 'Doctor Name', 
-                                                 d.specialty AS 'Doctor Specialty',
-			                                     p.fname + ' ' + p.lname AS 'Patient Name',
-                                                 lts.status AS 'Status', 
-                                                 lt.results AS 'Results' 
-                                             FROM[PremiereCareHospital].[dbo].Lab_Test lt
-                                            JOIN[PremiereCareHospital].[dbo].Doctor d
-                                                ON lt.doc_id = d.doc_id
-                                            JOIN[PremiereCareHospital].[dbo].Appointment a
-                                                ON lt.appointment_id = a.appointment_id                                            
-								            JOIN[PremiereCareHospital].[dbo].Patient p  
-                                                ON a.patient_id = p.patient_id
-                                            JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
-                                                     ON lt.status_id = lts.status_id
-                                             WHERE
-                                            (lt.test_id LIKE '%" + keyword +
-                                            "%' OR lt.appointment_id LIKE '%" + keyword +
-                                            "%' OR a.appointment_date LIKE '%" + keyword +
-                                            "%' OR d.fname + ' ' + d.lname LIKE '%" + keyword +
-                                            "%' OR p.fname + ' ' + p.lname LIKE '%" + keyword +
-                                            "%' OR lts.status LIKE '%" + keyword +
-                                            "%' OR lt.results LIKE '%" + keyword +
-                                            "%')ORDER BY a.appointment_date ASC";
-                                            /*JOIN[PremiereCareHospital].[dbo].Service s  
-                                                ON lt.test_id = s.test_id 
-								            JOIN[PremiereCareHospital].[dbo].Lab_Services ls  
-                                                ON s.service_id = ls.service_id
-                                             ls.service AS 'Requested Test',*/
-
-            else if (userRole == "Doctor") qry = @"SELECT
-                                                         lt.test_id AS 'Test#',
-                                                         lt.appointment_id AS 'Appointment', 
-                                                         a.appointment_date AS 'Date Requested',
-                                                         d.fname + ' ' + d.lname AS 'Doctor Name', 
-                                                         d.specialty AS 'Doctor Specialty',
-			                                             p.fname + ' ' + p.lname AS 'Patient Name',
-                                                         lts.status AS 'Status', 
-                                                         lt.results AS 'Results'
-                                                     FROM[PremiereCareHospital].[dbo].Lab_Test lt
-                                                    JOIN[PremiereCareHospital].[dbo].Doctor d
-                                                        ON lt.doc_id = d.doc_id
-                                                    JOIN[PremiereCareHospital].[dbo].Appointment a
-                                                        ON lt.appointment_id = a.appointment_id                                                   
-								                    JOIN[PremiereCareHospital].[dbo].Patient p  
-                                                        ON a.patient_id = p.patient_id
-                                                    JOIN[PremiereCareHospital].[dbo].Lab_Test_Status lts
-                                                     ON lt.status_id = lts.status_id
-                                                     WHERE (d.doc_id = @userID AND 
-                                                    lt.test_id LIKE '%" + keyword +
-                                                    "%' OR lt.appointment_id LIKE '%" + keyword +
-                                                    "%' OR a.appointment_date LIKE '%" + keyword +
-                                                    "%' OR d.fname + ' ' + d.lname LIKE '%" + keyword +
-                                                    "%' OR p.fname + ' ' + p.lname LIKE '%" + keyword +
-                                                    "%' OR lts.status LIKE '%" + keyword +
-                                                    "%' OR lt.results LIKE '%" + keyword +
-                                                    "%')ORDER BY a.appointment_date ASC";
-
-            //Creating cmd using sql and conn
-            SqlCommand cmd = new SqlCommand(qry, conn);
-            if (userRole == "Doctor")
-            {
-                cmd.Parameters.AddWithValue("@userID", userID);
-            }
-
-            //Creating SQL DataAdapter using cmd
-            SqlDataAdapter dtadapter = new SqlDataAdapter(cmd);
-            conn.Open();
-            dtadapter.Fill(dt);
-            conn.Close();
-            dgvRequestedLabTest.DataSource = dt;
+            PopulateDataGridView();
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
-       
     }
 }

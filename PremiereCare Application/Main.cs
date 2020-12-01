@@ -43,13 +43,15 @@ namespace PremiereCare_Application
                 buttonAddDrug.Hide();
                 buttonAddPatient.Hide();
                 buttonAddLabService.Hide();
-            } else
+                //buttonRequestedLabTest.Hide();
+            } 
+            else
             {
                 buttonAppointments.Hide();
                 buttonDoctor.Hide();
                 buttonTechnician.Hide();
                 buttonCSR.Hide();
-                buttonLabTest.Hide();
+                buttonViewLabTest.Hide();
                 buttonNotes.Hide();
                 buttonPatient.Hide();
                 buttonLabServices.Hide();
@@ -185,11 +187,6 @@ namespace PremiereCare_Application
             CloseDropdowns();
         }
 
-        private void buttonEditDrug_Click_1(object sender, EventArgs e)
-        {
-            CloseDropdowns();
-        }
-
 
         //Main Button Lab Test
         private void buttonLabTest_Click_1(object sender, EventArgs e)
@@ -198,12 +195,23 @@ namespace PremiereCare_Application
 
             if (panel_LabTestDropdown.Visible == false) panel_LabTestDropdown.Visible = true;
               else panel_LabTestDropdown.Visible = false;
+
+            if (userRole == "Doctor") { panel_LabTestDropdown.Size = new Size(200, 36); }
+            if (userRole == "Technician") { panel_LabTestDropdown.Size = new Size(200, 36); }
         }
                 
         private void buttonViewLabTest_Click_1(object sender, EventArgs e)
         {
             //Open view Lab Test forms
             OpenChildForm(new ViewLabTest(userRole, userID, panelChildFormContainer));
+            CloseDropdowns();
+
+        }
+
+        private void buttonRequestedLabTest_Click(object sender, EventArgs e)
+        {
+            //Open view Request Lab Test forms
+            OpenChildForm(new RequestedLabTest(userRole, userID, panelChildFormContainer));
             CloseDropdowns();
         }
 
@@ -237,14 +245,7 @@ namespace PremiereCare_Application
         {
             CloseDropdowns();
             OpenChildForm(new ViewAppointment(userRole, userID, panelChildFormContainer));
-        }
-
-
-        private void buttonCreateAppointment_Click(object sender, EventArgs e)
-        {
-            CloseDropdowns();
-            //OpenChildForm(new CreateAppointment(userID));
-        }
+        }                    
 
         
         //Main Button Patient
