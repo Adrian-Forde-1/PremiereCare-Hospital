@@ -185,7 +185,7 @@ namespace PremiereCare_Application
 
         private void buttonAllDrugs_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AllDrugs());
+            OpenChildForm(new AllDrugs(panelChildFormContainer));
             CloseDropdowns();
         }
 

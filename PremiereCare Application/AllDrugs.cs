@@ -16,9 +16,24 @@ namespace PremiereCare_Application
     {
 
         Drug.Drug drug = new Drug.Drug();
-        public AllDrugs()
+        Panel panelContainer;
+        public AllDrugs(Panel panel)
         {
+            panelContainer = panel;
             InitializeComponent();
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            this.Close();
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void PopulateDataGridView()
@@ -34,7 +49,9 @@ namespace PremiereCare_Application
 
         private void dgvDrugs_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            int rowIndex = e.RowIndex;
+            int drugId = Convert.ToInt32(dgvDrugs.Rows[rowIndex].Cells[0].Value);
+            OpenChildForm(new EditDrug(drugId, panelContainer));
         }
 
         static private string myconnstring = ConfigurationManager.ConnectionStrings["PCHospitalConnStr"].ConnectionString;

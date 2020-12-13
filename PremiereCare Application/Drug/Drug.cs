@@ -129,6 +129,82 @@ namespace PremiereCare_Application.Drug
             return dt;
         }
 
+        public DataTable GetDrug(int drugId)
+        {
+            //Step 1: Create database connection
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string sql = "SELECT * FROM Drug WHERE drug_id = @drugId";
+
+
+                //Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@drugId", drugId);
+
+                //Creating SQL DataAdapter using cmd
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public bool EditDrug(Drug drug, int drugId, Form form)
+        {
+            bool isSuccess = false;
+
+            SqlConnection conn = new SqlConnection(myconnstring);
+
+            try
+            {
+                string query = "Update CSR Set drug = @drug, cost = @cost WHERE drug_id = @drugId";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@drug", drug.name);
+                cmd.Parameters.AddWithValue("@cost", drug.cost);
+                cmd.Parameters.AddWithValue("@drugId", drugId);
+
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                //CustomMessageBox cm = new CustomMessageBox("Failed to add patient", form);
+                //cm.Show();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return isSuccess;
+        }
+
     }
 }
 
