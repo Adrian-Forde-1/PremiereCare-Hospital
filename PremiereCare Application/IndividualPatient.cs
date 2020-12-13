@@ -19,6 +19,15 @@ namespace PremiereCare_Application
         Panel panelContainer;
         Patient.Patient patient = new Patient.Patient();
 
+       
+        public IndividualPatient(int usrID, int pID, Panel panel)
+        {
+            InitializeComponent();
+            userID = usrID;
+            patientID = pID;
+            panelContainer = panel;
+        }
+
         private void OpenChildForm(Form childForm)
         {
             this.Close();
@@ -31,13 +40,6 @@ namespace PremiereCare_Application
             childForm.Show();
         }
 
-        public IndividualPatient(int usrID, int pID, Panel panel)
-        {
-            InitializeComponent();
-            userID = usrID;
-            patientID = pID;
-            panelContainer = panel;
-        }
 
         private void PopulateDataGridView(int ID)
         {

@@ -139,6 +139,12 @@
     </Compile>
     <Compile Include="DoctorVisitNotes\DoctorVisitNotes.cs" />
     <Compile Include="Drug\Drug.cs" />
+    <Compile Include="EditDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDoctor.Designer.cs">
+      <DependentUpon>EditDoctor.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditDrug.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,12 @@
     </Compile>
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IndividualDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IndividualDoctor.Designer.cs">
+      <DependentUpon>IndividualDoctor.cs</DependentUpon>
     </Compile>
     <Compile Include="IndividualLabTest.cs">
       <SubType>Form</SubType>
@@ -319,6 +331,9 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditDoctor.resx">
+      <DependentUpon>EditDoctor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditDrug.resx">
       <DependentUpon>EditDrug.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IndividualAppointment.resx">
       <DependentUpon>IndividualAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IndividualDoctor.resx">
+      <DependentUpon>IndividualDoctor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IndividualLabTest.resx">
       <DependentUpon>IndividualLabTest.cs</DependentUpon>

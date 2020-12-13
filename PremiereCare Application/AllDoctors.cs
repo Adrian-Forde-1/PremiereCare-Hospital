@@ -14,29 +14,25 @@ namespace PremiereCare_Application
     public partial class AllDoctors : Form
     {
         User.Doctor doctor = new User.Doctor();
-        public AllDoctors()
+        Panel panelContainer;
+        public AllDoctors(Panel panel)
         {
+            panelContainer = panel;
             InitializeComponent();
         }
 
+        private void OpenChildForm(Form childForm)
+        {
+            this.Close();
 
-        //public class CustomHeaderCell : DataGridViewRowHeaderCell
-        //{
-        //    protected override Size GetPreferredSize(Graphics graphics, DataGridViewCellStyle cellStyle, int rowIndex, Size constraintSize)
-        //    {
-        //        var size1 = base.GetPreferredSize(graphics, cellStyle, rowIndex, constraintSize);
-        //        var value = string.Format("{0}", this.DataGridView.Rows[rowIndex].HeaderCell.FormattedValue);
-        //        var size2 = TextRenderer.MeasureText(value, cellStyle.Font);
-        //        var padding = cellStyle.Padding;
-        //        return new Size(size2.Width + padding.Left + padding.Right, size1.Height);
-        //    }
-        //    protected override void Paint(Graphics graphics, Rectangle clipBounds, Rectangle cellBounds, int rowIndex, DataGridViewElementStates cellState, object value, object formattedValue, string errorText, DataGridViewCellStyle cellStyle, DataGridViewAdvancedBorderStyle advancedBorderStyle, DataGridViewPaintParts paintParts)
-        //    {
-        //        base.Paint(graphics, clipBounds, cellBounds, rowIndex, cellState, value, formattedValue, errorText, cellStyle, advancedBorderStyle, DataGridViewPaintParts.Background);
-        //        base.PaintBorder(graphics, clipBounds, cellBounds, cellStyle, advancedBorderStyle);
-        //        TextRenderer.DrawText(graphics, string.Format("{0}", formattedValue), cellStyle.Font, cellBounds, cellStyle.ForeColor);
-        //    }
-        //}
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
         private void PopulateDataGridView()
         {
@@ -71,6 +67,13 @@ namespace PremiereCare_Application
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             PopulateDataGridView();
+        }
+
+        private void dgvAllDoctors_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            int doctorId = Convert.ToInt32(dgvAllDoctors.Rows[rowIndex].Cells[0].Value);
+            OpenChildForm(new IndividualDoctor(doctorId, panelContainer));
         }
     }
 }

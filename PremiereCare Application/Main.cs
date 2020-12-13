@@ -114,7 +114,7 @@ namespace PremiereCare_Application
         {
 
             //Open alldoctors forms
-            OpenChildForm(new AllDoctors());
+            OpenChildForm(new AllDoctors(panelChildFormContainer));
             CloseDropdowns();
         }
 
