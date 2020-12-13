@@ -157,6 +157,12 @@
     <Compile Include="EditPatient.Designer.cs">
       <DependentUpon>EditPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditTechnician.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditTechnician.Designer.cs">
+      <DependentUpon>EditTechnician.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,12 @@
     </Compile>
     <Compile Include="IndividualPatient.Designer.cs">
       <DependentUpon>IndividualPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IndividualTechnician.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IndividualTechnician.Designer.cs">
+      <DependentUpon>IndividualTechnician.cs</DependentUpon>
     </Compile>
     <Compile Include="Invoice.cs">
       <SubType>Form</SubType>
@@ -340,6 +352,9 @@
     <EmbeddedResource Include="EditPatient.resx">
       <DependentUpon>EditPatient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditTechnician.resx">
+      <DependentUpon>EditTechnician.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -357,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IndividualPatient.resx">
       <DependentUpon>IndividualPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IndividualTechnician.resx">
+      <DependentUpon>IndividualTechnician.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RequestedLabTest.resx">
       <DependentUpon>RequestedLabTest.cs</DependentUpon>

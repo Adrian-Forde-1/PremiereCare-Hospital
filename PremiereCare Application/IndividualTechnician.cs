@@ -10,21 +10,18 @@ using System.Windows.Forms;
 
 namespace PremiereCare_Application
 {
-    public partial class IndividualDoctor : Form
+    public partial class IndividualTechnician : Form
     {
-        User.Doctor doctor = new User.Doctor();
-        int doctorId;
+        User.Technician technician = new User.Technician();
+        int technicianId;
         Panel panelContainer;
 
-       
-
-        public IndividualDoctor(int docId, Panel panel)
+        public IndividualTechnician(int techId, Panel panel)
         {
-            doctorId = docId;
+            technicianId = techId;
             panelContainer = panel;
             InitializeComponent();
         }
-
         private void OpenChildForm(Form childForm)
         {
             this.Close();
@@ -39,13 +36,12 @@ namespace PremiereCare_Application
 
         private void PopulateFields()
         {
-            DataTable doctorDT = doctor.GetDoctor(doctorId);
+            DataTable technicianDt = technician.GetTechnician(technicianId);
 
-            if(doctorDT.Rows != null && doctorDT.Rows.Count != 0)
+            if (technicianDt.Rows != null && technicianDt.Rows.Count != 0)
             {
-                DataRow row = doctorDT.Rows[0];
+                DataRow row = technicianDt.Rows[0];
                 labelName.Text = row["fname"].ToString() + " " + row["lname"].ToString();
-                labelSpecialty.Text = row["specialty"].ToString();
                 labelDOB.Text = row["dob"].ToString();
                 labelSalary.Text = row["salary"].ToString();
                 labelSex.Text = row["sex"].ToString();
@@ -53,14 +49,14 @@ namespace PremiereCare_Application
             }
         }
 
-        private void IndividualDoctor_Load(object sender, EventArgs e)
+        private void IndividualTechnician_Load(object sender, EventArgs e)
         {
             PopulateFields();
         }
 
         private void buttonEditPatientProfile_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new EditDoctor(doctorId, panelContainer));
+            OpenChildForm(new EditTechnician(technicianId, panelContainer));
         }
     }
 }

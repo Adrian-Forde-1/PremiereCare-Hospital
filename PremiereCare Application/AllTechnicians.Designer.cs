@@ -69,6 +69,7 @@
             this.dgvAllTechnicians.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvAllTechnicians.Size = new System.Drawing.Size(594, 456);
             this.dgvAllTechnicians.TabIndex = 13;
+            this.dgvAllTechnicians.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAllTechnicians_RowHeaderMouseClick);
             // 
             // tableLayoutPanel1
             // 

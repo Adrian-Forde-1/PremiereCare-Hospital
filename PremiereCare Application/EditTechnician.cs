@@ -10,11 +10,37 @@ using System.Windows.Forms;
 
 namespace PremiereCare_Application
 {
-    public partial class AddTechnician : Form
+    public partial class EditTechnician : Form
     {
-        public AddTechnician()
+        int technicianId;
+        Panel panelContainer;
+        User.Technician technician = new User.Technician();
+
+        public EditTechnician(int techId, Panel panel)
         {
+            technicianId = techId;
+            panelContainer = panel;
             InitializeComponent();
+        }
+
+        private void PopulateFields()
+        {
+            DataTable dt = technician.GetTechnician(technicianId);
+            DataRow row = dt.Rows[0];
+            String firstName = row["fname"].ToString();
+            String lastName = row["lname"].ToString();
+            String dob = row["dob"].ToString();
+            String username = row["username"].ToString();
+            String password = row["password"].ToString();
+            String salary = row["salary"].ToString();
+            String sex = row["sex"].ToString();
+            textBoxFname.Text = firstName;
+            textBoxLname.Text = lastName;
+            techDOB.Value = Convert.ToDateTime(dob);
+            textBoxUsername.Text = username;
+            textBoxPassword.Text = password;
+            textBoxSalary.Text = salary;
+            comboBoxSex.Text = sex;
         }
 
         private void RemoveErrors()
@@ -37,23 +63,33 @@ namespace PremiereCare_Application
             textBoxSalary.Text = "";
         }
 
-         private void AlignItems()
+        private void OpenChildForm(Form childForm)
+        {
+            this.Close();
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void AlignItems()
         {
             buttonAdd.Location = new Point((this.ClientSize.Width - buttonAdd.Width) / 2, this.ClientSize.Height - 50);
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
-        private void AddTechnician_Load(object sender, EventArgs e)
+        private void EditTechnician_Load(object sender, EventArgs e)
         {
-            //InitializeComponent();
             RemoveErrors();
             AlignItems();
+            PopulateFields();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
             comboBoxSex.SelectedText = "Male";
         }
-
-       
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
@@ -99,14 +135,13 @@ namespace PremiereCare_Application
 
             if (!failedVerification)
             {
-                addTechnician(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
+                editTechnician(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
                     textBoxPassword.Text, techDOB.Value.Date.ToShortDateString(), textBoxSalary.Text, comboBoxSex.Text);
             }
         }
-     
-        private void addTechnician(String fName, String lName, String username, String password, String dob, String salary, String sex)
+
+        private void editTechnician(String fName, String lName, String username, String password, String dob, String salary, String sex)
         {
-            User.Technician technician = new User.Technician();
             technician.firstName = fName;
             technician.lastName = lName;
             technician.username = username;
@@ -115,13 +150,14 @@ namespace PremiereCare_Application
             technician.salary = salary;
             technician.sex = sex;
 
-            bool success = technician.AddNewTechnician(technician, this);
+            bool success = technician.EditTechnician(technician, technicianId, this);
 
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Added Technician", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Technician", this);
                 cm.Show();
                 ClearField();
+                OpenChildForm(new IndividualTechnician(technicianId, panelContainer));
             }
             //else
             //{
@@ -130,11 +166,10 @@ namespace PremiereCare_Application
             //}
         }
 
-       
-        private void buttonAdd_Resize(object sender, EventArgs e)
+
+        private void EditTechnician_Resize(object sender, EventArgs e)
         {
             AlignItems();
         }
-
     }
 }

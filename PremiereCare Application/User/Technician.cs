@@ -110,5 +110,86 @@ namespace PremiereCare_Application.User
             }
             return dt;
         }
+
+        public DataTable GetTechnician(int technicianId)
+        {
+            //Step 1: Create database connection
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string sql = "SELECT * FROM Technician WHERE tech_id = @technicianId";
+
+
+                //Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@technicianId", technicianId);
+
+                //Creating SQL DataAdapter using cmd
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public bool EditTechnician(Technician technician, int technicianId, Form form)
+        {
+            bool isSuccess = false;
+
+            SqlConnection conn = new SqlConnection(myconnstring);
+
+            try
+            {
+                string query = "Update Technician Set fname = @firstName, lname = @lastName, dob = @dob, salary = @salary, username = @username, password = @password, sex = @sex WHERE tech_id = @technicianId";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@firstName", technician.firstName);
+                cmd.Parameters.AddWithValue("@lastName", technician.lastName);
+                cmd.Parameters.AddWithValue("@dob", technician.dob);
+                cmd.Parameters.AddWithValue("@salary", technician.salary);
+                cmd.Parameters.AddWithValue("@username", technician.username);
+                cmd.Parameters.AddWithValue("@password", technician.password);
+                cmd.Parameters.AddWithValue("@sex", technician.sex);
+                cmd.Parameters.AddWithValue("@technicianId", technicianId);
+
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                //CustomMessageBox cm = new CustomMessageBox("Failed to add patient", form);
+                //cm.Show();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return isSuccess;
+        }
     }
 }

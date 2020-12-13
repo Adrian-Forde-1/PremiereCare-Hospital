@@ -137,7 +137,7 @@ namespace PremiereCare_Application
 
         private void buttonViewTechnicians_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AllTechnicians());
+            OpenChildForm(new AllTechnicians(panelChildFormContainer));
             CloseDropdowns();
             ;
         }
