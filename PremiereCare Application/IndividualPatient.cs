@@ -53,6 +53,7 @@ namespace PremiereCare_Application
             String contactTwo = row["contact_two"].ToString();
             String emergencyContact = row["emergency_contact"].ToString();
             String sex = row["sex"].ToString();
+            String numberOfAppointments = row["No.of Appointments"].ToString();
             labelName.Text = firstName + " " + lastName;
             labelAddress.Text = address;
             labelDOB.Text = dob;
@@ -62,6 +63,7 @@ namespace PremiereCare_Application
             labelContactOne.Text = contactOne;
             labelContactTwo.Text = contactTwo;
             labelEmergencyContact.Text = emergencyContact;
+            labelNoAppointments.Text = numberOfAppointments;
         }
 
         private void IndividualPatient_Load(object sender, EventArgs e)
@@ -74,5 +76,22 @@ namespace PremiereCare_Application
         {
             OpenChildForm(new CreateAppointment(userID, patientID));
         }
+
+        private void buttonEditPatientProfile_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new EditPatient(userID ,patientID, panelContainer));
+        }
+
+        private void flowLayoutPanel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
     }
 }

@@ -76,6 +76,56 @@ namespace PremiereCare_Application.Patient
             return isSuccess;
         }
 
+        public bool EditPatient(Patient patient, int patientId, Form form)
+        {
+            bool isSuccess = false;
+
+            SqlConnection conn = new SqlConnection(myconnstring);
+
+            try
+            {
+                string query = "Update Patient Set fname = @firstName, lname = @lastName, dob = @dob, address = @address, blood_type = @bloodType, allergies = @allergies, contact_one = @contactOne, contact_two = @contactTwo, emergency_contact = @emergencyContact, sex = @sex WHERE patient_id = @patientID";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@firstName", patient.firstName);
+                cmd.Parameters.AddWithValue("@lastName", patient.lastName);
+                cmd.Parameters.AddWithValue("@dob", patient.dob);
+                cmd.Parameters.AddWithValue("@address", patient.address);
+                cmd.Parameters.AddWithValue("@bloodType", patient.bloodType);
+                cmd.Parameters.AddWithValue("@allergies", patient.allergies);
+                cmd.Parameters.AddWithValue("@contactOne", patient.contactOne);
+                cmd.Parameters.AddWithValue("@contactTwo", patient.contactTwo);
+                cmd.Parameters.AddWithValue("@emergencyContact", patient.emergencyContact);
+                cmd.Parameters.AddWithValue("@sex", patient.sex);
+                cmd.Parameters.AddWithValue("@patientID", patientId);
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                //CustomMessageBox cm = new CustomMessageBox("Failed to add patient", form);
+                //cm.Show();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return isSuccess;
+        }
+
         public DataTable GetAllPatients(string search)
         {
             //Step 1: Create database connection
@@ -123,7 +173,21 @@ namespace PremiereCare_Application.Patient
             try
             {
                 //Step 2: Writing SQL Query
-                string sql = "SELECT * FROM Patient WHERE patient_id = @patient_id";
+                //string sql = "SELECT * FROM Patient WHERE patient_id = @patient_id";
+                string sql = @"SELECT 
+                                fname, 
+                                lname,
+                                address,
+                                dob,
+                                blood_type,
+                                allergies,
+                                contact_one,
+                                contact_two,
+                                emergency_contact,
+                                sex,
+                                patient_id,
+                                (SELECT COUNT(*) FROM PremiereCareHospital.dbo.Appointment WHERE patient_id = @patient_id) AS 'No.of Appointments'
+                                FROM PremiereCareHospital.dbo.Patient WHERE patient_id = @patient_id";
 
                 //Creating cmd using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);

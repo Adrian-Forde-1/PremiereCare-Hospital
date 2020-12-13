@@ -55,7 +55,12 @@
             this.labelEmergencyContact = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelName = new System.Windows.Forms.Label();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.labelNoAppointments = new System.Windows.Forms.Label();
+            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonCreateAppointment = new System.Windows.Forms.Button();
+            this.buttonEditPatientProfile = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -66,12 +71,15 @@
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
+            this.flowLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel9, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel3, 0, 3);
@@ -137,6 +145,7 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(594, 31);
             this.flowLayoutPanel2.TabIndex = 2;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // label2
             // 
@@ -351,12 +360,13 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.labelName, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonCreateAppointment, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel10, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(594, 94);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
@@ -369,6 +379,50 @@
             this.labelName.Size = new System.Drawing.Size(0, 37);
             this.labelName.TabIndex = 0;
             // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.Controls.Add(this.label9);
+            this.flowLayoutPanel9.Controls.Add(this.labelNoAppointments);
+            this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 466);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(594, 75);
+            this.flowLayoutPanel9.TabIndex = 10;
+            this.flowLayoutPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel9_Paint);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(128, 16);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "No. of Appointments";
+            // 
+            // labelNoAppointments
+            // 
+            this.labelNoAppointments.AutoSize = true;
+            this.labelNoAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoAppointments.Location = new System.Drawing.Point(144, 0);
+            this.labelNoAppointments.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.labelNoAppointments.Name = "labelNoAppointments";
+            this.labelNoAppointments.Size = new System.Drawing.Size(0, 16);
+            this.labelNoAppointments.TabIndex = 8;
+            // 
+            // flowLayoutPanel10
+            // 
+            this.flowLayoutPanel10.Controls.Add(this.buttonCreateAppointment);
+            this.flowLayoutPanel10.Controls.Add(this.buttonEditPatientProfile);
+            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(297, 0);
+            this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(297, 94);
+            this.flowLayoutPanel10.TabIndex = 1;
+            // 
             // buttonCreateAppointment
             // 
             this.buttonCreateAppointment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -378,13 +432,31 @@
             this.buttonCreateAppointment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.buttonCreateAppointment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
-            this.buttonCreateAppointment.Location = new System.Drawing.Point(427, 3);
+            this.buttonCreateAppointment.Location = new System.Drawing.Point(130, 3);
             this.buttonCreateAppointment.Name = "buttonCreateAppointment";
+            this.buttonCreateAppointment.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonCreateAppointment.Size = new System.Drawing.Size(164, 38);
-            this.buttonCreateAppointment.TabIndex = 1;
+            this.buttonCreateAppointment.TabIndex = 2;
             this.buttonCreateAppointment.Text = "Create Appointment";
             this.buttonCreateAppointment.UseVisualStyleBackColor = false;
-            this.buttonCreateAppointment.Click += new System.EventHandler(this.buttonCreateAppointment_Click);
+            // 
+            // buttonEditPatientProfile
+            // 
+            this.buttonEditPatientProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEditPatientProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(171)))), ((int)(((byte)(180)))));
+            this.buttonEditPatientProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonEditPatientProfile.FlatAppearance.BorderSize = 0;
+            this.buttonEditPatientProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditPatientProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.buttonEditPatientProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
+            this.buttonEditPatientProfile.Location = new System.Drawing.Point(130, 47);
+            this.buttonEditPatientProfile.Name = "buttonEditPatientProfile";
+            this.buttonEditPatientProfile.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonEditPatientProfile.Size = new System.Drawing.Size(164, 38);
+            this.buttonEditPatientProfile.TabIndex = 3;
+            this.buttonEditPatientProfile.Text = "Edit Profile";
+            this.buttonEditPatientProfile.UseVisualStyleBackColor = false;
+            this.buttonEditPatientProfile.Click += new System.EventHandler(this.buttonEditPatientProfile_Click);
             // 
             // IndividualPatient
             // 
@@ -415,6 +487,9 @@
             this.flowLayoutPanel8.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
+            this.flowLayoutPanel10.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -447,6 +522,11 @@
         private System.Windows.Forms.Label labelEmergencyContact;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelNoAppointments;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel10;
         private System.Windows.Forms.Button buttonCreateAppointment;
+        private System.Windows.Forms.Button buttonEditPatientProfile;
     }
 }
