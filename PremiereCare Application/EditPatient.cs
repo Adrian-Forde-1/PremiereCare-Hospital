@@ -41,7 +41,7 @@ namespace PremiereCare_Application
             String numberOfAppointments = row["No.of Appointments"].ToString();
             textBoxFname.Text = firstName;
             textBoxLname.Text = lastName;
-            //patientDOBPicker.Value = dob;
+            patientDOBPicker.Value = Convert.ToDateTime(dob);
             textBoxAddress.Text = address;
             textBoxBloodType.Text = bloodType;
             textBoxAllergies.Text = allergies;
