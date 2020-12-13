@@ -10,28 +10,21 @@ using System.Windows.Forms;
 
 namespace PremiereCare_Application
 {
-    public partial class AllCSR : Form
+    public partial class IndividualCSR : Form
     {
-
         User.CSR csr = new User.CSR();
+        int csrId;
         Panel panelContainer;
-        public AllCSR(Panel panel)
+        public IndividualCSR(int csrID, Panel panel)
         {
+            csrId = csrID;
             panelContainer = panel;
             InitializeComponent();
-        }
-
-        private void PopulateDataTable()
-        {
-            DataTable dt = csr.GetAllCSR(textBoxSearch.Text.ToString());
-            dgvAllCSR.DataSource = dt;
-
         }
 
         private void OpenChildForm(Form childForm)
         {
             this.Close();
-
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -41,21 +34,29 @@ namespace PremiereCare_Application
             childForm.Show();
         }
 
-        private void AllCSR_Load(object sender, EventArgs e)
+        private void PopulateFields()
         {
-            PopulateDataTable();
+            DataTable csrDt = csr.GetCSR(csrId);
+
+            if (csrDt.Rows != null && csrDt.Rows.Count != 0)
+            {
+                DataRow row = csrDt.Rows[0];
+                labelName.Text = row["fname"].ToString() + " " + row["lname"].ToString();
+                labelDOB.Text = row["dob"].ToString();
+                labelSalary.Text = row["salary"].ToString();
+                labelSex.Text = row["sex"].ToString();
+
+            }
         }
 
-        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        private void IndividualCSR_Load(object sender, EventArgs e)
         {
-            PopulateDataTable();
+            PopulateFields();
         }
 
-        private void dgvAllCSR_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void buttonEditPatientProfile_Click(object sender, EventArgs e)
         {
-            int rowIndex = e.RowIndex;
-            int csrId = Convert.ToInt32(dgvAllCSR.Rows[rowIndex].Cells[0].Value);
-            OpenChildForm(new IndividualCSR(csrId, panelContainer));
+            OpenChildForm(new EditCSR(csrId, panelContainer));
         }
     }
 }

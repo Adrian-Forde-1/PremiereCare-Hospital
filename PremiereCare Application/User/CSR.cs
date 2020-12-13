@@ -106,5 +106,86 @@ namespace PremiereCare_Application.User
             }
             return dt;
         }
+
+        public DataTable GetCSR(int csrId)
+        {
+            //Step 1: Create database connection
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string sql = "SELECT * FROM CSR WHERE csr_id = @csrId";
+
+
+                //Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@csrId", csrId);
+
+                //Creating SQL DataAdapter using cmd
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public bool EditCSR(CSR csr, int csrId, Form form)
+        {
+            bool isSuccess = false;
+
+            SqlConnection conn = new SqlConnection(myconnstring);
+
+            try
+            {
+                string query = "Update CSR Set fname = @firstName, lname = @lastName, dob = @dob, salary = @salary, username = @username, password = @password, sex = @sex WHERE csr_id = @csrId";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@firstName", csr.firstName);
+                cmd.Parameters.AddWithValue("@lastName", csr.lastName);
+                cmd.Parameters.AddWithValue("@dob", csr.dob);
+                cmd.Parameters.AddWithValue("@salary", csr.salary);
+                cmd.Parameters.AddWithValue("@username", csr.username);
+                cmd.Parameters.AddWithValue("@password", csr.password);
+                cmd.Parameters.AddWithValue("@sex", csr.sex);
+                cmd.Parameters.AddWithValue("@csrId", csrId);
+
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                //CustomMessageBox cm = new CustomMessageBox("Failed to add patient", form);
+                //cm.Show();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return isSuccess;
+        }
     }
 }

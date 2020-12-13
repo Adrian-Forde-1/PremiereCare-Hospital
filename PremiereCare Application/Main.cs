@@ -162,7 +162,7 @@ namespace PremiereCare_Application
 
         private void buttonViewCSR_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AllCSR());
+            OpenChildForm(new AllCSR(panelChildFormContainer));
             CloseDropdowns();
         }
 

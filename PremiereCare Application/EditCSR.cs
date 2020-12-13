@@ -10,10 +10,15 @@ using System.Windows.Forms;
 
 namespace PremiereCare_Application
 {
-    public partial class AddCSR : Form
+    public partial class EditCSR : Form
     {
-        public AddCSR()
+        User.CSR csr = new User.CSR();
+        int csrId;
+        Panel panelContainer;
+        public EditCSR(int csrID, Panel panel)
         {
+            csrId = csrID;
+            panelContainer = panel;
             InitializeComponent();
         }
 
@@ -42,15 +47,53 @@ namespace PremiereCare_Application
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
         }
 
-        private void AddCSR_Load(object sender, EventArgs e)
+        private void PopulateFields()
+        {
+            DataTable dt = csr.GetCSR(csrId);
+            DataRow row = dt.Rows[0];
+            String firstName = row["fname"].ToString();
+            String lastName = row["lname"].ToString();
+            String dob = row["dob"].ToString();
+            String username = row["username"].ToString();
+            String password = row["password"].ToString();
+            String salary = row["salary"].ToString();
+            String sex = row["sex"].ToString();
+            textBoxFname.Text = firstName;
+            textBoxLname.Text = lastName;
+            csrDOB.Value = Convert.ToDateTime(dob);
+            textBoxUsername.Text = username;
+            textBoxPassword.Text = password;
+            textBoxSalary.Text = salary;
+            comboBoxSex.Text = sex;
+        }
+
+        private void EditCSR_Load(object sender, EventArgs e)
         {
             removeErrors();
+            PopulateFields();
             AlignItems();
             buttonAdd.Visible = true;
             labelMain.Visible = true;
         }
 
-        private void buttonAddCSR_Click(object sender, EventArgs e)
+        private void OpenChildForm(Form childForm)
+        {
+            this.Close();
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void EditCSR_Resize(object sender, EventArgs e)
+        {
+            AlignItems();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
             bool failedVerification = false;
 
@@ -94,12 +137,12 @@ namespace PremiereCare_Application
 
             if (!failedVerification)
             {
-                addCSR(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
+                editCSR(textBoxFname.Text, textBoxLname.Text, textBoxUsername.Text,
                     textBoxPassword.Text, csrDOB.Value.Date.ToShortDateString(), textBoxSalary.Text, comboBoxSex.Text);
             }
         }
 
-        private void addCSR(String fName, String lName, String username, String password, String dob, String salary, String sex)
+        private void editCSR(String fName, String lName, String username, String password, String dob, String salary, String sex)
         {
             User.CSR csr = new User.CSR();
             csr.firstName = fName;
@@ -110,29 +153,20 @@ namespace PremiereCare_Application
             csr.salary = salary;
             csr.sex = sex;
 
-            bool success = csr.AddNewCSR(csr, this);
+            bool success = csr.EditCSR(csr, csrId, this);
 
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Added CSR", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited CSR", this);
                 cm.Show();
                 ClearField();
+                OpenChildForm(new IndividualCSR(csrId, panelContainer));
             }
             //else
             //{
             //    CustomMessageBox cm = new CustomMessageBox("Failed to add new doctor", this);
             //    cm.Show();
             //}
-        }
-
-        private void AddCSR_Resize(object sender, EventArgs e)
-        {
-            AlignItems();
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
