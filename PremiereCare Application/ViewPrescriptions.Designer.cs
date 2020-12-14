@@ -67,6 +67,7 @@
             this.dgvAllPrescriptions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvAllPrescriptions.Size = new System.Drawing.Size(658, 464);
             this.dgvAllPrescriptions.TabIndex = 13;
+            this.dgvAllPrescriptions.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAllPrescriptions_RowHeaderMouseClick);
             // 
             // tableLayoutPanel1
             // 

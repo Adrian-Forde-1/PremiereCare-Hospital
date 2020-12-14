@@ -148,7 +148,7 @@ namespace PremiereCare_Application
 
         private void buttonViewPrescriptions_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ViewPrescriptions(appointmentID));
+            OpenChildForm(new ViewPrescriptions(appointmentID, panelContainer));
         }
     }
 }
