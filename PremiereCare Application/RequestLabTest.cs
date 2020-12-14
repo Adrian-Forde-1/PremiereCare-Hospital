@@ -20,14 +20,20 @@ namespace PremiereCare_Application
         private int docID;
         private int appointmentID;
         private List<int> serviceIDs = new List<int>();
+
+        Panel panelContainer;
+        string userRole;
         // private DateTime submitedDate = DateTime.Now;
 
         //Constructor passes doctor and appointment ID
-        public RequestLabTest(int dID, int appID)
+        public RequestLabTest(int dID, int appID, string usrRole, Panel panel)
         {
-            InitializeComponent();
             docID = dID;
             appointmentID = appID;
+            panelContainer = panel;
+            userRole = usrRole;
+            InitializeComponent();
+            
         }
 
         //Method to remove error labels
@@ -48,6 +54,19 @@ namespace PremiereCare_Application
         private void RequestLabTest_Resize(object sender, EventArgs e)
         {
             AlignItems();
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            this.Close();
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void PopulateServices()
@@ -114,6 +133,11 @@ namespace PremiereCare_Application
             }
         }
 
+        private void gotoIndividualAppointment()
+        {
+            OpenChildForm(new IndividualAppointment(userRole, docID, appointmentID, panelContainer));
+        }
+
 
         //Inserts doctor_id and the appointment_id into theLab_Test Table 
         private void addLabTest( String doctor, String appointment)
@@ -142,7 +166,7 @@ namespace PremiereCare_Application
                 Console.WriteLine(servicesAdded);
                 if(servicesAdded)
                 {
-                    CustomMessageBox cm = new CustomMessageBox("Successfully Requested Lab Test", this);
+                    CustomMessageBox cm = new CustomMessageBox("Successfully Requested Lab Test", this, gotoIndividualAppointment);
                     removeErrors();
                     ClearChecked();
                     cm.Show();

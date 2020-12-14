@@ -20,14 +20,19 @@ namespace PremiereCare_Application
         private int appointmentID;
         private int patientID;
         private List<int> drugIDs = new List<int>();
+        Panel panelContainer;
+        string userRole;
         // private DateTime submitedDate = DateTime.Now;
 
-        public PrescribeMedication(int dID, int appID, int pID)
+        public PrescribeMedication(int dID, int appID, int pID, string usrRole, Panel panel)
         {
-            InitializeComponent();
             docID = dID;
             appointmentID = appID;
             patientID = pID;
+            panelContainer = panel;
+            userRole = usrRole;
+            InitializeComponent();
+            
         }
 
         //Method to remove error labels
@@ -61,6 +66,19 @@ namespace PremiereCare_Application
         private void ClearFields()
         {
             textBoxDosage.Text = "";
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            this.Close();
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
 
         private void ClearChecked()
@@ -132,6 +150,11 @@ namespace PremiereCare_Application
 
         }
 
+        private void gotoIndividualAppointment()
+        {
+            OpenChildForm(new IndividualAppointment(userRole, docID, appointmentID, panelContainer));
+        }
+
 
         //Inserts doctor_id and the appointment_id into theLab_Test Table 
         private void addPrescription(int doctor, int appointment, string dosage)
@@ -162,7 +185,7 @@ namespace PremiereCare_Application
 
                 if (servicesAdded)
                 {
-                    CustomMessageBox cm = new CustomMessageBox("Successfully Created Prescription", this);
+                    CustomMessageBox cm = new CustomMessageBox("Successfully Created Prescription", this, gotoIndividualAppointment);
                     removeErrors();
                     ClearChecked();
                     ClearFields();

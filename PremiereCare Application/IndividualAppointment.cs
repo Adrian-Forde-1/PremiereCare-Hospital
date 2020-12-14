@@ -112,7 +112,7 @@ namespace PremiereCare_Application
 
         private void buttonCreateVisitNote_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new CreateVisitNote(userID, appointmentID));
+            OpenChildForm(new CreateVisitNote(userID, appointmentID, userRole, panelContainer));
         }
 
         private void buttonComplete_Click(object sender, EventArgs e)
@@ -125,12 +125,12 @@ namespace PremiereCare_Application
 
         private void buttonRequestLabTest_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new RequestLabTest(userID, appointmentID));
+            OpenChildForm(new RequestLabTest(userID, appointmentID, userRole, panelContainer));
         }
 
         private void buttonPrescribeMedication_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new PrescribeMedication(userID, appointmentID, patientID));
+            OpenChildForm(new PrescribeMedication(userID, appointmentID, patientID, userRole, panelContainer));
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

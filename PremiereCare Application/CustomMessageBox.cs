@@ -14,6 +14,7 @@ namespace PremiereCare_Application
     {
         private bool mouseDown;
         private Point lastLocation;
+        private Action callback;
 
         public CustomMessageBox(String customMessage, Form form)
         {
@@ -27,9 +28,26 @@ namespace PremiereCare_Application
             this.BringToFront();
         }
 
+        public CustomMessageBox(String customMessage, Form form, Action cb)
+        {
+            InitializeComponent();
+            callback = cb;
+            labelCustomMessageBox.Text = customMessage;
+            this.TopLevel = false;
+            this.Parent = form;
+            this.Location = new Point((Parent.ClientSize.Width - this.Width) / 2,
+                          (Parent.ClientSize.Height - this.Height) / 2);
+            this.BringToFront();
+        }
+
         private void buttonCloseMessageBox_Click(object sender, EventArgs e)
         {
             this.Hide();
+
+            if(callback != null)
+            {
+                callback();
+            }
         }
 
         private void CustomMessageBox_MouseDown(object sender, MouseEventArgs e)

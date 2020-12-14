@@ -14,13 +14,15 @@ namespace PremiereCare_Application
     {
         int patientID;
         private int userID;
+        string userRole;
         Panel panelContainer;
         Patient.Patient patient = new Patient.Patient();
-        public EditPatient(int usrID, int pId, Panel panel)
+        public EditPatient(int usrID, int pId, Panel panel, string usrRole)
         {
             panelContainer = panel;
             userID = usrID;
             patientID = pId;
+            userRole = usrRole;
             InitializeComponent();
         }
 
@@ -182,7 +184,7 @@ namespace PremiereCare_Application
                 CustomMessageBox cm = new CustomMessageBox("Successfully Edited Patient", this);
                 cm.Show();
                 ClearField();
-                OpenChildForm(new IndividualPatient(userID, patientID, panelContainer));
+                OpenChildForm(new IndividualPatient(userID, patientID, panelContainer, userRole));
 
             }
             //else

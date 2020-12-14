@@ -13,9 +13,18 @@ namespace PremiereCare_Application
     public partial class ViewPatients : Form
     {
         private int userID;
-
+        private string userRole;
         Patient.Patient patient = new Patient.Patient();
         Panel panelContainer;
+
+        public ViewPatients(Panel panel, int usrID, string usrRole)
+        {
+            userRole = usrRole;
+            InitializeComponent();
+            PopulateDataGridView();
+            panelContainer = panel;
+            userID = usrID;
+        }
 
         private void OpenChildForm(Form childForm)
         {
@@ -30,13 +39,7 @@ namespace PremiereCare_Application
             childForm.Show();
         }
 
-        public ViewPatients(Panel panel, int usrID)
-        {
-            InitializeComponent();
-            PopulateDataGridView();
-            panelContainer = panel;
-            userID = usrID;
-        }
+        
 
         private void PopulateDataGridView()
         {
@@ -48,7 +51,7 @@ namespace PremiereCare_Application
         {
             int rowIndex = e.RowIndex;
             int patientID = Convert.ToInt32(dgvPatients.Rows[rowIndex].Cells[0].Value);
-            OpenChildForm(new IndividualPatient(userID, patientID, panelContainer));
+            OpenChildForm(new IndividualPatient(userID, patientID, panelContainer, userRole));
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

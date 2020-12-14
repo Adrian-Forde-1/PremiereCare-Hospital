@@ -16,13 +16,18 @@ namespace PremiereCare_Application
         //variables
         private int docID;
         private int appointmentID;
-        
+        Panel panelContainer;
+        string userRole;
+
         //Method to pass doctor and appointment ID
-        public CreateVisitNote(int dID, int appID)
+        public CreateVisitNote(int dID, int appID, string usrRole, Panel panel)
         {
-            InitializeComponent();
             docID = dID;
             appointmentID = appID;
+            panelContainer = panel;
+            userRole = usrRole;
+            InitializeComponent();
+            
         }
 
         //Method to align items
@@ -42,6 +47,19 @@ namespace PremiereCare_Application
         private void removeErrors()
         {
             labelNoteErr.Visible = false;
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            this.Close();
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
         }
                
         //Method to execute tasks on the loading of form
@@ -80,6 +98,11 @@ namespace PremiereCare_Application
 
         }
 
+        private void gotoIndividualAppointment()
+        {
+            OpenChildForm(new IndividualAppointment(userRole, docID, appointmentID, panelContainer));
+        }
+
         private void addNote(string note, string doctor, string appointment)
         {
             DoctorVisitNotes.DoctorVisitNotes doctorvisitnotes = new DoctorVisitNotes.DoctorVisitNotes();
@@ -92,12 +115,15 @@ namespace PremiereCare_Application
 
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Recorded Note", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Recorded Note", this, gotoIndividualAppointment);
                 removeErrors();
                 ClearField();
                 cm.Show();
+                
             }
 
         }
+
+        
     }
 }

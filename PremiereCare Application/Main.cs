@@ -268,7 +268,7 @@ namespace PremiereCare_Application
         private void buttonAllPatients_Click(object sender, EventArgs e)
         {
             CloseDropdowns();
-            OpenChildForm(new ViewPatients(panelChildFormContainer, userID));
+            OpenChildForm(new ViewPatients(panelChildFormContainer, userID, userRole));
         }
        
         

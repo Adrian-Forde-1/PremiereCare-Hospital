@@ -15,17 +15,19 @@ namespace PremiereCare_Application
         
         private int patientID;
         private int userID;
-
+        private string userRole;
         Panel panelContainer;
         Patient.Patient patient = new Patient.Patient();
 
        
-        public IndividualPatient(int usrID, int pID, Panel panel)
+        public IndividualPatient(int usrID, int pID, Panel panel, string usrRole)
         {
-            InitializeComponent();
             userID = usrID;
             patientID = pID;
             panelContainer = panel;
+            userRole = usrRole;
+            InitializeComponent();
+            
         }
 
         private void OpenChildForm(Form childForm)
@@ -70,7 +72,11 @@ namespace PremiereCare_Application
 
         private void IndividualPatient_Load(object sender, EventArgs e)
         {
-
+            if(userRole != "CSR")
+            {
+                buttonCreateAppointment.Hide();
+                buttonEditPatientProfile.Hide();
+            }
             PopulateDataGridView(patientID);
         }
 
@@ -81,7 +87,7 @@ namespace PremiereCare_Application
 
         private void buttonEditPatientProfile_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new EditPatient(userID ,patientID, panelContainer));
+            OpenChildForm(new EditPatient(userID ,patientID, panelContainer, userRole));
         }
 
         private void flowLayoutPanel9_Paint(object sender, PaintEventArgs e)
