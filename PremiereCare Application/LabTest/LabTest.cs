@@ -123,15 +123,10 @@ namespace PremiereCare_Application.LabTest
                     string query = @"INSERT INTO [PremiereCareHospital].[dbo].Service (service_id, test_id) 
                             VALUES(@service_id, @test_id)";
 
-                    /*cmd = new SqlCommand(qry, conn);
-                    cmd.Parameters.AddWithValue("@service_id", labtest.serviceID);
-                    cmd.Parameters.AddWithValue("@test_id", labtest.testID);
-                    */
                     cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@service_id", ID);
                     cmd.Parameters.AddWithValue("@test_id", testID);
-
-                    //cmd_.ExecuteNonQuery();
+                                        
                     conn.Open();
                     int rows = cmd.ExecuteNonQuery();
 
@@ -228,7 +223,7 @@ namespace PremiereCare_Application.LabTest
                                                         "%' OR d.fname + ' ' + d.lname LIKE '%" + search +
                                                         "%' OR p.fname + ' ' + p.lname LIKE '%" + search +
                                                         "%' OR lts.status LIKE '%" + search +
-                                                        "%)ORDER BY a.appointment_date ASC";
+                                                        "%')ORDER BY a.appointment_date ASC";
                             }
 
 
