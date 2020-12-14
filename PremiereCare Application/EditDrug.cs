@@ -94,6 +94,10 @@ namespace PremiereCare_Application
             }
         }
 
+        private void GotoAllDrugs()
+        {
+            OpenChildForm(new AllDrugs(panelContainer));
+        }
         private void editDrug()
         {
             drug.name = textBoxDrug.Text.ToString();
@@ -102,10 +106,10 @@ namespace PremiereCare_Application
             bool success = drug.EditDrug(drug, drugId, this);
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Drug", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Drug", this, GotoAllDrugs);
                 cm.Show();
                 ClearFields();
-                OpenChildForm(new AllDrugs(panelContainer));
+                
             }
         }
 

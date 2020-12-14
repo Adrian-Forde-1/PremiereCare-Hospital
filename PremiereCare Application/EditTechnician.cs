@@ -140,6 +140,10 @@ namespace PremiereCare_Application
             }
         }
 
+        private void GotoTechnician()
+        {
+            OpenChildForm(new IndividualTechnician(technicianId, panelContainer));
+        }
         private void editTechnician(String fName, String lName, String username, String password, String dob, String salary, String sex)
         {
             technician.firstName = fName;
@@ -154,10 +158,10 @@ namespace PremiereCare_Application
 
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Technician", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Technician", this, GotoTechnician);
                 cm.Show();
                 ClearField();
-                OpenChildForm(new IndividualTechnician(technicianId, panelContainer));
+                
             }
             //else
             //{

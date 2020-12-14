@@ -161,6 +161,11 @@ namespace PremiereCare_Application
             }
         }
 
+        private void GotoDoctor()
+        {
+            OpenChildForm(new IndividualDoctor(doctorId, panelContainer));
+        }
+
         private void editDoctor(String fName, String lName, String username, String password, String dob, String salary, String specialty, String sex)
         {
             User.Doctor doctor = new User.Doctor();
@@ -177,10 +182,10 @@ namespace PremiereCare_Application
 
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Updated Doctor", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Doctor", this, GotoDoctor);
                 cm.Show();
                 ClearField();
-                OpenChildForm(new IndividualDoctor(doctorId, panelContainer));
+                
             }
             //else
             //{

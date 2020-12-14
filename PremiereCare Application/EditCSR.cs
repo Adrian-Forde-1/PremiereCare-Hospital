@@ -142,6 +142,11 @@ namespace PremiereCare_Application
             }
         }
 
+        private void GotoCSR()
+        {
+            OpenChildForm(new IndividualCSR(csrId, panelContainer));
+        }
+
         private void editCSR(String fName, String lName, String username, String password, String dob, String salary, String sex)
         {
             User.CSR csr = new User.CSR();
@@ -157,10 +162,10 @@ namespace PremiereCare_Application
 
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Edited CSR", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited CSR", this, GotoCSR);
                 cm.Show();
                 ClearField();
-                OpenChildForm(new IndividualCSR(csrId, panelContainer));
+                
             }
             //else
             //{

@@ -98,7 +98,7 @@ namespace PremiereCare_Application
 
         }
 
-        private void gotoIndividualAppointment()
+        private void GotoIndividualAppointment()
         {
             OpenChildForm(new IndividualAppointment(userRole, docID, appointmentID, panelContainer));
         }
@@ -115,7 +115,7 @@ namespace PremiereCare_Application
 
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Recorded Note", this, gotoIndividualAppointment);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Recorded Note", this, GotoIndividualAppointment);
                 removeErrors();
                 ClearField();
                 cm.Show();

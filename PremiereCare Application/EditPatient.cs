@@ -163,6 +163,11 @@ namespace PremiereCare_Application
 
         }
 
+        private void GotoPatient()
+        {
+            OpenChildForm(new IndividualPatient(userID, patientID, panelContainer, userRole));
+        }
+
         private void editPatient(String fName, String lName, String address, String allergies, String dob, String contactOne, String contactTwo, String emergencyContact, String bloodType, String sex)
         {
             Patient.Patient patient = new Patient.Patient();
@@ -181,10 +186,10 @@ namespace PremiereCare_Application
 
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Patient", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Patient", this, GotoPatient);
                 cm.Show();
                 ClearField();
-                OpenChildForm(new IndividualPatient(userID, patientID, panelContainer, userRole));
+                
 
             }
             //else

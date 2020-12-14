@@ -101,6 +101,10 @@ namespace PremiereCare_Application
             }
         }
 
+        private void GotoLabService()
+        {
+            OpenChildForm(new AllLabServices(panelContainer));
+        }
         private void editLabService()
         {
             labService.service = textBoxService.Text.ToString();
@@ -110,10 +114,10 @@ namespace PremiereCare_Application
             bool success = labService.EditLabService(labService, labServiceId, this);
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Service", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Service", this, GotoLabService);
                 cm.Show();
                 ClearField();
-                OpenChildForm(new AllLabServices(panelContainer));
+                
             }
         }
     }
