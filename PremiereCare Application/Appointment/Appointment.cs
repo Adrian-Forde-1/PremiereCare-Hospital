@@ -65,7 +65,7 @@ namespace PremiereCare_Application.Appointment
             return isSuccess;
         }
 
-        public DataTable GetAllAppointments(String userRole, int userID)
+        public DataTable GetAllAppointments(String userRole, int userID, string search)
         {
             //Step 1: Create database connection
             SqlConnection conn = new SqlConnection(myconnstring);
@@ -74,7 +74,10 @@ namespace PremiereCare_Application.Appointment
             {
                 //Step 2: Writing SQL Query
                 string sql = "";
-                if (userRole == "CSR") sql = @"SELECT 
+
+                if(search == "")
+                {
+                    if (userRole == "CSR") sql = @"SELECT 
                                               a.appointment_id, 
                                               a.appointment_date, 
                                               d.fname + ' ' + d.lname AS 'Doctor Name', 
@@ -87,9 +90,13 @@ namespace PremiereCare_Application.Appointment
                                                   ON a.patient_id = p.patient_id
                                               JOIN[PremiereCareHospital].[dbo].Appointment_Status s
                                                   ON a.status_id = s.status_id
-                                              ORDER BY a.appointment_date; ";
+                                              ORDER BY CASE s.status
+                                                    WHEN 'Upcoming' THEN 1
+                                                    WHEN 'Complete' THEN 2
+                                                    WHEN 'Cancelled' THEN 3
+                                              END, a.appointment_date ASC; ";
 
-                else if (userRole == "Doctor") sql = @"SELECT 
+                    else if (userRole == "Doctor") sql = @"SELECT 
                                               a.appointment_id, 
                                               a.appointment_date, 
                                               d.fname + ' ' + d.lname AS 'Doctor Name', 
@@ -103,7 +110,54 @@ namespace PremiereCare_Application.Appointment
                                               JOIN[PremiereCareHospital].[dbo].Appointment_Status s
                                                   ON a.status_id = s.status_id
                                               WHERE d.doc_id = @userID
-                                              ORDER BY a.appointment_date; ";
+                                              ORDER BY CASE s.status
+                                                    WHEN 'Upcoming' THEN 1
+                                                    WHEN 'Complete' THEN 2
+                                                    WHEN 'Cancelled' THEN 3
+                                              END, a.appointment_date ASC; ";
+                } else
+                {
+                    if (userRole == "CSR") sql = @"SELECT 
+                                              a.appointment_id, 
+                                              a.appointment_date, 
+                                              d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                              p.fname + ' ' + p.lname AS 'Patient Name',
+                                              s.status AS 'Status'
+                                              FROM[PremiereCareHospital].[dbo].Appointment a
+                                              JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                  ON a.doc_id = d.doc_id
+                                              JOIN[PremiereCareHospital].[dbo].Patient p
+                                                  ON a.patient_id = p.patient_id
+                                              JOIN[PremiereCareHospital].[dbo].Appointment_Status s
+                                                  ON a.status_id = s.status_id
+                                              WHERE a.appointment_date LIKE '%" + search + "%' OR p.fname + ' ' + p.lname LIKE '%" + search + "%' OR s.status LIKE '%" + search + "%' OR d.fname + ' ' + d.lname LIKE '%" + search + @"%'
+                                              ORDER BY CASE s.status
+                                                    WHEN 'Upcoming' THEN 1
+                                                    WHEN 'Complete' THEN 2
+                                                    WHEN 'Cancelled' THEN 3
+                                              END, a.appointment_date ASC; ";
+
+                    else if (userRole == "Doctor") sql = @"SELECT 
+                                              a.appointment_id, 
+                                              a.appointment_date, 
+                                              d.fname + ' ' + d.lname AS 'Doctor Name', 
+                                              p.fname + ' ' + p.lname AS 'Patient Name',
+                                              s.status AS 'Status'
+                                              FROM[PremiereCareHospital].[dbo].Appointment a
+                                              JOIN[PremiereCareHospital].[dbo].Doctor d
+                                                  ON a.doc_id = d.doc_id
+                                              JOIN[PremiereCareHospital].[dbo].Patient p
+                                                  ON a.patient_id = p.patient_id
+                                              JOIN[PremiereCareHospital].[dbo].Appointment_Status s
+                                                  ON a.status_id = s.status_id
+                                              WHERE d.doc_id = @userID AND a.appointment_date LIKE '%" + search + "%' OR p.fname + ' ' + p.lname LIKE '%" + search + @"%' OR s.status LIKE '%" + search + @"%' OR d.fname + ' ' + d.lname LIKE '%" + search + @"%'
+                                              ORDER BY CASE s.status
+                                                    WHEN 'Upcoming' THEN 1
+                                                    WHEN 'Complete' THEN 2
+                                                    WHEN 'Cancelled' THEN 3
+                                              END, a.appointment_date ASC; ";
+                }
+                
 
                 //Creating cmd using sql and conn
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -120,7 +174,7 @@ namespace PremiereCare_Application.Appointment
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
             finally
             {

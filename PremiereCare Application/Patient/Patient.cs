@@ -137,11 +137,11 @@ namespace PremiereCare_Application.Patient
                 string sql;
                 if (search != "")
                 {
-                    sql = @"SELECT patient_id AS 'Patient ID', fname + ' ' + lname AS Patient, sex AS Sex FROM Patient WHERE fname + ' ' + lname LIKE '%" + search + "'%";
+                    sql = @"SELECT patient_id AS 'Patient ID', fname + ' ' + lname AS Name, sex AS Sex, address AS Address, blood_type AS 'Blood Type' FROM Patient WHERE fname + ' ' + lname LIKE '%" + search + "%' OR address LIKE '%" + search + "%'";
                 }
                 else
                 {
-                    sql = "SELECT patient_id AS 'Patient ID', fname + ' ' + lname AS Patient, sex AS Sex FROM Patient";
+                    sql = "SELECT patient_id AS 'Patient ID', fname + ' ' + lname AS Name, sex AS Sex, address AS Address, blood_type AS 'Blood Type' FROM Patient";
                 }
 
 

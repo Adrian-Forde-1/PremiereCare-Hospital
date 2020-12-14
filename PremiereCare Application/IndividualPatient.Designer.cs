@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.labelNoAppointments = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.labelAddress = new System.Windows.Forms.Label();
@@ -55,13 +58,11 @@
             this.labelEmergencyContact = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelName = new System.Windows.Forms.Label();
-            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.labelNoAppointments = new System.Windows.Forms.Label();
             this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonCreateAppointment = new System.Windows.Forms.Button();
             this.buttonEditPatientProfile = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -71,7 +72,6 @@
             this.flowLayoutPanel7.SuspendLayout();
             this.flowLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel9.SuspendLayout();
             this.flowLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +105,38 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 544);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.Controls.Add(this.label9);
+            this.flowLayoutPanel9.Controls.Add(this.labelNoAppointments);
+            this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 466);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(594, 75);
+            this.flowLayoutPanel9.TabIndex = 10;
+            this.flowLayoutPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel9_Paint);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(128, 16);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "No. of Appointments";
+            // 
+            // labelNoAppointments
+            // 
+            this.labelNoAppointments.AutoSize = true;
+            this.labelNoAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoAppointments.Location = new System.Drawing.Point(144, 0);
+            this.labelNoAppointments.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
+            this.labelNoAppointments.Name = "labelNoAppointments";
+            this.labelNoAppointments.Size = new System.Drawing.Size(0, 16);
+            this.labelNoAppointments.TabIndex = 8;
             // 
             // flowLayoutPanel1
             // 
@@ -366,7 +398,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 94F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(594, 94);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
@@ -378,38 +410,6 @@
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(0, 37);
             this.labelName.TabIndex = 0;
-            // 
-            // flowLayoutPanel9
-            // 
-            this.flowLayoutPanel9.Controls.Add(this.label9);
-            this.flowLayoutPanel9.Controls.Add(this.labelNoAppointments);
-            this.flowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(3, 466);
-            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
-            this.flowLayoutPanel9.Size = new System.Drawing.Size(594, 75);
-            this.flowLayoutPanel9.TabIndex = 10;
-            this.flowLayoutPanel9.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel9_Paint);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 0);
-            this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(128, 16);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "No. of Appointments";
-            // 
-            // labelNoAppointments
-            // 
-            this.labelNoAppointments.AutoSize = true;
-            this.labelNoAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoAppointments.Location = new System.Drawing.Point(144, 0);
-            this.labelNoAppointments.Margin = new System.Windows.Forms.Padding(3, 0, 10, 0);
-            this.labelNoAppointments.Name = "labelNoAppointments";
-            this.labelNoAppointments.Size = new System.Drawing.Size(0, 16);
-            this.labelNoAppointments.TabIndex = 8;
             // 
             // flowLayoutPanel10
             // 
@@ -439,6 +439,7 @@
             this.buttonCreateAppointment.TabIndex = 2;
             this.buttonCreateAppointment.Text = "Create Appointment";
             this.buttonCreateAppointment.UseVisualStyleBackColor = false;
+            this.buttonCreateAppointment.Click += new System.EventHandler(this.buttonCreateAppointment_Click);
             // 
             // buttonEditPatientProfile
             // 
@@ -469,6 +470,8 @@
             this.Text = "IndividualPatient";
             this.Load += new System.EventHandler(this.IndividualPatient_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -487,8 +490,6 @@
             this.flowLayoutPanel8.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel9.ResumeLayout(false);
-            this.flowLayoutPanel9.PerformLayout();
             this.flowLayoutPanel10.ResumeLayout(false);
             this.ResumeLayout(false);
 

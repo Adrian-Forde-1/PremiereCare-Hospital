@@ -172,5 +172,14 @@ namespace PremiereCare_Application
 
         }
 
+        private void PrescribeMedication_Resize(object sender, EventArgs e)
+        {
+            AlignItems();
+        }
+
+        private void checkedListBoxDrugs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

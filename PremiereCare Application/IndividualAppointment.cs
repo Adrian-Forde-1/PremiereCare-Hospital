@@ -32,6 +32,8 @@ namespace PremiereCare_Application
             if (userRole != "CSR")
             {
                 buttonGenerateInvoice.Hide();
+                buttonComplete.Hide();
+                buttonCancel.Hide();
             }
             if(userRole !="Doctor")
             {
@@ -84,8 +86,18 @@ namespace PremiereCare_Application
             {
                 buttonGenerateInvoice.Show();
             }
+            else if(status == "Cancelled" && userRole == "Doctor")
+            {
+                buttonRequestLabTest.Hide();
+                buttonCreateVisitNote.Hide();
+                buttonPrescribeMedication.Hide();
+                buttonViewPrescriptions.Hide();
+            } else if (status == "Complete" && userRole == "Doctor")
+            {
+                buttonRequestLabTest.Hide();
+                buttonPrescribeMedication.Hide();
+            }
 
-            if (status != "Complete" && userRole == "Doctor") buttonComplete.Show();
         }
 
 

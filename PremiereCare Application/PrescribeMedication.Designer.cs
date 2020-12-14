@@ -104,6 +104,7 @@
             this.checkedListBoxDrugs.ScrollAlwaysVisible = true;
             this.checkedListBoxDrugs.Size = new System.Drawing.Size(310, 15);
             this.checkedListBoxDrugs.TabIndex = 66;
+            this.checkedListBoxDrugs.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxDrugs_SelectedIndexChanged);
             // 
             // textBoxDosage
             // 
@@ -152,6 +153,7 @@
             this.Name = "PrescribeMedication";
             this.Text = "PrescribeMedication";
             this.Load += new System.EventHandler(this.PrescribeMedication_Load);
+            this.Resize += new System.EventHandler(this.PrescribeMedication_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
