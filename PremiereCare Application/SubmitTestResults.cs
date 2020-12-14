@@ -93,6 +93,11 @@ namespace PremiereCare_Application
             }
         }
 
+        private void gotoLabTests()
+        {
+            OpenChildForm(new ViewLabTest(userRole, techID, panelContainer));
+        }
+
         private void addResults(string results, string technician)
         {
            LabTest.LabTest labtest = new LabTest.LabTest();
@@ -103,11 +108,10 @@ namespace PremiereCare_Application
 
            if (success == true)
            {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Submited Test Results", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Submited Test Results", this, gotoLabTests);
                 removeErrors();
                 ClearField();
                 cm.Show();
-                OpenChildForm(new ViewLabTest(userRole, techID, panelContainer));
            }
 
         }

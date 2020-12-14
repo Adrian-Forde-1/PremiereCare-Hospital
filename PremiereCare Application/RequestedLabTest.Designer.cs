@@ -29,6 +29,7 @@ namespace PremiereCare_Application
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,9 +46,9 @@ namespace PremiereCare_Application
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.dgvRequestedLabTest, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dgvRequestedLabTest, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -104,13 +105,32 @@ namespace PremiereCare_Application
             // 
             // dgvRequestedLabTest
             // 
+            this.dgvRequestedLabTest.AllowUserToAddRows = false;
+            this.dgvRequestedLabTest.AllowUserToDeleteRows = false;
+            this.dgvRequestedLabTest.AllowUserToResizeColumns = false;
+            this.dgvRequestedLabTest.AllowUserToResizeRows = false;
             this.dgvRequestedLabTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRequestedLabTest.BackgroundColor = System.Drawing.Color.White;
+            this.dgvRequestedLabTest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRequestedLabTest.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvRequestedLabTest.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(224)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRequestedLabTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRequestedLabTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRequestedLabTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRequestedLabTest.EnableHeadersVisualStyles = false;
             this.dgvRequestedLabTest.Location = new System.Drawing.Point(3, 85);
             this.dgvRequestedLabTest.Name = "dgvRequestedLabTest";
+            this.dgvRequestedLabTest.ReadOnly = true;
+            this.dgvRequestedLabTest.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvRequestedLabTest.Size = new System.Drawing.Size(594, 456);
-            this.dgvRequestedLabTest.TabIndex = 2;
+            this.dgvRequestedLabTest.TabIndex = 15;
             this.dgvRequestedLabTest.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvRequestedLabTest_RowHeaderMouseClick);
             // 
             // RequestedLabTest
