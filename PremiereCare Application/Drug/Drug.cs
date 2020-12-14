@@ -170,7 +170,7 @@ namespace PremiereCare_Application.Drug
 
             try
             {
-                string query = "Update CSR Set drug = @drug, cost = @cost WHERE drug_id = @drugId";
+                string query = "Update Drug Set drug = @drug, cost = @cost WHERE drug_id = @drugId";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 

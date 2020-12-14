@@ -290,7 +290,7 @@ namespace PremiereCare_Application
 
         private void buttonViewLabServices_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AllLabServices());
+            OpenChildForm(new AllLabServices(panelChildFormContainer));
             CloseDropdowns();
         }
 

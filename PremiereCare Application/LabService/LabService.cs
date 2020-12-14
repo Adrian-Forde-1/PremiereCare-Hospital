@@ -136,5 +136,81 @@ namespace PremiereCare_Application.LabService
             }
             return dt;
         }
+
+        public DataTable GetLabService(int serviceId)
+        {
+            //Step 1: Create database connection
+            SqlConnection conn = new SqlConnection(myconnstring);
+            DataTable dt = new DataTable();
+            try
+            {
+                //Step 2: Writing SQL Query
+                string sql = "SELECT * FROM Lab_Services WHERE service_id = @serviceId";
+
+
+                //Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@serviceId", serviceId);
+
+                //Creating SQL DataAdapter using cmd
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                conn.Open();
+                adapter.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                //Close Connection
+                conn.Close();
+            }
+            return dt;
+        }
+
+        public bool EditLabService(LabService labService, int serviceId, Form form)
+        {
+            bool isSuccess = false;
+
+            SqlConnection conn = new SqlConnection(myconnstring);
+
+            try
+            {
+                string query = "Update Lab_Services Set service = @service, cost = @cost WHERE service_id = @drugId";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@service", labService.service);
+                cmd.Parameters.AddWithValue("@cost", labService.cost);
+                cmd.Parameters.AddWithValue("@drugId", serviceId);
+
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                //CustomMessageBox cm = new CustomMessageBox("Failed to add patient", form);
+                //cm.Show();
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return isSuccess;
+        }
     }
 }

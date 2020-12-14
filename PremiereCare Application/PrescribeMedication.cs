@@ -159,7 +159,7 @@ namespace PremiereCare_Application
                 DataTable precriptionIdDt = prescription.GetMostRecentPrescriptionID();
                 int recentPrecriptionID = Convert.ToInt32(precriptionIdDt.Rows[0]["prescription_id"]);
                 bool servicesAdded = prescription.PrescribedDrugs(recentPrecriptionID, drugsOnPrescription, this);
-                Console.WriteLine(servicesAdded);
+
                 if (servicesAdded)
                 {
                     CustomMessageBox cm = new CustomMessageBox("Successfully Created Prescription", this);

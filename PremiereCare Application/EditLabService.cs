@@ -10,31 +10,44 @@ using System.Windows.Forms;
 
 namespace PremiereCare_Application
 {
-    public partial class EditDrug : Form
+    public partial class EditLabService : Form
     {
-        Drug.Drug drug = new Drug.Drug();
+        LabService.LabService labService = new LabService.LabService();
         Panel panelContainer;
-        int drugId;
-        public EditDrug(int dId, Panel panel)
+        int labServiceId;
+
+        public EditLabService(int lsId, Panel panel)
         {
-            drugId = dId;
+            labServiceId = lsId;
             panelContainer = panel;
             InitializeComponent();
         }
 
         private void AlignItems()
         {
-            buttonEdit.Location = new Point((this.ClientSize.Width - buttonEdit.Width) / 2, this.ClientSize.Height - 50);
+            buttonAdd.Location = new Point((this.ClientSize.Width - buttonAdd.Width) / 2, this.ClientSize.Height - 50);
             labelMain.Location = new Point((this.ClientSize.Width - labelMain.Width) / 2, 20);
+        }
+
+        private void ClearField()
+        {
+            textBoxService.Text = "";
+            textBoxCost.Text = "";
+        }
+
+        private void removeErrors()
+        {
+            labelSericeErr.Visible = false;
+            labelCostErr.Visible = false;
         }
 
         private void PopulateFields()
         {
-            DataTable dt = drug.GetDrug(drugId);
+            DataTable dt = labService.GetLabService(labServiceId);
             DataRow row = dt.Rows[0];
-            String name = row["drug"].ToString();
+            String name = row["service"].ToString();
             String cost = row["cost"].ToString();
-            textBoxDrug.Text = name;
+            textBoxService.Text = name;
             textBoxCost.Text = cost;
         }
 
@@ -50,35 +63,29 @@ namespace PremiereCare_Application
             childForm.Show();
         }
 
-        private void ClearFields()
-        {
-            textBoxDrug.Text = "";
-            textBoxCost.Text = "";
-        }
-
-        private void removeErrors()
-        {
-            labelDrugErr.Visible = false;
-            labelCostErr.Visible = false;
-        }
-        private void EditDrug_Load(object sender, EventArgs e)
+        private void EditLabService_Load(object sender, EventArgs e)
         {
             AlignItems();
             removeErrors();
             PopulateFields();
-            buttonEdit.Visible = true;
+            buttonAdd.Visible = true;
             labelMain.Visible = true;
         }
 
-        private void buttonEdit_Click(object sender, EventArgs e)
+        private void EditLabService_Resize(object sender, EventArgs e)
         {
+            AlignItems();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e) { 
+
             bool failedVerification = false;
 
             removeErrors();
 
-            if (textBoxDrug.Text == "")
+            if (textBoxService.Text == "")
             {
-                labelDrugErr.Visible = true;
+                labelSericeErr.Visible = true;
                 failedVerification = true;
             }
 
@@ -90,28 +97,24 @@ namespace PremiereCare_Application
 
             if (!failedVerification)
             {
-                editDrug();
+                editLabService();
             }
         }
 
-        private void editDrug()
+        private void editLabService()
         {
-            drug.name = textBoxDrug.Text.ToString();
-            drug.cost = textBoxCost.Text.ToString();
+            labService.service = textBoxService.Text.ToString();
+            labService.cost = textBoxCost.Text.ToString();
 
-            bool success = drug.EditDrug(drug, drugId, this);
+
+            bool success = labService.EditLabService(labService, labServiceId, this);
             if (success == true)
             {
-                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Drug", this);
+                CustomMessageBox cm = new CustomMessageBox("Successfully Edited Service", this);
                 cm.Show();
-                ClearFields();
-                OpenChildForm(new AllDrugs(panelContainer));
+                ClearField();
+                OpenChildForm(new AllLabServices(panelContainer));
             }
-        }
-
-        private void EditDrug_Resize(object sender, EventArgs e)
-        {
-            AlignItems();
         }
     }
 }

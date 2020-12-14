@@ -27,18 +27,18 @@ namespace PremiereCare_Application.Prescription
         //DataTable dt_;
         //DataSet dts_;
                
-        public bool PrescribeMedication(PrescribeMed prescription, Form form)//string query,
+        public bool PrescribeMedication(PrescribeMed prescription, Form form)
         {
             bool isSuccess = false;
             //Step 1: Create database connection string query,
-            conn = new SqlConnection(myconnstring);
+            SqlConnection conn = new SqlConnection(myconnstring);
 
             try
             {
-                string qry = @"INSERT INTO  [PremiereCareHospital].[dbo].Prescription ( prescription_id, doc_id, appointment_id, patient_id, dosage) 
+                string qry = @"INSERT INTO [PremiereCareHospital].[dbo].Prescription ( prescription_id, doc_id, appointment_id, patient_id, dosage) 
                             VALUES(NEXT VALUE FOR prescription_seq, @doctor, @appointment, @patient, @dosage)";
 
-                cmd = new SqlCommand(qry, conn);
+                SqlCommand cmd = new SqlCommand(qry, conn);
                 cmd.Parameters.AddWithValue("@doctor", prescription.doctor_id);
                 cmd.Parameters.AddWithValue("@appointment", prescription.appointment_id);
                 cmd.Parameters.AddWithValue("@patient", prescription.patient_id);
@@ -53,7 +53,7 @@ namespace PremiereCare_Application.Prescription
                 }
                 else
                 {
-                        isSuccess = false;
+                    isSuccess = false;
                 }
 
             }
@@ -74,7 +74,7 @@ namespace PremiereCare_Application.Prescription
             //Step 1: Create database connection string query,
             conn = new SqlConnection(myconnstring);
                                        
-           foreach (int item in IDs)
+           foreach (int drug in IDs)
            {
                 try
                 {
@@ -83,7 +83,7 @@ namespace PremiereCare_Application.Prescription
 
                     cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@prescriptionID", prescriptionID);
-                    cmd.Parameters.AddWithValue("@drugID", item);
+                    cmd.Parameters.AddWithValue("@drugID", drug);
 
 
                     conn.Open();
@@ -151,15 +151,11 @@ namespace PremiereCare_Application.Prescription
             string val = null;
             //Step 1: Create database connection string query,
             conn = new SqlConnection(myconnstring);
-
-
-            // Step 1: Create database connection string query,
-            conn = new SqlConnection(myconnstring);
             DataTable dt = new DataTable();
             try
             {
                 //Step 2: Writing SQL Query
-                string qry = @"SELECT TOP 1 prescription_id FROM[PremiereCareHospital].[dbo].[Prescription]
+                string qry = @"SELECT TOP 1 prescription_id FROM [PremiereCareHospital].[dbo].[Prescription]
                                 ORDER BY prescription_id DESC";
 
                 //Creating cmd using sql and conn

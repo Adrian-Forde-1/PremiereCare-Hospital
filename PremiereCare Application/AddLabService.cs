@@ -12,7 +12,7 @@ namespace PremiereCare_Application
 {
     public partial class AddLabService : Form
     {
-        LabService.LabService labservice = new LabService.LabService(); 
+        LabService.LabService labservice = new LabService.LabService();
         public AddLabService()
         {
             InitializeComponent();
