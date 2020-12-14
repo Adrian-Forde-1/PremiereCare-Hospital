@@ -217,6 +217,12 @@
     <Compile Include="IndividualTechnician.Designer.cs">
       <DependentUpon>IndividualTechnician.cs</DependentUpon>
     </Compile>
+    <Compile Include="IndividualVisitNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IndividualVisitNote.Designer.cs">
+      <DependentUpon>IndividualVisitNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Invoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,11 +246,11 @@
     <Compile Include="SubmitTestResults.Designer.cs">
       <DependentUpon>SubmitTestResults.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewNotes.cs">
+    <Compile Include="ViewVisitNotes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewNotes.Designer.cs">
-      <DependentUpon>ViewNotes.cs</DependentUpon>
+    <Compile Include="ViewVisitNotes.Designer.cs">
+      <DependentUpon>ViewVisitNotes.cs</DependentUpon>
     </Compile>
     <Compile Include="PrescribeMedication.cs">
       <SubType>Form</SubType>
@@ -403,6 +409,9 @@
     <EmbeddedResource Include="IndividualTechnician.resx">
       <DependentUpon>IndividualTechnician.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IndividualVisitNote.resx">
+      <DependentUpon>IndividualVisitNote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RequestedLabTest.resx">
       <DependentUpon>RequestedLabTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,8 +421,8 @@
     <EmbeddedResource Include="Invoice.resx">
       <DependentUpon>Invoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewNotes.resx">
-      <DependentUpon>ViewNotes.cs</DependentUpon>
+    <EmbeddedResource Include="ViewVisitNotes.resx">
+      <DependentUpon>ViewVisitNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrescribeMedication.resx">
       <DependentUpon>PrescribeMedication.cs</DependentUpon>

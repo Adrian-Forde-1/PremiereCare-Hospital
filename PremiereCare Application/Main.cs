@@ -230,7 +230,7 @@ namespace PremiereCare_Application
         private void buttonViewNotes_Click(object sender, EventArgs e)
         {
             //Open View Notes forms
-            OpenChildForm(new ViewNotes());
+            OpenChildForm(new ViewVisitNotes(userID, panelChildFormContainer));
             CloseDropdowns();
         }
 
