@@ -175,7 +175,7 @@ namespace PremiereCare_Application.LabTest
                         if (userRole == "Doctor")
                         { 
                                qry = @"SELECT
-                                             lt.test_id AS 'Test#',
+                                             lt.test_id AS 'Test ID',
                                              lt.appointment_id AS 'Appointment', 
                                              a.appointment_date AS 'Date Requested',
                                              d.fname + ' ' + d.lname AS 'Doctor Name', 
@@ -204,7 +204,7 @@ namespace PremiereCare_Application.LabTest
                             else if (userRole == "Technician")
                             {
                                     qry = @"SELECT  
-                                                     lt.test_id AS 'Test#',
+                                                     lt.test_id AS 'Test ID',
                                                      lt.appointment_id AS 'Appointment', 
                                                      a.appointment_date AS 'Date Requested',
                                                      d.fname + ' ' + d.lname AS 'Doctor Name', 
@@ -240,7 +240,7 @@ namespace PremiereCare_Application.LabTest
                          if (userRole == "Doctor") 
                          {            
                                qry = @"SELECT  
-                                             lt.test_id AS 'Test#',
+                                             lt.test_id AS 'Test ID',
                                              lt.appointment_id AS 'Appointment', 
                                              a.appointment_date AS 'Date Requested',
                                              d.fname + ' ' + d.lname AS 'Doctor Name', 
@@ -263,7 +263,7 @@ namespace PremiereCare_Application.LabTest
                                 else if (userRole == "Technician")
                                 {
                                       qry = @"SELECT      
-                                                    lt.test_id AS 'Test#',
+                                                    lt.test_id AS 'Test ID',
                                                     lt.appointment_id AS 'Appointment', 
                                                     a.appointment_date AS 'Date Requested',
                                                     d.fname + ' ' + d.lname AS 'Doctor Name', 

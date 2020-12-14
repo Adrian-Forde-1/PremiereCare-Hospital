@@ -14,12 +14,17 @@ namespace PremiereCare_Application
     {
         private int techID;
         private int labTestID;
+        private string userRole;
+        Panel panelContainer;
 
-        public SubmitTestResults(int tID, int lTestID)
+        public SubmitTestResults(int tID, int lTestID, string usrRole, Panel panel)
         {
-            InitializeComponent();
             techID = tID;
             labTestID = lTestID;
+            userRole = usrRole;
+            panelContainer = panel;
+            InitializeComponent();
+            
            
         }
         
@@ -56,6 +61,18 @@ namespace PremiereCare_Application
         {
             AlignItems();
         }
+        private void OpenChildForm(Form childForm)
+        {
+            this.Close();
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContainer.Controls.Add(childForm);
+            panelContainer.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
 
         //Method to execute actions on clicking of button
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -86,10 +103,11 @@ namespace PremiereCare_Application
 
            if (success == true)
            {
-              CustomMessageBox cm = new CustomMessageBox("Successfully Submited Test Results", this);
-              removeErrors();
-              ClearField();
-             cm.Show();
+                CustomMessageBox cm = new CustomMessageBox("Successfully Submited Test Results", this);
+                removeErrors();
+                ClearField();
+                cm.Show();
+                OpenChildForm(new ViewLabTest(userRole, techID, panelContainer));
            }
 
         }

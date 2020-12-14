@@ -78,7 +78,7 @@ namespace PremiereCare_Application
 
         private void buttonSubmitResults_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new SubmitTestResults(userID, labTestID));
+            OpenChildForm(new SubmitTestResults(userID, labTestID, userRole, panelContainer));
         }
     }
 }
